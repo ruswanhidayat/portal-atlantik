@@ -6,6 +6,7 @@ const navItems = [
   ["Jadwal", "/jadwal"],
   ["Pengumuman", "/pengumuman"],
   ["Permainan", "/permainan"],
+  ["Leaderboard", "/leaderboard"],
 ];
 
 export default function Header() {
