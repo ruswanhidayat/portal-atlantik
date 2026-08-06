@@ -1,5 +1,5 @@
 import GameCard from "@/components/GameCard";
-import { games } from "@/data/site";
+import { getAllGames } from "@/lib/games";
 
 export const metadata = { title: "Permainan" };
 
