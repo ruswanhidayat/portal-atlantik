@@ -1,10 +1,13 @@
 import {
   competitions,
   divisions,
-  getCompetitionRows,
-  getLeaderboard,
   pointRules,
 } from "@/data/leaderboard";
+
+import {
+  getCompetitionRows,
+  getLeaderboard,
+} from "@/lib/leaderboard";
 
 function RankBadge({ rank }) {
   const labels = { 1: "🥇", 2: "🥈", 3: "🥉" };
