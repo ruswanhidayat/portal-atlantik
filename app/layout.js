@@ -2,7 +2,7 @@ import "./globals.css";
 import { Open_Sans, Poppins } from "next/font/google";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
-import { siteConfig } from "@/data/site";
+import { siteConfig } from "@/data/site-config";
 
 const openSans = Open_Sans({
   subsets: ["latin"],
