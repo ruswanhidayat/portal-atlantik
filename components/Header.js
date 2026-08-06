@@ -16,7 +16,7 @@ export default function Header() {
       <div className="container header-inner">
         <Link href="/" className="brand" aria-label="Atlantik 2026">
           <Image
-            src="../logo/logo-atlantik-header.png"
+            src="/logo/logo-atlantik-header.png"
             alt={siteConfig.name}
             width={220}
             height={56}
