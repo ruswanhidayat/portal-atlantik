@@ -1,4 +1,4 @@
-import { announcements } from "@/data/site";
+import { announcements } from "@/data/announcements";
 
 export const metadata = { title: "Pengumuman" };
 
