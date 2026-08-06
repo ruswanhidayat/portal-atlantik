@@ -1,9 +1,10 @@
 import GameCard from "@/components/GameCard";
-import { games } from "@/data/site";
+import { getAllGames } from "@/lib/games";
 
 export const metadata = { title: "Permainan" };
 
 export default function GamesPage() {
+  const games = getAllGames();
   return (
     <section className="page-section">
       <div className="container">
