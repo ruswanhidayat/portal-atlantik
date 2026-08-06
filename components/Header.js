@@ -14,18 +14,9 @@ export default function Header() {
   return (
     <header className="site-header">
       <div className="container header-inner">
-        /*
-        <Link href="/" className="brand" aria-label="Atlantik 2026">
-          <span className="brand-mark">A</span>
-          <span>
-            <strong>{siteConfig.name}</strong>
-            <small>Atraksi dan Silaturahmi Paguyuban Direktorat TIK</small>
-          </span>
-        </Link>
-        */
         <Link href="/" className="brand" aria-label="Atlantik 2026">
           <Image
-            src="/logo/logo-atlantik-header.png"
+            src="../logo/logo-atlantik-header.png"
             alt={siteConfig.name}
             width={220}
             height={56}
