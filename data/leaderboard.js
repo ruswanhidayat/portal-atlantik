@@ -70,13 +70,6 @@ export const competitions = [
     results: [],
   },
   {
-    id: "chess-masters",
-    name: "Chess Masters (Catur)",
-    scoringCategory: "strategic",
-    theme: "strategic",
-    results: [],
-  },
-  {
     id: "fc-26-cup",
     name: "FC 26 Cup",
     scoringCategory: "strategic",
@@ -95,6 +88,13 @@ export const competitions = [
     name: "CS:CZ Tactical Challenge",
     scoringCategory: "strategic",
     theme: "esports",
+    results: [],
+  },
+  {
+    id: "chess-masters",
+    name: "Chess Masters (Catur)",
+    scoringCategory: "strategic",
+    theme: "strategic",
     results: [],
   },
   {
