@@ -54,6 +54,19 @@ export default function HomePage() {
         </div>
       </section>
 
+      <section className="section leaderboard-home-section">
+        <div className="container">
+          <div className="leaderboard-home-card">
+            <div>
+              <span className="eyebrow">Klasemen Atlantik 2026</span>
+              <h2>Pantau persaingan menuju Juara Umum</h2>
+              <p>Ikuti perolehan poin lima Subdit dari seluruh cabang Sports, Strategic Games, Esports, Fun Games, dan Mission: Grand Champion.</p>
+            </div>
+            <Link className="button leaderboard-button" href="/leaderboard">Buka leaderboard →</Link>
+          </div>
+        </div>
+      </section>
+
       <section className="section">
         <div className="container">
           <div className="section-heading">
