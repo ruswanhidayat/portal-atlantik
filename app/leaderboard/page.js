@@ -119,10 +119,10 @@ export default function LeaderboardPage() {
               const isCompleted = competition.results.length === divisions.length;
 
               return (
-                <details className="competition-card" key={competition.id} open={competitionIndex === 0}>
+                <details className={`competition-card competition-card-${competition.theme}`} key={competition.id} open={competitionIndex === 0}>
                   <summary>
                     <span>
-                      <small>{pointRules[competition.category].label}</small>
+                      <small>{pointRules[competition.scoringCategory].label}</small>
                       <strong>{competition.name}</strong>
                     </span>
                     <span className={`result-status ${isCompleted ? "completed" : "pending"}`}>
@@ -134,14 +134,14 @@ export default function LeaderboardPage() {
                     <div className="table-scroll competition-table-wrap">
                       <table className="leaderboard-table compact-table">
                         <thead>
-                          <tr><th>Ranking</th><th>Subdit</th><th>Poin</th></tr>
+                          <tr><th>Peringkat</th><th>Subdit</th><th>Status/Hasil</th></tr>
                         </thead>
                         <tbody>
                           {rows.map((row) => (
                             <tr key={row.division.id}>
                               <td>{row.rank}</td>
                               <td><strong>{row.division.name}</strong></td>
-                              <td>{row.points}</td>
+                              <td><span className="competition-result-label">{row.resultLabel}</span><small className="competition-result-points">{row.points} poin</small></td>
                             </tr>
                           ))}
                         </tbody>
