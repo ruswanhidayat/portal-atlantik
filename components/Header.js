@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { siteConfig } from "@/data/site";
+import { siteConfig } from "@/data/site-config";
 
 const navItems = [
   ["Beranda", "/"],
@@ -17,7 +17,7 @@ export default function Header() {
           <span className="brand-mark">A</span>
           <span>
             <strong>{siteConfig.name}</strong>
-            <small>Event Portal</small>
+            <small>Atraksi dan Silaturahmi Paguyuban Direktorat TIK</small>
           </span>
         </Link>
         <nav className="nav" aria-label="Navigasi utama">
