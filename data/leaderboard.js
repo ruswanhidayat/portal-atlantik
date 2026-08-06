@@ -105,8 +105,8 @@ export const competitions = [
     results: [
       "subdit-5",
       "subdit-3",
-      "subdit-4",
       "subdit-2",
+      "subdit-4",
       "subdit-1",
     ],
   },
