@@ -1,5 +1,8 @@
 import Link from "next/link";
+
+import AnnouncementSlider from "@/components/AnnouncementSlider";
 import GameCard from "@/components/GameCard";
+
 import { announcements } from "@/data/announcements";
 import { schedule } from "@/data/schedule";
 import { siteConfig } from "@/data/site-config";
@@ -7,6 +10,9 @@ import { getFeaturedGames } from "@/lib/games";
 
 export default function HomePage() {
   const featuredGames = getFeaturedGames();
+  const homeAnnouncements = announcements.filter(
+    (announcement) => announcement.showOnHome
+  );
   return (
     <>
       <section className="hero">
@@ -28,21 +34,20 @@ export default function HomePage() {
         </div>
       </section>
 
-      <section className="section">
+      <section className="section announcement-home-section">
         <div className="container">
-          <div className="section-heading">
-            <div><span className="eyebrow">Informasi terbaru</span><h2>Pengumuman</h2></div>
-            <Link className="text-link" href="/pengumuman">Lihat semua →</Link>
+          <div className="section-heading announcement-section-heading">
+            <div>
+              <span className="eyebrow">Informasi terbaru</span>
+              <h2>Pengumuman</h2>
+            </div>
+      
+            <Link className="text-link" href="/pengumuman">
+              Lihat semua →
+            </Link>
           </div>
-          <div className="grid two">
-            {announcements.slice(0, 2).map((item) => (
-              <article className="card" key={item.title}>
-                <span className="meta">{item.date}</span>
-                <h3>{item.title}</h3>
-                <p>{item.summary}</p>
-              </article>
-            ))}
-          </div>
+      
+          <AnnouncementSlider announcements={homeAnnouncements} />
         </div>
       </section>
 
