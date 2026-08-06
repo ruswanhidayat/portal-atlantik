@@ -1,43 +1,34 @@
-# Atlantik 2026 — Portal Tahap 1
+# Atlantik 2026 Portal — Tahap 2
 
-Portal informasi statis untuk Atlantik 2026.
+Portal informasi Atlantik 2026 dengan halaman jadwal, pengumuman, permainan, dan Leaderboard Juara Umum.
 
-## Ruang lingkup tahap 1
+## Menjalankan proyek
 
-- Beranda event
-- Jadwal kegiatan
-- Pengumuman
-- Daftar permainan
-- Detail permainan
-- Tautan Rapid Rush
-
-Belum termasuk database, login, leaderboard dinamis, profil pemain/tim, dan admin panel.
-
-## Deploy langsung melalui GitHub + Vercel
-
-1. Buat repository GitHub baru.
-2. Upload seluruh isi folder proyek ini ke root repository.
-3. Di Vercel, pilih **Add New > Project**.
-4. Import repository tersebut.
-5. Framework Preset akan terbaca sebagai **Next.js**.
-6. Klik **Deploy** tanpa mengubah Build Command atau Output Directory.
-
-## Mengubah konten
-
-Seluruh data utama berada di:
-
-`data/site.js`
-
-Untuk memasang URL Rapid Rush, ubah:
-
-```js
-rapidRushUrl: "#",
+```bash
+npm install
+npm run dev
 ```
 
-menjadi URL deployment randomizer, misalnya:
+## Deployment ke Vercel
+
+Import repository ke Vercel. Tidak diperlukan environment variable atau konfigurasi build tambahan.
+
+## Mengubah nama Subdit dan hasil perlombaan
+
+Buka `data/leaderboard.js`.
+
+- Ubah `divisions` untuk mengganti nama lima Subdit.
+- Isi `results` pada setiap cabang dengan ID Subdit berdasarkan urutan juara 1 sampai 5.
+
+Contoh:
 
 ```js
-rapidRushUrl: "https://nama-randomizer.vercel.app",
+{
+  id: "futsal-cup",
+  name: "Futsal Cup",
+  category: "sports",
+  results: ["subdit-2", "subdit-4", "subdit-1", "subdit-3", "subdit-5"],
+}
 ```
 
-Commit perubahan ke GitHub. Vercel akan melakukan deployment ulang otomatis.
+Poin dan klasemen juara umum akan dihitung otomatis. Jika hasil belum tersedia, gunakan `results: []`.
