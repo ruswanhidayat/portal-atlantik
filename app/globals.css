@@ -254,3 +254,55 @@ h1, h2, h3, .brand, .nav, .button, .eyebrow, .game-category, .status {
   --game-card-line: #f4d8ad;
   --game-card-accent: #b45f06;
 }
+
+/* Tahap 4: hasil per cabang dan sinkronisasi Juara Umum */
+.competition-card {
+  --competition-head-bg: linear-gradient(145deg, #ece8ff, #f7f5ff);
+  --competition-head-line: #d7ceff;
+  --competition-head-accent: var(--primary);
+  border-color: var(--competition-head-line);
+}
+.competition-card summary {
+  background: var(--competition-head-bg);
+}
+.competition-card summary::after,
+.competition-card summary small {
+  color: var(--competition-head-accent);
+}
+.competition-card-sports {
+  --competition-head-bg: linear-gradient(145deg, #e8f1ff, #f3f7ff);
+  --competition-head-line: #cbdcff;
+  --competition-head-accent: #2759c7;
+}
+.competition-card-strategic {
+  --competition-head-bg: linear-gradient(145deg, #eee9ff, #f8f5ff);
+  --competition-head-line: #d9ceff;
+  --competition-head-accent: #6842d9;
+}
+.competition-card-esports {
+  --competition-head-bg: linear-gradient(145deg, #e6f7f5, #f1fbfa);
+  --competition-head-line: #c2e8e3;
+  --competition-head-accent: #087f78;
+}
+.competition-card-grand-champion {
+  --competition-head-bg: linear-gradient(145deg, #eee7ff, #f8f3ff 58%, #fff4df);
+  --competition-head-line: #d8c8ff;
+  --competition-head-accent: #5b35f2;
+}
+.competition-card-fun {
+  --competition-head-bg: linear-gradient(145deg, #fff0dc, #fff8ec);
+  --competition-head-line: #f4d8ad;
+  --competition-head-accent: #b45f06;
+}
+.competition-result-label,
+.competition-result-points {
+  display: block;
+}
+.competition-result-label {
+  font-weight: 800;
+}
+.competition-result-points {
+  margin-top: 2px;
+  color: var(--muted);
+  font-size: .75rem;
+}
