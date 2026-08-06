@@ -161,9 +161,43 @@ h3 { font-size: 1.25rem; line-height: 1.25; }
 .competition-card summary small, .competition-card summary strong { display: block; }
 .competition-card summary small { color: var(--muted); font-size: .78rem; }
 .competition-card summary strong { margin-top: 3px; }
-.result-status { margin-left: auto; padding: 6px 10px; border-radius: 999px; font-size: .76rem; font-weight: 800; white-space: nowrap; }
-.result-status.completed { color: #067647; background: #ecfdf3; }
-.result-status.pending { color: #667085; background: #f2f4f7; }
+.result-status {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  margin-left: auto;
+  padding: 7px 12px;
+  border: 1px solid transparent;
+  border-radius: 999px;
+  font-size: .76rem;
+  font-weight: 800;
+  line-height: 1;
+  white-space: nowrap;
+}
+
+/* Titik indikator status */
+.result-status::before {
+  content: "";
+  width: 7px;
+  height: 7px;
+  flex-shrink: 0;
+  border-radius: 50%;
+  background: currentColor;
+}
+
+/* Hasil sudah tersedia */
+.result-status.completed {
+  color: #067647;
+  background: #dff8e9;
+  border-color: #92ddb2;
+}
+
+/* Masih menunggu hasil */
+.result-status.pending {
+  color: #775b00;
+  background: #fff1bd;
+  border-color: #e9c95d;
+}
 .competition-table-wrap, .competition-empty { border-top: 1px solid var(--line); }
 .compact-table th, .compact-table td { padding: 13px 22px; }
 .competition-empty { margin: 0; padding: 18px 22px; color: var(--muted); background: #fafbfc; }

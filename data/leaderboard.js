@@ -1,9 +1,9 @@
 export const divisions = [
-  { id: "subdit-1", name: "Subdit 1" },
-  { id: "subdit-2", name: "Subdit 2" },
-  { id: "subdit-3", name: "Subdit 3" },
-  { id: "subdit-4", name: "Subdit 4" },
-  { id: "subdit-5", name: "Subdit 5" },
+  { id: "subdit-1", name: "Subdit TAKESI" },
+  { id: "subdit-2", name: "Subdit PESPA" },
+  { id: "subdit-3", name: "Subdit PSPP" },
+  { id: "subdit-4", name: "Subdit PIKSI" },
+  { id: "subdit-5", name: "Subdit PEPSI" },
 ];
 
 export const pointRules = {
@@ -70,13 +70,6 @@ export const competitions = [
     results: [],
   },
   {
-    id: "chess-masters",
-    name: "Chess Masters (Catur)",
-    scoringCategory: "strategic",
-    theme: "strategic",
-    results: [],
-  },
-  {
     id: "fc-26-cup",
     name: "FC 26 Cup",
     scoringCategory: "strategic",
@@ -98,18 +91,37 @@ export const competitions = [
     results: [],
   },
   {
+    id: "chess-masters",
+    name: "Chess Masters (Catur)",
+    scoringCategory: "strategic",
+    theme: "strategic",
+    results: [],
+  },
+  {
     id: "capsa-masters",
     name: "Capsa Masters",
     scoringCategory: "strategic",
     theme: "strategic",
-    results: [],
+    results: [
+      "subdit-5",
+      "subdit-3",
+      "subdit-2",
+      "subdit-4",
+      "subdit-1",
+    ],
   },
   {
     id: "domino-gaple-masters",
     name: "Domino (Gaple) Masters",
     scoringCategory: "strategic",
     theme: "strategic",
-    results: [],
+    results: [
+      "subdit-1",
+      "subdit-3",
+      "subdit-4",
+      "subdit-5",
+      "subdit-2",
+    ],
   },
   {
     id: "mission-grand-champion",
