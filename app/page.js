@@ -1,8 +1,12 @@
 import Link from "next/link";
 import GameCard from "@/components/GameCard";
-import { announcements, games, schedule, siteConfig } from "@/data/site";
+import { announcements } from "@/data/announcements";
+import { schedule } from "@/data/schedule";
+import { siteConfig } from "@/data/site-config";
+import { getFeaturedGames } from "@/lib/games";
 
 export default function HomePage() {
+  const featuredGames = getFeaturedGames();
   return (
     <>
       <section className="hero">
@@ -49,7 +53,9 @@ export default function HomePage() {
             <Link className="text-link" href="/permainan">Lihat semua →</Link>
           </div>
           <div className="grid two">
-            {games.filter((game) => game.featured).map((game) => <GameCard game={game} key={game.slug} />)}
+            {featuredGames.map((game) => (
+              <GameCard game={game} key={game.slug} />
+            ))}
           </div>
         </div>
       </section>
