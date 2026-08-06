@@ -1,34 +1,22 @@
-# Atlantik 2026 Portal — Tahap 2
+# Portal Atlantik 2026 — Tahap 3
 
-Portal informasi Atlantik 2026 dengan halaman jadwal, pengumuman, permainan, dan Leaderboard Juara Umum.
+Pembaruan tahap ini:
 
-## Menjalankan proyek
+- halaman Permainan berisi seluruh cabang lomba;
+- kartu permainan memakai warna berdasarkan kategori;
+- kategori tampil di kiri atas setiap kartu;
+- halaman detail tetap menggunakan data statis;
+- homepage hanya menampilkan permainan unggulan (`featured: true`);
+- Poppins digunakan untuk judul dan Open Sans untuk teks.
 
-```bash
-npm install
-npm run dev
-```
+## Mengubah konten permainan
 
-## Deployment ke Vercel
+Semua data permainan berada di `data/site.js`. Ubah `shortDescription`, `description`, `status`, dan `highlights` sesuai informasi final.
 
-Import repository ke Vercel. Tidak diperlukan environment variable atau konfigurasi build tambahan.
-
-## Mengubah nama Subdit dan hasil perlombaan
-
-Buka `data/leaderboard.js`.
-
-- Ubah `divisions` untuk mengganti nama lima Subdit.
-- Isi `results` pada setiap cabang dengan ID Subdit berdasarkan urutan juara 1 sampai 5.
-
-Contoh:
+Untuk menampilkan atau menyembunyikan sebuah permainan di homepage, atur:
 
 ```js
-{
-  id: "futsal-cup",
-  name: "Futsal Cup",
-  category: "sports",
-  results: ["subdit-2", "subdit-4", "subdit-1", "subdit-3", "subdit-5"],
-}
+featured: true
 ```
 
-Poin dan klasemen juara umum akan dihitung otomatis. Jika hasil belum tersedia, gunakan `results: []`.
+Halaman `/permainan` tetap menampilkan seluruh data pada array `games`.

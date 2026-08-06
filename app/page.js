@@ -49,7 +49,7 @@ export default function HomePage() {
             <Link className="text-link" href="/permainan">Lihat semua →</Link>
           </div>
           <div className="grid two">
-            {games.map((game) => <GameCard game={game} key={game.slug} />)}
+            {games.filter((game) => game.featured).map((game) => <GameCard game={game} key={game.slug} />)}
           </div>
         </div>
       </section>

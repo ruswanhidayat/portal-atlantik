@@ -2,9 +2,9 @@ import Link from "next/link";
 
 export default function GameCard({ game }) {
   return (
-    <article className="card game-card">
+    <article className={`game-card game-card-${game.categoryKey || "default"}`}>
       <div className="card-topline">
-        <span className="eyebrow">{game.category}</span>
+        <span className="game-category">{game.category}</span>
         <span className="status">{game.status}</span>
       </div>
       <h3>{game.name}</h3>
