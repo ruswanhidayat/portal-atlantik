@@ -4,6 +4,7 @@ import { getAllGames } from "@/lib/games";
 export const metadata = { title: "Permainan" };
 
 export default function GamesPage() {
+  const games = getAllGames();
   return (
     <section className="page-section">
       <div className="container">
