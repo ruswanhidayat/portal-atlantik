@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import { siteConfig } from "@/data/site-config";
 
 const navItems = [
@@ -13,12 +14,24 @@ export default function Header() {
   return (
     <header className="site-header">
       <div className="container header-inner">
+        /*
         <Link href="/" className="brand" aria-label="Atlantik 2026">
           <span className="brand-mark">A</span>
           <span>
             <strong>{siteConfig.name}</strong>
             <small>Atraksi dan Silaturahmi Paguyuban Direktorat TIK</small>
           </span>
+        </Link>
+        */
+        <Link href="/" className="brand" aria-label="Atlantik 2026">
+          <Image
+            src="/logo/logo-atlantik-header.png"
+            alt={siteConfig.name}
+            width={220}
+            height={56}
+            priority
+            className="brand-logo"
+          />
         </Link>
         <nav className="nav" aria-label="Navigasi utama">
           {navItems.map(([label, href]) => (
