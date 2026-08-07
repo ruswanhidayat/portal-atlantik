@@ -14,7 +14,7 @@ export default function HomePage() {
     (announcement) => announcement.showOnHome
   );
   return (
-    <>
+    <main className="home-page">
       <section className="hero">
         <div className="container hero-grid">
           <div>
@@ -146,6 +146,6 @@ export default function HomePage() {
           </div>
         </div>
       </section>
-    </>
+    </main>
   );
 }
