@@ -8,17 +8,44 @@ import { useEffect, useState } from "react";
 import { siteConfig } from "@/data/site-config";
 
 const navItems = [
-  { label: "Beranda", href: "/" },
-  { label: "Jadwal", href: "/jadwal" },
-  { label: "Pengumuman", href: "/pengumuman" },
-  { label: "Permainan", href: "/permainan" },
-  { label: "Leaderboard", href: "/leaderboard" },
+  {
+    label: "Beranda",
+    href: "/",
+  },
+  {
+    label: "Jadwal",
+    href: "/jadwal",
+  },
+  {
+    label: "Pengumuman",
+    href: "/pengumuman",
+  },
+  {
+    label: "Permainan",
+    href: "/permainan",
+  },
+  {
+    label: "Leaderboard",
+    href: "/leaderboard",
+  },
   {
     label: "Guide Book",
-    href: "/guidebook/guidebook_atlantik_2026.pdf",
+    href: "/guidebook/guidebook-atlantik-2026.pdf",
     external: true,
   },
 ];
+
+function isActiveNavigation(pathname, item) {
+  if (item.external) {
+    return false;
+  }
+
+  if (item.href === "/") {
+    return pathname === "/";
+  }
+
+  return pathname === item.href || pathname.startsWith(`${item.href}/`);
+}
 
 export default function Header() {
   const pathname = usePathname();
@@ -59,31 +86,52 @@ export default function Header() {
           />
         </Link>
 
-        <nav className="nav desktop-nav" aria-label="Navigasi utama">
-          {navItems.map((item) => (
-            <Link
-              key={item.href}
-              href={item.href}
-              className={
-                !item.external && pathname === item.href
-                  ? "active"
-                  : undefined
-              }
-              target={item.external ? "_blank" : undefined}
-              rel={item.external ? "noopener noreferrer" : undefined}
-            >
-              {item.label}
-            </Link>
-          ))}
+        <nav
+          className="nav desktop-nav"
+          aria-label="Navigasi utama"
+        >
+          {navItems.map((item) => {
+            const isActive = isActiveNavigation(pathname, item);
+
+            return (
+              <Link
+                key={item.href}
+                href={item.href}
+                className={isActive ? "active" : undefined}
+                aria-current={isActive ? "page" : undefined}
+                target={item.external ? "_blank" : undefined}
+                rel={
+                  item.external
+                    ? "noopener noreferrer"
+                    : undefined
+                }
+              >
+                <span>{item.label}</span>
+
+                {item.external && (
+                  <span
+                    className="desktop-nav-external-icon"
+                    aria-hidden="true"
+                  >
+                    ↗
+                  </span>
+                )}
+              </Link>
+            );
+          })}
         </nav>
 
         <button
           type="button"
-          className={`mobile-menu-toggle ${isMenuOpen ? "active" : ""}`}
+          className={`mobile-menu-toggle ${
+            isMenuOpen ? "active" : ""
+          }`}
           aria-label={isMenuOpen ? "Tutup menu" : "Buka menu"}
           aria-expanded={isMenuOpen}
           aria-controls="mobile-navigation"
-          onClick={() => setIsMenuOpen((current) => !current)}
+          onClick={() =>
+            setIsMenuOpen((current) => !current)
+          }
         >
           <span />
           <span />
@@ -93,7 +141,9 @@ export default function Header() {
 
       <button
         type="button"
-        className={`mobile-menu-overlay ${isMenuOpen ? "visible" : ""}`}
+        className={`mobile-menu-overlay ${
+          isMenuOpen ? "visible" : ""
+        }`}
         aria-label="Tutup menu"
         tabIndex={isMenuOpen ? 0 : -1}
         onClick={() => setIsMenuOpen(false)}
@@ -101,7 +151,9 @@ export default function Header() {
 
       <aside
         id="mobile-navigation"
-        className={`mobile-menu-drawer ${isMenuOpen ? "open" : ""}`}
+        className={`mobile-menu-drawer ${
+          isMenuOpen ? "open" : ""
+        }`}
         aria-hidden={!isMenuOpen}
       >
         <div className="mobile-menu-head">
@@ -117,26 +169,35 @@ export default function Header() {
           </button>
         </div>
 
-        <nav className="mobile-nav" aria-label="Navigasi mobile">
-          {navItems.map((item) => (
-            <Link
-              key={item.href}
-              href={item.href}
-              className={
-                !item.external && pathname === item.href
-                  ? "active"
-                  : undefined
-              }
-              target={item.external ? "_blank" : undefined}
-              rel={item.external ? "noopener noreferrer" : undefined}
-              tabIndex={isMenuOpen ? 0 : -1}
-            >
-              <span>{item.label}</span>
-              <span aria-hidden="true">
-                {item.external ? "↗" : "→"}
-              </span>
-            </Link>
-          ))}
+        <nav
+          className="mobile-nav"
+          aria-label="Navigasi mobile"
+        >
+          {navItems.map((item) => {
+            const isActive = isActiveNavigation(pathname, item);
+
+            return (
+              <Link
+                key={item.href}
+                href={item.href}
+                className={isActive ? "active" : undefined}
+                aria-current={isActive ? "page" : undefined}
+                target={item.external ? "_blank" : undefined}
+                rel={
+                  item.external
+                    ? "noopener noreferrer"
+                    : undefined
+                }
+                tabIndex={isMenuOpen ? 0 : -1}
+              >
+                <span>{item.label}</span>
+
+                <span aria-hidden="true">
+                  {item.external ? "↗" : "→"}
+                </span>
+              </Link>
+            );
+          })}
         </nav>
       </aside>
     </header>
