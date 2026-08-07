@@ -1105,8 +1105,8 @@ a.announcement-list-item:hover .announcement-list-arrow {
   
     background: rgba(20, 24, 38, 0.22);
 
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
   
     cursor: pointer;
   
