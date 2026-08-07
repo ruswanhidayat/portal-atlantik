@@ -1,4 +1,9 @@
-import { schedule } from "@/data/schedule";
+import ScheduleBoard from "@/components/ScheduleBoard";
+
+import {
+  competitionSchedules,
+  scheduleDates,
+} from "@/data/schedule";
 
 export const metadata = {
   title: "Jadwal",
@@ -6,32 +11,24 @@ export const metadata = {
 
 export default function SchedulePage() {
   return (
-    <section className="page-section">
-      <div className="container narrow">
-        <span className="eyebrow">Agenda Atlantik 2026</span>
+    <section className="page-section schedule-page">
+      <div className="container">
+        <div className="schedule-page-intro">
+          <span className="eyebrow">Agenda Atlantik 2026</span>
 
-        <h1>Jadwal kegiatan</h1>
+          <h1>Jadwal kegiatan</h1>
 
-        <p className="lead">
-          Jadwal akan diperbarui sesuai perkembangan rangkaian acara.
-        </p>
-
-        <div className="timeline large">
-          {schedule.map((item) => (
-            <article className="timeline-item" key={item.title}>
-              <div>
-                <strong>{item.date}</strong>
-                <span>{item.time}</span>
-              </div>
-
-              <div>
-                <h3>{item.title}</h3>
-                <span className="meta">{item.location}</span>
-                <p>{item.description}</p>
-              </div>
-            </article>
-          ))}
+          <p className="lead">
+            Lihat rangkaian jadwal seluruh cabang permainan. Klik
+            salah satu kotak untuk melihat waktu, pertandingan, dan
+            lokasi kegiatan.
+          </p>
         </div>
+
+        <ScheduleBoard
+          dates={scheduleDates}
+          competitions={competitionSchedules}
+        />
       </div>
     </section>
   );
