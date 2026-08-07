@@ -1358,3 +1358,8 @@ a.announcement-list-item:hover .announcement-list-arrow {
     transition: none;
   }
 }
+
+html,
+body {
+  overflow-x: hidden;
+}
