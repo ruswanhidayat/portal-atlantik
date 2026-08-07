@@ -14,6 +14,32 @@ function RankBadge({ rank }) {
   return <span className={`rank-badge rank-${rank}`}>{labels[rank] || rank}</span>;
 }
 
+function TrophyIcon() {
+  return (
+    <svg
+      className="trophy-icon"
+      viewBox="0 0 24 24"
+      aria-hidden="true"
+    >
+      <path
+        d="M8 4h8v3.5c0 3-1.7 5.5-4 5.5s-4-2.5-4-5.5V4Z"
+        fill="none"
+        stroke="currentColor"
+        strokeWidth="1.8"
+        strokeLinejoin="round"
+      />
+      <path
+        d="M8 6H5.5v1.5C5.5 10 7 11 9 11M16 6h2.5v1.5c0 2.5-1.5 3.5-3.5 3.5M12 13v4m-3 3h6m-5-3h4"
+        fill="none"
+        stroke="currentColor"
+        strokeWidth="1.8"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+    </svg>
+  );
+}
+
 export const metadata = {
   title: "Leaderboard Juara Umum | Atlantik 2026",
   description: "Klasemen juara umum dan perolehan poin seluruh cabang perlombaan Atlantik 2026.",
@@ -49,34 +75,71 @@ export default function LeaderboardPage() {
             <span className="status">Diperbarui sesuai hasil resmi</span>
           </div>
 
-          <div className="table-card">
-            <div className="table-scroll">
-              <table className="leaderboard-table overall-table">
-                <thead>
-                  <tr>
-                    <th>Peringkat</th>
-                    <th>Subdit</th>
-                    <th>Juara 1</th>
-                    <th>Podium</th>
-                    <th>Total Poin</th>
+          <div className="table-card overall-table-card">
+            <table className="leaderboard-table overall-table">
+              <thead>
+                <tr>
+                  <th className="rank-column">
+                    <span className="desktop-column-label">Peringkat</span>
+                    <span className="mobile-column-label">#</span>
+                  </th>
+
+                  <th>Subdit</th>
+
+                  <th className="first-place-column">
+                    <span className="desktop-column-label">Juara 1</span>
+
+                    <span
+                      className="mobile-column-label trophy-column-label"
+                      aria-label="Jumlah Juara 1"
+                      title="Jumlah Juara 1"
+                    >
+                      <TrophyIcon />
+                    </span>
+                  </th>
+
+                  <th className="podium-column">Podium</th>
+
+                  <th className="points-column">
+                    <span className="desktop-column-label">Total Poin</span>
+                    <span className="mobile-column-label">Poin</span>
+                  </th>
+                </tr>
+              </thead>
+
+              <tbody>
+                {leaderboard.map((division) => (
+                  <tr key={division.id}>
+                    <td className="rank-column">
+                      <RankBadge rank={division.rank} />
+                    </td>
+
+                    <td className="division-column">
+                      <strong>{division.name}</strong>
+                    </td>
+
+                    <td className="first-place-column">
+                      {division.firstPlaces}
+                    </td>
+
+                    <td className="podium-column">
+                      {division.podiums}
+                    </td>
+
+                    <td className="points-column">
+                      <strong className="point-total">
+                        {division.totalPoints}
+                      </strong>
+                    </td>
                   </tr>
-                </thead>
-                <tbody>
-                  {leaderboard.map((division) => (
-                    <tr key={division.id}>
-                      <td><RankBadge rank={division.rank} /></td>
-                      <td><strong>{division.name}</strong></td>
-                      <td>{division.firstPlaces}</td>
-                      <td>{division.podiums}</td>
-                      <td><strong className="point-total">{division.totalPoints}</strong></td>
-                    </tr>
-                  ))}
-                </tbody>
-              </table>
-            </div>
+                ))}
+              </tbody>
+            </table>
+
             {completedCompetitions === 0 && (
               <p className="table-note">
-                Belum ada hasil resmi yang dimasukkan. Klasemen akan terhitung otomatis setelah urutan juara cabang perlombaan diisi.
+                Belum ada hasil resmi yang dimasukkan. Klasemen akan terhitung
+                otomatis setelah urutan juara cabang perlombaan diisi.
               </p>
             )}
           </div>
@@ -93,12 +156,16 @@ export default function LeaderboardPage() {
             {Object.entries(pointRules).map(([id, rule]) => (
               <article className="score-card" key={id}>
                 <h3>{rule.label}</h3>
+
                 <div className="score-list">
                   {rule.points.map((point, index) => (
-                    <span key={`${id}-${index}`}>
-                      <small>Ranking {index + 1}</small>
-                      <strong>{point} poin</strong>
-                    </span>
+                    <div className="score-row" key={`${id}-${index}`}>
+                      <span>Ranking {index + 1}</span>
+
+                      <strong>
+                        {point} <small>poin</small>
+                      </strong>
+                    </div>
                   ))}
                 </div>
               </article>
