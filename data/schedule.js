@@ -9,6 +9,8 @@ export const schedule = [
     date: "10 Agustus 2026",
     time: "08.00–12.00 WIB",
     title: "Futsal Cup",
+    category: "Sports",
+    theme: "sports",
     location: "Lapangan Futsal",
     description:
       "Babak penyisihan Futsal Cup mempertemukan tim dari setiap bagian.",
@@ -17,6 +19,8 @@ export const schedule = [
     date: "11 Agustus 2026",
     time: "09.00–15.00 WIB",
     title: "Badminton Masters",
+    category: "Sports",
+    theme: "sports",
     location: "GOR",
     description:
       "Rangkaian pertandingan Badminton Masters dimulai dari babak penyisihan.",
@@ -25,6 +29,8 @@ export const schedule = [
     date: "12 Agustus 2026",
     time: "09.00–15.00 WIB",
     title: "Table Tennis Open",
+    category: "Sports",
+    theme: "sports",
     location: "Aula",
     description:
       "Pertandingan Table Tennis Open dilaksanakan sesuai pembagian jadwal.",
