@@ -3134,41 +3134,54 @@ body {
    Spacing, cards, links & compact schedule
    ========================================================= */
 
-
-/* ---------------------------------------------------------
-   1. CONSISTENT SECTION RHYTHM
-   --------------------------------------------------------- */
+/* =========================================================
+   HOME PAGE — COMPACT VERTICAL RHYTHM
+   ========================================================= */
 
 .home-page .section {
-  padding-top: 68px;
-  padding-bottom: 68px;
+  padding-top: 52px;
+  padding-bottom: 52px;
 }
 
-/* Hero tetap sedikit lebih lega */
 .home-page .hero {
-  padding-top: 88px;
-  padding-bottom: 76px;
+  padding-top: 64px;
+  padding-bottom: 52px;
 }
 
-/* Reset override lama supaya spacing antar-section konsisten */
 .home-page .announcement-home-section,
 .home-page .leaderboard-home-section,
 .home-page .home-schedule-section {
-  padding-top: 68px;
-  padding-bottom: 68px;
+  padding-top: 52px;
+  padding-bottom: 52px;
 }
-
 
 /* Heading dibuat sedikit lebih rapat */
 
 .home-page .section-heading {
-  margin-bottom: 22px;
+  margin-bottom: 18px;
 }
 
 .home-page .section-heading h2 {
   margin-top: 4px;
 }
 
+.home-page .hero-panel {
+  padding: 30px 32px;
+}
+
+.home-page .hero-panel h2 {
+  margin-top: 8px;
+  margin-bottom: 12px;
+}
+
+.home-page .hero .actions {
+  margin-top: 24px;
+}
+
+.home-page .leaderboard-home-section {
+  padding-top: 44px;
+  padding-bottom: 44px;
+}
 
 /* ---------------------------------------------------------
    2. TEXT LINKS — CONSISTENT MICRO INTERACTION
@@ -3328,10 +3341,34 @@ body {
    --------------------------------------------------------- */
 
 @media (max-width: 760px) {
-
   .home-page .hero {
-    padding-top: 60px;
-    padding-bottom: 52px;
+    padding-top: 44px;
+    padding-bottom: 40px;
+  }
+
+  .home-page .section,
+  .home-page .announcement-home-section,
+  .home-page .home-schedule-section {
+    padding-top: 40px;
+    padding-bottom: 40px;
+  }
+
+  .home-page .leaderboard-home-section {
+    padding-top: 36px;
+    padding-bottom: 36px;
+  }
+
+  .home-page .section-heading {
+    gap: 8px;
+    margin-bottom: 16px;
+  }
+
+  .home-page .hero-panel {
+    padding: 26px;
+  }
+
+  .home-page .hero .actions {
+    margin-top: 20px;
   }
 
   .home-page .section,
