@@ -882,31 +882,32 @@ a.announcement-list-item:hover .announcement-list-arrow {
 /* Sistem poin berbentuk daftar */
 
 .score-card {
-  padding: 16px 14px;
-  border-radius: 18px;
+  padding: 12px 12px 10px;
+  border-radius: 16px;
 }
 
 .score-card h3 {
-  min-height: 48px;
-  margin-bottom: 12px;
-  font-size: 1rem;
-  line-height: 1.35;
+  min-height: unset;
+  margin: 0 0 3px;
+  font-size: 0.9rem;
+  line-height: 1.2;
 }
 
 .score-list {
   display: grid;
   grid-template-columns: 1fr;
   gap: 0;
-  overflow: visible;
 }
 
 .score-row {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 8px;
-  min-height: 36px;
-  padding: 5px 2px;
+  gap: 4px;
+
+  min-height: 26px;
+  padding: 3px 0;
+
   border-top: 1px solid var(--line);
 }
 
@@ -914,16 +915,18 @@ a.announcement-list-item:hover .announcement-list-arrow {
   padding-bottom: 2px;
 }
 
-/* Badge ranking */
+/* Ranking badge */
 .score-row > span {
   display: inline-flex;
   align-items: center;
   width: fit-content;
-  padding: 4px 8px;
-  border-radius: 8px;
-  color: #5338c7;
-  font-size: 0.68rem;
+
+  padding: 2px 6px;
+  border-radius: 6px;
+
+  font-size: 0.61rem;
   font-weight: 600;
+  line-height: 1.15;
   white-space: nowrap;
 }
 
@@ -957,21 +960,29 @@ a.announcement-list-item:hover .announcement-list-arrow {
   background: #f8f7fc;
 }
 
+/* Nilai + poin */
 .score-row strong {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 3px;
   flex: 0 0 auto;
+
   color: var(--text);
   font-family: var(--font-heading), Poppins, Arial, sans-serif;
-  font-size: 0.9rem;
+  font-size: 0.78rem;
+  line-height: 1;
   text-align: right;
 }
 
 .score-row strong small {
-  display: block;
-  margin-top: -2px;
+  display: inline;
+  margin: 0;
+
   color: var(--muted);
   font-family: inherit;
-  font-size: 0.62rem;
+  font-size: 0.55rem;
   font-weight: 600;
+  line-height: 1;
 }
 
 /* Label tabel khusus desktop/mobile */
