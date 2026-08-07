@@ -2885,3 +2885,135 @@ body {
     transition: none;
   }
 }
+
+/* =========================================================
+   DETAIL SKOR PERTANDINGAN
+   ========================================================= */
+
+.competition-score-table {
+  width: 100%;
+  min-width: 680px;
+  table-layout: fixed;
+  border-collapse: separate;
+  border-spacing: 0;
+}
+
+.competition-score-table th,
+.competition-score-table td {
+  padding: 17px 14px;
+  text-align: center;
+  vertical-align: middle;
+  border-right: 1px solid rgba(15, 43, 92, 0.08);
+}
+
+.competition-score-table th:last-child,
+.competition-score-table td:last-child {
+  border-right: 0;
+}
+
+.competition-score-table thead th {
+  background: #102f67;
+  color: #ffffff;
+  font-size: 0.88rem;
+  font-weight: 750;
+  line-height: 1.15;
+  letter-spacing: 0;
+}
+
+.competition-score-table thead th:first-child {
+  border-top-left-radius: 14px;
+}
+
+.competition-score-table thead th:last-child {
+  border-top-right-radius: 14px;
+}
+
+.competition-score-table tbody tr:nth-child(odd) {
+  background: #ffffff;
+}
+
+.competition-score-table tbody tr:nth-child(even) {
+  background: #f2f5fb;
+}
+
+.competition-score-table tbody td {
+  color: #172033;
+  font-size: 0.95rem;
+}
+
+.competition-score-table tbody tr:last-child td:first-child {
+  border-bottom-left-radius: 14px;
+}
+
+.competition-score-table tbody tr:last-child td:last-child {
+  border-bottom-right-radius: 14px;
+}
+
+.competition-score-table .score-position-column {
+  width: 82px;
+}
+
+.competition-score-table .score-division-column {
+  width: 150px;
+}
+
+.competition-score-table .score-total-column {
+  width: 155px;
+}
+
+.competition-score-table th.score-total-column span {
+  display: block;
+}
+
+.competition-score-table td.score-total-column strong {
+  color: #102f67;
+  font-size: 1.45rem;
+  font-weight: 800;
+}
+
+.competition-score-table .score-round-column {
+  width: 92px;
+}
+
+.competition-score-table td.score-position-column {
+  font-weight: 700;
+}
+
+.competition-score-table td.score-division-column {
+  text-align: left;
+}
+
+.competition-score-table td.score-division-column strong {
+  font-size: 1rem;
+}
+
+@media (max-width: 720px) {
+  .competition-score-table {
+    min-width: 610px;
+  }
+
+  .competition-score-table th,
+  .competition-score-table td {
+    padding: 14px 10px;
+  }
+
+  .competition-score-table .score-position-column {
+    width: 60px;
+  }
+
+  .competition-score-table .score-division-column {
+    width: 120px;
+  }
+
+  .competition-score-table .score-total-column {
+    width: 125px;
+  }
+
+  .competition-score-table .score-round-column {
+    width: 72px;
+  }
+
+  .competition-score-table td.score-total-column strong {
+    font-size: 1.2rem;
+  }
+}
