@@ -888,7 +888,7 @@ a.announcement-list-item:hover .announcement-list-arrow {
 .score-card h3 {
   min-height: unset;
   margin: 0 0 14px;
-  font-size: 1.12rem;
+  font-size: 0.9rem;
   line-height: 1.2;
 }
 
