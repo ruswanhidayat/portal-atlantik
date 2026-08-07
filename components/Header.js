@@ -4,6 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
+import { createPortal } from "react-dom";
 
 import { siteConfig } from "@/data/site-config";
 
@@ -49,7 +50,13 @@ function isActiveNavigation(pathname, item) {
 
 export default function Header() {
   const pathname = usePathname();
+
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isMounted, setIsMounted] = useState(false);
+
+  useEffect(() => {
+    setIsMounted(true);
+  }, []);
 
   useEffect(() => {
     setIsMenuOpen(false);
@@ -72,73 +79,8 @@ export default function Header() {
     };
   }, [isMenuOpen]);
 
-  return (
-    <header className="site-header">
-      <div className="container header-inner">
-        <Link href="/" className="brand" aria-label="Atlantik 2026">
-          <Image
-            src="/logo/logo-atlantik-header.png"
-            alt={siteConfig.name}
-            width={220}
-            height={56}
-            priority
-            className="brand-logo"
-          />
-        </Link>
-
-        <nav
-          className="nav desktop-nav"
-          aria-label="Navigasi utama"
-        >
-          {navItems.map((item) => {
-            const isActive = isActiveNavigation(pathname, item);
-
-            return (
-              <Link
-                key={item.href}
-                href={item.href}
-                className={isActive ? "active" : undefined}
-                aria-current={isActive ? "page" : undefined}
-                target={item.external ? "_blank" : undefined}
-                rel={
-                  item.external
-                    ? "noopener noreferrer"
-                    : undefined
-                }
-              >
-                <span>{item.label}</span>
-
-                {item.external && (
-                  <span
-                    className="desktop-nav-external-icon"
-                    aria-hidden="true"
-                  >
-                    ↗
-                  </span>
-                )}
-              </Link>
-            );
-          })}
-        </nav>
-
-        <button
-          type="button"
-          className={`mobile-menu-toggle ${
-            isMenuOpen ? "active" : ""
-          }`}
-          aria-label={isMenuOpen ? "Tutup menu" : "Buka menu"}
-          aria-expanded={isMenuOpen}
-          aria-controls="mobile-navigation"
-          onClick={() =>
-            setIsMenuOpen((current) => !current)
-          }
-        >
-          <span />
-          <span />
-          <span />
-        </button>
-      </div>
-
+  const mobileNavigation = (
+    <>
       <button
         type="button"
         className={`mobile-menu-overlay ${
@@ -200,6 +142,89 @@ export default function Header() {
           })}
         </nav>
       </aside>
-    </header>
+    </>
+  );
+
+  return (
+    <>
+      <header className="site-header">
+        <div className="container header-inner">
+          <Link
+            href="/"
+            className="brand"
+            aria-label="Atlantik 2026"
+          >
+            <Image
+              src="/logo/logo-atlantik-header.png"
+              alt={siteConfig.name}
+              width={220}
+              height={56}
+              priority
+              className="brand-logo"
+            />
+          </Link>
+
+          <nav
+            className="nav desktop-nav"
+            aria-label="Navigasi utama"
+          >
+            {navItems.map((item) => {
+              const isActive = isActiveNavigation(pathname, item);
+
+              return (
+                <Link
+                  key={item.href}
+                  href={item.href}
+                  className={isActive ? "active" : undefined}
+                  aria-current={isActive ? "page" : undefined}
+                  target={item.external ? "_blank" : undefined}
+                  rel={
+                    item.external
+                      ? "noopener noreferrer"
+                      : undefined
+                  }
+                >
+                  <span>{item.label}</span>
+
+                  {item.external && (
+                    <span
+                      className="desktop-nav-external-icon"
+                      aria-hidden="true"
+                    >
+                      ↗
+                    </span>
+                  )}
+                </Link>
+              );
+            })}
+          </nav>
+
+          <button
+            type="button"
+            className={`mobile-menu-toggle ${
+              isMenuOpen ? "active" : ""
+            }`}
+            aria-label={
+              isMenuOpen ? "Tutup menu" : "Buka menu"
+            }
+            aria-expanded={isMenuOpen}
+            aria-controls="mobile-navigation"
+            onClick={() =>
+              setIsMenuOpen((current) => !current)
+            }
+          >
+            <span />
+            <span />
+            <span />
+          </button>
+        </div>
+      </header>
+
+      {isMounted &&
+        createPortal(
+          mobileNavigation,
+          document.body
+        )}
+    </>
   );
 }
