@@ -56,12 +56,17 @@ const competitionStatuses = {
 };
 
 function getCompetitionStatus(competition) {
-  if (competition.status) {
+  if (
+    competition.status &&
+    competitionStatuses[competition.status]
+  ) {
     return competitionStatuses[competition.status];
   }
 
-  const competitionStatus = getCompetitionStatus(competition);
-  
+  const isCompleted =
+    Array.isArray(competition.results) &&
+    competition.results.length === divisions.length;
+
   return isCompleted
     ? competitionStatuses.final
     : competitionStatuses.waiting;
