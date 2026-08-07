@@ -1,3 +1,5 @@
+import ExclusiveAccordionGroup from "@/components/ExclusiveAccordionGroup";
+
 import {
   competitions,
   divisions,
@@ -355,7 +357,7 @@ export default function LeaderboardPage() {
             </div>
           </div>
 
-          <div className="competition-list">
+          <ExclusiveAccordionGroup className="competition-list">
             {competitions.map((competition, competitionIndex) => {
               const rows = getCompetitionRows(competition)
                 .filter((row) => row.rank !== null)
@@ -363,7 +365,11 @@ export default function LeaderboardPage() {
               const competitionStatus = getCompetitionStatus(competition);
               
               return (
-                <details name="competition-results" className={`competition-card competition-card-${competition.theme}`} key={competition.id} open={competitionIndex === 0}>
+                <details
+                  className={`competition-card competition-card-${competition.theme}`}
+                  key={competition.id}
+                  open={competitionIndex === 0}
+                >
                   <summary>
                     <span>
                       <small>{pointRules[competition.scoringCategory].label}</small>
@@ -422,7 +428,7 @@ export default function LeaderboardPage() {
                 </details>
               );
             })}
-          </div>
+          </ExclusiveAccordionGroup>
         </section>
       </div>
     </main>
