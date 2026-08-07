@@ -27,12 +27,6 @@ export default function HomePage() {
             </div>
           </div>
           <div className="hero-panel">
-            <img
-              src="/logo/hut-ri-81.png"
-              alt=""
-              aria-hidden="true"
-              className="hero-panel-watermark"
-            />
             <span className="eyebrow">Tema Atlantik 2026</span>
             <h2>{siteConfig.theme}</h2>
             <p>Bergerak bersama dalam semangat kolaborasi untuk menciptakan dampak yang lebih berarti.</p>
