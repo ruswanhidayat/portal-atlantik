@@ -40,6 +40,78 @@ function TrophyIcon() {
   );
 }
 
+function CompetitionScoreTable({ competition }) {
+  const scoreDetails = competition.scoreDetails;
+
+  const rows = scoreDetails.rows
+    .map((item) => {
+      const division = divisions.find(
+        (divisionItem) => divisionItem.id === item.divisionId
+      );
+
+      const totalScore = item.scores.reduce(
+        (total, score) => total + score,
+        0
+      );
+
+      return {
+        ...item,
+        division,
+        totalScore,
+      };
+    })
+    .filter((item) => item.division)
+    .sort((a, b) => b.totalScore - a.totalScore);
+
+  return (
+    <div className="table-scroll competition-table-wrap">
+      <table className="leaderboard-table competition-score-table">
+        <thead>
+          <tr>
+            <th className="score-position-column">Pos</th>
+            <th className="score-division-column">Subdit</th>
+            <th className="score-total-column">
+              <span>Total Poin</span>
+              <span>Klasemen</span>
+            </th>
+
+            {scoreDetails.columns.map((column) => (
+              <th className="score-round-column" key={column}>
+                {column}
+              </th>
+            ))}
+          </tr>
+        </thead>
+
+        <tbody>
+          {rows.map((row, index) => (
+            <tr key={row.divisionId}>
+              <td className="score-position-column">{index + 1}</td>
+
+              <td className="score-division-column">
+                <strong>{row.division.name}</strong>
+              </td>
+
+              <td className="score-total-column">
+                <strong>{row.totalScore}</strong>
+              </td>
+
+              {row.scores.map((score, scoreIndex) => (
+                <td
+                  className="score-round-column"
+                  key={`${row.divisionId}-${scoreIndex}`}
+                >
+                  {score}
+                </td>
+              ))}
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    </div>
+  );
+}
+
 export const metadata = {
   title: "Leaderboard Juara Umum | Atlantik 2026",
   description: "Klasemen juara umum dan perolehan poin seluruh cabang perlombaan Atlantik 2026.",
