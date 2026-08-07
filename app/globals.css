@@ -1411,6 +1411,1011 @@ a.announcement-list-item:hover .announcement-list-arrow {
   }
 }
 
+/* =========================================================
+   Tahap 6: Jadwal
+   ========================================================= */
+
+.schedule-page {
+  padding-top: 54px;
+}
+
+.schedule-page-intro {
+  max-width: 780px;
+}
+
+.schedule-page-intro h1 {
+  max-width: 900px;
+  margin: 8px 0 20px;
+  font-size: clamp(2.8rem, 6vw, 5rem);
+}
+
+.schedule-page-intro .lead {
+  margin-bottom: 0;
+}
+
+.schedule-board {
+  margin-top: 46px;
+}
+
+/* Toolbar dan legenda */
+
+.schedule-board-toolbar {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 24px;
+  margin-bottom: 16px;
+}
+
+.schedule-legend {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 9px;
+}
+
+.schedule-legend-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  min-height: 30px;
+  padding: 4px 10px;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  color: var(--muted);
+  background: rgba(255, 255, 255, 0.75);
+  font-family: var(--font-heading), Poppins, Arial, sans-serif;
+  font-size: 0.68rem;
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+.schedule-legend-item i {
+  width: 8px;
+  height: 8px;
+  flex: 0 0 auto;
+  border-radius: 50%;
+}
+
+.schedule-legend-sports i {
+  background: #2759c7;
+}
+
+.schedule-legend-strategic i {
+  background: #6842d9;
+}
+
+.schedule-legend-esports i {
+  background: #087f78;
+}
+
+.schedule-legend-fun i {
+  background: #b45f06;
+}
+
+.schedule-legend-grand-champion i {
+  background: #5b35f2;
+}
+
+.schedule-scroll-hint {
+  flex: 0 0 auto;
+  color: var(--muted);
+  font-size: 0.76rem;
+}
+
+/* Tabel Gantt */
+
+.schedule-table-card {
+  position: relative;
+  overflow: hidden;
+  border: 1px solid var(--line);
+  border-radius: 24px;
+  background: var(--surface);
+  box-shadow: 0 12px 34px rgba(16, 24, 40, 0.06);
+}
+
+.schedule-table-scroll {
+  max-height: 650px;
+  overflow: auto;
+  overscroll-behavior: contain;
+  scrollbar-width: thin;
+  scrollbar-color: #c5cad5 transparent;
+}
+
+.schedule-table {
+  width: max-content;
+  min-width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+  text-align: left;
+}
+
+.schedule-table th,
+.schedule-table td {
+  border-right: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+}
+
+.schedule-table tr:last-child th,
+.schedule-table tr:last-child td {
+  border-bottom: 0;
+}
+
+.schedule-table th:last-child,
+.schedule-table td:last-child {
+  border-right: 0;
+}
+
+.schedule-table thead th {
+  position: sticky;
+  z-index: 12;
+  top: 0;
+  height: 58px;
+  padding: 10px;
+  color: white;
+  background: #172554;
+  font-family: var(--font-heading), Poppins, Arial, sans-serif;
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.025em;
+  text-align: center;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+.schedule-table thead .schedule-name-column {
+  z-index: 20;
+  text-align: left;
+}
+
+.schedule-name-column {
+  position: sticky;
+  z-index: 8;
+  left: 0;
+  width: 235px;
+  min-width: 235px;
+  max-width: 235px;
+}
+
+.schedule-table tbody .schedule-name-column {
+  padding: 13px 16px;
+  background: white;
+  box-shadow: 8px 0 16px rgba(16, 24, 40, 0.035);
+}
+
+.schedule-date-column {
+  width: 76px;
+  min-width: 76px;
+}
+
+.schedule-game-category {
+  display: block;
+  margin-bottom: 2px;
+  color: var(--schedule-accent);
+  font-family: var(--font-heading), Poppins, Arial, sans-serif;
+  font-size: 0.6rem;
+  font-weight: 800;
+  letter-spacing: 0.065em;
+  line-height: 1.3;
+  text-transform: uppercase;
+}
+
+.schedule-name-column strong {
+  display: block;
+  font-family: var(--font-heading), Poppins, Arial, sans-serif;
+  font-size: 0.82rem;
+  line-height: 1.35;
+}
+
+.schedule-table tbody td {
+  width: 76px;
+  min-width: 76px;
+  height: 65px;
+  padding: 6px;
+  background: #fafbfc;
+}
+
+.schedule-table tbody tr:nth-child(even) td {
+  background: #f7f8fb;
+}
+
+/* Palet mengikuti warna kartu permainan */
+
+.schedule-row {
+  --schedule-bg: linear-gradient(145deg, #ece8ff, #f7f5ff);
+  --schedule-line: #d7ceff;
+  --schedule-accent: var(--primary);
+  --schedule-solid: #6842d9;
+}
+
+.schedule-row-sports {
+  --schedule-bg: linear-gradient(145deg, #e8f1ff, #f3f7ff);
+  --schedule-line: #cbdcff;
+  --schedule-accent: #2759c7;
+  --schedule-solid: #2759c7;
+}
+
+.schedule-row-strategic {
+  --schedule-bg: linear-gradient(145deg, #eee9ff, #f8f5ff);
+  --schedule-line: #d9ceff;
+  --schedule-accent: #6842d9;
+  --schedule-solid: #6842d9;
+}
+
+.schedule-row-esports {
+  --schedule-bg: linear-gradient(145deg, #e6f7f5, #f1fbfa);
+  --schedule-line: #c2e8e3;
+  --schedule-accent: #087f78;
+  --schedule-solid: #087f78;
+}
+
+.schedule-row-grand-champion {
+  --schedule-bg:
+    linear-gradient(
+      145deg,
+      #eee7ff,
+      #f8f3ff 58%,
+      #fff4df
+    );
+  --schedule-line: #d8c8ff;
+  --schedule-accent: #5b35f2;
+  --schedule-solid: #5b35f2;
+}
+
+.schedule-row-online {
+  --schedule-bg: linear-gradient(145deg, #e9e5ff, #f5f2ff);
+  --schedule-line: #d4caff;
+  --schedule-accent: #5b35f2;
+  --schedule-solid: #5b35f2;
+}
+
+.schedule-row-fun {
+  --schedule-bg: linear-gradient(145deg, #fff0dc, #fff8ec);
+  --schedule-line: #f4d8ad;
+  --schedule-accent: #b45f06;
+  --schedule-solid: #b45f06;
+}
+
+.schedule-cell {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  min-height: 49px;
+  display: grid;
+  place-items: center;
+  overflow: hidden;
+  padding: 0;
+  border: 1px solid transparent;
+  border-radius: 10px;
+  background: transparent;
+  cursor: pointer;
+  transition:
+    border-color 0.18s ease,
+    box-shadow 0.18s ease,
+    transform 0.18s ease,
+    background 0.18s ease;
+}
+
+.schedule-cell:hover {
+  border-color: #c5cad5;
+  background: rgba(255, 255, 255, 0.8);
+}
+
+.schedule-cell.has-schedule {
+  border-color: var(--schedule-line);
+  background: var(--schedule-bg);
+}
+
+.schedule-cell.has-schedule:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 5px 14px rgba(16, 24, 40, 0.1);
+}
+
+.schedule-cell-fill {
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: var(--schedule-bg);
+}
+
+.schedule-cell.has-schedule::after {
+  content: "";
+  position: absolute;
+  left: 7px;
+  right: 7px;
+  bottom: 6px;
+  height: 3px;
+  border-radius: 999px;
+  background: var(--schedule-solid);
+  opacity: 0.75;
+}
+
+.schedule-cell.is-selected {
+  border-color: var(--schedule-solid);
+  box-shadow:
+    0 0 0 2px white,
+    0 0 0 4px var(--schedule-solid);
+}
+
+.schedule-cell-count {
+  position: absolute;
+  z-index: 2;
+  top: 5px;
+  right: 5px;
+  min-width: 19px;
+  height: 19px;
+  display: grid;
+  place-items: center;
+  padding: 0 5px;
+  border-radius: 999px;
+  color: white;
+  background: var(--schedule-solid);
+  font-family: var(--font-heading), Poppins, Arial, sans-serif;
+  font-size: 0.58rem;
+  font-weight: 800;
+  line-height: 1;
+}
+
+.schedule-cell-live-dot {
+  position: absolute;
+  z-index: 3;
+  top: 7px;
+  left: 7px;
+  width: 8px;
+  height: 8px;
+  border: 2px solid white;
+  border-radius: 50%;
+  background: #e5484d;
+  box-shadow: 0 0 0 3px rgba(229, 72, 77, 0.18);
+  animation: schedulePulse 1.6s ease-out infinite;
+}
+
+/* Detail jadwal */
+
+.schedule-detail-section {
+  scroll-margin-top: 100px;
+  margin-top: 54px;
+}
+
+.schedule-detail-heading {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 24px;
+  margin-bottom: 20px;
+}
+
+.schedule-detail-heading h2 {
+  margin: 4px 0 0;
+}
+
+.schedule-selection-theme {
+  display: inline-flex;
+  align-items: center;
+  min-height: 31px;
+  padding: 5px 11px;
+  border: 1px solid var(--schedule-detail-line);
+  border-radius: 999px;
+  color: var(--schedule-detail-accent);
+  background: var(--schedule-detail-bg);
+  font-family: var(--font-heading), Poppins, Arial, sans-serif;
+  font-size: 0.68rem;
+  font-weight: 800;
+  text-transform: uppercase;
+}
+
+.schedule-selection-theme-sports {
+  --schedule-detail-bg: #edf3ff;
+  --schedule-detail-line: #cbdcff;
+  --schedule-detail-accent: #2759c7;
+}
+
+.schedule-selection-theme-strategic {
+  --schedule-detail-bg: #f3efff;
+  --schedule-detail-line: #d9ceff;
+  --schedule-detail-accent: #6842d9;
+}
+
+.schedule-selection-theme-esports {
+  --schedule-detail-bg: #eaf8f6;
+  --schedule-detail-line: #c2e8e3;
+  --schedule-detail-accent: #087f78;
+}
+
+.schedule-selection-theme-grand-champion,
+.schedule-selection-theme-online {
+  --schedule-detail-bg: #f1edff;
+  --schedule-detail-line: #d8c8ff;
+  --schedule-detail-accent: #5b35f2;
+}
+
+.schedule-selection-theme-fun {
+  --schedule-detail-bg: #fff5e7;
+  --schedule-detail-line: #f4d8ad;
+  --schedule-detail-accent: #b45f06;
+}
+
+.schedule-detail-placeholder {
+  min-height: 152px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 18px;
+  padding: 28px;
+  border: 1px dashed #ccd1da;
+  border-radius: 22px;
+  color: var(--muted);
+  background: rgba(255, 255, 255, 0.62);
+  text-align: left;
+}
+
+.schedule-detail-placeholder-icon {
+  width: 44px;
+  height: 44px;
+  flex: 0 0 auto;
+  display: grid;
+  place-items: center;
+  border-radius: 14px;
+  color: var(--primary);
+  background: var(--soft);
+  font-size: 1.25rem;
+  font-weight: 800;
+}
+
+.schedule-detail-placeholder h3 {
+  margin-bottom: 4px;
+  color: var(--text);
+  font-size: 1.08rem;
+}
+
+.schedule-detail-placeholder p {
+  margin: 0;
+}
+
+.schedule-detail-panel {
+  --schedule-detail-bg:
+    linear-gradient(145deg, #ece8ff, #f7f5ff);
+  --schedule-detail-line: #d7ceff;
+  --schedule-detail-accent: var(--primary);
+
+  overflow: hidden;
+  border: 1px solid var(--schedule-detail-line);
+  border-radius: 24px;
+  background: white;
+  box-shadow: 0 10px 32px rgba(16, 24, 40, 0.05);
+}
+
+.schedule-detail-panel-sports {
+  --schedule-detail-bg:
+    linear-gradient(145deg, #e8f1ff, #f3f7ff);
+  --schedule-detail-line: #cbdcff;
+  --schedule-detail-accent: #2759c7;
+}
+
+.schedule-detail-panel-strategic {
+  --schedule-detail-bg:
+    linear-gradient(145deg, #eee9ff, #f8f5ff);
+  --schedule-detail-line: #d9ceff;
+  --schedule-detail-accent: #6842d9;
+}
+
+.schedule-detail-panel-esports {
+  --schedule-detail-bg:
+    linear-gradient(145deg, #e6f7f5, #f1fbfa);
+  --schedule-detail-line: #c2e8e3;
+  --schedule-detail-accent: #087f78;
+}
+
+.schedule-detail-panel-grand-champion {
+  --schedule-detail-bg:
+    linear-gradient(
+      145deg,
+      #eee7ff,
+      #f8f3ff 58%,
+      #fff4df
+    );
+  --schedule-detail-line: #d8c8ff;
+  --schedule-detail-accent: #5b35f2;
+}
+
+.schedule-detail-panel-online {
+  --schedule-detail-bg:
+    linear-gradient(145deg, #e9e5ff, #f5f2ff);
+  --schedule-detail-line: #d4caff;
+  --schedule-detail-accent: #5b35f2;
+}
+
+.schedule-detail-panel-fun {
+  --schedule-detail-bg:
+    linear-gradient(145deg, #fff0dc, #fff8ec);
+  --schedule-detail-line: #f4d8ad;
+  --schedule-detail-accent: #b45f06;
+}
+
+.schedule-detail-panel-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  padding: 24px 28px;
+  border-bottom: 1px solid var(--schedule-detail-line);
+  background: var(--schedule-detail-bg);
+}
+
+.schedule-detail-date {
+  display: block;
+  margin-bottom: 3px;
+  color: var(--schedule-detail-accent);
+  font-family: var(--font-heading), Poppins, Arial, sans-serif;
+  font-size: 0.72rem;
+  font-weight: 800;
+  text-transform: uppercase;
+}
+
+.schedule-detail-panel-head h3 {
+  margin: 0;
+  font-size: 1.35rem;
+}
+
+.schedule-detail-session-count {
+  flex: 0 0 auto;
+  padding: 6px 10px;
+  border: 1px solid rgba(255, 255, 255, 0.7);
+  border-radius: 999px;
+  color: var(--schedule-detail-accent);
+  background: rgba(255, 255, 255, 0.7);
+  font-family: var(--font-heading), Poppins, Arial, sans-serif;
+  font-size: 0.7rem;
+  font-weight: 800;
+}
+
+/* Empty state */
+
+.schedule-empty-message {
+  min-height: 150px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 18px;
+  padding: 30px;
+  text-align: left;
+}
+
+.schedule-empty-icon {
+  width: 44px;
+  height: 44px;
+  flex: 0 0 auto;
+  display: grid;
+  place-items: center;
+  border-radius: 14px;
+  color: var(--schedule-detail-accent);
+  background: var(--schedule-detail-bg);
+  font-family: var(--font-heading), Poppins, Arial, sans-serif;
+  font-size: 1.15rem;
+  font-weight: 800;
+}
+
+.schedule-empty-message h4 {
+  margin: 0 0 4px;
+  font-family: var(--font-heading), Poppins, Arial, sans-serif;
+  font-size: 1.05rem;
+}
+
+.schedule-empty-message p {
+  margin: 0;
+  color: var(--muted);
+}
+
+/* Daftar sesi */
+
+.schedule-session-list {
+  display: grid;
+  gap: 12px;
+  padding: 20px;
+}
+
+.schedule-session-card {
+  position: relative;
+  display: grid;
+  grid-template-columns: 155px minmax(0, 1fr);
+  overflow: hidden;
+  border: 1px solid var(--line);
+  border-radius: 17px;
+  background: white;
+  transition:
+    border-color 0.2s ease,
+    box-shadow 0.2s ease,
+    transform 0.2s ease;
+}
+
+.schedule-session-card:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 8px 24px rgba(16, 24, 40, 0.07);
+}
+
+.schedule-session-time {
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  flex-direction: column;
+  padding: 18px 20px;
+  border-right: 1px solid var(--line);
+  background: #f8f9fc;
+}
+
+.schedule-session-time strong {
+  font-family: var(--font-heading), Poppins, Arial, sans-serif;
+  font-size: 1.12rem;
+  line-height: 1;
+}
+
+.schedule-session-time span {
+  margin-top: 6px;
+  color: var(--muted);
+  font-size: 0.72rem;
+}
+
+.schedule-session-content {
+  min-width: 0;
+  padding: 17px 20px;
+}
+
+.schedule-session-topline {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  margin-bottom: 7px;
+}
+
+.schedule-session-stage {
+  color: var(--schedule-detail-accent);
+  font-family: var(--font-heading), Poppins, Arial, sans-serif;
+  font-size: 0.67rem;
+  font-weight: 800;
+  letter-spacing: 0.045em;
+  text-transform: uppercase;
+}
+
+.schedule-session-content h4 {
+  margin: 0 0 7px;
+  font-family: var(--font-heading), Poppins, Arial, sans-serif;
+  font-size: 1rem;
+  line-height: 1.35;
+}
+
+.schedule-session-location {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  color: var(--muted);
+  font-size: 0.78rem;
+}
+
+.schedule-session-location svg {
+  width: 15px;
+  height: 15px;
+  flex: 0 0 auto;
+}
+
+/* Badge status */
+
+.schedule-status {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  flex: 0 0 auto;
+  padding: 5px 9px;
+  border: 1px solid transparent;
+  border-radius: 999px;
+  font-family: var(--font-heading), Poppins, Arial, sans-serif;
+  font-size: 0.64rem;
+  font-weight: 800;
+  line-height: 1;
+  white-space: nowrap;
+}
+
+.schedule-status-dot {
+  width: 6px;
+  height: 6px;
+  flex: 0 0 auto;
+  border-radius: 50%;
+  background: currentColor;
+}
+
+.schedule-status-upcoming {
+  color: #775b00;
+  background: #fff4c6;
+  border-color: #ead070;
+}
+
+.schedule-status-live {
+  color: #b42318;
+  background: #fee4e2;
+  border-color: #f7aaa5;
+}
+
+.schedule-status-live .schedule-status-dot {
+  animation: schedulePulse 1.6s ease-out infinite;
+}
+
+.schedule-status-completed {
+  color: #067647;
+  background: #dff8e9;
+  border-color: #92ddb2;
+}
+
+/* Highlight sesi yang sedang berlangsung */
+
+.schedule-session-live {
+  border-color: #f3a4a0;
+  background:
+    linear-gradient(
+      90deg,
+      rgba(254, 228, 226, 0.65),
+      white 38%
+    );
+  box-shadow: 0 9px 26px rgba(180, 35, 24, 0.09);
+}
+
+.schedule-session-live::before {
+  content: "";
+  position: absolute;
+  z-index: 2;
+  inset: 0 auto 0 0;
+  width: 4px;
+  background: #e5484d;
+}
+
+.schedule-session-live .schedule-session-time {
+  background: rgba(254, 228, 226, 0.65);
+}
+
+.schedule-session-completed {
+  opacity: 0.72;
+}
+
+.schedule-session-completed:hover {
+  opacity: 1;
+}
+
+/* Animasi */
+
+@keyframes schedulePulse {
+  0% {
+    box-shadow: 0 0 0 0 rgba(229, 72, 77, 0.42);
+  }
+
+  70% {
+    box-shadow: 0 0 0 7px rgba(229, 72, 77, 0);
+  }
+
+  100% {
+    box-shadow: 0 0 0 0 rgba(229, 72, 77, 0);
+  }
+}
+
+/* Responsive */
+
+@media (max-width: 760px) {
+  .schedule-page {
+    padding-top: 32px;
+  }
+
+  .schedule-page-intro h1 {
+    margin-bottom: 15px;
+    font-size: clamp(2.35rem, 12vw, 3.25rem);
+  }
+
+  .schedule-page-intro .lead {
+    font-size: 0.94rem;
+  }
+
+  .schedule-board {
+    margin-top: 34px;
+  }
+
+  .schedule-board-toolbar {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .schedule-legend {
+    gap: 7px;
+  }
+
+  .schedule-legend-item {
+    min-height: 27px;
+    padding: 3px 8px;
+    font-size: 0.61rem;
+  }
+
+  .schedule-scroll-hint {
+    display: block;
+    font-size: 0.7rem;
+  }
+
+  .schedule-table-card {
+    border-radius: 18px;
+  }
+
+  .schedule-table-scroll {
+    max-height: 570px;
+  }
+
+  .schedule-name-column {
+    width: 150px;
+    min-width: 150px;
+    max-width: 150px;
+  }
+
+  .schedule-table thead th {
+    height: 52px;
+    padding: 8px 6px;
+    font-size: 0.63rem;
+  }
+
+  .schedule-table tbody .schedule-name-column {
+    padding: 11px 12px;
+  }
+
+  .schedule-name-column strong {
+    font-size: 0.74rem;
+  }
+
+  .schedule-game-category {
+    font-size: 0.53rem;
+  }
+
+  .schedule-date-column,
+  .schedule-table tbody td {
+    width: 62px;
+    min-width: 62px;
+  }
+
+  .schedule-table tbody td {
+    height: 58px;
+    padding: 5px;
+  }
+
+  .schedule-cell {
+    min-height: 46px;
+    border-radius: 8px;
+  }
+
+  .schedule-cell-count {
+    top: 4px;
+    right: 4px;
+    min-width: 17px;
+    height: 17px;
+    font-size: 0.52rem;
+  }
+
+  .schedule-detail-section {
+    margin-top: 42px;
+  }
+
+  .schedule-detail-heading {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .schedule-detail-heading h2 {
+    font-size: 1.8rem;
+  }
+
+  .schedule-detail-panel {
+    border-radius: 19px;
+  }
+
+  .schedule-detail-panel-head {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 12px;
+    padding: 20px;
+  }
+
+  .schedule-detail-panel-head h3 {
+    font-size: 1.18rem;
+  }
+
+  .schedule-detail-placeholder {
+    align-items: flex-start;
+    justify-content: flex-start;
+    padding: 22px;
+  }
+
+  .schedule-empty-message {
+    align-items: flex-start;
+    justify-content: flex-start;
+    padding: 24px 20px;
+  }
+
+  .schedule-session-list {
+    padding: 13px;
+  }
+
+  .schedule-session-card {
+    grid-template-columns: 1fr;
+  }
+
+  .schedule-session-time {
+    align-items: baseline;
+    justify-content: flex-start;
+    flex-direction: row;
+    gap: 7px;
+    padding: 13px 16px;
+    border-right: 0;
+    border-bottom: 1px solid var(--line);
+  }
+
+  .schedule-session-time strong {
+    font-size: 0.95rem;
+  }
+
+  .schedule-session-time span {
+    margin-top: 0;
+  }
+
+  .schedule-session-content {
+    padding: 15px 16px;
+  }
+
+  .schedule-session-topline {
+    align-items: flex-start;
+    gap: 10px;
+  }
+
+  .schedule-session-content h4 {
+    font-size: 0.94rem;
+  }
+
+  .schedule-session-live::before {
+    inset: 0 0 auto;
+    width: auto;
+    height: 4px;
+  }
+}
+
+@media (max-width: 390px) {
+  .schedule-name-column {
+    width: 138px;
+    min-width: 138px;
+    max-width: 138px;
+  }
+
+  .schedule-date-column,
+  .schedule-table tbody td {
+    width: 58px;
+    min-width: 58px;
+  }
+
+  .schedule-detail-placeholder-icon,
+  .schedule-empty-icon {
+    width: 38px;
+    height: 38px;
+  }
+
+  .schedule-status {
+    padding: 5px 7px;
+    font-size: 0.58rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .schedule-cell,
+  .schedule-session-card {
+    transition: none;
+  }
+
+  .schedule-cell-live-dot,
+  .schedule-status-live .schedule-status-dot {
+    animation: none;
+  }
+}
+
 html,
 body {
   overflow-x: hidden;
