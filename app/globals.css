@@ -904,9 +904,9 @@ a.announcement-list-item:hover .announcement-list-arrow {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 12px;
-  min-height: 44px;
-  padding: 8px 2px;
+  gap: 8px;
+  min-height: 36px;
+  padding: 5px 2px;
   border-top: 1px solid var(--line);
 }
 
@@ -919,10 +919,10 @@ a.announcement-list-item:hover .announcement-list-arrow {
   display: inline-flex;
   align-items: center;
   width: fit-content;
-  padding: 5px 9px;
-  border-radius: 9px;
+  padding: 4px 8px;
+  border-radius: 8px;
   color: #5338c7;
-  font-size: 0.72rem;
+  font-size: 0.68rem;
   font-weight: 600;
   white-space: nowrap;
 }
