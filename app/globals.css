@@ -1004,8 +1004,11 @@ a.announcement-list-item:hover .announcement-list-arrow {
 }
 
 @media (max-width: 760px) {
+
   body.mobile-menu-open {
     overflow: hidden;
+    overscroll-behavior: none;
+    touch-action: none;
   }
 
   /*
@@ -1014,6 +1017,7 @@ a.announcement-list-item:hover .announcement-list-arrow {
 
   .site-header {
     backdrop-filter: blur(18px);
+    -webkit-backdrop-filter: blur(18px);
   }
 
   .header-inner {
@@ -1033,18 +1037,25 @@ a.announcement-list-item:hover .announcement-list-arrow {
   .mobile-menu-toggle {
     position: relative;
     z-index: 72;
+
     width: 44px;
     height: 44px;
+
     display: grid;
     align-content: center;
     justify-items: center;
+
     gap: 5px;
     padding: 0;
+
     border: 1px solid var(--line);
     border-radius: 14px;
+
     color: var(--text);
     background: rgba(255, 255, 255, 0.82);
+
     cursor: pointer;
+
     transition:
       opacity 0.2s ease,
       visibility 0.2s ease;
@@ -1053,9 +1064,12 @@ a.announcement-list-item:hover .announcement-list-arrow {
   .mobile-menu-toggle span {
     width: 20px;
     height: 2px;
+
     display: block;
+
     border-radius: 999px;
     background: currentColor;
+
     transition:
       transform 0.25s ease,
       opacity 0.2s ease;
@@ -1067,23 +1081,38 @@ a.announcement-list-item:hover .announcement-list-arrow {
     pointer-events: none;
   }
 
+
+  /*
+   * Full viewport backdrop
+   */
+
   .mobile-menu-overlay {
     position: fixed;
     z-index: 68;
+
     inset: 0;
+
     width: 100%;
-    height: 100%;
+    height: 100dvh;
+
     display: block;
+
     padding: 0;
     border: 0;
+
     visibility: hidden;
     opacity: 0;
-    background: rgba(16, 24, 40, 0.42);
-    backdrop-filter: blur(2px);
+
+    background: rgba(20, 24, 38, 0.28);
+
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+
     cursor: pointer;
+
     transition:
-      opacity 0.25s ease,
-      visibility 0.25s ease;
+      opacity 0.24s ease,
+      visibility 0.24s ease;
   }
 
   .mobile-menu-overlay.visible {
@@ -1091,88 +1120,176 @@ a.announcement-list-item:hover .announcement-list-arrow {
     opacity: 1;
   }
 
+
+  /*
+   * Floating drawer
+   */
+
   .mobile-menu-drawer {
     position: fixed;
     z-index: 70;
-    top: 0;
-    right: 0;
+
+    top: 84px;
+    right: 14px;
+
     width: min(82vw, 340px);
-    height: 100dvh;
+
+    height: auto;
+    max-height: calc(100dvh - 102px);
+
     display: flex;
     flex-direction: column;
-    padding: 24px;
-    border-left: 1px solid rgba(228, 231, 236, 0.9);
-    background: #ffffff;
-    box-shadow: -20px 0 50px rgba(16, 24, 40, 0.15);
-  
+
+    padding: 18px;
+
+    overflow-y: auto;
+    overscroll-behavior: contain;
+
+    border: 1px solid rgba(139, 92, 246, 0.12);
+    border-radius: 24px;
+
+    background:
+      radial-gradient(
+        circle at top right,
+        rgba(139, 92, 246, 0.065),
+        transparent 42%
+      ),
+      rgba(255, 255, 255, 0.98);
+
+    box-shadow:
+      0 18px 55px rgba(16, 24, 40, 0.18);
+
     visibility: hidden;
     opacity: 0;
+
     pointer-events: none;
-    transform: translateX(105%);
-  
+
+    transform:
+      translateX(24px)
+      translateY(-8px)
+      scale(0.985);
+
+    transform-origin: top right;
+
     transition:
-      transform 0.3s ease,
-      opacity 0.2s ease,
-      visibility 0.3s ease;
+      transform 0.28s ease,
+      opacity 0.22s ease,
+      visibility 0.28s ease;
   }
-  
+
   .mobile-menu-drawer.open {
     visibility: visible;
     opacity: 1;
+
     pointer-events: auto;
-    transform: translateX(0);
+
+    transform:
+      translateX(0)
+      translateY(0)
+      scale(1);
   }
 
+
+  /*
+   * Drawer head
+   */
+
   .mobile-menu-head {
-    min-height: 46px;
+    min-height: 42px;
+
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding-bottom: 20px;
-    border-bottom: 1px solid var(--line);
+
+    padding-bottom: 13px;
+
+    border-bottom: 1px solid rgba(16, 24, 40, 0.08);
+
     font-family: var(--font-heading), Poppins, Arial, sans-serif;
-    font-size: 0.78rem;
+    font-size: 0.72rem;
     font-weight: 800;
+
     letter-spacing: 0.12em;
     text-transform: uppercase;
   }
 
   .mobile-menu-close {
-    width: 40px;
-    height: 40px;
+    width: 36px;
+    height: 36px;
+
     display: grid;
     place-items: center;
+
     padding: 0;
+
     border: 0;
-    border-radius: 12px;
+    border-radius: 11px;
+
     color: var(--text);
-    background: #f2f4f7;
-    font-size: 1.65rem;
+
+    background: rgba(242, 244, 247, 0.9);
+
+    font-size: 1.45rem;
     line-height: 1;
+
     cursor: pointer;
   }
 
+
+  /*
+   * Navigation
+   */
+
   .mobile-nav {
     display: grid;
-    margin-top: 18px;
+
+    margin-top: 8px;
   }
 
   .mobile-nav a {
+    min-height: 58px;
+
     display: flex;
     align-items: center;
     justify-content: space-between;
-    gap: 20px;
-    padding: 16px 4px;
-    border-bottom: 1px solid var(--line);
+
+    gap: 14px;
+
+    padding: 9px 4px;
+
+    border-bottom: 1px solid rgba(16, 24, 40, 0.075);
+
     font-family: var(--font-heading), Poppins, Arial, sans-serif;
-    font-size: 1rem;
+    font-size: 0.95rem;
     font-weight: 700;
+
+    transition:
+      color 0.2s ease,
+      background 0.2s ease;
+  }
+
+  .mobile-nav a:last-child {
+    border-bottom: 0;
   }
 
   .mobile-nav a span:last-child {
+    flex-shrink: 0;
+
     color: var(--primary);
+
+    font-size: 0.95rem;
+
     transition: transform 0.2s ease;
   }
+
+  .mobile-nav a:hover span:last-child {
+    transform: translateX(3px);
+  }
+
+
+  /*
+   * Active page
+   */
 
   .mobile-nav a.active {
     color: var(--primary);
@@ -1180,10 +1297,16 @@ a.announcement-list-item:hover .announcement-list-arrow {
 
   .mobile-nav a.active::before {
     content: "";
+
     width: 4px;
-    height: 24px;
-    margin-right: 7px;
+    height: 22px;
+
+    flex-shrink: 0;
+
+    margin-right: 4px;
+
     border-radius: 999px;
+
     background: var(--primary);
   }
 
