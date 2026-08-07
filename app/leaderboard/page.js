@@ -40,6 +40,103 @@ function TrophyIcon() {
   );
 }
 
+const competitionStatuses = {
+  waiting: {
+    label: "Menunggu Hasil",
+    className: "pending",
+  },
+  ongoing: {
+    label: "Hasil Sementara",
+    className: "ongoing",
+  },
+  final: {
+    label: "Hasil Final",
+    className: "completed",
+  },
+};
+
+function getCompetitionStatus(competition) {
+  if (competition.status) {
+    return competitionStatuses[competition.status];
+  }
+
+  const competitionStatus = getCompetitionStatus(competition);
+  
+  return isCompleted
+    ? competitionStatuses.final
+    : competitionStatuses.waiting;
+}
+
+function ChessStandingsTable({ competition }) {
+  const rows = competition.standings.rows
+    .map((row) => ({
+      ...row,
+      division: divisions.find(
+        (division) => division.id === row.divisionId
+      ),
+    }))
+    .filter((row) => row.division)
+    .sort((a, b) => {
+      if (b.totalPoints !== a.totalPoints) {
+        return b.totalPoints - a.totalPoints;
+      }
+
+      if (b.win !== a.win) {
+        return b.win - a.win;
+      }
+
+      return a.lose - b.lose;
+    });
+
+  return (
+    <div className="competition-table-wrap">
+      <div className="table-scroll">
+        <table className="leaderboard-table chess-standings-table">
+          <thead>
+            <tr>
+              <th className="chess-subdit-column">Subdit</th>
+              <th>P</th>
+              <th>W</th>
+              <th>L</th>
+              <th>D</th>
+              <th className="chess-total-column">Total Poin</th>
+            </tr>
+          </thead>
+
+          <tbody>
+            {rows.map((row) => (
+              <tr key={row.divisionId}>
+                <td className="chess-subdit-column">
+                  <strong>{row.division.name}</strong>
+                </td>
+
+                <td>{row.played}</td>
+                <td>{row.win}</td>
+                <td>{row.lose}</td>
+                <td>{row.draw}</td>
+
+                <td className="chess-total-column">
+                  <strong>{row.totalPoints}</strong>
+                </td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+
+      <p className="chess-table-note">
+        <strong>P</strong>: Play
+        <span aria-hidden="true">·</span>
+        <strong>W</strong>: Win
+        <span aria-hidden="true">·</span>
+        <strong>L</strong>: Lose
+        <span aria-hidden="true">·</span>
+        <strong>D</strong>: Draw
+      </p>
+    </div>
+  );
+}
+
 function CompetitionScoreTable({ competition }) {
   const scoreDetails = competition.scoreDetails;
 
@@ -258,8 +355,8 @@ export default function LeaderboardPage() {
               const rows = getCompetitionRows(competition)
                 .filter((row) => row.rank !== null)
                 .sort((a, b) => a.rank - b.rank);
-              const isCompleted = competition.results.length === divisions.length;
-
+              const competitionStatus = getCompetitionStatus(competition);
+              
               return (
                 <details className={`competition-card competition-card-${competition.theme}`} key={competition.id} open={competitionIndex === 0}>
                   <summary>
@@ -267,14 +364,18 @@ export default function LeaderboardPage() {
                       <small>{pointRules[competition.scoringCategory].label}</small>
                       <strong>{competition.name}</strong>
                     </span>
-                    <span className={`result-status ${isCompleted ? "completed" : "pending"}`}>
-                      {isCompleted ? "Hasil tersedia" : "Menunggu hasil"}
+                    <span
+                      className={`result-status ${competitionStatus.className}`}
+                    >
+                      {competitionStatus.label}
                     </span>
                   </summary>
 
-                  {competition.scoreDetails ? (
-                      <CompetitionScoreTable competition={competition} />
-                    ) : rows.length > 0 ? (
+                  {competition.standings?.type === "chess" ? (
+                    <ChessStandingsTable competition={competition} />
+                  ) : competition.scoreDetails ? (
+                    <CompetitionScoreTable competition={competition} />
+                  ) : rows.length > 0 ? (
                       <div className="table-scroll competition-table-wrap">
                         <table className="leaderboard-table compact-table">
                           <thead>
