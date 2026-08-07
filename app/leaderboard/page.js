@@ -363,7 +363,7 @@ export default function LeaderboardPage() {
               const competitionStatus = getCompetitionStatus(competition);
               
               return (
-                <details className={`competition-card competition-card-${competition.theme}`} key={competition.id} open={competitionIndex === 0}>
+                <details name="competition-results" className={`competition-card competition-card-${competition.theme}`} key={competition.id} open={competitionIndex === 0}>
                   <summary>
                     <span>
                       <small>{pointRules[competition.scoringCategory].label}</small>
