@@ -204,6 +204,12 @@ h3 { font-size: 1.25rem; line-height: 1.25; }
   background: #fff1bd;
   border-color: #e9c95d;
 }
+/* Pertandingan masih berjalan */
+.result-status.ongoing {
+  color: #9a4b08;
+  background: #fff0dc;
+  border-color: #f1bd7a;
+}
 .competition-table-wrap, .competition-empty { border-top: 1px solid var(--line); }
 .compact-table th, .compact-table td { padding: 13px 22px; }
 .competition-empty { margin: 0; padding: 18px 22px; color: var(--muted); background: #fafbfc; }
@@ -3015,5 +3021,93 @@ body {
 
   .competition-score-table td.score-total-column strong {
     font-size: 1.2rem;
+  }
+}
+
+
+/* =========================================================
+   Klasemen sementara Chess Masters
+   ========================================================= */
+
+.chess-standings-table {
+  width: 100%;
+  min-width: 610px;
+  table-layout: fixed;
+  text-align: center;
+}
+
+.chess-standings-table th,
+.chess-standings-table td {
+  padding: 15px 16px;
+  text-align: center;
+  vertical-align: middle;
+}
+
+.chess-standings-table th {
+  font-size: 0.82rem;
+  letter-spacing: 0.04em;
+}
+
+.chess-standings-table .chess-subdit-column {
+  width: 30%;
+  text-align: left;
+}
+
+.chess-standings-table .chess-total-column {
+  width: 22%;
+}
+
+.chess-standings-table tbody td {
+  font-size: 0.95rem;
+}
+
+.chess-standings-table tbody td:not(.chess-subdit-column) {
+  font-variant-numeric: tabular-nums;
+}
+
+.chess-standings-table td.chess-total-column strong {
+  color: #172554;
+  font-size: 1.15rem;
+  font-weight: 800;
+}
+
+.chess-table-note {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin: 0;
+  padding: 11px 20px;
+  border-top: 1px solid var(--line);
+  color: var(--muted);
+  background: #fafbfc;
+  font-size: 0.75rem;
+}
+
+.chess-table-note strong {
+  color: #344054;
+}
+
+@media (max-width: 760px) {
+  .chess-standings-table {
+    min-width: 540px;
+  }
+
+  .chess-standings-table th,
+  .chess-standings-table td {
+    padding: 13px 11px;
+  }
+
+  .chess-standings-table .chess-subdit-column {
+    width: 28%;
+  }
+
+  .chess-standings-table .chess-total-column {
+    width: 23%;
+  }
+
+  .chess-table-note {
+    padding: 10px 14px;
+    font-size: 0.7rem;
   }
 }
