@@ -18,8 +18,8 @@ export default function HomePage() {
       <section className="hero">
         <div className="container hero-grid">
           <div>
-            <span className="pill">Portal resmi event</span>
-            <h1>Feel the vibe.<br />See you in the game.</h1>
+            <span className="pill">ATLANTIK 2026</span>
+            <h1>Feel the vibe.<br />Be part of the game.</h1>
             <p>{siteConfig.description}</p>
             <div className="actions">
               <Link className="button primary" href="/permainan">Lihat permainan</Link>
