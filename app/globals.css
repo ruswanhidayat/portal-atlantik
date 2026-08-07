@@ -151,7 +151,7 @@ h3 { font-size: 1.25rem; line-height: 1.25; }
 .rank-1, .rank-2, .rank-3 { font-size: 1.25rem; }
 .point-total { color: var(--primary); font-size: 1.3rem; }
 .table-note { margin: 0; padding: 18px 20px; color: var(--muted); background: #f8f9fd; border-top: 1px solid var(--line); }
-.scoring-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 20px; }
+.scoring-grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 14px; }
 .score-card { padding: 26px; border: 1px solid var(--line); border-radius: 22px; background: white; }
 .score-card h3 { min-height: 50px; margin-bottom: 20px; }
 .score-list { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 8px; }
@@ -882,12 +882,15 @@ a.announcement-list-item:hover .announcement-list-arrow {
 /* Sistem poin berbentuk daftar */
 
 .score-card {
-  padding: 26px 28px;
+  padding: 20px 18px;
+  border-radius: 18px;
 }
 
 .score-card h3 {
-  min-height: 0;
-  margin-bottom: 18px;
+  min-height: 48px;
+  margin-bottom: 12px;
+  font-size: 1rem;
+  line-height: 1.35;
 }
 
 .score-list {
@@ -901,32 +904,73 @@ a.announcement-list-item:hover .announcement-list-arrow {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 20px;
-  min-height: 50px;
-  padding: 11px 4px;
+  gap: 12px;
+  min-height: 44px;
+  padding: 8px 2px;
   border-top: 1px solid var(--line);
 }
 
 .score-row:last-child {
-  padding-bottom: 4px;
+  padding-bottom: 2px;
 }
 
+/* Badge ranking */
 .score-row > span {
-  color: var(--muted);
-  font-size: 0.9rem;
+  display: inline-flex;
+  align-items: center;
+  width: fit-content;
+  padding: 5px 9px;
+  border-radius: 9px;
+  color: #5338c7;
+  font-size: 0.72rem;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+/* Ranking 1 - warna paling kuat */
+.score-row:nth-child(1) > span {
+  color: #4f2bd9;
+  background: #e8e1ff;
+}
+
+/* Ranking 2 */
+.score-row:nth-child(2) > span {
+  color: #6246d8;
+  background: #eee9ff;
+}
+
+/* Ranking 3 */
+.score-row:nth-child(3) > span {
+  color: #755ed5;
+  background: #f2efff;
+}
+
+/* Ranking 4 */
+.score-row:nth-child(4) > span {
+  color: #8978d2;
+  background: #f5f3ff;
+}
+
+/* Ranking 5 - warna paling pudar */
+.score-row:nth-child(5) > span {
+  color: #9b8fc9;
+  background: #f8f7fc;
 }
 
 .score-row strong {
   flex: 0 0 auto;
   color: var(--text);
   font-family: var(--font-heading), Poppins, Arial, sans-serif;
-  font-size: 1rem;
+  font-size: 0.9rem;
+  text-align: right;
 }
 
 .score-row strong small {
+  display: block;
+  margin-top: -2px;
   color: var(--muted);
   font-family: inherit;
-  font-size: 0.72rem;
+  font-size: 0.62rem;
   font-weight: 600;
 }
 
