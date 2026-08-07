@@ -95,7 +95,57 @@ export const competitions = [
     name: "Chess Masters (Catur)",
     scoringCategory: "strategic",
     theme: "strategic",
+    status: "ongoing",
+  
+    // Tetap kosong karena hasil pertandingan belum final
+    // dan belum boleh dihitung ke leaderboard Juara Umum.
     results: [],
+  
+    standings: {
+      type: "chess",
+      rows: [
+        {
+          divisionId: "subdit-1",
+          played: 3,
+          win: 15,
+          lose: 3,
+          draw: 0,
+          totalPoints: 45,
+        },
+        {
+          divisionId: "subdit-5",
+          played: 3,
+          win: 13,
+          lose: 5,
+          draw: 0,
+          totalPoints: 39,
+        },
+        {
+          divisionId: "subdit-4",
+          played: 4,
+          win: 12,
+          lose: 11,
+          draw: 1,
+          totalPoints: 37,
+        },
+        {
+          divisionId: "subdit-2",
+          played: 3,
+          win: 5,
+          lose: 13,
+          draw: 0,
+          totalPoints: 15,
+        },
+        {
+          divisionId: "subdit-3",
+          played: 3,
+          win: 2,
+          lose: 15,
+          draw: 1,
+          totalPoints: 7,
+        },
+      ],
+    },
   },
   {
     id: "capsa-masters",
