@@ -3108,3 +3108,47 @@ body {
     font-size: 0.7rem;
   }
 }
+
+/* =========================================================
+   HOME PAGE — UNIFIED BACKGROUND
+   ========================================================= */
+
+.home-page {
+  position: relative;
+  isolation: isolate;
+
+  background:
+    radial-gradient(
+      ellipse 70% 32% at 8% 10%,
+      rgba(59, 130, 246, 0.09) 0%,
+      rgba(59, 130, 246, 0) 72%
+    ),
+    radial-gradient(
+      ellipse 65% 30% at 92% 34%,
+      rgba(168, 85, 247, 0.07) 0%,
+      rgba(168, 85, 247, 0) 72%
+    ),
+    radial-gradient(
+      ellipse 60% 28% at 10% 68%,
+      rgba(236, 72, 153, 0.045) 0%,
+      rgba(236, 72, 153, 0) 72%
+    ),
+    radial-gradient(
+      ellipse 55% 25% at 92% 92%,
+      rgba(245, 158, 11, 0.045) 0%,
+      rgba(245, 158, 11, 0) 72%
+    ),
+    #f5f6fa;
+}
+
+
+/* Semua section homepage mengikuti background utama */
+
+.home-page > section,
+.home-page .hero,
+.home-page .section-soft,
+.home-page .announcement-home-section,
+.home-page .leaderboard-home-section,
+.home-page .home-schedule-section {
+  background: transparent;
+}
