@@ -2416,6 +2416,156 @@ a.announcement-list-item:hover .announcement-list-arrow {
   }
 }
 
+/* =========================================================
+   Penyesuaian Tahap 6: tabel jadwal desktop
+   ========================================================= */
+
+/*
+ * Desktop:
+ * - Tidak ada vertical scroll.
+ * - Tidak ada horizontal scroll.
+ * - Seluruh tanggal dipadatkan agar masuk ke lebar container.
+ */
+@media (min-width: 761px) {
+  .schedule-table-card {
+    overflow: hidden;
+  }
+
+  .schedule-table-scroll {
+    max-height: none;
+    overflow: visible;
+  }
+
+  .schedule-table {
+    width: 100%;
+    min-width: 0;
+    table-layout: fixed;
+  }
+
+  .schedule-name-column {
+    width: 190px;
+    min-width: 190px;
+    max-width: 190px;
+  }
+
+  .schedule-date-column,
+  .schedule-table tbody td {
+    width: auto;
+    min-width: 0;
+  }
+
+  .schedule-table thead th {
+    height: 54px;
+    padding: 8px 3px;
+    font-size: 0.64rem;
+    letter-spacing: 0;
+  }
+
+  .schedule-table tbody .schedule-name-column {
+    padding: 11px 13px;
+  }
+
+  .schedule-name-column strong {
+    font-size: 0.76rem;
+    line-height: 1.3;
+  }
+
+  .schedule-game-category {
+    margin-bottom: 2px;
+    font-size: 0.53rem;
+    letter-spacing: 0.04em;
+  }
+
+  .schedule-table tbody td {
+    height: 58px;
+    padding: 4px;
+  }
+
+  .schedule-cell {
+    min-height: 46px;
+    border-radius: 8px;
+  }
+
+  .schedule-cell.has-schedule::after {
+    right: 5px;
+    left: 5px;
+    bottom: 5px;
+  }
+
+  .schedule-cell-count {
+    top: 3px;
+    right: 3px;
+    min-width: 17px;
+    height: 17px;
+    padding: 0 4px;
+    font-size: 0.5rem;
+  }
+
+  .schedule-cell-live-dot {
+    top: 5px;
+    left: 5px;
+    width: 7px;
+    height: 7px;
+  }
+
+  /*
+   * Sticky tidak dibutuhkan pada desktop karena seluruh tabel
+   * sudah langsung terlihat.
+   */
+  .schedule-table thead th,
+  .schedule-name-column {
+    position: static;
+  }
+
+  .schedule-scroll-hint {
+    display: none;
+  }
+}
+
+/*
+ * Mobile:
+ * - Horizontal scroll tetap dipertahankan.
+ * - Tidak ada vertical scroll internal.
+ * - Header tanggal dan nama permainan tetap sticky.
+ */
+@media (max-width: 760px) {
+  .schedule-table-card {
+    overflow: hidden;
+  }
+
+  .schedule-table-scroll {
+    max-height: none;
+    overflow-x: auto;
+    overflow-y: visible;
+    overscroll-behavior-x: contain;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .schedule-table {
+    width: max-content;
+    min-width: 100%;
+    table-layout: auto;
+  }
+
+  .schedule-table thead th {
+    position: sticky;
+    top: 0;
+  }
+
+  .schedule-name-column {
+    position: sticky;
+    left: 0;
+  }
+
+  .schedule-table thead .schedule-name-column {
+    z-index: 20;
+  }
+
+  .schedule-table tbody .schedule-name-column {
+    z-index: 8;
+  }
+}
+
 html,
 body {
   overflow-x: hidden;
