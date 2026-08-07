@@ -106,6 +106,49 @@
     0 18px 50px rgba(16, 24, 40, 0.08);
 }
 
+/* =========================================================
+   SHARED INTERACTIONS
+   ========================================================= */
+
+/* Interactive cards / buttons lift upward */
+
+.game-card,
+.announcement-list-item,
+.home-schedule-card,
+.leaderboard-button,
+.announcement-slider-link {
+  transition:
+    transform var(--motion-normal) ease,
+    box-shadow var(--motion-normal) ease;
+}
+
+.game-card:hover,
+a.announcement-list-item:hover,
+.home-schedule-card:hover,
+.leaderboard-button:hover,
+.announcement-slider-link:hover {
+  transform: translateY(var(--hover-lift));
+}
+
+
+/* Directional links / arrows move to the right */
+
+.text-link,
+.announcement-list-arrow,
+.home-schedule-arrow,
+.mobile-nav a span:last-child,
+.announcement-slider-link span {
+  transition: transform var(--motion-normal) ease;
+}
+
+.text-link:hover,
+a.announcement-list-item:hover .announcement-list-arrow,
+.home-schedule-card:hover .home-schedule-arrow,
+.mobile-nav a:hover span:last-child,
+.announcement-slider-link:hover span {
+  transform: translateX(var(--hover-shift));
+}
+
 * { box-sizing: border-box; }
 html { scroll-behavior: smooth; }
 body { margin: 0; color: var(--text); background: var(--bg); font-family: Arial, Helvetica, sans-serif; line-height: 1.6; }
@@ -209,7 +252,6 @@ h3 { font-size: 1.25rem; line-height: 1.25; }
 .leaderboard-home-card p { max-width: 760px; margin-bottom: 0; color: rgba(255,255,255,.78); }
 .leaderboard-home-card .eyebrow { color: #d8ccff; }
 .leaderboard-button { flex: 0 0 auto; color: #172554; background: white; }
-.leaderboard-button:hover { transform: translateY(var(--hover-lift)); }
 .leaderboard-page { padding-top: 48px; }
 .leaderboard-hero {
   display: grid;
@@ -348,7 +390,7 @@ h1, h2, h3, .brand, .nav, .button, .eyebrow, .game-category, .status {
   background: color-mix(in srgb, var(--game-card-accent) 12%, transparent);
   pointer-events: none;
 }
-.game-card:hover { transform: translateY(var(--hover-lift)); box-shadow: 0 18px 42px rgba(35, 26, 88, .12); }
+.game-card:hover { box-shadow: 0 18px 42px rgba(35, 26, 88, .12); }
 .game-card h3 { position: relative; z-index: 1; margin-bottom: 14px; font-size: 1.5rem; }
 .game-card p { position: relative; z-index: 1; max-width: 92%; color: #4f5870; }
 .game-card .text-link { position: relative; z-index: 1; margin-top: auto; padding-top: 26px; color: var(--game-card-accent); }
@@ -571,16 +613,11 @@ h1, h2, h3, .brand, .nav, .button, .eyebrow, .game-category, .status {
 }
 
 .announcement-slider-link:hover {
-  transform: translateY(var(--hover-lift));
   box-shadow: 0 8px 22px rgba(16, 24, 40, 0.16);
 }
 
 .announcement-slider-link span {
   transition: transform 0.2s ease;
-}
-
-.announcement-slider-link:hover span {
-  transform: translateX(var(--hover-shift));
 }
 
 .announcement-slider-arrow {
@@ -719,7 +756,6 @@ h1, h2, h3, .brand, .nav, .button, .eyebrow, .game-category, .status {
 }
 
 a.announcement-list-item:hover {
-  transform: translateX(var(--hover-shift));
   box-shadow: 0 12px 30px rgba(16, 24, 40, 0.08);
 }
 
@@ -779,10 +815,6 @@ a.announcement-list-item:hover {
   font-size: 1.2rem;
   font-weight: 800;
   transition: transform 0.2s ease;
-}
-
-a.announcement-list-item:hover .announcement-list-arrow {
-  transform: translateX(var(--hover-shift));
 }
 
 .announcement-list-item.announcement-theme-general {
@@ -2515,7 +2547,6 @@ body {
 }
 
 .home-schedule-card:hover {
-  transform: translateY(var(--hover-lift));
   box-shadow: 0 12px 30px rgba(16, 24, 40, 0.08);
 }
 
@@ -2587,10 +2618,6 @@ body {
   font-size: 1.1rem;
   font-weight: 800;
   transition: transform 0.2s ease;
-}
-
-.home-schedule-card:hover .home-schedule-arrow {
-  transform: translateX(var(--hover-shift));
 }
 
 /* Tema warna */
@@ -3162,7 +3189,6 @@ body {
 
 .home-page .section-heading .text-link:hover {
   color: var(--primary-dark);
-  transform: translateX(var(--hover-shift));
 }
 
 
@@ -3180,7 +3206,6 @@ body {
 }
 
 .home-page .game-card:hover {
-  transform: translateY(var(--hover-lift));
   box-shadow: 0 18px 42px rgba(35, 26, 88, .12);
 }
 
@@ -3212,7 +3237,6 @@ body {
 }
 
 .home-page .leaderboard-button:hover {
-  transform: translateY(var(--hover-lift));
   box-shadow: 0 7px 20px rgba(16, 24, 40, 0.12);
 }
 
@@ -3240,8 +3264,6 @@ body {
 }
 
 .home-page .home-schedule-card:hover {
-  transform: translateY(var(--hover-lift));
-
   box-shadow:
     0 9px 24px rgba(16, 24, 40, 0.065);
 }
@@ -3300,11 +3322,6 @@ body {
 
   font-size: 1rem;
 }
-
-.home-page .home-schedule-card:hover .home-schedule-arrow {
-  transform: translateX(var(--hover-shift));
-}
-
 
 /* ---------------------------------------------------------
    7. MOBILE
@@ -3764,10 +3781,6 @@ body {
     font-size: 0.95rem;
 
     transition: transform 0.2s ease;
-  }
-
-  .mobile-nav a:hover span:last-child {
-    transform: translateX(var(--hover-shift));
   }
 
   .mobile-nav a.active {
