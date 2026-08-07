@@ -905,7 +905,7 @@ a.announcement-list-item:hover .announcement-list-arrow {
   justify-content: space-between;
   gap: 4px;
 
-  min-height: 30px;
+  min-height: 40px;
   padding: 5px 0;
 
   border-top: 1px solid var(--line);
