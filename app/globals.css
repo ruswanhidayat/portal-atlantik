@@ -1103,10 +1103,10 @@ a.announcement-list-item:hover .announcement-list-arrow {
     visibility: hidden;
     opacity: 0;
   
-    background: rgba(20, 24, 38, 0.28);
-  
-    backdrop-filter: blur(5px);
-    -webkit-backdrop-filter: blur(5px);
+    background: rgba(20, 24, 38, 0.22);
+
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
   
     cursor: pointer;
   
