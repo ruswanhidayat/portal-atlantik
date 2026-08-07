@@ -1,15 +1,109 @@
 :root {
-  --bg: #f7f8fc;
-  --surface: #ffffff;
-  --text: #101828;
-  --muted: #667085;
-  --line: #e4e7ec;
-  --primary: #5b35f2;
-  --primary-dark: #4321c9;
-  --accent: #f4b942;
-  --soft: #f0edff;
+  /* =======================================================
+     COLOR — BASE
+     ======================================================= */
+
+  --color-bg: #f7f8fc;
+  --color-surface: #ffffff;
+
+  --color-text: #101828;
+  --color-muted: #667085;
+  --color-line: #e4e7ec;
+
+  --color-primary: #5b35f2;
+  --color-primary-dark: #4321c9;
+
+  --color-accent: #f4b942;
+
+  --color-soft: #f0edff;
+
+
+  /* =======================================================
+     COLOR — CATEGORY
+     ======================================================= */
+
+  --color-sports: #2759c7;
+  --color-strategic: #6842d9;
+  --color-esports: #087f78;
+  --color-grand-champion: #5b35f2;
+  --color-fun: #b45f06;
+
+
+  /* =======================================================
+     RADIUS
+     ======================================================= */
+
+  --radius-sm: 12px;
+  --radius-md: 18px;
+  --radius-lg: 24px;
+  --radius-xl: 32px;
+  --radius-pill: 999px;
+
+
+  /* =======================================================
+     SHADOW
+     ======================================================= */
+
+  --shadow-sm:
+    0 5px 18px rgba(16, 24, 40, 0.04);
+
+  --shadow-md:
+    0 10px 30px rgba(16, 24, 40, 0.07);
+
+  --shadow-lg:
+    0 18px 50px rgba(16, 24, 40, 0.10);
+
+
+  /* =======================================================
+     SPACING
+     ======================================================= */
+
+  --space-xs: 4px;
+  --space-sm: 8px;
+  --space-md: 12px;
+  --space-lg: 18px;
+  --space-xl: 24px;
+  --space-2xl: 32px;
+
+  --section-space: 68px;
+  --section-space-mobile: 52px;
+
+
+  /* =======================================================
+     MOTION
+     ======================================================= */
+
+  --motion-fast: 0.16s;
+  --motion-normal: 0.2s;
+  --motion-slow: 0.28s;
+
+  --hover-lift: -2px;
+  --hover-shift: 3px;
+
+
+  /* =======================================================
+     LEGACY ALIASES
+     Temporary compatibility layer.
+     Hapus setelah semua selector selesai dimigrasikan.
+     ======================================================= */
+
+  --bg: var(--color-bg);
+  --surface: var(--color-surface);
+
+  --text: var(--color-text);
+  --muted: var(--color-muted);
+  --line: var(--color-line);
+
+  --primary: var(--color-primary);
+  --primary-dark: var(--color-primary-dark);
+
+  --accent: var(--color-accent);
+  --soft: var(--color-soft);
+
   --radius: 22px;
-  --shadow: 0 18px 50px rgba(16, 24, 40, 0.08);
+
+  --shadow:
+    0 18px 50px rgba(16, 24, 40, 0.08);
 }
 
 * { box-sizing: border-box; }
