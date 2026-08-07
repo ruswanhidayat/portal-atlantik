@@ -3425,6 +3425,19 @@ body {
     touch-action: none;
   }
 
+  body.mobile-menu-open .site-header,
+  body.mobile-menu-open main,
+  body.mobile-menu-open .footer {
+    filter: blur(7px);
+  
+    transition: filter 0.22s ease;
+  }
+
+  body.mobile-menu-open main {
+    transform: scale(1.008);
+    transform-origin: center top;
+  }
+
   .header-inner {
     min-height: 70px;
     padding: 10px 0;
@@ -3499,10 +3512,12 @@ body {
     visibility: hidden;
     opacity: 0;
 
-    background: rgba(20, 24, 38, 0.20);
+    background: rgba(20, 24, 38, 0.18);
 
-    backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
+    /* Blur dilakukan langsung ke halaman,
+       bukan melalui backdrop-filter */
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
 
     cursor: pointer;
 
