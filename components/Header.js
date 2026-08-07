@@ -15,7 +15,7 @@ const navItems = [
   { label: "Leaderboard", href: "/leaderboard" },
   {
     label: "Guide Book",
-    href: "/guidebook/guidebook-atlantik-2026.pdf",
+    href: "/guidebook/guidebook_atlantik_2026.pdf",
     external: true,
   },
 ];
