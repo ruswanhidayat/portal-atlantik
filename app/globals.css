@@ -2570,3 +2570,219 @@ html,
 body {
   overflow-x: hidden;
 }
+
+/* =========================================================
+   Jadwal terdekat di Home
+   ========================================================= */
+
+.home-schedule-section {
+  padding-top: 68px;
+}
+
+.home-schedule-heading {
+  margin-bottom: 20px;
+}
+
+.home-schedule-list {
+  display: grid;
+  gap: 12px;
+}
+
+.home-schedule-card {
+  --home-schedule-bg:
+    linear-gradient(145deg, #e8f1ff, #f3f7ff);
+  --home-schedule-line: #cbdcff;
+  --home-schedule-accent: #2759c7;
+
+  position: relative;
+  min-height: 94px;
+  display: grid;
+  grid-template-columns: 175px minmax(0, 1fr) 34px;
+  align-items: stretch;
+  overflow: hidden;
+  border: 1px solid var(--home-schedule-line);
+  border-radius: 18px;
+  background: white;
+  box-shadow: 0 7px 24px rgba(16, 24, 40, 0.04);
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.home-schedule-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 30px rgba(16, 24, 40, 0.08);
+}
+
+.home-schedule-time {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  padding: 16px 20px;
+  border-right: 1px solid var(--home-schedule-line);
+  background: var(--home-schedule-bg);
+}
+
+.home-schedule-time strong {
+  color: var(--home-schedule-accent);
+  font-family: var(--font-heading), Poppins, Arial, sans-serif;
+  font-size: 0.93rem;
+  line-height: 1.25;
+}
+
+.home-schedule-time span {
+  margin-top: 4px;
+  color: var(--muted);
+  font-size: 0.72rem;
+}
+
+.home-schedule-content {
+  min-width: 0;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  padding: 14px 20px;
+}
+
+.home-schedule-category {
+  margin-bottom: 2px;
+  color: var(--home-schedule-accent);
+  font-family: var(--font-heading), Poppins, Arial, sans-serif;
+  font-size: 0.62rem;
+  font-weight: 800;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.home-schedule-content h3 {
+  margin: 0 0 4px;
+  font-size: 1rem;
+  letter-spacing: -0.02em;
+}
+
+.home-schedule-location {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  color: var(--muted);
+  font-size: 0.74rem;
+}
+
+.home-schedule-location svg {
+  width: 14px;
+  height: 14px;
+  flex: 0 0 auto;
+}
+
+.home-schedule-arrow {
+  display: grid;
+  place-items: center;
+  padding-right: 14px;
+  color: var(--home-schedule-accent);
+  font-size: 1.1rem;
+  font-weight: 800;
+  transition: transform 0.2s ease;
+}
+
+.home-schedule-card:hover .home-schedule-arrow {
+  transform: translateX(4px);
+}
+
+/* Tema warna */
+
+.home-schedule-card-sports {
+  --home-schedule-bg:
+    linear-gradient(145deg, #e8f1ff, #f3f7ff);
+  --home-schedule-line: #cbdcff;
+  --home-schedule-accent: #2759c7;
+}
+
+.home-schedule-card-strategic {
+  --home-schedule-bg:
+    linear-gradient(145deg, #eee9ff, #f8f5ff);
+  --home-schedule-line: #d9ceff;
+  --home-schedule-accent: #6842d9;
+}
+
+.home-schedule-card-esports {
+  --home-schedule-bg:
+    linear-gradient(145deg, #e6f7f5, #f1fbfa);
+  --home-schedule-line: #c2e8e3;
+  --home-schedule-accent: #087f78;
+}
+
+.home-schedule-card-online {
+  --home-schedule-bg:
+    linear-gradient(145deg, #e9e5ff, #f5f2ff);
+  --home-schedule-line: #d4caff;
+  --home-schedule-accent: #5b35f2;
+}
+
+.home-schedule-card-grand-champion {
+  --home-schedule-bg:
+    linear-gradient(
+      145deg,
+      #eee7ff,
+      #f8f3ff 58%,
+      #fff4df
+    );
+  --home-schedule-line: #d8c8ff;
+  --home-schedule-accent: #5b35f2;
+}
+
+.home-schedule-card-fun {
+  --home-schedule-bg:
+    linear-gradient(145deg, #fff0dc, #fff8ec);
+  --home-schedule-line: #f4d8ad;
+  --home-schedule-accent: #b45f06;
+}
+
+@media (max-width: 760px) {
+  .home-schedule-section {
+    padding-top: 54px;
+  }
+
+  .home-schedule-card {
+    min-height: 0;
+    grid-template-columns: 1fr 28px;
+  }
+
+  .home-schedule-time {
+    grid-column: 1 / -1;
+    align-items: baseline;
+    justify-content: flex-start;
+    flex-direction: row;
+    gap: 7px;
+    padding: 10px 14px;
+    border-right: 0;
+    border-bottom: 1px solid var(--home-schedule-line);
+  }
+
+  .home-schedule-time strong {
+    font-size: 0.8rem;
+  }
+
+  .home-schedule-time span {
+    margin-top: 0;
+    font-size: 0.68rem;
+  }
+
+  .home-schedule-content {
+    padding: 13px 14px;
+  }
+
+  .home-schedule-content h3 {
+    font-size: 0.94rem;
+  }
+
+  .home-schedule-arrow {
+    padding-right: 9px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .home-schedule-card,
+  .home-schedule-arrow {
+    transition: none;
+  }
+}
