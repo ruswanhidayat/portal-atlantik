@@ -3110,32 +3110,89 @@ body {
 }
 
 /* =========================================================
-   HOME PAGE — UNIFIED SOFT GRADIENT BACKGROUND
+   HOME PAGE — SOFT GRADIENT + AMBIENT WAVES
    ========================================================= */
 
 .home-page {
   position: relative;
   isolation: isolate;
   min-height: 100%;
+  overflow: hidden;
 
   background:
     radial-gradient(
       ellipse 75% 42% at 100% 0%,
-      rgba(139, 92, 246, 0.22) 0%,
-      rgba(139, 92, 246, 0.09) 36%,
+      rgba(139, 92, 246, 0.20) 0%,
+      rgba(139, 92, 246, 0.09) 38%,
       rgba(139, 92, 246, 0) 72%
     ),
     radial-gradient(
       ellipse 72% 42% at 0% 100%,
-      rgba(245, 158, 11, 0.22) 0%,
-      rgba(245, 158, 11, 0.08) 38%,
+      rgba(245, 158, 11, 0.20) 0%,
+      rgba(245, 158, 11, 0.08) 40%,
       rgba(245, 158, 11, 0) 72%
     ),
     #f5f6fa;
 }
 
 
-/* Semua section homepage memakai background yang sama */
+/* =========================================================
+   PURPLE WAVE — TOP RIGHT
+   ========================================================= */
+
+.home-page::before {
+  content: "";
+  position: absolute;
+  z-index: -1;
+
+  width: 75vw;
+  height: 48vw;
+
+  top: -30vw;
+  right: -18vw;
+
+  border-radius: 42% 0 55% 48%;
+
+  background: rgba(139, 92, 246, 0.055);
+
+  box-shadow:
+    -35px 45px 80px rgba(139, 92, 246, 0.045),
+    -80px 90px 130px rgba(139, 92, 246, 0.025);
+
+  transform: rotate(10deg);
+}
+
+
+/* =========================================================
+   YELLOW WAVE — BOTTOM LEFT
+   ========================================================= */
+
+.home-page::after {
+  content: "";
+  position: absolute;
+  z-index: -1;
+
+  width: 78vw;
+  height: 50vw;
+
+  bottom: -32vw;
+  left: -20vw;
+
+  border-radius: 0 55% 45% 52%;
+
+  background: rgba(245, 158, 11, 0.055);
+
+  box-shadow:
+    40px -45px 90px rgba(245, 158, 11, 0.045),
+    90px -90px 140px rgba(245, 158, 11, 0.025);
+
+  transform: rotate(8deg);
+}
+
+
+/* =========================================================
+   HOMEPAGE SECTIONS
+   ========================================================= */
 
 .home-page > section,
 .home-page .hero,
