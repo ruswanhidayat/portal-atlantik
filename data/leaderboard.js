@@ -1,22 +1,22 @@
 export const divisions = [
-  { id: "subdit-1", name: "Subdit TAKESI" },
-  { id: "subdit-2", name: "Subdit PESPA" },
-  { id: "subdit-3", name: "Subdit PSPP" },
-  { id: "subdit-4", name: "Subdit PIKSI" },
-  { id: "subdit-5", name: "Subdit PEPSI" },
+  { id: "subdit-1", name: "TAKESI" },
+  { id: "subdit-2", name: "PESPA" },
+  { id: "subdit-3", name: "PSPP" },
+  { id: "subdit-4", name: "PIKSI" },
+  { id: "subdit-5", name: "PEPSI" },
 ];
 
 export const pointRules = {
   sports: {
-    label: "Sports (Lomba Kompetitif)",
+    label: "Sports",
     points: [15, 10, 7, 5, 3],
   },
   strategic: {
-    label: "Strategic Games & Esports (Lomba Strategi)",
+    label: "Strategic Games & Esports",
     points: [10, 7, 5, 3, 1],
   },
   fun: {
-    label: "Fun Games (Lomba Rekreasi)",
+    label: "Fun Games",
     points: [5, 3, 2, 1, 1],
   },
   grandChampion: {
