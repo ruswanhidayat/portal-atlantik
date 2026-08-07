@@ -102,6 +102,7 @@ export const competitions = [
     name: "Capsa Masters",
     scoringCategory: "strategic",
     theme: "strategic",
+  
     results: [
       "subdit-5",
       "subdit-3",
@@ -109,6 +110,33 @@ export const competitions = [
       "subdit-4",
       "subdit-1",
     ],
+  
+    scoreDetails: {
+      columns: ["R1", "R2", "R3", "R4"],
+  
+      rows: [
+        {
+          divisionId: "subdit-5",
+          scores: [67, 61, 55, 61],
+        },
+        {
+          divisionId: "subdit-3",
+          scores: [51, 55, 67, 58],
+        },
+        {
+          divisionId: "subdit-2",
+          scores: [48, 52, 46, 51],
+        },
+        {
+          divisionId: "subdit-4",
+          scores: [52, 48, 39, 33],
+        },
+        {
+          divisionId: "subdit-1",
+          scores: [32, 34, 43, 47],
+        },
+      ],
+    },
   },
   {
     id: "domino-gaple-masters",
