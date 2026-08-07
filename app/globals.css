@@ -3110,39 +3110,32 @@ body {
 }
 
 /* =========================================================
-   HOME PAGE — UNIFIED BACKGROUND
+   HOME PAGE — UNIFIED SOFT GRADIENT BACKGROUND
    ========================================================= */
 
 .home-page {
   position: relative;
   isolation: isolate;
+  min-height: 100%;
 
   background:
     radial-gradient(
-      ellipse 70% 32% at 8% 10%,
-      rgba(59, 130, 246, 0.09) 0%,
-      rgba(59, 130, 246, 0) 72%
+      ellipse 75% 42% at 100% 0%,
+      rgba(139, 92, 246, 0.22) 0%,
+      rgba(139, 92, 246, 0.09) 36%,
+      rgba(139, 92, 246, 0) 72%
     ),
     radial-gradient(
-      ellipse 65% 30% at 92% 34%,
-      rgba(168, 85, 247, 0.07) 0%,
-      rgba(168, 85, 247, 0) 72%
-    ),
-    radial-gradient(
-      ellipse 60% 28% at 10% 68%,
-      rgba(236, 72, 153, 0.045) 0%,
-      rgba(236, 72, 153, 0) 72%
-    ),
-    radial-gradient(
-      ellipse 55% 25% at 92% 92%,
-      rgba(245, 158, 11, 0.045) 0%,
+      ellipse 72% 42% at 0% 100%,
+      rgba(245, 158, 11, 0.22) 0%,
+      rgba(245, 158, 11, 0.08) 38%,
       rgba(245, 158, 11, 0) 72%
     ),
     #f5f6fa;
 }
 
 
-/* Semua section homepage mengikuti background utama */
+/* Semua section homepage memakai background yang sama */
 
 .home-page > section,
 .home-page .hero,
