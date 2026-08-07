@@ -741,45 +741,6 @@ export const competitionSchedules = [
     },
   },
   {
-    id: "rapid-rush",
-    name: "Rapid Rush",
-    category: "Online Quiz",
-    theme: "online",
-    activeDates: ["2026-08-03", "2026-08-04", "2026-08-05"],
-    sessions: {
-      "2026-08-03": [
-        {
-          id: "rapid-rush-03-1",
-          startTime: "08:00",
-          endTime: "16:00",
-          title: "Rapid Rush — Hari 1",
-          stage: "Babak Seleksi",
-          location: "Online",
-        },
-      ],
-      "2026-08-04": [
-        {
-          id: "rapid-rush-04-1",
-          startTime: "08:00",
-          endTime: "16:00",
-          title: "Rapid Rush — Hari 2",
-          stage: "Babak Seleksi",
-          location: "Online",
-        },
-      ],
-      "2026-08-05": [
-        {
-          id: "rapid-rush-05-1",
-          startTime: "08:00",
-          endTime: "16:00",
-          title: "Rapid Rush — Hari 3",
-          stage: "Babak Seleksi",
-          location: "Online",
-        },
-      ],
-    },
-  },
-  {
     id: "mission-grand-champion",
     name: "Mission: Grand Champion",
     category: "Strategic Games",
