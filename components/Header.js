@@ -8,11 +8,16 @@ import { useEffect, useState } from "react";
 import { siteConfig } from "@/data/site-config";
 
 const navItems = [
-  ["Beranda", "/"],
-  ["Jadwal", "/jadwal"],
-  ["Pengumuman", "/pengumuman"],
-  ["Permainan", "/permainan"],
-  ["Leaderboard", "/leaderboard"],
+  { label: "Beranda", href: "/" },
+  { label: "Jadwal", href: "/jadwal" },
+  { label: "Pengumuman", href: "/pengumuman" },
+  { label: "Permainan", href: "/permainan" },
+  { label: "Leaderboard", href: "/leaderboard" },
+  {
+    label: "Guide Book",
+    href: "/guidebook/guidebook-atlantik-2026.pdf",
+    external: true,
+  },
 ];
 
 export default function Header() {
@@ -55,13 +60,19 @@ export default function Header() {
         </Link>
 
         <nav className="nav desktop-nav" aria-label="Navigasi utama">
-          {navItems.map(([label, href]) => (
+          {navItems.map((item) => (
             <Link
-              key={href}
-              href={href}
-              className={pathname === href ? "active" : undefined}
+              key={item.href}
+              href={item.href}
+              className={
+                !item.external && pathname === item.href
+                  ? "active"
+                  : undefined
+              }
+              target={item.external ? "_blank" : undefined}
+              rel={item.external ? "noopener noreferrer" : undefined}
             >
-              {label}
+              {item.label}
             </Link>
           ))}
         </nav>
@@ -107,15 +118,23 @@ export default function Header() {
         </div>
 
         <nav className="mobile-nav" aria-label="Navigasi mobile">
-          {navItems.map(([label, href]) => (
+          {navItems.map((item) => (
             <Link
-              key={href}
-              href={href}
-              className={pathname === href ? "active" : undefined}
+              key={item.href}
+              href={item.href}
+              className={
+                !item.external && pathname === item.href
+                  ? "active"
+                  : undefined
+              }
+              target={item.external ? "_blank" : undefined}
+              rel={item.external ? "noopener noreferrer" : undefined}
               tabIndex={isMenuOpen ? 0 : -1}
             >
-              <span>{label}</span>
-              <span aria-hidden="true">→</span>
+              <span>{item.label}</span>
+              <span aria-hidden="true">
+                {item.external ? "↗" : "→"}
+              </span>
             </Link>
           ))}
         </nav>
