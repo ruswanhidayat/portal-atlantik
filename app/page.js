@@ -78,18 +78,70 @@ export default function HomePage() {
         </div>
       </section>
 
-      <section className="section">
+      <section className="section home-schedule-section">
         <div className="container">
-          <div className="section-heading">
-            <div><span className="eyebrow">Agenda</span><h2>Jadwal terdekat</h2></div>
-            <Link className="text-link" href="/jadwal">Jadwal lengkap →</Link>
+          <div className="section-heading home-schedule-heading">
+            <div>
+              <span className="eyebrow">Agenda</span>
+              <h2>Jadwal terdekat</h2>
+            </div>
+      
+            <Link className="text-link" href="/jadwal">
+              Jadwal lengkap →
+            </Link>
           </div>
-          <div className="timeline">
-            {schedule.slice(0, 3).map((item) => (
-              <article className="timeline-item" key={item.title}>
-                <div><strong>{item.date}</strong><span>{item.time}</span></div>
-                <div><h3>{item.title}</h3><p>{item.description}</p></div>
-              </article>
+      
+          <div className="home-schedule-list">
+            {schedule.slice(0, 3).map((item, index) => (
+              <Link
+                className={`home-schedule-card home-schedule-card-${
+                  item.theme || "sports"
+                }`}
+                href="/jadwal"
+                key={`${item.title}-${item.date}`}
+              >
+                <div className="home-schedule-time">
+                  <strong>{item.time}</strong>
+                  <span>{item.date}</span>
+                </div>
+      
+                <div className="home-schedule-content">
+                  <span className="home-schedule-category">
+                    {item.category || "Jadwal pertandingan"}
+                  </span>
+      
+                  <h3>{item.title}</h3>
+      
+                  {item.location && (
+                    <span className="home-schedule-location">
+                      <svg viewBox="0 0 24 24" aria-hidden="true">
+                        <path
+                          d="M12 21s6-5.1 6-11a6 6 0 1 0-12 0c0 5.9 6 11 6 11Z"
+                          fill="none"
+                          stroke="currentColor"
+                          strokeWidth="1.8"
+                          strokeLinejoin="round"
+                        />
+      
+                        <circle
+                          cx="12"
+                          cy="10"
+                          r="2.2"
+                          fill="none"
+                          stroke="currentColor"
+                          strokeWidth="1.8"
+                        />
+                      </svg>
+      
+                      {item.location}
+                    </span>
+                  )}
+                </div>
+      
+                <span className="home-schedule-arrow" aria-hidden="true">
+                  →
+                </span>
+              </Link>
             ))}
           </div>
         </div>
