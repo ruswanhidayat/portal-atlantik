@@ -3483,3 +3483,119 @@ body {
     transition: none;
   }
 }
+
+/* =========================================================
+   FOOTER — SOFT ATLANTIK STYLE
+   ========================================================= */
+
+.footer {
+  position: relative;
+  overflow: hidden;
+
+  border-top: 1px solid rgba(139, 92, 246, 0.10);
+
+  background:
+    radial-gradient(
+      ellipse 55% 140% at 90% 0%,
+      rgba(139, 92, 246, 0.08) 0%,
+      rgba(139, 92, 246, 0) 70%
+    ),
+    radial-gradient(
+      ellipse 45% 120% at 5% 100%,
+      rgba(245, 158, 11, 0.055) 0%,
+      rgba(245, 158, 11, 0) 72%
+    ),
+    #f5f6fa;
+}
+
+
+/* subtle decorative glow */
+
+.footer::before {
+  content: "";
+  position: absolute;
+
+  width: 340px;
+  height: 180px;
+
+  top: -120px;
+  right: -80px;
+
+  border-radius: 50%;
+
+  background: rgba(139, 92, 246, 0.055);
+
+  filter: blur(2px);
+
+  pointer-events: none;
+}
+
+
+.footer-inner {
+  position: relative;
+  z-index: 1;
+
+  min-height: 78px;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  gap: 24px;
+
+  padding-top: 18px;
+  padding-bottom: 18px;
+
+  font-size: 0.78rem;
+  color: var(--muted);
+}
+
+
+/* Copyright */
+
+.footer-inner span:first-child {
+  font-weight: 600;
+
+  color: rgba(71, 76, 98, 0.78);
+}
+
+
+/* Theme */
+
+.footer-inner span:last-child {
+  font-family: var(--font-heading);
+  font-weight: 800;
+
+  letter-spacing: -0.01em;
+
+  color: rgba(76, 63, 135, 0.88);
+}
+
+
+/* =========================================================
+   FOOTER — MOBILE
+   ========================================================= */
+
+@media (max-width: 760px) {
+
+  .footer-inner {
+    min-height: 72px;
+
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+
+    gap: 4px;
+
+    padding-top: 16px;
+    padding-bottom: 16px;
+  }
+
+  .footer-inner span:first-child {
+    font-size: 0.72rem;
+  }
+
+  .footer-inner span:last-child {
+    font-size: 0.76rem;
+  }
+}
