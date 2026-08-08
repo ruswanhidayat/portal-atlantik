@@ -3255,6 +3255,375 @@ body {
   color: #344054;
 }
 
+/* =========================================================
+   COMPETITION LEADERBOARD — SHARED TABLE STANDARD
+   Base visual untuk seluruh leaderboard per cabang.
+   ========================================================= */
+
+/* ---------------------------------------------------------
+   Table container
+   --------------------------------------------------------- */
+
+.competition-table-standard-wrap {
+  width: 100%;
+  overflow: hidden;
+
+  border-top: 1px solid var(--line);
+}
+
+.competition-table-standard-scroll {
+  width: 100%;
+  overflow-x: auto;
+  overflow-y: hidden;
+
+  -webkit-overflow-scrolling: touch;
+}
+
+
+/* ---------------------------------------------------------
+   Base table
+   --------------------------------------------------------- */
+
+.competition-table-standard {
+  width: 100%;
+
+  border-collapse: collapse;
+  border-spacing: 0;
+
+  color: #172033;
+
+  font-variant-numeric: tabular-nums;
+}
+
+
+/* ---------------------------------------------------------
+   Header
+   --------------------------------------------------------- */
+
+.competition-table-standard thead th {
+  padding: 12px 14px;
+
+  color: #ffffff;
+  background: #102f67;
+
+  border-bottom: 1px solid rgba(15, 43, 92, 0.14);
+
+  font-size: 0.72rem;
+  font-weight: 800;
+  line-height: 1.25;
+
+  letter-spacing: 0.045em;
+  text-transform: uppercase;
+
+  text-align: center;
+  vertical-align: middle;
+
+  white-space: nowrap;
+}
+
+
+/* ---------------------------------------------------------
+   Body
+   --------------------------------------------------------- */
+
+.competition-table-standard tbody td {
+  padding: 12px 14px;
+
+  border-bottom: 1px solid var(--line);
+
+  color: #172033;
+
+  font-size: 0.86rem;
+  line-height: 1.35;
+
+  text-align: center;
+  vertical-align: middle;
+}
+
+
+/* Zebra rows */
+
+.competition-table-standard tbody tr:nth-child(odd) {
+  background: #ffffff;
+}
+
+.competition-table-standard tbody tr:nth-child(even) {
+  background: #f5f7fb;
+}
+
+
+/* Hilangkan border pada row terakhir */
+
+.competition-table-standard tbody tr:last-child td {
+  border-bottom: 0;
+}
+
+
+/* ---------------------------------------------------------
+   Rank
+   --------------------------------------------------------- */
+
+.competition-rank-column {
+  width: 92px;
+
+  text-align: center;
+}
+
+.competition-rank {
+  color: #172554;
+
+  font-size: 0.86rem;
+  font-weight: 700;
+}
+
+
+/* ---------------------------------------------------------
+   Name / Subdit / Squad
+   --------------------------------------------------------- */
+
+.competition-name-column {
+  min-width: 150px;
+}
+
+.competition-name-cell {
+  text-align: center;
+}
+
+.competition-name {
+  color: #12213d;
+
+  font-size: 0.88rem;
+  font-weight: 800;
+}
+
+
+/* Nama + badge */
+
+.competition-name-with-status {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+
+  gap: 7px;
+}
+
+
+/* ---------------------------------------------------------
+   Competition status badge
+   Dipakai hanya untuk status bermakna:
+   FINALIS / BABAK GUGUR / dll.
+   --------------------------------------------------------- */
+
+.competition-status-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  min-height: 20px;
+
+  padding: 3px 8px;
+
+  border: 1px solid currentColor;
+  border-radius: var(--radius-pill);
+
+  font-size: 0.56rem;
+  font-weight: 800;
+  line-height: 1;
+
+  letter-spacing: 0.035em;
+  text-transform: uppercase;
+
+  white-space: nowrap;
+}
+
+
+/* Default warm accent */
+
+.competition-status-badge.accent {
+  color: #b85f00;
+  background: #fff5dc;
+  border-color: #edc477;
+}
+
+
+/* Alternate accent jika nanti dibutuhkan */
+
+.competition-status-badge.secondary {
+  color: #6a42c2;
+  background: #f3efff;
+  border-color: #cfc1f7;
+}
+
+
+/* ---------------------------------------------------------
+   Numeric value badge
+   Dipakai untuk selisih, net games, dll.
+   --------------------------------------------------------- */
+
+.competition-value-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  min-width: 38px;
+
+  padding: 3px 8px;
+
+  border: 1px solid;
+  border-radius: 8px;
+
+  font-size: 0.68rem;
+  font-weight: 800;
+  line-height: 1.1;
+
+  white-space: nowrap;
+}
+
+.competition-value-badge.positive {
+  color: #087443;
+  background: #eafaf4;
+  border-color: #a6e6cf;
+}
+
+.competition-value-badge.neutral {
+  color: #667085;
+  background: #f6f8fb;
+  border-color: #d9e0ea;
+}
+
+.competition-value-badge.negative {
+  color: #c92f49;
+  background: #fff0f3;
+  border-color: #ffc3cd;
+}
+
+
+/* ---------------------------------------------------------
+   Strong / highlighted numeric cells
+   Tetap navy, bukan warna-warni.
+   --------------------------------------------------------- */
+
+.competition-table-standard .competition-value-strong {
+  color: #172554;
+
+  font-weight: 800;
+}
+
+
+/* ---------------------------------------------------------
+   Table note
+   Satu-satunya bagian yang rata kiri.
+   --------------------------------------------------------- */
+
+.competition-table-note {
+  margin: 0;
+
+  padding: 10px 14px;
+
+  border-top: 1px solid var(--line);
+
+  color: var(--muted);
+  background: #fafbfc;
+
+  font-size: 0.72rem;
+  line-height: 1.45;
+
+  text-align: left;
+}
+
+.competition-table-note strong {
+  color: #344054;
+  font-weight: 800;
+}
+
+
+/* Bisa dipakai untuk note dengan beberapa item:
+   P: Play · W: Win · dst.
+*/
+
+.competition-table-note.inline-note {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+
+  gap: 6px;
+}
+
+
+/* ---------------------------------------------------------
+   Desktop
+   --------------------------------------------------------- */
+
+@media (min-width: 761px) {
+
+  .competition-table-standard-scroll {
+    overflow-x: visible;
+  }
+
+}
+
+
+/* ---------------------------------------------------------
+   Mobile
+   Visual tetap sama.
+   Hanya ukuran dan overflow yang menyesuaikan.
+   --------------------------------------------------------- */
+
+@media (max-width: 760px) {
+
+  .competition-table-standard {
+    min-width: 620px;
+  }
+
+  .competition-table-standard thead th {
+    padding: 11px 10px;
+
+    font-size: 0.64rem;
+  }
+
+  .competition-table-standard tbody td {
+    padding: 11px 10px;
+
+    font-size: 0.8rem;
+  }
+
+  .competition-rank-column {
+    width: 78px;
+  }
+
+  .competition-name-column {
+    min-width: 135px;
+  }
+
+  .competition-name {
+    font-size: 0.82rem;
+  }
+
+  .competition-status-badge {
+    min-height: 19px;
+
+    padding: 3px 7px;
+
+    font-size: 0.52rem;
+  }
+
+  .competition-value-badge {
+    min-width: 34px;
+
+    padding: 3px 7px;
+
+    font-size: 0.63rem;
+  }
+
+  .competition-table-note {
+    padding: 9px 12px;
+
+    font-size: 0.68rem;
+  }
+
+}
+
 @media (max-width: 760px) {
   .chess-standings-table {
     min-width: 540px;
