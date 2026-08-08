@@ -144,6 +144,115 @@ function ChessStandingsTable({ competition }) {
   );
 }
 
+function MlbbStandingsTable({ competition }) {
+  const rows = competition.standings.rows
+    .map((row) => ({
+      ...row,
+      division: divisions.find(
+        (division) => division.id === row.divisionId
+      ),
+      netGames: row.gameWin - row.gameLose,
+    }))
+    .filter((row) => row.division)
+    .sort((a, b) => {
+      if (b.matchPoint !== a.matchPoint) {
+        return b.matchPoint - a.matchPoint;
+      }
+
+      if (b.matchWin !== a.matchWin) {
+        return b.matchWin - a.matchWin;
+      }
+
+      if (b.netGames !== a.netGames) {
+        return b.netGames - a.netGames;
+      }
+
+      return b.gameWin - a.gameWin;
+    });
+
+  return (
+    <div className="competition-table-wrap">
+      <div className="table-scroll">
+        <table className="leaderboard-table mlbb-standings-table">
+          <thead>
+            <tr>
+              <th className="mlbb-rank-column">Rank</th>
+              <th className="mlbb-squad-column">Squad Name</th>
+              <th>Match Point</th>
+              <th>Match W-L</th>
+              <th>Net Games</th>
+              <th>Game W-L</th>
+            </tr>
+          </thead>
+
+          <tbody>
+            {rows.map((row, index) => (
+              <tr
+                key={row.divisionId}
+                className={row.finalist ? "mlbb-finalist-row" : ""}
+              >
+                <td className="mlbb-rank-column">
+                  <span
+                    className={`mlbb-rank-badge ${
+                      index < 2 ? "mlbb-rank-finalist" : ""
+                    }`}
+                  >
+                    {index + 1}
+                  </span>
+                </td>
+
+                <td className="mlbb-squad-column">
+                  <div className="mlbb-squad">
+                    <strong>{row.squadName}</strong>
+
+                    {row.finalist && (
+                      <span className="mlbb-finalist-badge">
+                        <span aria-hidden="true">★</span>
+                        Finalist
+                      </span>
+                    )}
+                  </div>
+                </td>
+
+                <td className="mlbb-match-point">
+                  <strong>{row.matchPoint}</strong>
+                </td>
+
+                <td>
+                  <strong>{row.matchWin}W</strong>
+                  <span className="mlbb-score-separator"> - </span>
+                  <span>{row.matchLose}L</span>
+                </td>
+
+                <td>
+                  <span
+                    className={`mlbb-net-games ${
+                      row.netGames > 0
+                        ? "positive"
+                        : row.netGames < 0
+                        ? "negative"
+                        : "neutral"
+                    }`}
+                  >
+                    {row.netGames > 0 ? "+" : ""}
+                    {row.netGames}
+                  </span>
+                </td>
+
+                <td>
+                  <strong>{row.gameWin}</strong>
+                  <span className="mlbb-score-separator"> - </span>
+                  <span>{row.gameLose}</span>
+                </td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+    </div>
+  );
+}
+
 function CompetitionScoreTable({ competition }) {
   const scoreDetails = competition.scoreDetails;
 
@@ -384,6 +493,8 @@ export default function LeaderboardPage() {
 
                   {competition.standings?.type === "chess" ? (
                     <ChessStandingsTable competition={competition} />
+                  ) : competition.standings?.type === "mlbb" ? (
+                    <MlbbStandingsTable competition={competition} />
                   ) : competition.scoreDetails ? (
                     <CompetitionScoreTable competition={competition} />
                   ) : rows.length > 0 ? (

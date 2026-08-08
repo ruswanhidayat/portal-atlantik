@@ -522,6 +522,206 @@ h1, h2, h3, .brand, .nav, .button, .eyebrow, .game-category, .status {
   color: var(--muted);
   font-size: .75rem;
 }
+
+/* =========================================================
+   MLBB Standings
+   ========================================================= */
+
+.mlbb-standings-table {
+  table-layout: fixed;
+}
+
+.mlbb-standings-table th {
+  padding: 13px 18px;
+  color: #52627f;
+  background: #ffffff;
+  border-bottom: 1px solid var(--line);
+  font-size: 0.68rem;
+  font-weight: 800;
+  letter-spacing: 0.06em;
+}
+
+.mlbb-standings-table td {
+  padding: 16px 18px;
+  vertical-align: middle;
+}
+
+.mlbb-standings-table tbody tr {
+  background: #ffffff;
+}
+
+.mlbb-standings-table tbody tr:nth-child(even) {
+  background: #ffffff;
+}
+
+.mlbb-standings-table tbody tr:hover {
+  background: #fbfcfe;
+}
+
+.mlbb-standings-table th:nth-child(n + 3),
+.mlbb-standings-table td:nth-child(n + 3) {
+  text-align: center;
+}
+
+.mlbb-rank-column {
+  width: 76px;
+}
+
+.mlbb-squad-column {
+  width: 48%;
+}
+
+.mlbb-rank-badge {
+  width: 30px;
+  height: 30px;
+
+  display: inline-grid;
+  place-items: center;
+
+  border-radius: 50%;
+
+  color: #445472;
+  background: #f0f4f9;
+
+  font-size: 0.76rem;
+  font-weight: 800;
+}
+
+.mlbb-rank-badge.mlbb-rank-finalist {
+  color: white;
+  background: #ff9700;
+}
+
+.mlbb-squad {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.mlbb-squad > strong {
+  color: #12213d;
+  font-size: 0.92rem;
+  font-weight: 800;
+  letter-spacing: 0.01em;
+}
+
+.mlbb-finalist-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+
+  padding: 3px 8px;
+
+  border: 1px solid #ffd27a;
+  border-radius: var(--radius-pill);
+
+  color: #c55c00;
+  background: #fff7dd;
+
+  font-size: 0.58rem;
+  font-weight: 800;
+  line-height: 1;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+.mlbb-finalist-badge span {
+  font-size: 0.65rem;
+}
+
+.mlbb-match-point strong {
+  color: #101828;
+  font-size: 0.98rem;
+}
+
+.mlbb-score-separator {
+  color: #7c8aa5;
+}
+
+.mlbb-net-games {
+  min-width: 36px;
+
+  display: inline-flex;
+  justify-content: center;
+
+  padding: 3px 8px;
+
+  border: 1px solid;
+  border-radius: 8px;
+
+  font-size: 0.7rem;
+  font-weight: 800;
+  line-height: 1.2;
+}
+
+.mlbb-net-games.positive {
+  color: #087443;
+  border-color: #a5e7ce;
+  background: #e9fbf4;
+}
+
+.mlbb-net-games.neutral {
+  color: #64748b;
+  border-color: #d9e0e9;
+  background: #f7f9fc;
+}
+
+.mlbb-net-games.negative {
+  color: #d31345;
+  border-color: #ffc2ce;
+  background: #fff0f3;
+}
+
+/* Garis penanda dua squad yang lolos ke final */
+.mlbb-finalist-row td:first-child {
+  border-left: 3px solid #ff9700;
+}
+
+
+/* Mobile */
+@media (max-width: 760px) {
+  .mlbb-standings-table {
+    min-width: 720px;
+  }
+
+  .mlbb-standings-table th {
+    padding: 11px 13px;
+    font-size: 0.62rem;
+  }
+
+  .mlbb-standings-table td {
+    padding: 13px;
+    font-size: 0.8rem;
+  }
+
+  .mlbb-rank-column {
+    width: 62px;
+  }
+
+  .mlbb-squad-column {
+    width: 220px;
+  }
+
+  .mlbb-squad {
+    gap: 7px;
+  }
+
+  .mlbb-squad > strong {
+    font-size: 0.82rem;
+  }
+
+  .mlbb-finalist-badge {
+    padding: 3px 6px;
+    font-size: 0.52rem;
+  }
+
+  .mlbb-rank-badge {
+    width: 27px;
+    height: 27px;
+    font-size: 0.7rem;
+  }
+}
+
 /* Tahap 5: Pengumuman */
 
 .announcement-home-section {
