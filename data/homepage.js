@@ -1,12 +1,10 @@
 export const homepageData = {
   hero: {
-    eyebrow: "Atlantik 2026",
+    pill: "ATLANTIK 2026",
     title: [
       "Feel the vibe.",
       "Be part of the game.",
     ],
-    description:
-      "Ikuti rangkaian Atlantik 2026, pantau informasi terbaru, jadwal, dan hasil pertandingan dalam satu portal.",
     primaryAction: {
       label: "Lihat permainan",
       href: "/permainan",
@@ -19,13 +17,8 @@ export const homepageData = {
 
   theme: {
     eyebrow: "Tema Atlantik 2026",
-    title: [
-      "Bersama,",
-      "Bergerak,",
-      "Berdampak",
-    ],
     description:
-      "Atlantik 2026 mengusung semangat kebersamaan untuk bergerak bersama dan menciptakan dampak positif.",
+      "Bergerak bersama dalam semangat kolaborasi untuk menciptakan dampak yang lebih berarti.",
   },
 
   announcements: {
@@ -39,7 +32,7 @@ export const homepageData = {
 
   games: {
     eyebrow: "Rangkaian acara",
-    title: "Daftar Permainan",
+    title: "Daftar permainan",
     action: {
       label: "Lihat semua",
       href: "/permainan",
@@ -47,10 +40,10 @@ export const homepageData = {
   },
 
   leaderboard: {
-    eyebrow: "Klasemen Atlantik",
-    title: "Pantau Persaingan Antarbagian",
+    eyebrow: "Klasemen Atlantik 2026",
+    title: "Pantau persaingan menuju Juara Umum",
     description:
-      "Ikuti perkembangan perolehan poin dan posisi klasemen Atlantik 2026.",
+      "Ikuti perolehan poin lima Subdit dari seluruh cabang Sports, Strategic Games, Esports, Fun Games, dan Mission: Grand Champion.",
     action: {
       label: "Buka leaderboard",
       href: "/leaderboard",
@@ -58,8 +51,9 @@ export const homepageData = {
   },
 
   schedule: {
-    eyebrow: "Agenda terdekat",
-    title: "Jadwal Terdekat",
+    eyebrow: "Agenda",
+    title: "Jadwal terdekat",
+    categoryFallback: "Jadwal pertandingan",
     action: {
       label: "Jadwal lengkap",
       href: "/jadwal",
