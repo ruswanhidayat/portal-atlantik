@@ -352,73 +352,76 @@ function TableTennisStandingsTable({ competition }) {
 }
 
 function CompetitionScoreTable({ competition }) {
-  const scoreDetails = competition.scoreDetails;
-
-  const rows = scoreDetails.rows
-    .map((item) => {
-      const division = divisions.find(
-        (divisionItem) => divisionItem.id === item.divisionId
-      );
-
-      const totalScore = item.scores.reduce(
-        (total, score) => total + score,
-        0
-      );
-
-      return {
-        ...item,
-        division,
-        totalScore,
-      };
-    })
-    .filter((item) => item.division)
-    .sort((a, b) => b.totalScore - a.totalScore);
+  const rows = competition.scoreDetails
+    .map((row) => ({
+      ...row,
+      division: divisions.find(
+        (division) => division.id === row.divisionId
+      ),
+    }))
+    .filter((row) => row.division);
 
   return (
-    <div className="table-scroll competition-table-wrap">
-      <table className="leaderboard-table competition-score-table">
-        <thead>
-          <tr>
-            <th className="score-position-column">Pos</th>
-            <th className="score-division-column">Subdit</th>
-            <th className="score-total-column">
-              <span>Total Poin</span>
-              <span>Klasemen</span>
-            </th>
-
-            {scoreDetails.columns.map((column) => (
-              <th className="score-round-column" key={column}>
-                {column}
+    <div className="competition-table-standard-wrap">
+      <div className="competition-table-standard-scroll">
+        <table className="competition-table-standard capsa-score-table">
+          <thead>
+            <tr>
+              <th className="competition-rank-column">
+                Peringkat
               </th>
-            ))}
-          </tr>
-        </thead>
 
-        <tbody>
-          {rows.map((row, index) => (
-            <tr key={row.divisionId}>
-              <td className="score-position-column">{index + 1}</td>
+              <th className="competition-name-column">
+                Subdit
+              </th>
 
-              <td className="score-division-column">
-                <strong>{row.division.name}</strong>
-              </td>
+              <th>
+                Ronde 1
+              </th>
 
-              <td className="score-total-column">
-                <strong>{row.totalScore}</strong>
-              </td>
+              <th>
+                Ronde 2
+              </th>
 
-              {row.scores.map((score, scoreIndex) => (
-                <td
-                  className="score-round-column"
-                  key={`${row.divisionId}-${scoreIndex}`}
-                >
-                  {score}
-                </td>
-              ))}
+              <th>
+                Ronde 3
+              </th>
+
+              <th>
+                Total
+              </th>
             </tr>
-          ))}
-        </tbody>
-      </table>
+          </thead>
+
+          <tbody>
+            {rows.map((row, index) => (
+              <tr key={row.divisionId}>
+                <td className="competition-rank-column">
+                  <span className="competition-rank">
+                    {index + 1}
+                  </span>
+                </td>
+
+                <td className="competition-name-cell">
+                  <strong className="competition-name">
+                    {row.division.name}
+                  </strong>
+                </td>
+
+                <td>{row.round1}</td>
+                <td>{row.round2}</td>
+                <td>{row.round3}</td>
+
+                <td>
+                  <strong className="competition-value-strong">
+                    {row.total}
+                  </strong>
+                </td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
     </div>
   );
 }

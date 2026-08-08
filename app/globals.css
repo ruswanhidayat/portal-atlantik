@@ -3657,6 +3657,48 @@ body {
   line-height: 1.2;
 }
 
+/* =========================================================
+   CAPSA
+   ========================================================= */
+
+.capsa-score-table {
+  table-layout: fixed;
+}
+
+.capsa-score-table .competition-rank-column {
+  width: 14%;
+}
+
+.capsa-score-table .competition-name-column {
+  width: 26%;
+}
+
+.capsa-score-table th:nth-child(n + 3),
+.capsa-score-table td:nth-child(n + 3) {
+  width: 15%;
+}
+
+
+/* Mobile */
+
+@media (max-width: 760px) {
+  .capsa-score-table {
+    min-width: 620px;
+  }
+
+  .capsa-score-table .competition-rank-column {
+    width: 90px;
+  }
+
+  .capsa-score-table .competition-name-column {
+    width: 150px;
+  }
+
+  .capsa-score-table th:nth-child(n + 3),
+  .capsa-score-table td:nth-child(n + 3) {
+    width: 95px;
+  }
+}
 
 /* Mobile */
 
