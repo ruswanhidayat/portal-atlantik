@@ -3962,16 +3962,24 @@ body {
 
 /* Mobile */
 @media (max-width: 760px) {
-  .overall-table th,
-  .overall-table td,
+  .overall-table thead th {
+    text-align: center !important;
+    vertical-align: middle;
+  }
+  
+  .overall-table tbody td {
+    text-align: center;
+    vertical-align: middle;
+  }
+  
   .overall-table .division-column {
     text-align: center;
   }
-
+  
   .desktop-column-label {
     display: none;
   }
-
+  
   .mobile-column-label {
     display: inline-flex;
     align-items: center;
