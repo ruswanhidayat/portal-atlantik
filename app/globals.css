@@ -1144,6 +1144,13 @@ a.announcement-list-item:hover {
 }
 
 /* Label tabel khusus desktop/mobile */
+.desktop-column-label {
+  display: inline;
+}
+
+.mobile-column-label {
+  display: none;
+}
 
 .trophy-icon {
   width: 20px;
@@ -3929,5 +3936,45 @@ body {
 
   .mobile-nav a.active span:first-child {
     margin-right: auto;
+  }
+}
+
+/* =========================================================
+   LEADERBOARD EVENT — FINAL ALIGNMENT & RESPONSIVE LABEL
+   ========================================================= */
+
+/* Semua kolom rata tengah */
+.overall-table th,
+.overall-table td,
+.overall-table .division-column {
+  text-align: center;
+  vertical-align: middle;
+}
+
+/* Desktop: tampilkan label lengkap */
+.desktop-column-label {
+  display: inline;
+}
+
+.mobile-column-label {
+  display: none;
+}
+
+/* Mobile */
+@media (max-width: 760px) {
+  .overall-table th,
+  .overall-table td,
+  .overall-table .division-column {
+    text-align: center;
+  }
+
+  .desktop-column-label {
+    display: none;
+  }
+
+  .mobile-column-label {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
   }
 }
