@@ -3745,6 +3745,61 @@ body {
 }
 
 /* =========================================================
+   CHESS
+   ========================================================= */
+
+.chess-standard-table {
+  table-layout: fixed;
+}
+
+.chess-standard-table .competition-rank-column {
+  width: 14%;
+}
+
+.chess-standard-table .competition-name-column {
+  width: 26%;
+}
+
+.chess-standard-table th:nth-child(3),
+.chess-standard-table th:nth-child(4),
+.chess-standard-table th:nth-child(5),
+.chess-standard-table th:nth-child(6) {
+  width: 10%;
+}
+
+.chess-standard-table .chess-total-column {
+  width: 20%;
+}
+
+
+/* Mobile */
+
+@media (max-width: 760px) {
+  .chess-standard-table {
+    min-width: 600px;
+  }
+
+  .chess-standard-table .competition-rank-column {
+    width: 90px;
+  }
+
+  .chess-standard-table .competition-name-column {
+    width: 150px;
+  }
+
+  .chess-standard-table th:nth-child(3),
+  .chess-standard-table th:nth-child(4),
+  .chess-standard-table th:nth-child(5),
+  .chess-standard-table th:nth-child(6) {
+    width: 60px;
+  }
+
+  .chess-standard-table .chess-total-column {
+    width: 110px;
+  }
+}
+
+/* =========================================================
    HOME PAGE — SOFT GRADIENT + AMBIENT WAVES
    ========================================================= */
 

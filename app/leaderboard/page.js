@@ -96,25 +96,43 @@ function ChessStandingsTable({ competition }) {
     });
 
   return (
-    <div className="competition-table-wrap">
-      <div className="table-scroll">
-        <table className="leaderboard-table chess-standings-table">
+    <div className="competition-table-standard-wrap">
+      <div className="competition-table-standard-scroll">
+        <table className="competition-table-standard chess-standard-table">
           <thead>
             <tr>
-              <th className="chess-subdit-column">Subdit</th>
+              <th className="competition-rank-column">
+                Peringkat
+              </th>
+
+              <th className="competition-name-column">
+                Subdit
+              </th>
+
               <th>P</th>
               <th>W</th>
               <th>L</th>
               <th>D</th>
-              <th className="chess-total-column">Total Poin</th>
+
+              <th className="chess-total-column">
+                Total Poin
+              </th>
             </tr>
           </thead>
 
           <tbody>
-            {rows.map((row) => (
+            {rows.map((row, index) => (
               <tr key={row.divisionId}>
-                <td className="chess-subdit-column">
-                  <strong>{row.division.name}</strong>
+                <td className="competition-rank-column">
+                  <span className="competition-rank">
+                    {index + 1}
+                  </span>
+                </td>
+
+                <td className="competition-name-cell">
+                  <strong className="competition-name">
+                    {row.division.name}
+                  </strong>
                 </td>
 
                 <td>{row.played}</td>
@@ -123,7 +141,9 @@ function ChessStandingsTable({ competition }) {
                 <td>{row.draw}</td>
 
                 <td className="chess-total-column">
-                  <strong>{row.totalPoints}</strong>
+                  <strong className="competition-value-strong">
+                    {row.totalPoints}
+                  </strong>
                 </td>
               </tr>
             ))}
@@ -131,7 +151,7 @@ function ChessStandingsTable({ competition }) {
         </table>
       </div>
 
-      <p className="chess-table-note">
+      <p className="competition-table-note inline-note">
         <strong>P</strong>: Play
         <span aria-hidden="true">·</span>
         <strong>W</strong>: Win
