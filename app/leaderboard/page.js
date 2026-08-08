@@ -352,14 +352,27 @@ function TableTennisStandingsTable({ competition }) {
 }
 
 function CompetitionScoreTable({ competition }) {
-  const rows = competition.scoreDetails
-    .map((row) => ({
-      ...row,
-      division: divisions.find(
-        (division) => division.id === row.divisionId
-      ),
-    }))
-    .filter((row) => row.division);
+  const scoreDetails = competition.scoreDetails;
+
+  const rows = scoreDetails.rows
+    .map((item) => {
+      const division = divisions.find(
+        (divisionItem) => divisionItem.id === item.divisionId
+      );
+
+      const totalScore = item.scores.reduce(
+        (total, score) => total + score,
+        0
+      );
+
+      return {
+        ...item,
+        division,
+        totalScore,
+      };
+    })
+    .filter((item) => item.division)
+    .sort((a, b) => b.totalScore - a.totalScore);
 
   return (
     <div className="competition-table-standard-wrap">
@@ -375,17 +388,11 @@ function CompetitionScoreTable({ competition }) {
                 Subdit
               </th>
 
-              <th>
-                Ronde 1
-              </th>
-
-              <th>
-                Ronde 2
-              </th>
-
-              <th>
-                Ronde 3
-              </th>
+              {scoreDetails.columns.map((column) => (
+                <th key={column}>
+                  {column}
+                </th>
+              ))}
 
               <th>
                 Total
@@ -408,13 +415,15 @@ function CompetitionScoreTable({ competition }) {
                   </strong>
                 </td>
 
-                <td>{row.round1}</td>
-                <td>{row.round2}</td>
-                <td>{row.round3}</td>
+                {row.scores.map((score, scoreIndex) => (
+                  <td key={`${row.divisionId}-${scoreIndex}`}>
+                    {score}
+                  </td>
+                ))}
 
                 <td>
                   <strong className="competition-value-strong">
-                    {row.total}
+                    {row.totalScore}
                   </strong>
                 </td>
               </tr>

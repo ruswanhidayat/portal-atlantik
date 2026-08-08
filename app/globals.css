@@ -3657,6 +3657,26 @@ body {
   line-height: 1.2;
 }
 
+/* Mobile */
+
+@media (max-width: 760px) {
+  .domino-result-table {
+    min-width: 520px;
+  }
+
+  .domino-result-table .competition-rank-column {
+    width: 100px;
+  }
+
+  .domino-result-table .competition-name-column {
+    width: 170px;
+  }
+
+  .domino-result-points {
+    font-size: 0.64rem;
+  }
+}
+
 /* =========================================================
    CAPSA
    ========================================================= */
@@ -3697,26 +3717,6 @@ body {
   .capsa-score-table th:nth-child(n + 3),
   .capsa-score-table td:nth-child(n + 3) {
     width: 95px;
-  }
-}
-
-/* Mobile */
-
-@media (max-width: 760px) {
-  .domino-result-table {
-    min-width: 520px;
-  }
-
-  .domino-result-table .competition-rank-column {
-    width: 100px;
-  }
-
-  .domino-result-table .competition-name-column {
-    width: 170px;
-  }
-
-  .domino-result-points {
-    font-size: 0.64rem;
   }
 }
 
