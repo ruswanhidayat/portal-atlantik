@@ -519,6 +519,10 @@ function CompetitionScoreTable({ competition }) {
                 Total
               </th>
 
+              <th>
+                Hasil
+              </th>
+
               <th className="competition-event-points-column">
                 Poin Event
               </th>
@@ -549,6 +553,12 @@ function CompetitionScoreTable({ competition }) {
                 <td>
                   <strong className="competition-value-strong">
                     {row.totalScore}
+                  </strong>
+                </td>
+
+                <td>
+                  <strong className="competition-value-strong">
+                    Juara {row.rank}
                   </strong>
                 </td>
 
@@ -757,7 +767,7 @@ export default function LeaderboardPage() {
                               </th>
 
                               <th>
-                                Status/Hasil
+                                Hasil
                               </th>
 
                               <th className="competition-event-points-column">
