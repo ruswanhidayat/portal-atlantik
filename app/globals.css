@@ -5053,3 +5053,42 @@ body {
     width: 75px;
   }
 }
+
+/* =========================================================
+   LEADERBOARD EVENT — MOBILE COLUMN PROPORTION
+   ========================================================= */
+
+@media (max-width: 760px) {
+  .overall-table {
+    width: 100%;
+    table-layout: fixed;
+  }
+
+  /* # */
+  .overall-table .rank-column {
+    width: 20%;
+  }
+
+  /* SUBDIT */
+  .overall-table .division-column,
+  .overall-table th:nth-child(2) {
+    width: 35%;
+  }
+
+  /* JUARA 1 / TROPHY */
+  .overall-table .first-place-column {
+    width: 20%;
+  }
+
+  /* POIN */
+  .overall-table .points-column {
+    width: 25%;
+  }
+
+  .overall-table th,
+  .overall-table td,
+  .overall-table .division-column {
+    text-align: center;
+    vertical-align: middle;
+  }
+}
