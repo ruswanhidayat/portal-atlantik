@@ -3842,6 +3842,92 @@ body {
   }
 }
 
+/* =========================================================
+   MLBB
+   ========================================================= */
+
+.mlbb-standard-table {
+  table-layout: fixed;
+}
+
+.mlbb-standard-table .competition-rank-column {
+  width: 13%;
+}
+
+.mlbb-standard-table .competition-name-column {
+  width: 27%;
+}
+
+.mlbb-standard-table th:nth-child(3) {
+  width: 15%;
+}
+
+.mlbb-standard-table th:nth-child(4) {
+  width: 16%;
+}
+
+.mlbb-standard-table th:nth-child(5) {
+  width: 14%;
+}
+
+.mlbb-standard-table th:nth-child(6) {
+  width: 15%;
+}
+
+
+/* Squad + status badge */
+
+.mlbb-name-cell {
+  text-align: left;
+}
+
+.mlbb-name-with-status {
+  justify-content: flex-start;
+  width: 100%;
+}
+
+
+/* Statistik */
+
+.mlbb-standard-table tbody td:nth-child(4),
+.mlbb-standard-table tbody td:nth-child(6) {
+  color: #172033;
+  font-weight: 500;
+}
+
+
+/* Mobile */
+
+@media (max-width: 760px) {
+  .mlbb-standard-table {
+    min-width: 680px;
+  }
+
+  .mlbb-standard-table .competition-rank-column {
+    width: 90px;
+  }
+
+  .mlbb-standard-table .competition-name-column {
+    width: 190px;
+  }
+
+  .mlbb-standard-table th:nth-child(3) {
+    width: 100px;
+  }
+
+  .mlbb-standard-table th:nth-child(4) {
+    width: 105px;
+  }
+
+  .mlbb-standard-table th:nth-child(5) {
+    width: 95px;
+  }
+
+  .mlbb-standard-table th:nth-child(6) {
+    width: 95px;
+  }
+}
+
 /* Mobile */
 
 @media (max-width: 760px) {

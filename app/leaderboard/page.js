@@ -191,13 +191,19 @@ function MlbbStandingsTable({ competition }) {
     });
 
   return (
-    <div className="competition-table-wrap">
-      <div className="table-scroll">
-        <table className="leaderboard-table mlbb-standings-table">
+    <div className="competition-table-standard-wrap">
+      <div className="competition-table-standard-scroll">
+        <table className="competition-table-standard mlbb-standard-table">
           <thead>
             <tr>
-              <th className="mlbb-rank-column">Rank</th>
-              <th className="mlbb-squad-column">Squad Name</th>
+              <th className="competition-rank-column">
+                Peringkat
+              </th>
+
+              <th className="competition-name-column">
+                Squad
+              </th>
+
               <th>Match Point</th>
               <th>Match W-L</th>
               <th>Net Games</th>
@@ -207,46 +213,40 @@ function MlbbStandingsTable({ competition }) {
 
           <tbody>
             {rows.map((row, index) => (
-              <tr
-                key={row.divisionId}
-                className={row.finalist ? "mlbb-finalist-row" : ""}
-              >
-                <td className="mlbb-rank-column">
-                  <span
-                    className={`mlbb-rank-badge ${
-                      index < 2 ? "mlbb-rank-finalist" : ""
-                    }`}
-                  >
+              <tr key={row.divisionId}>
+                <td className="competition-rank-column">
+                  <span className="competition-rank">
                     {index + 1}
                   </span>
                 </td>
 
-                <td className="mlbb-squad-column">
-                  <div className="mlbb-squad">
-                    <strong>{row.squadName}</strong>
+                <td className="competition-name-cell mlbb-name-cell">
+                  <div className="competition-name-with-status mlbb-name-with-status">
+                    <strong className="competition-name">
+                      {row.squadName}
+                    </strong>
 
                     {row.finalist && (
-                      <span className="mlbb-finalist-badge">
-                        <span aria-hidden="true">★</span>
-                        Finalist
+                      <span className="competition-status-badge accent">
+                        Finalis
                       </span>
                     )}
                   </div>
                 </td>
 
-                <td className="mlbb-match-point">
-                  <strong>{row.matchPoint}</strong>
+                <td>
+                  <strong className="competition-value-strong">
+                    {row.matchPoint}
+                  </strong>
                 </td>
 
                 <td>
-                  <strong>{row.matchWin}W</strong>
-                  <span className="mlbb-score-separator"> - </span>
-                  <span>{row.matchLose}L</span>
+                  {row.matchWin}W - {row.matchLose}L
                 </td>
 
                 <td>
                   <span
-                    className={`mlbb-net-games ${
+                    className={`competition-value-badge ${
                       row.netGames > 0
                         ? "positive"
                         : row.netGames < 0
@@ -260,9 +260,7 @@ function MlbbStandingsTable({ competition }) {
                 </td>
 
                 <td>
-                  <strong>{row.gameWin}</strong>
-                  <span className="mlbb-score-separator"> - </span>
-                  <span>{row.gameLose}</span>
+                  {row.gameWin} - {row.gameLose}
                 </td>
               </tr>
             ))}
