@@ -327,8 +327,8 @@ function TableTennisStandingsTable({ competition }) {
                   </span>
                 </td>
 
-                <td className="competition-name-cell">
-                  <div className="competition-name-with-status">
+                <td className="competition-name-cell table-tennis-name-cell">
+                  <div className="competition-name-with-status table-tennis-name-with-status">
                     <strong className="competition-name">
                       {row.division.name}
                     </strong>
@@ -342,21 +342,9 @@ function TableTennisStandingsTable({ competition }) {
                 </td>
 
                 <td>{row.played}</td>
-
-                <td>
-                  <strong className="competition-value-strong">
-                    {row.win}
-                  </strong>
-                </td>
-
+                <td>{row.win}</td>
                 <td>{row.lose}</td>
-
-                <td>
-                  <strong className="competition-value-strong">
-                    {row.pointsFor}
-                  </strong>
-                </td>
-
+                <td>{row.pointsFor}</td>
                 <td>{row.pointsAgainst}</td>
 
                 <td>
