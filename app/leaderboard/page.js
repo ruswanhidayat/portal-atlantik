@@ -284,28 +284,31 @@ function TableTennisStandingsTable({ competition }) {
     }))
     .filter((row) => row.division)
     .sort((a, b) => {
-      // Menang terbanyak
       if (b.win !== a.win) {
         return b.win - a.win;
       }
 
-      // Jika jumlah kemenangan sama, lihat selisih poin
       if (b.difference !== a.difference) {
         return b.difference - a.difference;
       }
 
-      // Tie-break berikutnya: poin yang dibuat
       return b.pointsFor - a.pointsFor;
     });
 
   return (
-    <div className="competition-table-wrap">
-      <div className="table-scroll">
-        <table className="leaderboard-table table-tennis-standings-table">
+    <div className="competition-table-standard-wrap">
+      <div className="competition-table-standard-scroll">
+        <table className="competition-table-standard table-tennis-standard-table">
           <thead>
             <tr>
-              <th className="tt-rank-column">#</th>
-              <th className="tt-team-column">Subdit</th>
+              <th className="competition-rank-column">
+                Peringkat
+              </th>
+
+              <th className="competition-name-column">
+                Subdit
+              </th>
+
               <th>Main</th>
               <th>M</th>
               <th>K</th>
@@ -317,45 +320,58 @@ function TableTennisStandingsTable({ competition }) {
 
           <tbody>
             {rows.map((row, index) => (
-              <tr
-                key={row.divisionId}
-                className={row.qualified ? "tt-qualified-row" : ""}
-              >
-                <td className="tt-rank-column">
-                  <span className="tt-rank">{index + 1}</span>
+              <tr key={row.divisionId}>
+                <td className="competition-rank-column">
+                  <span className="competition-rank">
+                    {index + 1}
+                  </span>
                 </td>
 
-                <td className="tt-team-column">
-                  <strong>{row.division.name}</strong>
+                <td className="competition-name-cell">
+                  <div className="competition-name-with-status">
+                    <strong className="competition-name">
+                      {row.division.name}
+                    </strong>
+
+                    {row.qualified && (
+                      <span className="competition-status-badge accent">
+                        Babak Gugur
+                      </span>
+                    )}
+                  </div>
                 </td>
 
                 <td>{row.played}</td>
 
                 <td>
-                  <strong>{row.win}</strong>
+                  <strong className="competition-value-strong">
+                    {row.win}
+                  </strong>
                 </td>
 
                 <td>{row.lose}</td>
 
                 <td>
-                  <strong>{row.pointsFor}</strong>
+                  <strong className="competition-value-strong">
+                    {row.pointsFor}
+                  </strong>
                 </td>
 
                 <td>{row.pointsAgainst}</td>
 
                 <td>
-                  <strong
-                    className={
+                  <span
+                    className={`competition-value-badge ${
                       row.difference > 0
-                        ? "tt-difference positive"
+                        ? "positive"
                         : row.difference < 0
-                        ? "tt-difference negative"
-                        : "tt-difference neutral"
-                    }
+                        ? "negative"
+                        : "neutral"
+                    }`}
                   >
                     {row.difference > 0 ? "+" : ""}
                     {row.difference}
-                  </strong>
+                  </span>
                 </td>
               </tr>
             ))}
@@ -363,8 +379,7 @@ function TableTennisStandingsTable({ competition }) {
         </table>
       </div>
 
-      <p className="tt-table-note">
-        <span className="tt-qualified-indicator" aria-hidden="true" />
+      <p className="competition-table-note">
         4 peringkat teratas lolos ke babak gugur.
       </p>
     </div>
