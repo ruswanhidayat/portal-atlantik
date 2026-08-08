@@ -3928,6 +3928,87 @@ body {
   }
 }
 
+/* =========================================================
+   BADMINTON
+   ========================================================= */
+
+.badminton-standard-table {
+  table-layout: fixed;
+}
+
+.badminton-standard-table .competition-rank-column {
+  width: 10%;
+}
+
+.badminton-standard-table .competition-name-column {
+  width: 14%;
+}
+
+.badminton-standard-table th:nth-child(3),
+.badminton-standard-table th:nth-child(4),
+.badminton-standard-table th:nth-child(5) {
+  width: 6%;
+}
+
+.badminton-standard-table th:nth-child(6),
+.badminton-standard-table th:nth-child(7) {
+  width: 10%;
+}
+
+.badminton-standard-table th:nth-child(8),
+.badminton-standard-table th:nth-child(9) {
+  width: 11%;
+}
+
+.badminton-standard-table th:nth-child(10) {
+  width: 9%;
+}
+
+
+/* Seluruh statistik menggunakan weight yang sama */
+
+.badminton-standard-table tbody td:nth-child(n + 3) {
+  color: #172033;
+  font-weight: 500;
+}
+
+
+/* Mobile */
+
+@media (max-width: 760px) {
+  .badminton-standard-table {
+    min-width: 900px;
+  }
+
+  .badminton-standard-table .competition-rank-column {
+    width: 90px;
+  }
+
+  .badminton-standard-table .competition-name-column {
+    width: 135px;
+  }
+
+  .badminton-standard-table th:nth-child(3),
+  .badminton-standard-table th:nth-child(4),
+  .badminton-standard-table th:nth-child(5) {
+    width: 60px;
+  }
+
+  .badminton-standard-table th:nth-child(6),
+  .badminton-standard-table th:nth-child(7) {
+    width: 100px;
+  }
+
+  .badminton-standard-table th:nth-child(8),
+  .badminton-standard-table th:nth-child(9) {
+    width: 110px;
+  }
+
+  .badminton-standard-table th:nth-child(10) {
+    width: 85px;
+  }
+}
+
 /* Mobile */
 
 @media (max-width: 760px) {

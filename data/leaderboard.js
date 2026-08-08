@@ -60,7 +60,71 @@ export const competitions = [
     name: "Badminton Masters",
     scoringCategory: "sports",
     theme: "sports",
-    results: [],
+    status: "ongoing",
+
+    results: [
+      "subdit-3", // PSPP
+      "subdit-4", // PIKSI
+      "subdit-2", // PESPA / PSP pada sumber
+      "subdit-5", // PEPSI
+      "subdit-1", // TAKESI
+    ],
+
+    standings: {
+      type: "badminton",
+      rows: [
+        {
+          divisionId: "subdit-3",
+          points: 1,
+          win: 1,
+          lose: 0,
+          matchesWon: 3,
+          matchesLost: 0,
+          scoreFor: 63,
+          scoreAgainst: 33,
+        },
+        {
+          divisionId: "subdit-4",
+          points: 1,
+          win: 1,
+          lose: 0,
+          matchesWon: 1,
+          matchesLost: 2,
+          scoreFor: 63,
+          scoreAgainst: 59,
+        },
+        {
+          divisionId: "subdit-2",
+          points: 0,
+          win: 0,
+          lose: 1,
+          matchesWon: 2,
+          matchesLost: 1,
+          scoreFor: 59,
+          scoreAgainst: 63,
+        },
+        {
+          divisionId: "subdit-5",
+          points: 0,
+          win: 0,
+          lose: 1,
+          matchesWon: 0,
+          matchesLost: 3,
+          scoreFor: 33,
+          scoreAgainst: 63,
+        },
+        {
+          divisionId: "subdit-1",
+          points: 0,
+          win: 0,
+          lose: 0,
+          matchesWon: 0,
+          matchesLost: 0,
+          scoreFor: 0,
+          scoreAgainst: 0,
+        },
+      ],
+    },
   },
   {
     id: "table-tennis-open",
