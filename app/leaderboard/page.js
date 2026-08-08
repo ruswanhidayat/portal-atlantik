@@ -598,40 +598,58 @@ export default function LeaderboardPage() {
                   ) : competition.scoreDetails ? (
                     <CompetitionScoreTable competition={competition} />
                   ) : rows.length > 0 ? (
-                      <div className="table-scroll competition-table-wrap">
-                        <table className="leaderboard-table compact-table">
+                    <div className="competition-table-standard-wrap">
+                      <div className="competition-table-standard-scroll">
+                        <table className="competition-table-standard domino-result-table">
                           <thead>
                             <tr>
-                              <th>Peringkat</th>
-                              <th>Subdit</th>
-                              <th>Status/Hasil</th>
+                              <th className="competition-rank-column">
+                                Peringkat
+                              </th>
+
+                              <th className="competition-name-column">
+                                Subdit
+                              </th>
+
+                              <th>
+                                Status/Hasil
+                              </th>
                             </tr>
                           </thead>
 
                           <tbody>
                             {rows.map((row) => (
                               <tr key={row.division.id}>
-                                <td>{row.rank}</td>
+                                <td className="competition-rank-column">
+                                  <span className="competition-rank">
+                                    {row.rank}
+                                  </span>
+                                </td>
 
-                                <td>
-                                  <strong>{row.division.name}</strong>
+                                <td className="competition-name-cell">
+                                  <strong className="competition-name">
+                                    {row.division.name}
+                                  </strong>
                                 </td>
 
                                 <td>
-                                  <span className="competition-result-label">
-                                    {row.resultLabel}
-                                  </span>
+                                  <div className="domino-result-value">
+                                    <strong className="competition-value-strong">
+                                      {row.resultLabel}
+                                    </strong>
 
-                                  <small className="competition-result-points">
-                                    {row.points} poin
-                                  </small>
+                                    <span className="domino-result-points">
+                                      {row.points} poin
+                                    </span>
+                                  </div>
                                 </td>
                               </tr>
                             ))}
                           </tbody>
                         </table>
                       </div>
-                    ) : (
+                    </div>
+                  ) : (
                       <p className="competition-empty">
                         Hasil resmi cabang ini belum diumumkan.
                       </p>

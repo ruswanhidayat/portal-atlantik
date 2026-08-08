@@ -3624,6 +3624,60 @@ body {
 
 }
 
+/* =========================================================
+   DOMINO / SIMPLE FINAL RESULT
+   ========================================================= */
+
+.domino-result-table {
+  table-layout: fixed;
+}
+
+.domino-result-table .competition-rank-column {
+  width: 20%;
+}
+
+.domino-result-table .competition-name-column {
+  width: 35%;
+}
+
+.domino-result-value {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  gap: 2px;
+}
+
+.domino-result-points {
+  color: var(--muted);
+
+  font-size: 0.68rem;
+  font-weight: 500;
+  line-height: 1.2;
+}
+
+
+/* Mobile */
+
+@media (max-width: 760px) {
+  .domino-result-table {
+    min-width: 520px;
+  }
+
+  .domino-result-table .competition-rank-column {
+    width: 100px;
+  }
+
+  .domino-result-table .competition-name-column {
+    width: 170px;
+  }
+
+  .domino-result-points {
+    font-size: 0.64rem;
+  }
+}
+
 @media (max-width: 760px) {
   .chess-standings-table {
     min-width: 540px;
