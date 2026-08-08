@@ -253,6 +253,104 @@ function MlbbStandingsTable({ competition }) {
   );
 }
 
+function TableTennisStandingsTable({ competition }) {
+  const rows = competition.standings.rows
+    .map((row) => ({
+      ...row,
+      division: divisions.find(
+        (division) => division.id === row.divisionId
+      ),
+      difference: row.pointsFor - row.pointsAgainst,
+    }))
+    .filter((row) => row.division)
+    .sort((a, b) => {
+      // Menang terbanyak
+      if (b.win !== a.win) {
+        return b.win - a.win;
+      }
+
+      // Jika jumlah kemenangan sama, lihat selisih poin
+      if (b.difference !== a.difference) {
+        return b.difference - a.difference;
+      }
+
+      // Tie-break berikutnya: poin yang dibuat
+      return b.pointsFor - a.pointsFor;
+    });
+
+  return (
+    <div className="competition-table-wrap">
+      <div className="table-scroll">
+        <table className="leaderboard-table table-tennis-standings-table">
+          <thead>
+            <tr>
+              <th className="tt-rank-column">#</th>
+              <th className="tt-team-column">Subdit</th>
+              <th>Main</th>
+              <th>M</th>
+              <th>K</th>
+              <th>Poin Buat</th>
+              <th>Poin Lawan</th>
+              <th>Selisih</th>
+            </tr>
+          </thead>
+
+          <tbody>
+            {rows.map((row, index) => (
+              <tr
+                key={row.divisionId}
+                className={row.qualified ? "tt-qualified-row" : ""}
+              >
+                <td className="tt-rank-column">
+                  <span className="tt-rank">{index + 1}</span>
+                </td>
+
+                <td className="tt-team-column">
+                  <strong>{row.division.name}</strong>
+                </td>
+
+                <td>{row.played}</td>
+
+                <td>
+                  <strong>{row.win}</strong>
+                </td>
+
+                <td>{row.lose}</td>
+
+                <td>
+                  <strong>{row.pointsFor}</strong>
+                </td>
+
+                <td>{row.pointsAgainst}</td>
+
+                <td>
+                  <strong
+                    className={
+                      row.difference > 0
+                        ? "tt-difference positive"
+                        : row.difference < 0
+                        ? "tt-difference negative"
+                        : "tt-difference neutral"
+                    }
+                  >
+                    {row.difference > 0 ? "+" : ""}
+                    {row.difference}
+                  </strong>
+                </td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+
+      <p className="tt-table-note">
+        <span className="tt-qualified-indicator" aria-hidden="true" />
+        4 peringkat teratas lolos ke babak gugur.
+      </p>
+    </div>
+  );
+}
+
 function CompetitionScoreTable({ competition }) {
   const scoreDetails = competition.scoreDetails;
 
@@ -495,6 +593,8 @@ export default function LeaderboardPage() {
                     <ChessStandingsTable competition={competition} />
                   ) : competition.standings?.type === "mlbb" ? (
                     <MlbbStandingsTable competition={competition} />
+                  ) : competition.standings?.type === "table-tennis" ? (
+                    <TableTennisStandingsTable competition={competition} />
                   ) : competition.scoreDetails ? (
                     <CompetitionScoreTable competition={competition} />
                   ) : rows.length > 0 ? (

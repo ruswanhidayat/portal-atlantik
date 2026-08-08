@@ -4186,3 +4186,194 @@ body {
     justify-content: center;
   }
 }
+
+/* =========================================================
+   TABLE TENNIS STANDINGS
+   ========================================================= */
+
+.table-tennis-standings-table {
+  width: 100%;
+  table-layout: fixed;
+}
+
+.table-tennis-standings-table th {
+  padding: 12px 14px;
+
+  color: #52627f;
+  background: #ffffff;
+
+  border-bottom: 1px solid var(--line);
+
+  font-size: 0.66rem;
+  font-weight: 800;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+.table-tennis-standings-table td {
+  padding: 13px 14px;
+  vertical-align: middle;
+}
+
+.table-tennis-standings-table tbody tr {
+  position: relative;
+  background: #ffffff;
+}
+
+.table-tennis-standings-table tbody tr:nth-child(even) {
+  background: #fafbfc;
+}
+
+.table-tennis-standings-table th:nth-child(n + 3),
+.table-tennis-standings-table td:nth-child(n + 3) {
+  text-align: center;
+}
+
+
+/* Column width */
+
+.tt-rank-column {
+  width: 65px;
+  text-align: center;
+}
+
+.tt-team-column {
+  width: 34%;
+}
+
+.table-tennis-standings-table th:nth-child(3) {
+  width: 80px;
+}
+
+.table-tennis-standings-table th:nth-child(4),
+.table-tennis-standings-table th:nth-child(5) {
+  width: 65px;
+}
+
+.table-tennis-standings-table th:nth-child(6),
+.table-tennis-standings-table th:nth-child(7) {
+  width: 110px;
+}
+
+.table-tennis-standings-table th:nth-child(8) {
+  width: 90px;
+}
+
+
+/* Rank */
+
+.tt-rank {
+  color: #445472;
+  font-size: 0.8rem;
+  font-weight: 800;
+}
+
+
+/* Team */
+
+.tt-team-column strong {
+  color: #12213d;
+  font-size: 0.9rem;
+  font-weight: 800;
+}
+
+
+/* Qualified */
+
+.tt-qualified-row td:first-child {
+  border-left: 3px solid #e85b4a;
+}
+
+
+/* Difference */
+
+.tt-difference {
+  font-weight: 800;
+}
+
+.tt-difference.positive {
+  color: #087443;
+}
+
+.tt-difference.negative {
+  color: #d13b4c;
+}
+
+.tt-difference.neutral {
+  color: #667085;
+}
+
+
+/* Note */
+
+.tt-table-note {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+
+  margin: 9px 4px 0;
+
+  color: var(--muted);
+
+  font-size: 0.72rem;
+  line-height: 1.4;
+}
+
+.tt-qualified-indicator {
+  width: 3px;
+  height: 14px;
+
+  flex: 0 0 auto;
+
+  border-radius: 2px;
+  background: #e85b4a;
+}
+
+
+/* Mobile */
+
+@media (max-width: 760px) {
+  .table-tennis-standings-table {
+    min-width: 700px;
+  }
+
+  .table-tennis-standings-table th {
+    padding: 10px 11px;
+    font-size: 0.6rem;
+  }
+
+  .table-tennis-standings-table td {
+    padding: 11px;
+    font-size: 0.78rem;
+  }
+
+  .tt-rank-column {
+    width: 52px;
+  }
+
+  .tt-team-column {
+    width: 160px;
+  }
+
+  .tt-team-column strong {
+    font-size: 0.8rem;
+  }
+
+  .table-tennis-standings-table th:nth-child(3) {
+    width: 65px;
+  }
+
+  .table-tennis-standings-table th:nth-child(4),
+  .table-tennis-standings-table th:nth-child(5) {
+    width: 52px;
+  }
+
+  .table-tennis-standings-table th:nth-child(6),
+  .table-tennis-standings-table th:nth-child(7) {
+    width: 95px;
+  }
+
+  .table-tennis-standings-table th:nth-child(8) {
+    width: 75px;
+  }
+}
