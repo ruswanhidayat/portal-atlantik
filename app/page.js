@@ -4,32 +4,72 @@ import AnnouncementSlider from "@/components/AnnouncementSlider";
 import GameCard from "@/components/GameCard";
 
 import { announcements } from "@/data/announcements";
+import { homepageData } from "@/data/homepage";
 import { schedule } from "@/data/schedule";
 import { siteConfig } from "@/data/site-config";
 import { getFeaturedGames } from "@/lib/games";
 
 export default function HomePage() {
   const featuredGames = getFeaturedGames();
+
   const homeAnnouncements = announcements.filter(
     (announcement) => announcement.showOnHome
   );
+
+  const {
+    hero,
+    theme,
+    announcements: announcementContent,
+    games,
+    leaderboard,
+    schedule: scheduleContent,
+  } = homepageData;
+
   return (
     <main className="home-page">
       <section className="hero">
         <div className="container hero-grid">
           <div>
-            <span className="pill">ATLANTIK 2026</span>
-            <h1>Feel the vibe.<br />Be part of the game.</h1>
-            <p>{siteConfig.description}</p>
+            <span className="pill">{hero.pill}</span>
+
+            <h1>
+              {hero.title.map((line, index) => (
+                <span key={line}>
+                  {line}
+                  {index < hero.title.length - 1 && <br />}
+                </span>
+              ))}
+            </h1>
+
+            {siteConfig.description && (
+              <p>{siteConfig.description}</p>
+            )}
+
             <div className="actions">
-              <Link className="button primary" href="/permainan">Lihat permainan</Link>
-              <Link className="button secondary" href="/jadwal">Lihat jadwal</Link>
+              <Link
+                className="button primary"
+                href={hero.primaryAction.href}
+              >
+                {hero.primaryAction.label}
+              </Link>
+
+              <Link
+                className="button secondary"
+                href={hero.secondaryAction.href}
+              >
+                {hero.secondaryAction.label}
+              </Link>
             </div>
           </div>
+
           <div className="hero-panel">
-            <span className="eyebrow">Tema Atlantik 2026</span>
+            <span className="eyebrow">
+              {theme.eyebrow}
+            </span>
+
             <h2>{siteConfig.theme}</h2>
-            <p>Bergerak bersama dalam semangat kolaborasi untuk menciptakan dampak yang lebih berarti.</p>
+
+            <p>{theme.description}</p>
           </div>
         </div>
       </section>
@@ -38,28 +78,52 @@ export default function HomePage() {
         <div className="container">
           <div className="section-heading announcement-section-heading">
             <div>
-              <span className="eyebrow">Informasi terbaru</span>
-              <h2>Pengumuman</h2>
+              <span className="eyebrow">
+                {announcementContent.eyebrow}
+              </span>
+
+              <h2>{announcementContent.title}</h2>
             </div>
-      
-            <Link className="text-link" href="/pengumuman">
-              Lihat semua →
+
+            <Link
+              className="text-link"
+              href={announcementContent.action.href}
+            >
+              {announcementContent.action.label} →
             </Link>
           </div>
-      
-          <AnnouncementSlider announcements={homeAnnouncements} />
+
+          <AnnouncementSlider
+            announcements={homeAnnouncements}
+          />
         </div>
       </section>
 
       <section className="section section-soft">
         <div className="container">
           <div className="section-heading">
-            <div><span className="eyebrow">Rangkaian acara</span><h2>Daftar permainan</h2></div>
-            <Link className="text-link" href="/permainan">Lihat semua →</Link>
+            <div>
+              <span className="eyebrow">
+                {games.eyebrow}
+              </span>
+
+              <h2>{games.title}</h2>
+            </div>
+
+            <Link
+              className="text-link"
+              href={games.action.href}
+            >
+              {games.action.label} →
+            </Link>
           </div>
+
           <div className="grid two">
             {featuredGames.map((game) => (
-              <GameCard game={game} key={game.slug} />
+              <GameCard
+                game={game}
+                key={game.slug}
+              />
             ))}
           </div>
         </div>
@@ -69,11 +133,21 @@ export default function HomePage() {
         <div className="container">
           <div className="leaderboard-home-card">
             <div>
-              <span className="eyebrow">Klasemen Atlantik 2026</span>
-              <h2>Pantau persaingan menuju Juara Umum</h2>
-              <p>Ikuti perolehan poin lima Subdit dari seluruh cabang Sports, Strategic Games, Esports, Fun Games, dan Mission: Grand Champion.</p>
+              <span className="eyebrow">
+                {leaderboard.eyebrow}
+              </span>
+
+              <h2>{leaderboard.title}</h2>
+
+              <p>{leaderboard.description}</p>
             </div>
-            <Link className="button leaderboard-button" href="/leaderboard">Buka leaderboard →</Link>
+
+            <Link
+              className="button leaderboard-button"
+              href={leaderboard.action.href}
+            >
+              {leaderboard.action.label} →
+            </Link>
           </div>
         </div>
       </section>
@@ -82,39 +156,49 @@ export default function HomePage() {
         <div className="container">
           <div className="section-heading home-schedule-heading">
             <div>
-              <span className="eyebrow">Agenda</span>
-              <h2>Jadwal terdekat</h2>
+              <span className="eyebrow">
+                {scheduleContent.eyebrow}
+              </span>
+
+              <h2>{scheduleContent.title}</h2>
             </div>
-      
-            <Link className="text-link" href="/jadwal">
-              Jadwal lengkap →
+
+            <Link
+              className="text-link"
+              href={scheduleContent.action.href}
+            >
+              {scheduleContent.action.label} →
             </Link>
           </div>
-      
+
           <div className="home-schedule-list">
-            {schedule.slice(0, 3).map((item, index) => (
+            {schedule.slice(0, 3).map((item) => (
               <Link
                 className={`home-schedule-card home-schedule-card-${
                   item.theme || "sports"
                 }`}
-                href="/jadwal"
+                href={scheduleContent.action.href}
                 key={`${item.title}-${item.date}`}
               >
                 <div className="home-schedule-time">
                   <strong>{item.time}</strong>
                   <span>{item.date}</span>
                 </div>
-      
+
                 <div className="home-schedule-content">
                   <span className="home-schedule-category">
-                    {item.category || "Jadwal pertandingan"}
+                    {item.category ||
+                      scheduleContent.categoryFallback}
                   </span>
-      
+
                   <h3>{item.title}</h3>
-      
+
                   {item.location && (
                     <span className="home-schedule-location">
-                      <svg viewBox="0 0 24 24" aria-hidden="true">
+                      <svg
+                        viewBox="0 0 24 24"
+                        aria-hidden="true"
+                      >
                         <path
                           d="M12 21s6-5.1 6-11a6 6 0 1 0-12 0c0 5.9 6 11 6 11Z"
                           fill="none"
@@ -122,7 +206,7 @@ export default function HomePage() {
                           strokeWidth="1.8"
                           strokeLinejoin="round"
                         />
-      
+
                         <circle
                           cx="12"
                           cy="10"
@@ -132,13 +216,16 @@ export default function HomePage() {
                           strokeWidth="1.8"
                         />
                       </svg>
-      
+
                       {item.location}
                     </span>
                   )}
                 </div>
-      
-                <span className="home-schedule-arrow" aria-hidden="true">
+
+                <span
+                  className="home-schedule-arrow"
+                  aria-hidden="true"
+                >
                   →
                 </span>
               </Link>
