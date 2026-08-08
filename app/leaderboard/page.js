@@ -467,6 +467,9 @@ function TableTennisStandingsTable({ competition }) {
 function CompetitionScoreTable({ competition }) {
   const scoreDetails = competition.scoreDetails;
 
+  const eventPoints =
+    pointRules[competition.scoringCategory]?.points ?? [];
+
   const rows = scoreDetails.rows
     .map((item) => {
       const division = divisions.find(
@@ -485,7 +488,12 @@ function CompetitionScoreTable({ competition }) {
       };
     })
     .filter((item) => item.division)
-    .sort((a, b) => b.totalScore - a.totalScore);
+    .sort((a, b) => b.totalScore - a.totalScore)
+    .map((item, index) => ({
+      ...item,
+      rank: index + 1,
+      eventPoints: eventPoints[index] ?? 0,
+    }));
 
   return (
     <div className="competition-table-standard-wrap">
@@ -510,6 +518,10 @@ function CompetitionScoreTable({ competition }) {
               <th>
                 Total
               </th>
+
+              <th className="competition-event-points-column">
+                Poin Event
+              </th>
             </tr>
           </thead>
 
@@ -518,7 +530,7 @@ function CompetitionScoreTable({ competition }) {
               <tr key={row.divisionId}>
                 <td className="competition-rank-column">
                   <span className="competition-rank">
-                    {index + 1}
+                    {row.rank}
                   </span>
                 </td>
 
@@ -537,6 +549,12 @@ function CompetitionScoreTable({ competition }) {
                 <td>
                   <strong className="competition-value-strong">
                     {row.totalScore}
+                  </strong>
+                </td>
+
+                <td className="competition-event-points-column">
+                  <strong className="competition-event-points">
+                    {row.eventPoints}
                   </strong>
                 </td>
               </tr>
@@ -741,6 +759,10 @@ export default function LeaderboardPage() {
                               <th>
                                 Status/Hasil
                               </th>
+
+                              <th className="competition-event-points-column">
+                                Poin Event
+                              </th>
                             </tr>
                           </thead>
 
@@ -760,15 +782,15 @@ export default function LeaderboardPage() {
                                 </td>
 
                                 <td>
-                                  <div className="domino-result-value">
-                                    <strong className="competition-value-strong">
-                                      {row.resultLabel}
-                                    </strong>
+                                  <strong className="competition-value-strong">
+                                    {row.resultLabel}
+                                  </strong>
+                                </td>
 
-                                    <span className="domino-result-points">
-                                      {row.points} poin
-                                    </span>
-                                  </div>
+                                <td className="competition-event-points-column">
+                                  <strong className="competition-event-points">
+                                    {row.points}
+                                  </strong>
                                 </td>
                               </tr>
                             ))}
