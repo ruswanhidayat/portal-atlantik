@@ -1,124 +1,73 @@
-:root {
-  /* =======================================================
-     COLOR — BASE
-     ======================================================= */
+/* =========================================================
+   ATLANTIK 2026 — GLOBAL STYLES
+   Cleansed from production CSS.
 
+   Prinsip:
+   - legacy leaderboard CSS yang sudah tidak dipakai dihapus;
+   - exact duplicate declarations memakai nilai terakhir;
+   - responsive rules dikumpulkan di bagian akhir;
+   - urutan rule di dalam breakpoint tetap dipertahankan.
+   ========================================================= */
+
+/* =========================================================
+   BASE / DESKTOP
+   ========================================================= */
+
+:root {
   --color-bg: #f7f8fc;
   --color-surface: #ffffff;
-
   --color-text: #101828;
   --color-muted: #667085;
   --color-line: #e4e7ec;
-
   --color-primary: #5b35f2;
   --color-primary-dark: #4321c9;
-
   --color-accent: #f4b942;
-
   --color-soft: #f0edff;
-
-
-  /* =======================================================
-     COLOR — CATEGORY
-     ======================================================= */
-
   --color-sports: #2759c7;
   --color-strategic: #6842d9;
   --color-esports: #087f78;
   --color-grand-champion: #5b35f2;
   --color-fun: #b45f06;
-
-
-  /* =======================================================
-     RADIUS
-     ======================================================= */
-
   --radius-sm: 12px;
   --radius-md: 18px;
   --radius-lg: 24px;
   --radius-xl: 32px;
   --radius-pill: 999px;
-
-
-  /* =======================================================
-     SHADOW
-     ======================================================= */
-
-  --shadow-sm:
-    0 5px 18px rgba(16, 24, 40, 0.04);
-
-  --shadow-md:
-    0 10px 30px rgba(16, 24, 40, 0.07);
-
-  --shadow-lg:
-    0 18px 50px rgba(16, 24, 40, 0.10);
-
-
-  /* =======================================================
-     SPACING
-     ======================================================= */
-
+  --shadow-sm: 0 5px 18px rgba(16, 24, 40, 0.04);
+  --shadow-md: 0 10px 30px rgba(16, 24, 40, 0.07);
+  --shadow-lg: 0 18px 50px rgba(16, 24, 40, 0.10);
   --space-xs: 4px;
   --space-sm: 8px;
   --space-md: 12px;
   --space-lg: 18px;
   --space-xl: 24px;
   --space-2xl: 32px;
-
   --section-space: 68px;
   --section-space-mobile: 52px;
-
-
-  /* =======================================================
-     MOTION
-     ======================================================= */
-
   --motion-fast: 0.16s;
   --motion-normal: 0.2s;
   --motion-slow: 0.28s;
-
   --hover-lift: -2px;
   --hover-shift: 3px;
-
-
-  /* =======================================================
-     LEGACY ALIASES
-     Temporary compatibility layer.
-     Hapus setelah semua selector selesai dimigrasikan.
-     ======================================================= */
-
   --bg: var(--color-bg);
   --surface: var(--color-surface);
-
   --text: var(--color-text);
   --muted: var(--color-muted);
   --line: var(--color-line);
-
   --primary: var(--color-primary);
   --primary-dark: var(--color-primary-dark);
-
   --accent: var(--color-accent);
   --soft: var(--color-soft);
-
   --radius: 22px;
-
-  --shadow:
-    0 18px 50px rgba(16, 24, 40, 0.08);
+  --shadow: 0 18px 50px rgba(16, 24, 40, 0.08);
 }
-
-/* =========================================================
-   SHARED INTERACTIONS
-   ========================================================= */
-
-/* Interactive cards / buttons lift upward */
 
 .game-card,
 .announcement-list-item,
 .home-schedule-card,
 .leaderboard-button,
 .announcement-slider-link {
-  transition:
-    transform var(--motion-normal) ease,
+  transition: transform var(--motion-normal) ease,
     box-shadow var(--motion-normal) ease;
 }
 
@@ -129,9 +78,6 @@ a.announcement-list-item:hover,
 .announcement-slider-link:hover {
   transform: translateY(var(--hover-lift));
 }
-
-
-/* Directional links / arrows move to the right */
 
 .text-link,
 .announcement-list-arrow,
@@ -149,131 +95,396 @@ a.announcement-list-item:hover .announcement-list-arrow,
   transform: translateX(var(--hover-shift));
 }
 
-* { box-sizing: border-box; }
-html { scroll-behavior: smooth; }
-body { margin: 0; color: var(--text); background: var(--bg); font-family: Arial, Helvetica, sans-serif; line-height: 1.6; }
-a { color: inherit; text-decoration: none; }
-h1, h2, h3, p { margin-top: 0; }
-h1 { font-size: clamp(2.5rem, 7vw, 5.5rem); line-height: 0.98; letter-spacing: -0.06em; }
-h2 { font-size: clamp(1.8rem, 4vw, 3rem); line-height: 1.1; letter-spacing: -0.04em; }
-h3 { font-size: 1.25rem; line-height: 1.25; }
-.container { width: min(1160px, calc(100% - 40px)); margin: 0 auto; }
-.narrow { width: min(850px, calc(100% - 40px)); }
-.site-header { position: sticky; top: 0; z-index: 50; backdrop-filter: blur(16px); background: rgba(247,248,252,.86); border-bottom: 1px solid rgba(228,231,236,.8); }
-.header-inner { min-height: 76px; display: flex; align-items: center; justify-content: space-between; gap: 24px; }
-.brand { display: flex; align-items: center; gap: 12px; }
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  color: var(--text);
+  background: var(--bg);
+  line-height: 1.6;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+h1, h2, h3, p {
+  margin-top: 0;
+}
+
+h1 {
+  font-size: clamp(2.5rem, 7vw, 5.5rem);
+  line-height: 0.98;
+  letter-spacing: -0.06em;
+}
+
+h2 {
+  font-size: clamp(1.8rem, 4vw, 3rem);
+  line-height: 1.1;
+  letter-spacing: -0.04em;
+}
+
+h3 {
+  font-size: 1.25rem;
+  line-height: 1.25;
+}
+
+.container {
+  width: min(1160px, calc(100% - 40px));
+  margin: 0 auto;
+}
+
+.narrow {
+  width: min(850px, calc(100% - 40px));
+}
+
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  backdrop-filter: blur(16px);
+  background: rgba(247,248,252,.86);
+  border-bottom: 1px solid rgba(228,231,236,.8);
+}
+
+.header-inner {
+  min-height: 76px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
 .brand-logo {
   display: block;
   width: auto;
   height: 46px;
 }
-.brand-mark { width: 42px; height: 42px; display: grid; place-items: center; border-radius: 14px; color: white; background: linear-gradient(135deg, var(--primary), #8d68ff); font-weight: 800; }
-.brand strong, .brand small { display: block; line-height: 1.2; }
-.brand small { color: var(--muted); font-size: .75rem; }
-.nav { display: flex; gap: 26px; font-size: .95rem; font-weight: 700; }
-.nav a:hover { color: var(--primary); }
-.hero { padding: 92px 0 70px; background: radial-gradient(circle at top right, #e6ddff 0, transparent 36%), var(--bg); }
-.hero-grid { display: grid; grid-template-columns: 1.25fr .75fr; gap: 58px; align-items: center; }
-.hero p, .lead { color: var(--muted); font-size: 1.12rem; max-width: 720px; }
-.hero-panel { position: relative; overflow: hidden; padding: 38px; border-radius: var(--radius-xl); color: white; background: linear-gradient(145deg, #21125f, var(--primary)); box-shadow: var(--shadow); transform: rotate(1.5deg); }
-.hero-panel h2 { margin: 12px 0 18px; }
-.hero-panel p { color: rgba(255,255,255,.8); margin-bottom: 0; }
+
+.brand-mark {
+  width: 42px;
+  height: 42px;
+  display: grid;
+  place-items: center;
+  border-radius: 14px;
+  color: white;
+  background: linear-gradient(135deg, var(--primary), #8d68ff);
+  font-weight: 800;
+}
+
+.brand strong, .brand small {
+  display: block;
+  line-height: 1.2;
+}
+
+.brand small {
+  color: var(--muted);
+  font-size: .75rem;
+}
+
+.nav {
+  display: flex;
+  gap: 26px;
+  font-size: .95rem;
+  font-weight: 700;
+}
+
+.nav a:hover {
+  color: var(--primary);
+}
+
+.hero {
+  padding: 92px 0 70px;
+  background: radial-gradient(circle at top right, #e6ddff 0, transparent 36%), var(--bg);
+}
+
+.hero-grid {
+  display: grid;
+  grid-template-columns: 1.25fr .75fr;
+  gap: 58px;
+  align-items: center;
+}
+
+.hero p, .lead {
+  color: var(--muted);
+  font-size: 1.12rem;
+  max-width: 720px;
+}
+
+.hero-panel {
+  position: relative;
+  overflow: hidden;
+  padding: 38px;
+  border-radius: var(--radius-xl);
+  color: white;
+  background: linear-gradient(145deg, #21125f, var(--primary));
+  box-shadow: var(--shadow);
+  transform: rotate(1.5deg);
+}
+
+.hero-panel h2 {
+  margin: 12px 0 18px;
+}
+
+.hero-panel p {
+  color: rgba(255,255,255,.8);
+  margin-bottom: 0;
+}
+
 .hero-panel::before {
   content: "";
-
   position: absolute;
-
   top: -45px;
   right: -45px;
-
   width: 230px;
   height: 230px;
-
-  background:
-    url("/logo/hut-ri-81.png")
+  background: url("/logo/hut-ri-81.png")
     no-repeat
     center;
-
   background-size: contain;
-
   opacity: .12;
-  
-  filter:
-      grayscale(1)
+  filter: grayscale(1)
       brightness(2.8)
       contrast(.6)
       blur(.4px);
-  
   mix-blend-mode: soft-light;
-
-  box-shadow:
-    inset 0 1px 0 rgba(255,255,255,.08),
+  box-shadow: inset 0 1px 0 rgba(255,255,255,.08),
     inset 0 -1px 0 rgba(0,0,0,.08),
     var(--shadow);
-
   transform: rotate(-5deg);
-
   pointer-events: none;
 }
-.pill, .status { display: inline-flex; align-items: center; border-radius: var(--radius-pill); padding: 7px 12px; font-weight: 700; font-size: .78rem; }
-.pill { margin-bottom: 24px; color: var(--primary-dark); background: var(--soft); }
-.status { color: #344054; background: #f2f4f7; }
-.eyebrow { color: var(--primary); font-size: .78rem; font-weight: 800; letter-spacing: .13em; text-transform: uppercase; }
-.actions { display: flex; gap: 12px; flex-wrap: wrap; margin-top: 32px; }
-.button { display: inline-flex; align-items: center; justify-content: center; min-height: 48px; padding: 0 20px; border-radius: 14px; font-weight: 800; }
-.button.primary { color: white; background: var(--primary); }
-.button.primary:hover { background: var(--primary-dark); }
-.button.secondary { background: white; border: 1px solid var(--line); }
-.button.disabled { color: #98a2b3; background: #f2f4f7; cursor: not-allowed; }
-.section, .page-section { padding: 76px 0; }
-.page-section { min-height: calc(100vh - 150px); }
-.section-soft { background: #f0f1f7; }
-.section-heading { margin-bottom: 28px; display: flex; align-items: end; justify-content: space-between; gap: 20px; }
-.section-heading h2 { margin: 5px 0 0; }
-.text-link, .back-link { color: var(--primary); font-weight: 800; }
-.back-link { display: inline-block; margin-bottom: 32px; }
-.grid { display: grid; gap: 22px; }
-.grid.two { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-.card { padding: 28px; border: 1px solid var(--line); border-radius: var(--radius); background: var(--surface); box-shadow: 0 8px 30px rgba(16,24,40,.04); }
-.card p { color: var(--muted); margin-bottom: 0; }
-.card-topline { display: flex; align-items: center; justify-content: space-between; gap: 16px; margin-bottom: 22px; }
-.game-card { display: flex; flex-direction: column; min-height: 260px; }
-.game-card h3 { font-size: 1.5rem; }
-.game-card .text-link { margin-top: auto; padding-top: 24px; }
-.games-grid { margin-top: 40px; }
-.meta { color: var(--muted); font-size: .86rem; }
-.timeline { border-top: 1px solid var(--line); }
-.timeline-item { display: grid; grid-template-columns: 180px 1fr; gap: 30px; padding: 28px 0; border-bottom: 1px solid var(--line); }
-.timeline-item strong, .timeline-item span { display: block; }
-.timeline-item p { color: var(--muted); margin-bottom: 0; }
-.timeline.large { margin-top: 40px; }
-.stack { display: grid; gap: 18px; margin-top: 40px; }
-.announcement h2 { font-size: 1.55rem; margin: 8px 0 10px; }
-.detail-hero { padding: 40px; border-radius: 30px; color: white; background: linear-gradient(145deg, #21125f, var(--primary)); box-shadow: var(--shadow); }
-.detail-hero .eyebrow { color: #d8ccff; }
-.detail-hero .status { background: rgba(255,255,255,.14); color: white; }
-.detail-hero .lead { color: rgba(255,255,255,.82); }
-.detail-card { margin-top: 22px; }
-.feature-list { padding-left: 20px; margin-bottom: 0; }
-.feature-list li { margin: 10px 0; }
-.empty-state { text-align: center; padding-top: 90px; }
 
-@media (max-width: 760px) {
-  .header-inner { min-height: auto; padding: 14px 0; align-items: flex-start; }
-  .nav { gap: 12px; flex-wrap: wrap; justify-content: flex-end; font-size: .82rem; }
-  .brand small { display: none; }
-  .brand-logo {
-    height: 38px;
-  }
-  .hero { padding-top: 58px; }
-  .hero-grid, .grid.two { grid-template-columns: 1fr; }
-  .hero-panel { transform: none; }
-  .timeline-item { grid-template-columns: 1fr; gap: 8px; }
-  .section-heading { align-items: flex-start; flex-direction: column; }
+.pill, .status {
+  display: inline-flex;
+  align-items: center;
+  border-radius: var(--radius-pill);
+  padding: 7px 12px;
+  font-weight: 700;
+  font-size: .78rem;
 }
 
-/* Leaderboard */
-.leaderboard-home-section { padding-top: 0; }
+.pill {
+  margin-bottom: 24px;
+  color: var(--primary-dark);
+  background: var(--soft);
+}
+
+.status {
+  color: #344054;
+  background: #f2f4f7;
+}
+
+.eyebrow {
+  color: var(--primary);
+  font-size: .78rem;
+  font-weight: 800;
+  letter-spacing: .13em;
+  text-transform: uppercase;
+}
+
+.actions {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin-top: 32px;
+}
+
+.button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 48px;
+  padding: 0 20px;
+  border-radius: 14px;
+  font-weight: 800;
+}
+
+.button.primary {
+  color: white;
+  background: var(--primary);
+}
+
+.button.primary:hover {
+  background: var(--primary-dark);
+}
+
+.button.secondary {
+  background: white;
+  border: 1px solid var(--line);
+}
+
+.button.disabled {
+  color: #98a2b3;
+  background: #f2f4f7;
+  cursor: not-allowed;
+}
+
+.section, .page-section {
+  padding: 76px 0;
+}
+
+.page-section {
+  min-height: calc(100vh - 150px);
+}
+
+.section-soft {
+  background: #f0f1f7;
+}
+
+.section-heading {
+  margin-bottom: 28px;
+  display: flex;
+  align-items: end;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+.section-heading h2 {
+  margin: 5px 0 0;
+}
+
+.text-link, .back-link {
+  color: var(--primary);
+  font-weight: 800;
+}
+
+.back-link {
+  display: inline-block;
+  margin-bottom: 32px;
+}
+
+.grid {
+  display: grid;
+  gap: 22px;
+}
+
+.grid.two {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.card {
+  padding: 28px;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: var(--surface);
+  box-shadow: 0 8px 30px rgba(16,24,40,.04);
+}
+
+.card p {
+  color: var(--muted);
+  margin-bottom: 0;
+}
+
+.card-topline {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  margin-bottom: 22px;
+}
+
+.games-grid {
+  margin-top: 40px;
+}
+
+.meta {
+  color: var(--muted);
+  font-size: .86rem;
+}
+
+.timeline {
+  border-top: 1px solid var(--line);
+}
+
+.timeline-item {
+  display: grid;
+  grid-template-columns: 180px 1fr;
+  gap: 30px;
+  padding: 28px 0;
+  border-bottom: 1px solid var(--line);
+}
+
+.timeline-item strong, .timeline-item span {
+  display: block;
+}
+
+.timeline-item p {
+  color: var(--muted);
+  margin-bottom: 0;
+}
+
+.timeline.large {
+  margin-top: 40px;
+}
+
+.stack {
+  display: grid;
+  gap: 18px;
+  margin-top: 40px;
+}
+
+.announcement h2 {
+  font-size: 1.55rem;
+  margin: 8px 0 10px;
+}
+
+.detail-hero {
+  padding: 40px;
+  border-radius: 30px;
+  color: white;
+  background: linear-gradient(145deg, #21125f, var(--primary));
+  box-shadow: var(--shadow);
+}
+
+.detail-hero .eyebrow {
+  color: #d8ccff;
+}
+
+.detail-hero .status {
+  background: rgba(255,255,255,.14);
+  color: white;
+}
+
+.detail-hero .lead {
+  color: rgba(255,255,255,.82);
+}
+
+.detail-card {
+  margin-top: 22px;
+}
+
+.feature-list {
+  padding-left: 20px;
+  margin-bottom: 0;
+}
+
+.feature-list li {
+  margin: 10px 0;
+}
+
+.empty-state {
+  text-align: center;
+  padding-top: 90px;
+}
+
+.leaderboard-home-section {
+  padding-top: 0;
+}
+
 .leaderboard-home-card {
   display: flex;
   align-items: center;
@@ -285,11 +496,32 @@ h3 { font-size: 1.25rem; line-height: 1.25; }
   background: linear-gradient(135deg, #172554, #312e81 58%, #5b35f2);
   box-shadow: var(--shadow);
 }
-.leaderboard-home-card h2 { max-width: 680px; margin: 8px 0 14px; }
-.leaderboard-home-card p { max-width: 760px; margin-bottom: 0; color: rgba(255,255,255,.78); }
-.leaderboard-home-card .eyebrow { color: #d8ccff; }
-.leaderboard-button { flex: 0 0 auto; color: #172554; background: white; }
-.leaderboard-page { padding-top: 48px; }
+
+.leaderboard-home-card h2 {
+  max-width: 680px;
+  margin: 8px 0 14px;
+}
+
+.leaderboard-home-card p {
+  max-width: 760px;
+  margin-bottom: 0;
+  color: rgba(255,255,255,.78);
+}
+
+.leaderboard-home-card .eyebrow {
+  color: #d8ccff;
+}
+
+.leaderboard-button {
+  flex: 0 0 auto;
+  color: #172554;
+  background: white;
+}
+
+.leaderboard-page {
+  padding-top: 48px;
+}
+
 .leaderboard-hero {
   display: grid;
   grid-template-columns: 1fr auto;
@@ -301,42 +533,201 @@ h3 { font-size: 1.25rem; line-height: 1.25; }
   background: linear-gradient(145deg, #14204f, #243b7a 55%, var(--primary));
   box-shadow: var(--shadow);
 }
-.leaderboard-hero h1 { max-width: 850px; margin: 8px 0 20px; font-size: clamp(2.5rem, 6vw, 4.9rem); }
-.leaderboard-hero .lead { color: rgba(255,255,255,.78); margin-bottom: 0; }
-.leaderboard-hero .eyebrow { color: #d8ccff; }
-.leaderboard-stat { min-width: 170px; padding: 24px; border: 1px solid rgba(255,255,255,.18); border-radius: 22px; background: rgba(255,255,255,.1); }
-.leaderboard-stat strong, .leaderboard-stat span { display: block; }
-.leaderboard-stat strong { font-size: 2rem; line-height: 1; }
-.leaderboard-stat span { margin-top: 8px; color: rgba(255,255,255,.72); }
-.leaderboard-section { padding-top: 70px; }
-.compact-heading { margin-bottom: 22px; }
-.table-card { overflow: hidden; border: 1px solid var(--line); border-radius: var(--radius-lg); background: white; box-shadow: 0 10px 32px rgba(16,24,40,.05); }
-.table-scroll { overflow-x: auto; }
-.leaderboard-table { width: 100%; border-collapse: collapse; text-align: left; }
-.leaderboard-table th { padding: 17px 20px; color: white; background: #172554; font-size: .82rem; text-transform: uppercase; letter-spacing: .05em; white-space: nowrap; }
-.leaderboard-table td { padding: 18px 20px; border-bottom: 1px solid var(--line); }
-.leaderboard-table tbody tr:last-child td { border-bottom: 0; }
-.leaderboard-table tbody tr:nth-child(even) { background: #f8f9fd; }
-.rank-badge { width: 38px; height: 38px; display: inline-grid; place-items: center; border-radius: var(--radius-sm); font-weight: 900; background: #eef0f6; }
-.rank-1, .rank-2, .rank-3 { font-size: 1.25rem; }
-.point-total { color: var(--primary); font-size: 1.3rem; }
-.table-note { margin: 0; padding: 18px 20px; color: var(--muted); background: #f8f9fd; border-top: 1px solid var(--line); }
-.scoring-grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 14px; }
-.score-list { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 8px; }
-.score-list span { padding: 12px 8px; border-radius: 14px; text-align: center; background: #f4f5fa; }
-.score-list small, .score-list strong { display: block; }
-.score-list small { color: var(--muted); font-size: .7rem; }
-.score-list strong { margin-top: 3px; font-size: .9rem; }
-.competition-list { display: grid; gap: 14px; }
-.competition-card { overflow: hidden; border: 1px solid var(--line); border-radius: var(--radius-md); background: white; }
-.competition-card summary { display: flex; align-items: center; justify-content: space-between; gap: 24px; padding: 20px 22px; cursor: pointer; list-style: none; }
-.competition-card summary::-webkit-details-marker { display: none; }
-.competition-card summary::after { content: "+"; font-size: 1.45rem; font-weight: 500; color: var(--primary); }
-.competition-card[open] summary::after { content: "−"; }
-.competition-card summary > span:first-child { flex: 1; }
-.competition-card summary small, .competition-card summary strong { display: block; }
-.competition-card summary small { color: var(--muted); font-size: .78rem; }
-.competition-card summary strong { margin-top: 3px; }
+
+.leaderboard-hero h1 {
+  max-width: 850px;
+  margin: 8px 0 20px;
+  font-size: clamp(2.5rem, 6vw, 4.9rem);
+}
+
+.leaderboard-hero .lead {
+  color: rgba(255,255,255,.78);
+  margin-bottom: 0;
+}
+
+.leaderboard-hero .eyebrow {
+  color: #d8ccff;
+}
+
+.leaderboard-stat {
+  min-width: 170px;
+  padding: 24px;
+  border: 1px solid rgba(255,255,255,.18);
+  border-radius: 22px;
+  background: rgba(255,255,255,.1);
+}
+
+.leaderboard-stat strong, .leaderboard-stat span {
+  display: block;
+}
+
+.leaderboard-stat strong {
+  font-size: 2rem;
+  line-height: 1;
+}
+
+.leaderboard-stat span {
+  margin-top: 8px;
+  color: rgba(255,255,255,.72);
+}
+
+.leaderboard-section {
+  padding-top: 70px;
+}
+
+.compact-heading {
+  margin-bottom: 22px;
+}
+
+.table-card {
+  overflow: hidden;
+  border: 1px solid var(--line);
+  border-radius: var(--radius-lg);
+  background: white;
+  box-shadow: 0 10px 32px rgba(16,24,40,.05);
+}
+
+.table-scroll {
+  overflow-x: auto;
+}
+
+.leaderboard-table {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: left;
+}
+
+.leaderboard-table th {
+  padding: 17px 20px;
+  color: white;
+  background: #172554;
+  font-size: .82rem;
+  text-transform: uppercase;
+  letter-spacing: .05em;
+  white-space: nowrap;
+}
+
+.leaderboard-table td {
+  padding: 18px 20px;
+  border-bottom: 1px solid var(--line);
+}
+
+.leaderboard-table tbody tr:last-child td {
+  border-bottom: 0;
+}
+
+.leaderboard-table tbody tr:nth-child(even) {
+  background: #f8f9fd;
+}
+
+.rank-badge {
+  width: 38px;
+  height: 38px;
+  display: inline-grid;
+  place-items: center;
+  border-radius: var(--radius-sm);
+  font-weight: 900;
+  background: #eef0f6;
+}
+
+.rank-1, .rank-2, .rank-3 {
+  font-size: 1.25rem;
+}
+
+.point-total {
+  color: var(--primary);
+  font-size: 1.3rem;
+}
+
+.table-note {
+  margin: 0;
+  padding: 18px 20px;
+  color: var(--muted);
+  background: #f8f9fd;
+  border-top: 1px solid var(--line);
+}
+
+.scoring-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 14px;
+}
+
+.score-list span {
+  padding: 12px 8px;
+  border-radius: 14px;
+  text-align: center;
+  background: #f4f5fa;
+}
+
+.score-list small, .score-list strong {
+  display: block;
+}
+
+.score-list small {
+  color: var(--muted);
+  font-size: .7rem;
+}
+
+.score-list strong {
+  margin-top: 3px;
+  font-size: .9rem;
+}
+
+.competition-list {
+  display: grid;
+  gap: 14px;
+}
+
+.competition-card {
+  overflow: hidden;
+  border: 1px solid var(--line);
+  border-radius: var(--radius-md);
+  background: white;
+}
+
+.competition-card summary {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  padding: 20px 22px;
+  cursor: pointer;
+  list-style: none;
+}
+
+.competition-card summary::-webkit-details-marker {
+  display: none;
+}
+
+.competition-card summary::after {
+  content: "+";
+  font-size: 1.45rem;
+  font-weight: 500;
+  color: var(--primary);
+}
+
+.competition-card[open] summary::after {
+  content: "−";
+}
+
+.competition-card summary > span:first-child {
+  flex: 1;
+}
+
+.competition-card summary small, .competition-card summary strong {
+  display: block;
+}
+
+.competition-card summary small {
+  color: var(--muted);
+  font-size: .78rem;
+}
+
+.competition-card summary strong {
+  margin-top: 3px;
+}
+
 .result-status {
   display: inline-flex;
   align-items: center;
@@ -351,7 +742,6 @@ h3 { font-size: 1.25rem; line-height: 1.25; }
   white-space: nowrap;
 }
 
-/* Titik indikator status */
 .result-status::before {
   content: "";
   width: 7px;
@@ -361,41 +751,43 @@ h3 { font-size: 1.25rem; line-height: 1.25; }
   background: currentColor;
 }
 
-/* Hasil sudah tersedia */
 .result-status.completed {
   color: #067647;
   background: #dff8e9;
   border-color: #92ddb2;
 }
 
-/* Masih menunggu hasil */
 .result-status.pending {
   color: #775b00;
   background: #fff1bd;
   border-color: #e9c95d;
 }
-/* Pertandingan masih berjalan */
+
 .result-status.ongoing {
   color: #9a4b08;
   background: #fff0dc;
   border-color: #f1bd7a;
 }
-.competition-table-wrap, .competition-empty { border-top: 1px solid var(--line); }
-.compact-table th, .compact-table td { padding: 13px 22px; }
-.competition-empty { margin: 0; padding: 18px 22px; color: var(--muted); background: #fafbfc; }
 
-@media (max-width: 760px) {
-  .leaderboard-home-card { align-items: flex-start; flex-direction: column; padding: 30px; }
-  .leaderboard-hero { grid-template-columns: 1fr; align-items: start; padding: 30px; }
-  .leaderboard-stat { min-width: 0; width: 100%; }
-  .scoring-grid { grid-template-columns: 1fr; }
-  .score-list { grid-template-columns: repeat(5, 74px); overflow-x: auto; }
-  .competition-card summary { align-items: flex-start; flex-wrap: wrap; }
-  .result-status { margin-left: 0; }
+.competition-table-wrap, .competition-empty {
+  border-top: 1px solid var(--line);
 }
 
-/* Tahap 3: tipografi dan kartu permainan */
-body { font-family: var(--font-body), "Open Sans", Arial, sans-serif; }
+.compact-table th, .compact-table td {
+  padding: 13px 22px;
+}
+
+.competition-empty {
+  margin: 0;
+  padding: 18px 22px;
+  color: var(--muted);
+  background: #fafbfc;
+}
+
+body {
+  font-family: var(--font-body), "Open Sans", Arial, sans-serif;
+}
+
 h1, h2, h3, .brand, .nav, .button, .eyebrow, .game-category, .status {
   font-family: var(--font-heading), Poppins, Arial, sans-serif;
 }
@@ -416,6 +808,7 @@ h1, h2, h3, .brand, .nav, .button, .eyebrow, .game-category, .status {
   box-shadow: 0 12px 34px rgba(35, 26, 88, .07);
   transition: transform .2s ease, box-shadow .2s ease;
 }
+
 .game-card::after {
   content: "";
   position: absolute;
@@ -427,10 +820,33 @@ h1, h2, h3, .brand, .nav, .button, .eyebrow, .game-category, .status {
   background: color-mix(in srgb, var(--game-card-accent) 12%, transparent);
   pointer-events: none;
 }
-.game-card:hover { box-shadow: 0 18px 42px rgba(35, 26, 88, .12); }
-.game-card h3 { position: relative; z-index: 1; margin-bottom: 14px; font-size: 1.5rem; }
-.game-card p { position: relative; z-index: 1; max-width: 92%; color: #4f5870; }
-.game-card .text-link { position: relative; z-index: 1; margin-top: auto; padding-top: 26px; color: var(--game-card-accent); }
+
+.game-card:hover {
+  box-shadow: 0 18px 42px rgba(35, 26, 88, .12);
+}
+
+.game-card h3 {
+  position: relative;
+  z-index: 1;
+  margin-bottom: 14px;
+  font-size: 1.5rem;
+}
+
+.game-card p {
+  position: relative;
+  z-index: 1;
+  max-width: 92%;
+  color: #4f5870;
+}
+
+.game-card .text-link {
+  position: relative;
+  z-index: 1;
+  margin-top: auto;
+  padding-top: 26px;
+  color: var(--game-card-accent);
+}
+
 .game-category {
   color: var(--game-card-accent);
   font-size: .75rem;
@@ -438,291 +854,108 @@ h1, h2, h3, .brand, .nav, .button, .eyebrow, .game-category, .status {
   letter-spacing: .11em;
   text-transform: uppercase;
 }
-.game-card .status { border: 1px solid rgba(255,255,255,.65); background: rgba(255,255,255,.58); }
+
+.game-card .status {
+  border: 1px solid rgba(255,255,255,.65);
+  background: rgba(255,255,255,.58);
+}
 
 .game-card-sports {
   --game-card-bg: linear-gradient(145deg, #e8f1ff, #f3f7ff);
   --game-card-line: #cbdcff;
   --game-card-accent: #2759c7;
 }
+
 .game-card-strategic {
   --game-card-bg: linear-gradient(145deg, #eee9ff, #f8f5ff);
   --game-card-line: #d9ceff;
   --game-card-accent: #6842d9;
 }
+
 .game-card-esports {
   --game-card-bg: linear-gradient(145deg, #e6f7f5, #f1fbfa);
   --game-card-line: #c2e8e3;
   --game-card-accent: #087f78;
 }
+
 .game-card-grand-champion {
   --game-card-bg: linear-gradient(145deg, #eee7ff, #f8f3ff 58%, #fff4df);
   --game-card-line: #d8c8ff;
   --game-card-accent: #5b35f2;
 }
+
 .game-card-online {
   --game-card-bg: linear-gradient(145deg, #e9e5ff, #f5f2ff);
   --game-card-line: #d4caff;
   --game-card-accent: #5b35f2;
 }
+
 .game-card-fun {
   --game-card-bg: linear-gradient(145deg, #fff0dc, #fff8ec);
   --game-card-line: #f4d8ad;
   --game-card-accent: #b45f06;
 }
 
-/* Tahap 4: hasil per cabang dan sinkronisasi Juara Umum */
 .competition-card {
   --competition-head-bg: linear-gradient(145deg, #ece8ff, #f7f5ff);
   --competition-head-line: #d7ceff;
   --competition-head-accent: var(--primary);
   border-color: var(--competition-head-line);
 }
+
 .competition-card summary {
   background: var(--competition-head-bg);
 }
+
 .competition-card summary::after,
 .competition-card summary small {
   color: var(--competition-head-accent);
 }
+
 .competition-card-sports {
   --competition-head-bg: linear-gradient(145deg, #e8f1ff, #f3f7ff);
   --competition-head-line: #cbdcff;
   --competition-head-accent: #2759c7;
 }
+
 .competition-card-strategic {
   --competition-head-bg: linear-gradient(145deg, #eee9ff, #f8f5ff);
   --competition-head-line: #d9ceff;
   --competition-head-accent: #6842d9;
 }
+
 .competition-card-esports {
   --competition-head-bg: linear-gradient(145deg, #e6f7f5, #f1fbfa);
   --competition-head-line: #c2e8e3;
   --competition-head-accent: #087f78;
 }
+
 .competition-card-grand-champion {
   --competition-head-bg: linear-gradient(145deg, #eee7ff, #f8f3ff 58%, #fff4df);
   --competition-head-line: #d8c8ff;
   --competition-head-accent: #5b35f2;
 }
+
 .competition-card-fun {
   --competition-head-bg: linear-gradient(145deg, #fff0dc, #fff8ec);
   --competition-head-line: #f4d8ad;
   --competition-head-accent: #b45f06;
 }
+
 .competition-result-label,
 .competition-result-points {
   display: block;
 }
+
 .competition-result-label {
   font-weight: 800;
 }
+
 .competition-result-points {
   margin-top: 2px;
   color: var(--muted);
   font-size: .75rem;
 }
-
-/* =========================================================
-   MLBB Standings
-   ========================================================= */
-
-.mlbb-standings-table {
-  table-layout: fixed;
-}
-
-.mlbb-standings-table th {
-  padding: 13px 18px;
-  color: #52627f;
-  background: #ffffff;
-  border-bottom: 1px solid var(--line);
-  font-size: 0.68rem;
-  font-weight: 800;
-  letter-spacing: 0.06em;
-}
-
-.mlbb-standings-table td {
-  padding: 16px 18px;
-  vertical-align: middle;
-}
-
-.mlbb-standings-table tbody tr {
-  background: #ffffff;
-}
-
-.mlbb-standings-table tbody tr:nth-child(even) {
-  background: #ffffff;
-}
-
-.mlbb-standings-table tbody tr:hover {
-  background: #fbfcfe;
-}
-
-.mlbb-standings-table th:nth-child(n + 3),
-.mlbb-standings-table td:nth-child(n + 3) {
-  text-align: center;
-}
-
-.mlbb-rank-column {
-  width: 76px;
-}
-
-.mlbb-squad-column {
-  width: 48%;
-}
-
-.mlbb-rank-badge {
-  width: 30px;
-  height: 30px;
-
-  display: inline-grid;
-  place-items: center;
-
-  border-radius: 50%;
-
-  color: #445472;
-  background: #f0f4f9;
-
-  font-size: 0.76rem;
-  font-weight: 800;
-}
-
-.mlbb-rank-badge.mlbb-rank-finalist {
-  color: white;
-  background: #ff9700;
-}
-
-.mlbb-squad {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-}
-
-.mlbb-squad > strong {
-  color: #12213d;
-  font-size: 0.92rem;
-  font-weight: 800;
-  letter-spacing: 0.01em;
-}
-
-.mlbb-finalist-badge {
-  display: inline-flex;
-  align-items: center;
-  gap: 5px;
-
-  padding: 3px 8px;
-
-  border: 1px solid #ffd27a;
-  border-radius: var(--radius-pill);
-
-  color: #c55c00;
-  background: #fff7dd;
-
-  font-size: 0.58rem;
-  font-weight: 800;
-  line-height: 1;
-  text-transform: uppercase;
-  white-space: nowrap;
-}
-
-.mlbb-finalist-badge span {
-  font-size: 0.65rem;
-}
-
-.mlbb-match-point strong {
-  color: #101828;
-  font-size: 0.98rem;
-}
-
-.mlbb-score-separator {
-  color: #7c8aa5;
-}
-
-.mlbb-net-games {
-  min-width: 36px;
-
-  display: inline-flex;
-  justify-content: center;
-
-  padding: 3px 8px;
-
-  border: 1px solid;
-  border-radius: 8px;
-
-  font-size: 0.7rem;
-  font-weight: 800;
-  line-height: 1.2;
-}
-
-.mlbb-net-games.positive {
-  color: #087443;
-  border-color: #a5e7ce;
-  background: #e9fbf4;
-}
-
-.mlbb-net-games.neutral {
-  color: #64748b;
-  border-color: #d9e0e9;
-  background: #f7f9fc;
-}
-
-.mlbb-net-games.negative {
-  color: #d31345;
-  border-color: #ffc2ce;
-  background: #fff0f3;
-}
-
-/* Garis penanda dua squad yang lolos ke final */
-.mlbb-finalist-row td:first-child {
-  border-left: 3px solid #ff9700;
-}
-
-
-/* Mobile */
-@media (max-width: 760px) {
-  .mlbb-standings-table {
-    min-width: 720px;
-  }
-
-  .mlbb-standings-table th {
-    padding: 11px 13px;
-    font-size: 0.62rem;
-  }
-
-  .mlbb-standings-table td {
-    padding: 13px;
-    font-size: 0.8rem;
-  }
-
-  .mlbb-rank-column {
-    width: 62px;
-  }
-
-  .mlbb-squad-column {
-    width: 220px;
-  }
-
-  .mlbb-squad {
-    gap: 7px;
-  }
-
-  .mlbb-squad > strong {
-    font-size: 0.82rem;
-  }
-
-  .mlbb-finalist-badge {
-    padding: 3px 6px;
-    font-size: 0.52rem;
-  }
-
-  .mlbb-rank-badge {
-    width: 27px;
-    height: 27px;
-    font-size: 0.7rem;
-  }
-}
-
-/* Tahap 5: Pengumuman */
 
 .announcement-home-section {
   padding-top: 62px;
@@ -733,13 +966,10 @@ h1, h2, h3, .brand, .nav, .button, .eyebrow, .game-category, .status {
   margin-bottom: 20px;
 }
 
-/* Slider ringkas di halaman utama */
-
 .announcement-slider {
   --announcement-accent: #6842d9;
   --announcement-accent-dark: #4321c9;
   --announcement-background: linear-gradient(110deg, #4f2ad9, #6842e8 55%, #3267d6);
-
   position: relative;
   min-height: 132px;
   display: flex;
@@ -846,7 +1076,7 @@ h1, h2, h3, .brand, .nav, .button, .eyebrow, .game-category, .status {
   font-family: var(--font-heading), Poppins, Arial, sans-serif;
   font-size: 0.82rem;
   font-weight: 800;
-  transition:   transform var(--motion-normal) ease,   box-shadow var(--motion-normal) ease;
+  transition: transform var(--motion-normal) ease,   box-shadow var(--motion-normal) ease;
 }
 
 .announcement-slider-link:hover {
@@ -930,8 +1160,6 @@ h1, h2, h3, .brand, .nav, .button, .eyebrow, .game-category, .status {
   text-align: center;
 }
 
-/* Variasi warna slider */
-
 .announcement-theme-general {
   --announcement-accent: #6842d9;
   --announcement-accent-dark: #4321c9;
@@ -962,8 +1190,6 @@ h1, h2, h3, .brand, .nav, .button, .eyebrow, .game-category, .status {
   --announcement-background: linear-gradient(110deg, #a62951, #d04469 55%, #6a3ddd);
 }
 
-/* Daftar ringkas pada halaman Pengumuman */
-
 .announcement-page .lead {
   margin-bottom: 0;
 }
@@ -978,7 +1204,6 @@ h1, h2, h3, .brand, .nav, .button, .eyebrow, .game-category, .status {
   --announcement-accent: #6842d9;
   --announcement-tint: #f4f1ff;
   --announcement-line: #ddd4ff;
-
   position: relative;
   min-height: 104px;
   display: grid;
@@ -989,7 +1214,7 @@ h1, h2, h3, .brand, .nav, .button, .eyebrow, .game-category, .status {
   border-radius: var(--radius-md);
   background: white;
   box-shadow: 0 7px 24px rgba(16, 24, 40, 0.04);
-  transition:   transform var(--motion-normal) ease,   box-shadow var(--motion-normal) ease;
+  transition: transform var(--motion-normal) ease,   box-shadow var(--motion-normal) ease;
 }
 
 a.announcement-list-item:hover {
@@ -1105,128 +1330,15 @@ a.announcement-list-item:hover {
 
 @keyframes announcementFadeIn {
   from {
-    opacity: 0;
-    transform: translateY(5px);
-  }
+      opacity: 0;
+      transform: translateY(5px);
+    }
 
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
 }
-
-@media (prefers-reduced-motion: reduce) {
-  .announcement-slider-content {
-    animation: none;
-  }
-
-  .announcement-slider,
-  .announcement-slider-link,
-  .announcement-slider-link span,
-  .announcement-slider-arrow,
-  .announcement-list-item,
-  .announcement-list-arrow {
-    transition: none;
-  }
-}
-
-@media (max-width: 760px) {
-  .announcement-home-section {
-    padding-top: 50px;
-    padding-bottom: 50px;
-  }
-
-  .announcement-slider {
-    min-height: 190px;
-  }
-
-  .announcement-slider-content {
-    align-items: flex-start;
-    flex-direction: column;
-    justify-content: center;
-    gap: 14px;
-    padding: 26px 48px 34px;
-  }
-
-  .announcement-slider-copy {
-    align-items: flex-start;
-    flex-direction: column;
-    gap: 10px;
-  }
-
-  .announcement-slider-text p {
-    display: -webkit-box;
-    overflow: hidden;
-    white-space: normal;
-    -webkit-box-orient: vertical;
-    -webkit-line-clamp: 2;
-  }
-
-  .announcement-slider-link {
-    min-height: 38px;
-  }
-
-  .announcement-slider-arrow {
-    width: 30px;
-    height: 30px;
-  }
-
-  .announcement-slider-arrow.previous {
-    left: 8px;
-  }
-
-  .announcement-slider-arrow.next {
-    right: 8px;
-  }
-
-  .announcement-list-item {
-    min-height: 0;
-    grid-template-columns: 94px minmax(0, 1fr) 24px;
-  }
-
-  .announcement-list-date {
-    padding: 16px 10px;
-  }
-
-  .announcement-list-content {
-    padding: 17px 14px;
-  }
-
-  .announcement-list-content h2 {
-    font-size: 1rem;
-  }
-
-  .announcement-list-content p {
-    font-size: 0.84rem;
-  }
-
-  .announcement-list-arrow {
-    padding-right: 10px;
-  }
-}
-
-@media (max-width: 480px) {
-  .announcement-list-item {
-    grid-template-columns: 1fr 24px;
-  }
-
-  .announcement-list-date {
-    grid-column: 1 / -1;
-    display: flex;
-    justify-content: flex-start;
-    padding: 9px 14px;
-  }
-
-  .announcement-list-date span {
-    max-width: none;
-    font-size: 0.68rem;
-  }
-
-  .announcement-list-content {
-    padding-top: 14px;
-  }
-}
-/* Mobile polish: Header dan Leaderboard */
 
 .nav a {
   position: relative;
@@ -1236,9 +1348,8 @@ a.announcement-list-item:hover {
   color: var(--primary);
 }
 
-/* Sistem poin berbentuk daftar */
 .score-card {
-  border: 1px solid var(--line); 
+  border: 1px solid var(--line);
   background: white;
   padding: 22px 20px;
   border-radius: 22px;
@@ -1262,10 +1373,8 @@ a.announcement-list-item:hover {
   align-items: center;
   justify-content: space-between;
   gap: 4px;
-
   min-height: 40px;
   padding: 5px 0;
-
   border-top: 1px solid var(--line);
 }
 
@@ -1273,58 +1382,48 @@ a.announcement-list-item:hover {
   padding-bottom: 2px;
 }
 
-/* Ranking badge */
 .score-row > span {
   display: inline-flex;
   align-items: center;
   width: fit-content;
-
   padding: 3px 7px;
   border-radius: 6px;
-
   font-size: 0.61rem;
   font-weight: 600;
   line-height: 1.15;
   white-space: nowrap;
 }
 
-/* Ranking 1 - warna paling kuat */
 .score-row:nth-child(1) > span {
   color: #4f2bd9;
   background: #e8e1ff;
 }
 
-/* Ranking 2 */
 .score-row:nth-child(2) > span {
   color: #6246d8;
   background: #eee9ff;
 }
 
-/* Ranking 3 */
 .score-row:nth-child(3) > span {
   color: #755ed5;
   background: #f2efff;
 }
 
-/* Ranking 4 */
 .score-row:nth-child(4) > span {
   color: #8978d2;
   background: #f5f3ff;
 }
 
-/* Ranking 5 - warna paling pudar */
 .score-row:nth-child(5) > span {
   color: #9b8fc9;
   background: #f8f7fc;
 }
 
-/* Nilai + poin */
 .score-row strong {
   display: inline-flex;
   align-items: baseline;
   gap: 3px;
   flex: 0 0 auto;
-
   color: var(--text);
   font-family: var(--font-heading), Poppins, Arial, sans-serif;
   font-size: 0.78rem;
@@ -1335,21 +1434,11 @@ a.announcement-list-item:hover {
 .score-row strong small {
   display: inline;
   margin: 0;
-
   color: var(--muted);
   font-family: inherit;
   font-size: 0.55rem;
   font-weight: 600;
   line-height: 1;
-}
-
-/* Label tabel khusus desktop/mobile */
-.desktop-column-label {
-  display: inline;
-}
-
-.mobile-column-label {
-  display: none;
 }
 
 .trophy-icon {
@@ -1362,239 +1451,6 @@ a.announcement-list-item:hover {
   align-items: center;
   justify-content: center;
 }
-
-@media (max-width: 760px) {
-
-
-  /*
-   * Leaderboard
-   */
-
-  .leaderboard-page {
-    padding-top: 28px;
-  }
-
-  .leaderboard-hero {
-    padding: 26px 22px;
-    border-radius: var(--radius-lg);
-  }
-
-  .leaderboard-hero h1 {
-    margin-bottom: 14px;
-    font-size: clamp(2.1rem, 11vw, 3.1rem);
-  }
-
-  .leaderboard-hero .lead {
-    font-size: 0.95rem;
-  }
-
-  .leaderboard-stat {
-    padding: 18px;
-    border-radius: var(--radius-md);
-  }
-
-  .leaderboard-stat strong {
-    font-size: 1.65rem;
-  }
-
-  .leaderboard-section {
-    padding-top: 52px;
-  }
-
-  .compact-heading {
-    gap: 14px;
-  }
-
-  .compact-heading .status {
-    align-self: flex-start;
-  }
-
-  /*
-   * Tabel Juara Umum tidak lagi menggunakan horizontal scroll.
-   */
-
-  .overall-table-card {
-    width: 100%;
-    overflow: hidden;
-    border-radius: 20px;
-  }
-
-  .overall-table {
-    width: 100%;
-    table-layout: fixed;
-  }
-
-  .overall-table th,
-  .overall-table td {
-    padding: 14px 8px;
-  }
-
-  .overall-table th {
-    font-size: 0.66rem;
-    letter-spacing: 0.035em;
-    text-align: center;
-  }
-
-  .overall-table td {
-    font-size: 0.86rem;
-    text-align: center;
-  }
-
-  .overall-table .rank-column {
-    width: 58px;
-  }
-
-  .overall-table .division-column,
-  .overall-table th:nth-child(2) {
-    width: auto;
-    text-align: left;
-  }
-
-  .overall-table .first-place-column {
-    width: 54px;
-  }
-
-  .overall-table .points-column {
-    width: 62px;
-  }
-
-  .overall-table .podium-column {
-    display: none;
-  }
-
-  .desktop-column-label {
-    display: none;
-  }
-
-  .mobile-column-label {
-    display: inline-flex;
-  }
-
-  .rank-badge {
-    width: 34px;
-    height: 34px;
-    border-radius: 11px;
-    font-size: 0.88rem;
-  }
-
-  .rank-1,
-  .rank-2,
-  .rank-3 {
-    font-size: 1.05rem;
-  }
-
-  .division-column strong {
-    display: block;
-    overflow-wrap: anywhere;
-    line-height: 1.35;
-  }
-
-  .point-total {
-    font-size: 1rem;
-  }
-
-  .table-note {
-    padding: 15px;
-    font-size: 0.8rem;
-  }
-
-  /*
-   * Sistem poin menjadi daftar vertikal.
-   */
-
-  .scoring-grid {
-    grid-template-columns: 1fr;
-    gap: 14px;
-  }
-
-  .score-list {
-    display: grid;
-    grid-template-columns: 1fr;
-    overflow: visible;
-  }
-
-  .score-row {
-    min-height: 46px;
-    padding: 9px 2px;
-  }
-
-  .score-row > span {
-    font-size: 0.84rem;
-  }
-
-  .score-row strong {
-    font-size: 0.94rem;
-  }
-
-  /*
-   * Detail hasil cabang tetap dapat digeser hanya jika memang diperlukan.
-   */
-
-  .competition-card summary {
-    gap: 12px;
-    padding: 18px;
-  }
-
-  .competition-card summary strong {
-    font-size: 0.95rem;
-  }
-
-  .result-status {
-    font-size: 0.68rem;
-  }
-
-  .compact-table th,
-  .compact-table td {
-    padding: 12px 15px;
-    font-size: 0.82rem;
-  }
-}
-
-@media (max-width: 390px) {
-  .container {
-    width: min(100% - 28px, 1160px);
-  }
-
-  .brand-logo {
-    height: 36px;
-  }
-
-  .overall-table th,
-  .overall-table td {
-    padding-right: 6px;
-    padding-left: 6px;
-  }
-
-  .overall-table .rank-column {
-    width: 52px;
-  }
-
-  .overall-table .first-place-column {
-    width: 48px;
-  }
-
-  .overall-table .points-column {
-    width: 56px;
-  }
-
-  .rank-badge {
-    width: 32px;
-    height: 32px;
-  }
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .mobile-menu-toggle span,
-  .mobile-menu-overlay,
-  .mobile-menu-drawer,
-  .mobile-nav a span:last-child {
-    transition: none;
-  }
-}
-
-/* =========================================================
-   Tahap 6: Jadwal
-   ========================================================= */
 
 .schedule-page {
   padding-top: 54px;
@@ -1617,8 +1473,6 @@ a.announcement-list-item:hover {
 .schedule-board {
   margin-top: 46px;
 }
-
-/* Toolbar dan legenda */
 
 .schedule-board-toolbar {
   display: flex;
@@ -1683,8 +1537,6 @@ a.announcement-list-item:hover {
   color: var(--muted);
   font-size: 0.76rem;
 }
-
-/* Tabel Gantt */
 
 .schedule-table-card {
   position: relative;
@@ -1800,8 +1652,6 @@ a.announcement-list-item:hover {
   background: #f7f8fb;
 }
 
-/* Palet mengikuti warna kartu permainan */
-
 .schedule-row {
   --schedule-bg: linear-gradient(145deg, #ece8ff, #f7f5ff);
   --schedule-line: #d7ceff;
@@ -1831,8 +1681,7 @@ a.announcement-list-item:hover {
 }
 
 .schedule-row-grand-champion {
-  --schedule-bg:
-    linear-gradient(
+  --schedule-bg: linear-gradient(
       145deg,
       #eee7ff,
       #f8f3ff 58%,
@@ -1870,8 +1719,7 @@ a.announcement-list-item:hover {
   border-radius: 10px;
   background: transparent;
   cursor: pointer;
-  transition:
-    border-color 0.18s ease,
+  transition: border-color 0.18s ease,
     box-shadow 0.18s ease,
     transform 0.18s ease,
     background 0.18s ease;
@@ -1913,8 +1761,7 @@ a.announcement-list-item:hover {
 
 .schedule-cell.is-selected {
   border-color: var(--schedule-solid);
-  box-shadow:
-    0 0 0 2px white,
+  box-shadow: 0 0 0 2px white,
     0 0 0 4px var(--schedule-solid);
 }
 
@@ -1950,8 +1797,6 @@ a.announcement-list-item:hover {
   box-shadow: 0 0 0 3px rgba(229, 72, 77, 0.18);
   animation: schedulePulse 1.6s ease-out infinite;
 }
-
-/* Detail jadwal */
 
 .schedule-detail-section {
   scroll-margin-top: 100px;
@@ -2054,11 +1899,9 @@ a.announcement-list-item:hover {
 }
 
 .schedule-detail-panel {
-  --schedule-detail-bg:
-    linear-gradient(145deg, #ece8ff, #f7f5ff);
+  --schedule-detail-bg: linear-gradient(145deg, #ece8ff, #f7f5ff);
   --schedule-detail-line: #d7ceff;
   --schedule-detail-accent: var(--primary);
-
   overflow: hidden;
   border: 1px solid var(--schedule-detail-line);
   border-radius: var(--radius-lg);
@@ -2067,29 +1910,25 @@ a.announcement-list-item:hover {
 }
 
 .schedule-detail-panel-sports {
-  --schedule-detail-bg:
-    linear-gradient(145deg, #e8f1ff, #f3f7ff);
+  --schedule-detail-bg: linear-gradient(145deg, #e8f1ff, #f3f7ff);
   --schedule-detail-line: #cbdcff;
   --schedule-detail-accent: #2759c7;
 }
 
 .schedule-detail-panel-strategic {
-  --schedule-detail-bg:
-    linear-gradient(145deg, #eee9ff, #f8f5ff);
+  --schedule-detail-bg: linear-gradient(145deg, #eee9ff, #f8f5ff);
   --schedule-detail-line: #d9ceff;
   --schedule-detail-accent: #6842d9;
 }
 
 .schedule-detail-panel-esports {
-  --schedule-detail-bg:
-    linear-gradient(145deg, #e6f7f5, #f1fbfa);
+  --schedule-detail-bg: linear-gradient(145deg, #e6f7f5, #f1fbfa);
   --schedule-detail-line: #c2e8e3;
   --schedule-detail-accent: #087f78;
 }
 
 .schedule-detail-panel-grand-champion {
-  --schedule-detail-bg:
-    linear-gradient(
+  --schedule-detail-bg: linear-gradient(
       145deg,
       #eee7ff,
       #f8f3ff 58%,
@@ -2100,15 +1939,13 @@ a.announcement-list-item:hover {
 }
 
 .schedule-detail-panel-online {
-  --schedule-detail-bg:
-    linear-gradient(145deg, #e9e5ff, #f5f2ff);
+  --schedule-detail-bg: linear-gradient(145deg, #e9e5ff, #f5f2ff);
   --schedule-detail-line: #d4caff;
   --schedule-detail-accent: #5b35f2;
 }
 
 .schedule-detail-panel-fun {
-  --schedule-detail-bg:
-    linear-gradient(145deg, #fff0dc, #fff8ec);
+  --schedule-detail-bg: linear-gradient(145deg, #fff0dc, #fff8ec);
   --schedule-detail-line: #f4d8ad;
   --schedule-detail-accent: #b45f06;
 }
@@ -2150,8 +1987,6 @@ a.announcement-list-item:hover {
   font-weight: 800;
 }
 
-/* Empty state */
-
 .schedule-empty-message {
   min-height: 150px;
   display: flex;
@@ -2187,8 +2022,6 @@ a.announcement-list-item:hover {
   color: var(--muted);
 }
 
-/* Daftar sesi */
-
 .schedule-session-list {
   display: grid;
   gap: 12px;
@@ -2203,8 +2036,7 @@ a.announcement-list-item:hover {
   border: 1px solid var(--line);
   border-radius: 17px;
   background: white;
-  transition:
-    border-color 0.2s ease,
+  transition: border-color 0.2s ease,
     box-shadow 0.2s ease,
     transform 0.2s ease;
 }
@@ -2279,8 +2111,6 @@ a.announcement-list-item:hover {
   flex: 0 0 auto;
 }
 
-/* Badge status */
-
 .schedule-status {
   display: inline-flex;
   align-items: center;
@@ -2326,12 +2156,9 @@ a.announcement-list-item:hover {
   border-color: #92ddb2;
 }
 
-/* Highlight sesi yang sedang berlangsung */
-
 .schedule-session-live {
   border-color: #f3a4a0;
-  background:
-    linear-gradient(
+  background: linear-gradient(
       90deg,
       rgba(254, 228, 226, 0.65),
       white 38%
@@ -2360,25 +2187,1394 @@ a.announcement-list-item:hover {
   opacity: 1;
 }
 
-/* Animasi */
-
 @keyframes schedulePulse {
   0% {
-    box-shadow: 0 0 0 0 rgba(229, 72, 77, 0.42);
+      box-shadow: 0 0 0 0 rgba(229, 72, 77, 0.42);
+    }
+
+    70% {
+      box-shadow: 0 0 0 7px rgba(229, 72, 77, 0);
+    }
+
+    100% {
+      box-shadow: 0 0 0 0 rgba(229, 72, 77, 0);
+    }
+}
+
+html,
+body {
+  overflow-x: hidden;
+}
+
+.home-schedule-section {
+  padding-top: 68px;
+}
+
+.home-schedule-heading {
+  margin-bottom: 20px;
+}
+
+.home-schedule-list {
+  display: grid;
+  gap: 12px;
+}
+
+.home-schedule-card {
+  --home-schedule-bg: linear-gradient(145deg, #e8f1ff, #f3f7ff);
+  --home-schedule-line: #cbdcff;
+  --home-schedule-accent: #2759c7;
+  position: relative;
+  min-height: 94px;
+  display: grid;
+  grid-template-columns: 175px minmax(0, 1fr) 34px;
+  align-items: stretch;
+  overflow: hidden;
+  border: 1px solid var(--home-schedule-line);
+  border-radius: var(--radius-md);
+  background: white;
+  box-shadow: 0 7px 24px rgba(16, 24, 40, 0.04);
+  transition: transform 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.home-schedule-card:hover {
+  box-shadow: 0 12px 30px rgba(16, 24, 40, 0.08);
+}
+
+.home-schedule-time {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  padding: 16px 20px;
+  border-right: 1px solid var(--home-schedule-line);
+  background: var(--home-schedule-bg);
+}
+
+.home-schedule-time strong {
+  color: var(--home-schedule-accent);
+  font-family: var(--font-heading), Poppins, Arial, sans-serif;
+  font-size: 0.93rem;
+  line-height: 1.25;
+}
+
+.home-schedule-time span {
+  margin-top: 4px;
+  color: var(--muted);
+  font-size: 0.72rem;
+}
+
+.home-schedule-content {
+  min-width: 0;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  padding: 14px 20px;
+}
+
+.home-schedule-category {
+  margin-bottom: 2px;
+  color: var(--home-schedule-accent);
+  font-family: var(--font-heading), Poppins, Arial, sans-serif;
+  font-size: 0.62rem;
+  font-weight: 800;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.home-schedule-content h3 {
+  margin: 0 0 4px;
+  font-size: 1rem;
+  letter-spacing: -0.02em;
+}
+
+.home-schedule-location {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  color: var(--muted);
+  font-size: 0.74rem;
+}
+
+.home-schedule-location svg {
+  width: 14px;
+  height: 14px;
+  flex: 0 0 auto;
+}
+
+.home-schedule-arrow {
+  display: grid;
+  place-items: center;
+  padding-right: 14px;
+  color: var(--home-schedule-accent);
+  font-size: 1.1rem;
+  font-weight: 800;
+  transition: transform 0.2s ease;
+}
+
+.home-schedule-card-sports {
+  --home-schedule-bg: linear-gradient(145deg, #e8f1ff, #f3f7ff);
+  --home-schedule-line: #cbdcff;
+  --home-schedule-accent: #2759c7;
+}
+
+.home-schedule-card-strategic {
+  --home-schedule-bg: linear-gradient(145deg, #eee9ff, #f8f5ff);
+  --home-schedule-line: #d9ceff;
+  --home-schedule-accent: #6842d9;
+}
+
+.home-schedule-card-esports {
+  --home-schedule-bg: linear-gradient(145deg, #e6f7f5, #f1fbfa);
+  --home-schedule-line: #c2e8e3;
+  --home-schedule-accent: #087f78;
+}
+
+.home-schedule-card-online {
+  --home-schedule-bg: linear-gradient(145deg, #e9e5ff, #f5f2ff);
+  --home-schedule-line: #d4caff;
+  --home-schedule-accent: #5b35f2;
+}
+
+.home-schedule-card-grand-champion {
+  --home-schedule-bg: linear-gradient(
+      145deg,
+      #eee7ff,
+      #f8f3ff 58%,
+      #fff4df
+    );
+  --home-schedule-line: #d8c8ff;
+  --home-schedule-accent: #5b35f2;
+}
+
+.home-schedule-card-fun {
+  --home-schedule-bg: linear-gradient(145deg, #fff0dc, #fff8ec);
+  --home-schedule-line: #f4d8ad;
+  --home-schedule-accent: #b45f06;
+}
+
+.competition-table-standard-wrap {
+  width: 100%;
+  overflow: hidden;
+  border-top: 1px solid var(--line);
+}
+
+.competition-table-standard-scroll {
+  width: 100%;
+  overflow-x: auto;
+  overflow-y: hidden;
+  -webkit-overflow-scrolling: touch;
+}
+
+.competition-table-standard {
+  width: 100%;
+  border-collapse: collapse;
+  border-spacing: 0;
+  color: #172033;
+  font-variant-numeric: tabular-nums;
+}
+
+.competition-table-standard thead th {
+  padding: 12px 14px;
+  color: #ffffff;
+  background: #102f67;
+  border-bottom: 1px solid rgba(15, 43, 92, 0.14);
+  font-size: 0.72rem;
+  font-weight: 800;
+  line-height: 1.25;
+  letter-spacing: 0.045em;
+  text-transform: uppercase;
+  text-align: center;
+  vertical-align: middle;
+  white-space: nowrap;
+}
+
+.competition-table-standard tbody td {
+  padding: 12px 14px;
+  border-bottom: 1px solid var(--line);
+  color: #172033;
+  font-size: 0.86rem;
+  line-height: 1.35;
+  text-align: center;
+  vertical-align: middle;
+}
+
+.competition-table-standard tbody tr:nth-child(odd) {
+  background: #ffffff;
+}
+
+.competition-table-standard tbody tr:nth-child(even) {
+  background: #f5f7fb;
+}
+
+.competition-table-standard tbody tr:last-child td {
+  border-bottom: 0;
+}
+
+.competition-rank-column {
+  width: 92px;
+  text-align: center;
+}
+
+.competition-rank {
+  color: #172554;
+  font-size: 0.86rem;
+  font-weight: 700;
+}
+
+.competition-name-column {
+  min-width: 150px;
+}
+
+.competition-name-cell {
+  text-align: center;
+}
+
+.competition-name {
+  color: #12213d;
+  font-size: 0.88rem;
+  font-weight: 800;
+}
+
+.competition-name-with-status {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 7px;
+}
+
+.competition-status-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 20px;
+  padding: 3px 8px;
+  border: 1px solid currentColor;
+  border-radius: var(--radius-pill);
+  font-size: 0.56rem;
+  font-weight: 800;
+  line-height: 1;
+  letter-spacing: 0.035em;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+.competition-status-badge.accent {
+  color: #b85f00;
+  background: #fff5dc;
+  border-color: #edc477;
+}
+
+.competition-status-badge.secondary {
+  color: #6a42c2;
+  background: #f3efff;
+  border-color: #cfc1f7;
+}
+
+.competition-value-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 38px;
+  padding: 3px 8px;
+  border: 1px solid;
+  border-radius: 8px;
+  font-size: 0.68rem;
+  font-weight: 800;
+  line-height: 1.1;
+  white-space: nowrap;
+}
+
+.competition-value-badge.positive {
+  color: #087443;
+  background: #eafaf4;
+  border-color: #a6e6cf;
+}
+
+.competition-value-badge.neutral {
+  color: #667085;
+  background: #f6f8fb;
+  border-color: #d9e0ea;
+}
+
+.competition-value-badge.negative {
+  color: #c92f49;
+  background: #fff0f3;
+  border-color: #ffc3cd;
+}
+
+.competition-table-standard .competition-value-strong {
+  color: #172554;
+  font-weight: 800;
+}
+
+.competition-table-note {
+  margin: 0;
+  padding: 10px 14px;
+  border-top: 1px solid var(--line);
+  color: var(--muted);
+  background: #fafbfc;
+  font-size: 0.72rem;
+  line-height: 1.45;
+  text-align: left;
+}
+
+.competition-table-note strong {
+  color: #344054;
+  font-weight: 800;
+}
+
+.competition-table-note.inline-note {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.competition-event-points-column {
+  text-align: center;
+}
+
+.competition-event-points {
+  color: #5b3ee4;
+  font-size: 0.86rem;
+  font-weight: 800;
+}
+
+.domino-result-table {
+  table-layout: fixed;
+}
+
+.domino-result-table .competition-rank-column {
+  width: 18%;
+}
+
+.domino-result-table .competition-name-column {
+  width: 30%;
+}
+
+.domino-result-table th:nth-child(3) {
+  width: 32%;
+}
+
+.domino-result-table .competition-event-points-column {
+  width: 20%;
+}
+
+.domino-result-value {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 2px;
+}
+
+.domino-result-points {
+  color: var(--muted);
+  font-size: 0.68rem;
+  font-weight: 500;
+  line-height: 1.2;
+}
+
+.capsa-score-table {
+  table-layout: fixed;
+}
+
+.capsa-score-table .competition-rank-column {
+  width: 14%;
+}
+
+.capsa-score-table .competition-name-column {
+  width: 26%;
+}
+
+.capsa-score-table .competition-event-points-column {
+  width: 12%;
+}
+
+.capsa-score-table th:nth-child(n + 3),
+.capsa-score-table td:nth-child(n + 3) {
+  width: 15%;
+}
+
+.chess-standard-table {
+  table-layout: fixed;
+}
+
+.chess-standard-table .competition-rank-column {
+  width: 14%;
+}
+
+.chess-standard-table .competition-name-column {
+  width: 26%;
+}
+
+.chess-standard-table th:nth-child(3),
+.chess-standard-table th:nth-child(4),
+.chess-standard-table th:nth-child(5),
+.chess-standard-table th:nth-child(6) {
+  width: 10%;
+}
+
+.chess-standard-table .chess-total-column {
+  width: 20%;
+}
+
+.table-tennis-standard-table {
+  table-layout: fixed;
+}
+
+.table-tennis-standard-table .competition-rank-column {
+  width: 12%;
+}
+
+.table-tennis-standard-table .competition-name-column {
+  width: 25%;
+}
+
+.table-tennis-standard-table tbody td:nth-child(3),
+.table-tennis-standard-table tbody td:nth-child(4),
+.table-tennis-standard-table tbody td:nth-child(5),
+.table-tennis-standard-table tbody td:nth-child(6),
+.table-tennis-standard-table tbody td:nth-child(7) {
+  width: 8%;
+  color: #172033;
+  font-weight: 500;
+}
+
+.table-tennis-standard-table th:nth-child(8) {
+  width: 13%;
+}
+
+.table-tennis-name-cell {
+  text-align: left;
+}
+
+.table-tennis-name-with-status {
+  justify-content: flex-start;
+  width: 100%;
+}
+
+.mlbb-standard-table {
+  table-layout: fixed;
+}
+
+.mlbb-standard-table .competition-rank-column {
+  width: 13%;
+}
+
+.mlbb-standard-table .competition-name-column {
+  width: 27%;
+}
+
+.mlbb-standard-table th:nth-child(3) {
+  width: 15%;
+}
+
+.mlbb-standard-table th:nth-child(4) {
+  width: 16%;
+}
+
+.mlbb-standard-table th:nth-child(5) {
+  width: 14%;
+}
+
+.mlbb-standard-table th:nth-child(6) {
+  width: 15%;
+}
+
+.mlbb-name-cell {
+  text-align: left;
+}
+
+.mlbb-name-with-status {
+  justify-content: flex-start;
+  width: 100%;
+}
+
+.mlbb-standard-table tbody td:nth-child(4),
+.mlbb-standard-table tbody td:nth-child(6) {
+  color: #172033;
+  font-weight: 500;
+}
+
+.badminton-standard-table {
+  table-layout: fixed;
+}
+
+.badminton-standard-table .competition-rank-column {
+  width: 10%;
+}
+
+.badminton-standard-table .competition-name-column {
+  width: 14%;
+}
+
+.badminton-standard-table th:nth-child(3),
+.badminton-standard-table th:nth-child(4),
+.badminton-standard-table th:nth-child(5) {
+  width: 6%;
+}
+
+.badminton-standard-table th:nth-child(6),
+.badminton-standard-table th:nth-child(7) {
+  width: 10%;
+}
+
+.badminton-standard-table th:nth-child(8),
+.badminton-standard-table th:nth-child(9) {
+  width: 11%;
+}
+
+.badminton-standard-table th:nth-child(10) {
+  width: 9%;
+}
+
+.badminton-standard-table tbody td:nth-child(n + 3) {
+  color: #172033;
+  font-weight: 500;
+}
+
+.home-page {
+  position: relative;
+  isolation: isolate;
+  min-height: 100%;
+  overflow: hidden;
+  background: radial-gradient(
+      ellipse 75% 42% at 100% 0%,
+      rgba(139, 92, 246, 0.20) 0%,
+      rgba(139, 92, 246, 0.09) 38%,
+      rgba(139, 92, 246, 0) 72%
+    ),
+    radial-gradient(
+      ellipse 72% 42% at 0% 100%,
+      rgba(245, 158, 11, 0.20) 0%,
+      rgba(245, 158, 11, 0.08) 40%,
+      rgba(245, 158, 11, 0) 72%
+    ),
+    #f5f6fa;
+}
+
+.home-page::before {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  width: 75vw;
+  height: 48vw;
+  top: -30vw;
+  right: -18vw;
+  border-radius: 42% 0 55% 48%;
+  background: rgba(139, 92, 246, 0.055);
+  box-shadow: -35px 45px 80px rgba(139, 92, 246, 0.045),
+    -80px 90px 130px rgba(139, 92, 246, 0.025);
+  transform: rotate(10deg);
+}
+
+.home-page::after {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  width: 78vw;
+  height: 50vw;
+  bottom: -32vw;
+  left: -20vw;
+  border-radius: 0 55% 45% 52%;
+  background: rgba(245, 158, 11, 0.055);
+  box-shadow: 40px -45px 90px rgba(245, 158, 11, 0.045),
+    90px -90px 140px rgba(245, 158, 11, 0.025);
+  transform: rotate(8deg);
+}
+
+.home-page > section,
+.home-page .hero,
+.home-page .section-soft,
+.home-page .announcement-home-section,
+.home-page .leaderboard-home-section,
+.home-page .home-schedule-section {
+  background: transparent;
+}
+
+.home-page .section {
+  padding-top: 52px;
+  padding-bottom: 52px;
+}
+
+.home-page .hero {
+  padding-top: 64px;
+  padding-bottom: 52px;
+}
+
+.home-page .announcement-home-section,
+.home-page .leaderboard-home-section,
+.home-page .home-schedule-section {
+  padding-top: 52px;
+  padding-bottom: 52px;
+}
+
+.home-page .section-heading {
+  margin-bottom: 18px;
+}
+
+.home-page .section-heading h2 {
+  margin-top: 4px;
+}
+
+.home-page .hero-panel {
+  padding: 30px 32px;
+}
+
+.home-page .hero-panel h2 {
+  margin-top: 8px;
+  margin-bottom: 12px;
+}
+
+.home-page .hero .actions {
+  margin-top: 24px;
+}
+
+.home-page .leaderboard-home-section {
+  padding-top: 44px;
+  padding-bottom: 44px;
+}
+
+.home-page .section-heading .text-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 0.88rem;
+  font-weight: 800;
+  transition: color 0.2s ease,
+    transform 0.2s ease;
+}
+
+.home-page .section-heading .text-link:hover {
+  color: var(--primary-dark);
+}
+
+.home-page .game-card {
+  box-shadow: 0 8px 24px rgba(35, 26, 88, 0.045);
+  transition: transform 0.2s ease,
+    box-shadow 0.2s ease,
+    border-color 0.2s ease;
+}
+
+.home-page .game-card:hover {
+  box-shadow: 0 18px 42px rgba(35, 26, 88, .12);
+}
+
+.home-page .announcement-slider {
+  box-shadow: 0 10px 28px rgba(48, 36, 111, 0.11);
+}
+
+.home-page .leaderboard-home-card {
+  padding: 38px 40px;
+  box-shadow: 0 12px 34px rgba(31, 24, 82, 0.11);
+}
+
+.home-page .leaderboard-button {
+  transition: transform 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.home-page .leaderboard-button:hover {
+  box-shadow: 0 7px 20px rgba(16, 24, 40, 0.12);
+}
+
+.home-page .home-schedule-list {
+  gap: 10px;
+}
+
+.home-page .home-schedule-card {
+  min-height: 84px;
+  grid-template-columns: 155px
+    minmax(0, 1fr)
+    30px;
+  border-radius: 16px;
+  box-shadow: 0 5px 18px rgba(16, 24, 40, 0.035);
+}
+
+.home-page .home-schedule-card::before {
+  content: "";
+  position: absolute;
+  right: -42px;
+  bottom: -42px;
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  background: color-mix(
+      in srgb,
+      var(--home-schedule-accent) 10%,
+      transparent
+    );
+  pointer-events: none;
+}
+
+.home-page .home-schedule-card::after {
+  content: "";
+  position: absolute;
+  right: 22px;
+  bottom: -32px;
+  width: 78px;
+  height: 78px;
+  border-radius: 50%;
+  border: 16px solid
+    color-mix(
+      in srgb,
+      var(--home-schedule-accent) 6%,
+      transparent
+    );
+  pointer-events: none;
+}
+
+.home-page .home-schedule-card > * {
+  position: relative;
+  z-index: 1;
+}
+
+.home-page .home-schedule-card:hover {
+  box-shadow: 0 9px 24px rgba(16, 24, 40, 0.065);
+}
+
+.home-page .home-schedule-time {
+  padding: 12px 17px;
+}
+
+.home-page .home-schedule-time strong {
+  font-size: 0.88rem;
+}
+
+.home-page .home-schedule-time span {
+  margin-top: 2px;
+  font-size: 0.69rem;
+}
+
+.home-page .home-schedule-content {
+  padding: 11px 18px;
+}
+
+.home-page .home-schedule-category {
+  margin-bottom: 1px;
+  font-size: 0.59rem;
+}
+
+.home-page .home-schedule-content h3 {
+  margin-bottom: 2px;
+  font-size: 0.95rem;
+  line-height: 1.25;
+}
+
+.home-page .home-schedule-location {
+  gap: 4px;
+  font-size: 0.7rem;
+}
+
+.home-page .home-schedule-location svg {
+  width: 12px;
+  height: 12px;
+}
+
+.home-page .home-schedule-arrow {
+  padding-right: 11px;
+  font-size: 1rem;
+}
+
+.footer {
+  position: relative;
+  overflow: hidden;
+  border-top: 1px solid rgba(139, 92, 246, 0.10);
+  background: radial-gradient(
+      ellipse 55% 140% at 90% 0%,
+      rgba(139, 92, 246, 0.08) 0%,
+      rgba(139, 92, 246, 0) 70%
+    ),
+    radial-gradient(
+      ellipse 45% 120% at 5% 100%,
+      rgba(245, 158, 11, 0.055) 0%,
+      rgba(245, 158, 11, 0) 72%
+    ),
+    #f5f6fa;
+}
+
+.footer::before {
+  content: "";
+  position: absolute;
+  width: 340px;
+  height: 180px;
+  top: -120px;
+  right: -80px;
+  border-radius: 50%;
+  background: rgba(139, 92, 246, 0.055);
+  filter: blur(2px);
+  pointer-events: none;
+}
+
+.footer-inner {
+  position: relative;
+  z-index: 1;
+  min-height: 78px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  padding-top: 18px;
+  padding-bottom: 18px;
+  font-size: 0.78rem;
+  color: var(--muted);
+}
+
+.footer-inner span:first-child {
+  font-weight: 600;
+  color: rgba(71, 76, 98, 0.78);
+}
+
+.footer-inner span:last-child {
+  font-family: var(--font-heading);
+  font-weight: 800;
+  letter-spacing: -0.01em;
+  color: rgba(76, 63, 135, 0.88);
+}
+
+.mobile-menu-toggle,
+.mobile-menu-overlay,
+.mobile-menu-drawer {
+  display: none;
+}
+
+.overall-table th,
+.overall-table td,
+.overall-table .division-column {
+  text-align: center;
+  vertical-align: middle;
+}
+
+.desktop-column-label {
+  display: inline;
+}
+
+.mobile-column-label {
+  display: none;
+}
+
+.cscz-standard-table {
+  width: 100%;
+  table-layout: fixed;
+}
+
+.cscz-standard-table th:nth-child(1),
+.cscz-standard-table td:nth-child(1) {
+  width: 9%;
+}
+
+.cscz-standard-table th:nth-child(2),
+.cscz-standard-table td:nth-child(2) {
+  width: 18%;
+}
+
+.cscz-standard-table th:nth-child(3),
+.cscz-standard-table td:nth-child(3) {
+  width: 8%;
+}
+
+.cscz-standard-table th:nth-child(4),
+.cscz-standard-table td:nth-child(4),
+.cscz-standard-table th:nth-child(5),
+.cscz-standard-table td:nth-child(5),
+.cscz-standard-table th:nth-child(6),
+.cscz-standard-table td:nth-child(6) {
+  width: 6%;
+}
+
+.cscz-standard-table th:nth-child(7),
+.cscz-standard-table td:nth-child(7) {
+  width: 8%;
+}
+
+.cscz-standard-table th:nth-child(8),
+.cscz-standard-table td:nth-child(8),
+.cscz-standard-table th:nth-child(9),
+.cscz-standard-table td:nth-child(9) {
+  width: 13%;
+}
+
+.cscz-standard-table th:nth-child(10),
+.cscz-standard-table td:nth-child(10) {
+  width: 13%;
+}
+
+/* =========================================================
+   RESPONSIVE
+   ========================================================= */
+
+@media (min-width: 761px) {
+  .schedule-table-card {
+    overflow: hidden;
   }
 
-  70% {
-    box-shadow: 0 0 0 7px rgba(229, 72, 77, 0);
+  .schedule-table-scroll {
+    max-height: none;
+    overflow: visible;
   }
 
-  100% {
-    box-shadow: 0 0 0 0 rgba(229, 72, 77, 0);
+  .schedule-table {
+    width: 100%;
+    min-width: 0;
+    table-layout: fixed;
+  }
+
+  .schedule-name-column {
+    width: 190px;
+    min-width: 190px;
+    max-width: 190px;
+  }
+
+  .schedule-date-column,
+  .schedule-table tbody td {
+    width: auto;
+    min-width: 0;
+  }
+
+  .schedule-table thead th {
+    height: 54px;
+    padding: 8px 3px;
+    font-size: 0.64rem;
+    letter-spacing: 0;
+  }
+
+  .schedule-table tbody .schedule-name-column {
+    padding: 11px 13px;
+  }
+
+  .schedule-name-column strong {
+    font-size: 0.76rem;
+    line-height: 1.3;
+  }
+
+  .schedule-game-category {
+    margin-bottom: 2px;
+    font-size: 0.53rem;
+    letter-spacing: 0.04em;
+  }
+
+  .schedule-table tbody td {
+    height: 58px;
+    padding: 4px;
+  }
+
+  .schedule-cell {
+    min-height: 46px;
+    border-radius: 8px;
+  }
+
+  .schedule-cell.has-schedule::after {
+    right: 5px;
+    left: 5px;
+    bottom: 5px;
+  }
+
+  .schedule-cell-count {
+    top: 3px;
+    right: 3px;
+    min-width: 17px;
+    height: 17px;
+    padding: 0 4px;
+    font-size: 0.5rem;
+  }
+
+  .schedule-cell-live-dot {
+    top: 5px;
+    left: 5px;
+    width: 7px;
+    height: 7px;
+  }
+
+  .schedule-table thead th,
+  .schedule-name-column {
+    position: static;
+  }
+
+  .schedule-scroll-hint {
+    display: none;
+  }
+
+  .site-header {
+    background: rgba(248, 249, 252, 0.96);
+  }
+
+  .header-inner {
+    min-height: 76px;
+  }
+
+  .desktop-nav {
+    display: inline-flex;
+    align-items: center;
+    gap: 3px;
+    padding: 5px;
+    border: 1px solid #e2e5ec;
+    border-radius: var(--radius-pill);
+    background: #eef0f5;
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.8),
+      0 3px 12px rgba(16, 24, 40, 0.035);
+  }
+
+  .desktop-nav a {
+    position: relative;
+    min-height: 38px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+    padding: 7px 15px;
+    border-radius: var(--radius-pill);
+    color: #596273;
+    font-size: 0.78rem;
+    font-weight: 700;
+    line-height: 1;
+    white-space: nowrap;
+    transition: color 0.2s ease,
+      background 0.2s ease,
+      box-shadow 0.2s ease,
+      transform 0.2s ease;
+  }
+
+  .desktop-nav a::after {
+    display: none;
+  }
+
+  .desktop-nav a:hover {
+    color: var(--primary);
+    background: rgba(255, 255, 255, 0.56);
+  }
+
+  .desktop-nav a.active {
+    color: var(--text);
+    background: #ffffff;
+    box-shadow: 0 2px 8px rgba(16, 24, 40, 0.11),
+      inset 0 0 0 1px rgba(228, 231, 236, 0.75);
+  }
+
+  .desktop-nav a.active:hover {
+    color: var(--primary);
+    transform: translateY(-1px);
+  }
+
+  .desktop-nav-external-icon {
+    color: var(--primary);
+    font-size: 0.67rem;
+    line-height: 1;
+  }
+
+  .competition-table-standard-scroll {
+    overflow-x: visible;
   }
 }
 
-/* Responsive */
+@media (min-width: 761px) and (max-width: 1040px) {
+  .desktop-nav {
+    gap: 2px;
+    padding: 4px;
+  }
+
+  .desktop-nav a {
+    min-height: 36px;
+    padding: 6px 10px;
+    font-size: 0.7rem;
+  }
+
+  .brand-logo {
+    height: 42px;
+  }
+}
+
+@media (max-width: 768px) {
+  .cscz-standard-table {
+    width: 900px;
+    table-layout: auto;
+  }
+
+  .cscz-standard-table th,
+  .cscz-standard-table td {
+    width: auto;
+    white-space: nowrap;
+  }
+}
 
 @media (max-width: 760px) {
+  .nav {
+    gap: 12px;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+    font-size: .82rem;
+  }
+
+  .brand small {
+    display: none;
+  }
+
+  .hero {
+    padding-top: 58px;
+  }
+
+  .hero-grid, .grid.two {
+    grid-template-columns: 1fr;
+  }
+
+  .hero-panel {
+    transform: none;
+  }
+
+  .timeline-item {
+    grid-template-columns: 1fr;
+    gap: 8px;
+  }
+
+  .section-heading {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .leaderboard-home-card {
+    align-items: flex-start;
+    flex-direction: column;
+    padding: 30px;
+  }
+
+  .leaderboard-hero {
+    grid-template-columns: 1fr;
+    align-items: start;
+  }
+
+  .leaderboard-stat {
+    min-width: 0;
+    width: 100%;
+  }
+
+  .score-list {
+    overflow-x: auto;
+  }
+
+  .competition-card summary {
+    align-items: flex-start;
+    flex-wrap: wrap;
+  }
+
+  .result-status {
+    margin-left: 0;
+  }
+
+  .announcement-home-section {
+    padding-top: 50px;
+    padding-bottom: 50px;
+  }
+
+  .announcement-slider {
+    min-height: 190px;
+  }
+
+  .announcement-slider-content {
+    align-items: flex-start;
+    flex-direction: column;
+    justify-content: center;
+    gap: 14px;
+    padding: 26px 48px 34px;
+  }
+
+  .announcement-slider-copy {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .announcement-slider-text p {
+    display: -webkit-box;
+    overflow: hidden;
+    white-space: normal;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+  }
+
+  .announcement-slider-link {
+    min-height: 38px;
+  }
+
+  .announcement-slider-arrow {
+    width: 30px;
+    height: 30px;
+  }
+
+  .announcement-slider-arrow.previous {
+    left: 8px;
+  }
+
+  .announcement-slider-arrow.next {
+    right: 8px;
+  }
+
+  .announcement-list-item {
+    min-height: 0;
+    grid-template-columns: 94px minmax(0, 1fr) 24px;
+  }
+
+  .announcement-list-date {
+    padding: 16px 10px;
+  }
+
+  .announcement-list-content {
+    padding: 17px 14px;
+  }
+
+  .announcement-list-content h2 {
+    font-size: 1rem;
+  }
+
+  .announcement-list-content p {
+    font-size: 0.84rem;
+  }
+
+  .announcement-list-arrow {
+    padding-right: 10px;
+  }
+
+  .leaderboard-page {
+    padding-top: 28px;
+  }
+
+  .leaderboard-hero {
+    padding: 26px 22px;
+    border-radius: var(--radius-lg);
+  }
+
+  .leaderboard-hero h1 {
+    margin-bottom: 14px;
+    font-size: clamp(2.1rem, 11vw, 3.1rem);
+  }
+
+  .leaderboard-hero .lead {
+    font-size: 0.95rem;
+  }
+
+  .leaderboard-stat {
+    padding: 18px;
+    border-radius: var(--radius-md);
+  }
+
+  .leaderboard-stat strong {
+    font-size: 1.65rem;
+  }
+
+  .leaderboard-section {
+    padding-top: 52px;
+  }
+
+  .compact-heading {
+    gap: 14px;
+  }
+
+  .compact-heading .status {
+    align-self: flex-start;
+  }
+
+  .overall-table-card {
+    width: 100%;
+    overflow: hidden;
+    border-radius: 20px;
+  }
+
+  .overall-table th,
+  .overall-table td {
+    padding: 14px 8px;
+  }
+
+  .overall-table th {
+    font-size: 0.66rem;
+    letter-spacing: 0.035em;
+    text-align: center;
+  }
+
+  .overall-table td {
+    font-size: 0.86rem;
+    text-align: center;
+  }
+
+  .overall-table .division-column,
+  .overall-table th:nth-child(2) {
+    text-align: left;
+  }
+
+  .overall-table .podium-column {
+    display: none;
+  }
+
+  .rank-badge {
+    width: 34px;
+    height: 34px;
+    border-radius: 11px;
+    font-size: 0.88rem;
+  }
+
+  .rank-1,
+  .rank-2,
+  .rank-3 {
+    font-size: 1.05rem;
+  }
+
+  .division-column strong {
+    display: block;
+    overflow-wrap: anywhere;
+    line-height: 1.35;
+  }
+
+  .point-total {
+    font-size: 1rem;
+  }
+
+  .table-note {
+    padding: 15px;
+    font-size: 0.8rem;
+  }
+
+  .scoring-grid {
+    grid-template-columns: 1fr;
+    gap: 14px;
+  }
+
+  .score-list {
+    display: grid;
+    grid-template-columns: 1fr;
+    overflow: visible;
+  }
+
+  .score-row {
+    min-height: 46px;
+    padding: 9px 2px;
+  }
+
+  .score-row > span {
+    font-size: 0.84rem;
+  }
+
+  .score-row strong {
+    font-size: 0.94rem;
+  }
+
+  .competition-card summary {
+    gap: 12px;
+    padding: 18px;
+  }
+
+  .competition-card summary strong {
+    font-size: 0.95rem;
+  }
+
+  .result-status {
+    font-size: 0.68rem;
+  }
+
+  .compact-table th,
+  .compact-table td {
+    padding: 12px 15px;
+    font-size: 0.82rem;
+  }
+
   .schedule-page {
     padding-top: 32px;
   }
@@ -2419,10 +3615,6 @@ a.announcement-list-item:hover {
 
   .schedule-table-card {
     border-radius: var(--radius-sm);
-  }
-
-  .schedule-table-scroll {
-    max-height: 570px;
   }
 
   .schedule-name-column {
@@ -2558,158 +3750,7 @@ a.announcement-list-item:hover {
     width: auto;
     height: 4px;
   }
-}
 
-@media (max-width: 390px) {
-  .schedule-name-column {
-    width: 138px;
-    min-width: 138px;
-    max-width: 138px;
-  }
-
-  .schedule-date-column,
-  .schedule-table tbody td {
-    width: 58px;
-    min-width: 58px;
-  }
-
-  .schedule-detail-placeholder-icon,
-  .schedule-empty-icon {
-    width: 38px;
-    height: 38px;
-  }
-
-  .schedule-status {
-    padding: 5px 7px;
-    font-size: 0.58rem;
-  }
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .schedule-cell,
-  .schedule-session-card {
-    transition: none;
-  }
-
-  .schedule-cell-live-dot,
-  .schedule-status-live .schedule-status-dot {
-    animation: none;
-  }
-}
-
-/* =========================================================
-   Penyesuaian Tahap 6: tabel jadwal desktop
-   ========================================================= */
-
-/*
- * Desktop:
- * - Tidak ada vertical scroll.
- * - Tidak ada horizontal scroll.
- * - Seluruh tanggal dipadatkan agar masuk ke lebar container.
- */
-@media (min-width: 761px) {
-  .schedule-table-card {
-    overflow: hidden;
-  }
-
-  .schedule-table-scroll {
-    max-height: none;
-    overflow: visible;
-  }
-
-  .schedule-table {
-    width: 100%;
-    min-width: 0;
-    table-layout: fixed;
-  }
-
-  .schedule-name-column {
-    width: 190px;
-    min-width: 190px;
-    max-width: 190px;
-  }
-
-  .schedule-date-column,
-  .schedule-table tbody td {
-    width: auto;
-    min-width: 0;
-  }
-
-  .schedule-table thead th {
-    height: 54px;
-    padding: 8px 3px;
-    font-size: 0.64rem;
-    letter-spacing: 0;
-  }
-
-  .schedule-table tbody .schedule-name-column {
-    padding: 11px 13px;
-  }
-
-  .schedule-name-column strong {
-    font-size: 0.76rem;
-    line-height: 1.3;
-  }
-
-  .schedule-game-category {
-    margin-bottom: 2px;
-    font-size: 0.53rem;
-    letter-spacing: 0.04em;
-  }
-
-  .schedule-table tbody td {
-    height: 58px;
-    padding: 4px;
-  }
-
-  .schedule-cell {
-    min-height: 46px;
-    border-radius: 8px;
-  }
-
-  .schedule-cell.has-schedule::after {
-    right: 5px;
-    left: 5px;
-    bottom: 5px;
-  }
-
-  .schedule-cell-count {
-    top: 3px;
-    right: 3px;
-    min-width: 17px;
-    height: 17px;
-    padding: 0 4px;
-    font-size: 0.5rem;
-  }
-
-  .schedule-cell-live-dot {
-    top: 5px;
-    left: 5px;
-    width: 7px;
-    height: 7px;
-  }
-
-  /*
-   * Sticky tidak dibutuhkan pada desktop karena seluruh tabel
-   * sudah langsung terlihat.
-   */
-  .schedule-table thead th,
-  .schedule-name-column {
-    position: static;
-  }
-
-  .schedule-scroll-hint {
-    display: none;
-  }
-}
-
-/*
- * Mobile:
- * - Horizontal scroll tetap dipertahankan.
- * - Tidak ada vertical scroll internal.
- * - Header tanggal dan nama permainan tetap sticky.
- */
-@media (max-width: 760px) {
   .schedule-table-card {
     overflow: hidden;
   }
@@ -2745,175 +3786,7 @@ a.announcement-list-item:hover {
   .schedule-table tbody .schedule-name-column {
     z-index: 8;
   }
-}
 
-html,
-body {
-  overflow-x: hidden;
-}
-
-/* =========================================================
-   Jadwal terdekat di Home
-   ========================================================= */
-
-.home-schedule-section {
-  padding-top: 68px;
-}
-
-.home-schedule-heading {
-  margin-bottom: 20px;
-}
-
-.home-schedule-list {
-  display: grid;
-  gap: 12px;
-}
-
-.home-schedule-card {
-  --home-schedule-bg:
-    linear-gradient(145deg, #e8f1ff, #f3f7ff);
-  --home-schedule-line: #cbdcff;
-  --home-schedule-accent: #2759c7;
-
-  position: relative;
-  min-height: 94px;
-  display: grid;
-  grid-template-columns: 175px minmax(0, 1fr) 34px;
-  align-items: stretch;
-  overflow: hidden;
-  border: 1px solid var(--home-schedule-line);
-  border-radius: var(--radius-md);
-  background: white;
-  box-shadow: 0 7px 24px rgba(16, 24, 40, 0.04);
-  transition:
-    transform 0.2s ease,
-    box-shadow 0.2s ease;
-}
-
-.home-schedule-card:hover {
-  box-shadow: 0 12px 30px rgba(16, 24, 40, 0.08);
-}
-
-.home-schedule-time {
-  display: flex;
-  justify-content: center;
-  flex-direction: column;
-  padding: 16px 20px;
-  border-right: 1px solid var(--home-schedule-line);
-  background: var(--home-schedule-bg);
-}
-
-.home-schedule-time strong {
-  color: var(--home-schedule-accent);
-  font-family: var(--font-heading), Poppins, Arial, sans-serif;
-  font-size: 0.93rem;
-  line-height: 1.25;
-}
-
-.home-schedule-time span {
-  margin-top: 4px;
-  color: var(--muted);
-  font-size: 0.72rem;
-}
-
-.home-schedule-content {
-  min-width: 0;
-  display: flex;
-  justify-content: center;
-  flex-direction: column;
-  padding: 14px 20px;
-}
-
-.home-schedule-category {
-  margin-bottom: 2px;
-  color: var(--home-schedule-accent);
-  font-family: var(--font-heading), Poppins, Arial, sans-serif;
-  font-size: 0.62rem;
-  font-weight: 800;
-  letter-spacing: 0.06em;
-  text-transform: uppercase;
-}
-
-.home-schedule-content h3 {
-  margin: 0 0 4px;
-  font-size: 1rem;
-  letter-spacing: -0.02em;
-}
-
-.home-schedule-location {
-  display: inline-flex;
-  align-items: center;
-  gap: 5px;
-  color: var(--muted);
-  font-size: 0.74rem;
-}
-
-.home-schedule-location svg {
-  width: 14px;
-  height: 14px;
-  flex: 0 0 auto;
-}
-
-.home-schedule-arrow {
-  display: grid;
-  place-items: center;
-  padding-right: 14px;
-  color: var(--home-schedule-accent);
-  font-size: 1.1rem;
-  font-weight: 800;
-  transition: transform 0.2s ease;
-}
-
-/* Tema warna */
-
-.home-schedule-card-sports {
-  --home-schedule-bg:
-    linear-gradient(145deg, #e8f1ff, #f3f7ff);
-  --home-schedule-line: #cbdcff;
-  --home-schedule-accent: #2759c7;
-}
-
-.home-schedule-card-strategic {
-  --home-schedule-bg:
-    linear-gradient(145deg, #eee9ff, #f8f5ff);
-  --home-schedule-line: #d9ceff;
-  --home-schedule-accent: #6842d9;
-}
-
-.home-schedule-card-esports {
-  --home-schedule-bg:
-    linear-gradient(145deg, #e6f7f5, #f1fbfa);
-  --home-schedule-line: #c2e8e3;
-  --home-schedule-accent: #087f78;
-}
-
-.home-schedule-card-online {
-  --home-schedule-bg:
-    linear-gradient(145deg, #e9e5ff, #f5f2ff);
-  --home-schedule-line: #d4caff;
-  --home-schedule-accent: #5b35f2;
-}
-
-.home-schedule-card-grand-champion {
-  --home-schedule-bg:
-    linear-gradient(
-      145deg,
-      #eee7ff,
-      #f8f3ff 58%,
-      #fff4df
-    );
-  --home-schedule-line: #d8c8ff;
-  --home-schedule-accent: #5b35f2;
-}
-
-.home-schedule-card-fun {
-  --home-schedule-bg:
-    linear-gradient(145deg, #fff0dc, #fff8ec);
-  --home-schedule-line: #f4d8ad;
-  --home-schedule-accent: #b45f06;
-}
-
-@media (max-width: 760px) {
   .home-schedule-section {
     padding-top: 54px;
   }
@@ -2954,637 +3827,6 @@ body {
   .home-schedule-arrow {
     padding-right: 9px;
   }
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .home-schedule-card,
-  .home-schedule-arrow {
-    transition: none;
-  }
-}
-
-/* =========================================================
-   Final polish: Pill navigation
-   ========================================================= */
-
-@media (min-width: 761px) {
-  .site-header {
-    background: rgba(248, 249, 252, 0.96);
-  }
-
-  .header-inner {
-    min-height: 76px;
-  }
-
-  .desktop-nav {
-    display: inline-flex;
-    align-items: center;
-    gap: 3px;
-    padding: 5px;
-    border: 1px solid #e2e5ec;
-    border-radius: var(--radius-pill);
-    background: #eef0f5;
-    box-shadow:
-      inset 0 1px 0 rgba(255, 255, 255, 0.8),
-      0 3px 12px rgba(16, 24, 40, 0.035);
-  }
-
-  .desktop-nav a {
-    position: relative;
-    min-height: 38px;
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    gap: 5px;
-    padding: 7px 15px;
-    border-radius: var(--radius-pill);
-    color: #596273;
-    font-size: 0.78rem;
-    font-weight: 700;
-    line-height: 1;
-    white-space: nowrap;
-    transition:
-      color 0.2s ease,
-      background 0.2s ease,
-      box-shadow 0.2s ease,
-      transform 0.2s ease;
-  }
-
-  .desktop-nav a::after {
-    display: none;
-  }
-
-  .desktop-nav a:hover {
-    color: var(--primary);
-    background: rgba(255, 255, 255, 0.56);
-  }
-
-  .desktop-nav a.active {
-    color: var(--text);
-    background: #ffffff;
-    box-shadow:
-      0 2px 8px rgba(16, 24, 40, 0.11),
-      inset 0 0 0 1px rgba(228, 231, 236, 0.75);
-  }
-
-  .desktop-nav a.active:hover {
-    color: var(--primary);
-    transform: translateY(-1px);
-  }
-
-  .desktop-nav-external-icon {
-    color: var(--primary);
-    font-size: 0.67rem;
-    line-height: 1;
-  }
-}
-
-@media (min-width: 761px) and (max-width: 1040px) {
-  .desktop-nav {
-    gap: 2px;
-    padding: 4px;
-  }
-
-  .desktop-nav a {
-    min-height: 36px;
-    padding: 6px 10px;
-    font-size: 0.7rem;
-  }
-
-  .brand-logo {
-    height: 42px;
-  }
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .desktop-nav a {
-    transition: none;
-  }
-}
-
-/* =========================================================
-   DETAIL SKOR PERTANDINGAN
-   ========================================================= */
-
-.competition-score-table {
-  width: 100%;
-  min-width: 680px;
-  table-layout: fixed;
-  border-collapse: separate;
-  border-spacing: 0;
-}
-
-.competition-score-table th,
-.competition-score-table td {
-  padding: 17px 14px;
-  text-align: center;
-  vertical-align: middle;
-  border-right: 1px solid rgba(15, 43, 92, 0.08);
-}
-
-.competition-score-table th:last-child,
-.competition-score-table td:last-child {
-  border-right: 0;
-}
-
-.competition-score-table thead th {
-  background: #102f67;
-  color: #ffffff;
-  font-size: 0.88rem;
-  font-weight: 750;
-  line-height: 1.15;
-  letter-spacing: 0;
-}
-
-.competition-score-table thead th:first-child,
-.competition-score-table thead th:last-child {
-  border-top-right-radius: 0;
-}
-
-.competition-score-table tbody tr:nth-child(odd) {
-  background: #ffffff;
-}
-
-.competition-score-table tbody tr:nth-child(even) {
-  background: #f2f5fb;
-}
-
-.competition-score-table tbody td {
-  color: #172033;
-  font-size: 0.95rem;
-}
-
-.competition-score-table tbody tr:last-child td:first-child {
-  border-bottom-left-radius: 14px;
-}
-
-.competition-score-table tbody tr:last-child td:last-child {
-  border-bottom-right-radius: 14px;
-}
-
-.competition-score-table .score-position-column {
-  width: 82px;
-}
-
-.competition-score-table .score-division-column {
-  width: 150px;
-}
-
-.competition-score-table .score-total-column {
-  width: 155px;
-}
-
-.competition-score-table th.score-total-column span {
-  display: block;
-}
-
-.competition-score-table td.score-total-column strong {
-  color: #102f67;
-  font-size: 1.45rem;
-  font-weight: 800;
-}
-
-.competition-score-table .score-round-column {
-  width: 92px;
-}
-
-.competition-score-table td.score-position-column {
-  font-weight: 700;
-}
-
-.competition-score-table td.score-division-column {
-  text-align: left;
-}
-
-.competition-score-table td.score-division-column strong {
-  font-size: 1rem;
-}
-
-@media (max-width: 720px) {
-  .competition-score-table {
-    min-width: 610px;
-  }
-
-  .competition-score-table th,
-  .competition-score-table td {
-    padding: 14px 10px;
-  }
-
-  .competition-score-table .score-position-column {
-    width: 60px;
-  }
-
-  .competition-score-table .score-division-column {
-    width: 120px;
-  }
-
-  .competition-score-table .score-total-column {
-    width: 125px;
-  }
-
-  .competition-score-table .score-round-column {
-    width: 72px;
-  }
-
-  .competition-score-table td.score-total-column strong {
-    font-size: 1.2rem;
-  }
-}
-
-
-/* =========================================================
-   Klasemen sementara Chess Masters
-   ========================================================= */
-
-.chess-standings-table {
-  width: 100%;
-  min-width: 610px;
-  table-layout: fixed;
-  text-align: center;
-}
-
-.chess-standings-table th,
-.chess-standings-table td {
-  padding: 15px 16px;
-  text-align: center;
-  vertical-align: middle;
-}
-
-.chess-standings-table th {
-  font-size: 0.82rem;
-  letter-spacing: 0.04em;
-}
-
-.chess-standings-table .chess-subdit-column {
-  width: 30%;
-  text-align: left;
-}
-
-.chess-standings-table .chess-total-column {
-  width: 22%;
-}
-
-.chess-standings-table tbody td {
-  font-size: 0.95rem;
-}
-
-.chess-standings-table tbody td:not(.chess-subdit-column) {
-  font-variant-numeric: tabular-nums;
-}
-
-.chess-standings-table td.chess-total-column strong {
-  color: #172554;
-  font-size: 1.15rem;
-  font-weight: 800;
-}
-
-.chess-table-note {
-  display: flex;
-  align-items: center;
-  flex-wrap: wrap;
-  gap: 6px;
-  margin: 0;
-  padding: 11px 20px;
-  border-top: 1px solid var(--line);
-  color: var(--muted);
-  background: #fafbfc;
-  font-size: 0.75rem;
-}
-
-.chess-table-note strong {
-  color: #344054;
-}
-
-/* =========================================================
-   COMPETITION LEADERBOARD — SHARED TABLE STANDARD
-   Base visual untuk seluruh leaderboard per cabang.
-   ========================================================= */
-
-/* ---------------------------------------------------------
-   Table container
-   --------------------------------------------------------- */
-
-.competition-table-standard-wrap {
-  width: 100%;
-  overflow: hidden;
-
-  border-top: 1px solid var(--line);
-}
-
-.competition-table-standard-scroll {
-  width: 100%;
-  overflow-x: auto;
-  overflow-y: hidden;
-
-  -webkit-overflow-scrolling: touch;
-}
-
-
-/* ---------------------------------------------------------
-   Base table
-   --------------------------------------------------------- */
-
-.competition-table-standard {
-  width: 100%;
-
-  border-collapse: collapse;
-  border-spacing: 0;
-
-  color: #172033;
-
-  font-variant-numeric: tabular-nums;
-}
-
-
-/* ---------------------------------------------------------
-   Header
-   --------------------------------------------------------- */
-
-.competition-table-standard thead th {
-  padding: 12px 14px;
-
-  color: #ffffff;
-  background: #102f67;
-
-  border-bottom: 1px solid rgba(15, 43, 92, 0.14);
-
-  font-size: 0.72rem;
-  font-weight: 800;
-  line-height: 1.25;
-
-  letter-spacing: 0.045em;
-  text-transform: uppercase;
-
-  text-align: center;
-  vertical-align: middle;
-
-  white-space: nowrap;
-}
-
-
-/* ---------------------------------------------------------
-   Body
-   --------------------------------------------------------- */
-
-.competition-table-standard tbody td {
-  padding: 12px 14px;
-
-  border-bottom: 1px solid var(--line);
-
-  color: #172033;
-
-  font-size: 0.86rem;
-  line-height: 1.35;
-
-  text-align: center;
-  vertical-align: middle;
-}
-
-
-/* Zebra rows */
-
-.competition-table-standard tbody tr:nth-child(odd) {
-  background: #ffffff;
-}
-
-.competition-table-standard tbody tr:nth-child(even) {
-  background: #f5f7fb;
-}
-
-
-/* Hilangkan border pada row terakhir */
-
-.competition-table-standard tbody tr:last-child td {
-  border-bottom: 0;
-}
-
-
-/* ---------------------------------------------------------
-   Rank
-   --------------------------------------------------------- */
-
-.competition-rank-column {
-  width: 92px;
-
-  text-align: center;
-}
-
-.competition-rank {
-  color: #172554;
-
-  font-size: 0.86rem;
-  font-weight: 700;
-}
-
-
-/* ---------------------------------------------------------
-   Name / Subdit / Squad
-   --------------------------------------------------------- */
-
-.competition-name-column {
-  min-width: 150px;
-}
-
-.competition-name-cell {
-  text-align: center;
-}
-
-.competition-name {
-  color: #12213d;
-
-  font-size: 0.88rem;
-  font-weight: 800;
-}
-
-
-/* Nama + badge */
-
-.competition-name-with-status {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  flex-wrap: wrap;
-
-  gap: 7px;
-}
-
-
-/* ---------------------------------------------------------
-   Competition status badge
-   Dipakai hanya untuk status bermakna:
-   FINALIS / BABAK GUGUR / dll.
-   --------------------------------------------------------- */
-
-.competition-status-badge {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-
-  min-height: 20px;
-
-  padding: 3px 8px;
-
-  border: 1px solid currentColor;
-  border-radius: var(--radius-pill);
-
-  font-size: 0.56rem;
-  font-weight: 800;
-  line-height: 1;
-
-  letter-spacing: 0.035em;
-  text-transform: uppercase;
-
-  white-space: nowrap;
-}
-
-
-/* Default warm accent */
-
-.competition-status-badge.accent {
-  color: #b85f00;
-  background: #fff5dc;
-  border-color: #edc477;
-}
-
-
-/* Alternate accent jika nanti dibutuhkan */
-
-.competition-status-badge.secondary {
-  color: #6a42c2;
-  background: #f3efff;
-  border-color: #cfc1f7;
-}
-
-
-/* ---------------------------------------------------------
-   Numeric value badge
-   Dipakai untuk selisih, net games, dll.
-   --------------------------------------------------------- */
-
-.competition-value-badge {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-
-  min-width: 38px;
-
-  padding: 3px 8px;
-
-  border: 1px solid;
-  border-radius: 8px;
-
-  font-size: 0.68rem;
-  font-weight: 800;
-  line-height: 1.1;
-
-  white-space: nowrap;
-}
-
-.competition-value-badge.positive {
-  color: #087443;
-  background: #eafaf4;
-  border-color: #a6e6cf;
-}
-
-.competition-value-badge.neutral {
-  color: #667085;
-  background: #f6f8fb;
-  border-color: #d9e0ea;
-}
-
-.competition-value-badge.negative {
-  color: #c92f49;
-  background: #fff0f3;
-  border-color: #ffc3cd;
-}
-
-
-/* ---------------------------------------------------------
-   Strong / highlighted numeric cells
-   Tetap navy, bukan warna-warni.
-   --------------------------------------------------------- */
-
-.competition-table-standard .competition-value-strong {
-  color: #172554;
-
-  font-weight: 800;
-}
-
-
-/* ---------------------------------------------------------
-   Table note
-   Satu-satunya bagian yang rata kiri.
-   --------------------------------------------------------- */
-
-.competition-table-note {
-  margin: 0;
-
-  padding: 10px 14px;
-
-  border-top: 1px solid var(--line);
-
-  color: var(--muted);
-  background: #fafbfc;
-
-  font-size: 0.72rem;
-  line-height: 1.45;
-
-  text-align: left;
-}
-
-.competition-table-note strong {
-  color: #344054;
-  font-weight: 800;
-}
-
-
-/* Bisa dipakai untuk note dengan beberapa item:
-   P: Play · W: Win · dst.
-*/
-
-.competition-table-note.inline-note {
-  display: flex;
-  align-items: center;
-  flex-wrap: wrap;
-
-  gap: 6px;
-}
-
-/* =========================================================
-   EVENT POINTS
-   ========================================================= */
-
-.competition-event-points-column {
-  text-align: center;
-}
-
-.competition-event-points {
-  color: #5b3ee4;
-  font-size: 0.86rem;
-  font-weight: 800;
-}
-
-
-/* ---------------------------------------------------------
-   Desktop
-   --------------------------------------------------------- */
-
-@media (min-width: 761px) {
-
-  .competition-table-standard-scroll {
-    overflow-x: visible;
-  }
-
-}
-
-
-/* ---------------------------------------------------------
-   Mobile
-   Visual tetap sama.
-   Hanya ukuran dan overflow yang menyesuaikan.
-   --------------------------------------------------------- */
-
-@media (max-width: 760px) {
 
   .competition-table-standard {
     min-width: 620px;
@@ -3592,13 +3834,11 @@ body {
 
   .competition-table-standard thead th {
     padding: 11px 10px;
-
     font-size: 0.64rem;
   }
 
   .competition-table-standard tbody td {
     padding: 11px 10px;
-
     font-size: 0.8rem;
   }
 
@@ -3616,72 +3856,21 @@ body {
 
   .competition-status-badge {
     min-height: 19px;
-
     padding: 3px 7px;
-
     font-size: 0.52rem;
   }
 
   .competition-value-badge {
     min-width: 34px;
-
     padding: 3px 7px;
-
     font-size: 0.63rem;
   }
 
   .competition-table-note {
     padding: 9px 12px;
-
     font-size: 0.68rem;
   }
 
-}
-
-/* =========================================================
-   DOMINO / SIMPLE FINAL RESULT
-   ========================================================= */
-
-.domino-result-table {
-  table-layout: fixed;
-}
-
-.domino-result-table .competition-rank-column {
-  width: 18%;
-}
-
-.domino-result-table .competition-name-column {
-  width: 30%;
-}
-
-.domino-result-table th:nth-child(3) {
-  width: 32%;
-}
-
-.domino-result-table .competition-event-points-column {
-  width: 20%;
-}
-
-.domino-result-value {
-  display: inline-flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-
-  gap: 2px;
-}
-
-.domino-result-points {
-  color: var(--muted);
-
-  font-size: 0.68rem;
-  font-weight: 500;
-  line-height: 1.2;
-}
-
-/* Mobile */
-
-@media (max-width: 760px) {
   .domino-result-table {
     min-width: 520px;
   }
@@ -3697,37 +3886,7 @@ body {
   .domino-result-points {
     font-size: 0.64rem;
   }
-}
 
-/* =========================================================
-   CAPSA
-   ========================================================= */
-
-.capsa-score-table {
-  table-layout: fixed;
-}
-
-.capsa-score-table .competition-rank-column {
-  width: 14%;
-}
-
-.capsa-score-table .competition-name-column {
-  width: 26%;
-}
-
-.capsa-score-table .competition-event-points-column {
-  width: 12%;
-}
-
-.capsa-score-table th:nth-child(n + 3),
-.capsa-score-table td:nth-child(n + 3) {
-  width: 15%;
-}
-
-
-/* Mobile */
-
-@media (max-width: 760px) {
   .capsa-score-table {
     min-width: 620px;
   }
@@ -3744,102 +3903,7 @@ body {
   .capsa-score-table td:nth-child(n + 3) {
     width: 95px;
   }
-}
 
-@media (max-width: 760px) {
-  .chess-standings-table {
-    min-width: 540px;
-  }
-
-  .chess-standings-table th,
-  .chess-standings-table td {
-    padding: 13px 11px;
-  }
-
-  .chess-standings-table .chess-subdit-column {
-    width: 28%;
-  }
-
-  .chess-standings-table .chess-total-column {
-    width: 23%;
-  }
-
-  .chess-table-note {
-    padding: 10px 14px;
-    font-size: 0.7rem;
-  }
-}
-
-/* =========================================================
-   CHESS
-   ========================================================= */
-
-.chess-standard-table {
-  table-layout: fixed;
-}
-
-.chess-standard-table .competition-rank-column {
-  width: 14%;
-}
-
-.chess-standard-table .competition-name-column {
-  width: 26%;
-}
-
-.chess-standard-table th:nth-child(3),
-.chess-standard-table th:nth-child(4),
-.chess-standard-table th:nth-child(5),
-.chess-standard-table th:nth-child(6) {
-  width: 10%;
-}
-
-.chess-standard-table .chess-total-column {
-  width: 20%;
-}
-
-/* =========================================================
-   TABLE TENNIS
-   ========================================================= */
-
-.table-tennis-standard-table {
-  table-layout: fixed;
-}
-
-.table-tennis-standard-table .competition-rank-column {
-  width: 12%;
-}
-
-.table-tennis-standard-table .competition-name-column {
-  width: 25%;
-}
-
-.table-tennis-standard-table tbody td:nth-child(3),
-.table-tennis-standard-table tbody td:nth-child(4),
-.table-tennis-standard-table tbody td:nth-child(5),
-.table-tennis-standard-table tbody td:nth-child(6),
-.table-tennis-standard-table tbody td:nth-child(7) {
-  width: 8%;
-  color: #172033;
-  font-weight: 500;
-}
-
-.table-tennis-standard-table th:nth-child(8) {
-  width: 13%;
-}
-
-.table-tennis-name-cell {
-  text-align: left;
-}
-
-.table-tennis-name-with-status {
-  justify-content: flex-start;
-  width: 100%;
-}
-
-
-/* Mobile */
-
-@media (max-width: 760px) {
   .table-tennis-standard-table {
     min-width: 720px;
   }
@@ -3866,65 +3930,7 @@ body {
   .table-tennis-standard-table th:nth-child(8) {
     width: 90px;
   }
-}
 
-/* =========================================================
-   MLBB
-   ========================================================= */
-
-.mlbb-standard-table {
-  table-layout: fixed;
-}
-
-.mlbb-standard-table .competition-rank-column {
-  width: 13%;
-}
-
-.mlbb-standard-table .competition-name-column {
-  width: 27%;
-}
-
-.mlbb-standard-table th:nth-child(3) {
-  width: 15%;
-}
-
-.mlbb-standard-table th:nth-child(4) {
-  width: 16%;
-}
-
-.mlbb-standard-table th:nth-child(5) {
-  width: 14%;
-}
-
-.mlbb-standard-table th:nth-child(6) {
-  width: 15%;
-}
-
-
-/* Squad + status badge */
-
-.mlbb-name-cell {
-  text-align: left;
-}
-
-.mlbb-name-with-status {
-  justify-content: flex-start;
-  width: 100%;
-}
-
-
-/* Statistik */
-
-.mlbb-standard-table tbody td:nth-child(4),
-.mlbb-standard-table tbody td:nth-child(6) {
-  color: #172033;
-  font-weight: 500;
-}
-
-
-/* Mobile */
-
-@media (max-width: 760px) {
   .mlbb-standard-table {
     min-width: 680px;
   }
@@ -3952,56 +3958,7 @@ body {
   .mlbb-standard-table th:nth-child(6) {
     width: 95px;
   }
-}
 
-/* =========================================================
-   BADMINTON
-   ========================================================= */
-
-.badminton-standard-table {
-  table-layout: fixed;
-}
-
-.badminton-standard-table .competition-rank-column {
-  width: 10%;
-}
-
-.badminton-standard-table .competition-name-column {
-  width: 14%;
-}
-
-.badminton-standard-table th:nth-child(3),
-.badminton-standard-table th:nth-child(4),
-.badminton-standard-table th:nth-child(5) {
-  width: 6%;
-}
-
-.badminton-standard-table th:nth-child(6),
-.badminton-standard-table th:nth-child(7) {
-  width: 10%;
-}
-
-.badminton-standard-table th:nth-child(8),
-.badminton-standard-table th:nth-child(9) {
-  width: 11%;
-}
-
-.badminton-standard-table th:nth-child(10) {
-  width: 9%;
-}
-
-
-/* Seluruh statistik menggunakan weight yang sama */
-
-.badminton-standard-table tbody td:nth-child(n + 3) {
-  color: #172033;
-  font-weight: 500;
-}
-
-
-/* Mobile */
-
-@media (max-width: 760px) {
   .badminton-standard-table {
     min-width: 900px;
   }
@@ -4033,11 +3990,7 @@ body {
   .badminton-standard-table th:nth-child(10) {
     width: 85px;
   }
-}
 
-/* Mobile */
-
-@media (max-width: 760px) {
   .chess-standard-table {
     min-width: 600px;
   }
@@ -4060,366 +4013,7 @@ body {
   .chess-standard-table .chess-total-column {
     width: 110px;
   }
-}
 
-/* =========================================================
-   HOME PAGE — SOFT GRADIENT + AMBIENT WAVES
-   ========================================================= */
-
-.home-page {
-  position: relative;
-  isolation: isolate;
-  min-height: 100%;
-  overflow: hidden;
-
-  background:
-    radial-gradient(
-      ellipse 75% 42% at 100% 0%,
-      rgba(139, 92, 246, 0.20) 0%,
-      rgba(139, 92, 246, 0.09) 38%,
-      rgba(139, 92, 246, 0) 72%
-    ),
-    radial-gradient(
-      ellipse 72% 42% at 0% 100%,
-      rgba(245, 158, 11, 0.20) 0%,
-      rgba(245, 158, 11, 0.08) 40%,
-      rgba(245, 158, 11, 0) 72%
-    ),
-    #f5f6fa;
-}
-
-
-/* =========================================================
-   PURPLE WAVE — TOP RIGHT
-   ========================================================= */
-
-.home-page::before {
-  content: "";
-  position: absolute;
-  z-index: -1;
-
-  width: 75vw;
-  height: 48vw;
-
-  top: -30vw;
-  right: -18vw;
-
-  border-radius: 42% 0 55% 48%;
-
-  background: rgba(139, 92, 246, 0.055);
-
-  box-shadow:
-    -35px 45px 80px rgba(139, 92, 246, 0.045),
-    -80px 90px 130px rgba(139, 92, 246, 0.025);
-
-  transform: rotate(10deg);
-}
-
-
-/* =========================================================
-   YELLOW WAVE — BOTTOM LEFT
-   ========================================================= */
-
-.home-page::after {
-  content: "";
-  position: absolute;
-  z-index: -1;
-
-  width: 78vw;
-  height: 50vw;
-
-  bottom: -32vw;
-  left: -20vw;
-
-  border-radius: 0 55% 45% 52%;
-
-  background: rgba(245, 158, 11, 0.055);
-
-  box-shadow:
-    40px -45px 90px rgba(245, 158, 11, 0.045),
-    90px -90px 140px rgba(245, 158, 11, 0.025);
-
-  transform: rotate(8deg);
-}
-
-
-/* =========================================================
-   HOMEPAGE SECTIONS
-   ========================================================= */
-
-.home-page > section,
-.home-page .hero,
-.home-page .section-soft,
-.home-page .announcement-home-section,
-.home-page .leaderboard-home-section,
-.home-page .home-schedule-section {
-  background: transparent;
-}
-
-/* =========================================================
-   HOME PAGE — FINAL POLISH
-   Spacing, cards, links & compact schedule
-   ========================================================= */
-
-/* =========================================================
-   HOME PAGE — COMPACT VERTICAL RHYTHM
-   ========================================================= */
-
-.home-page .section {
-  padding-top: 52px;
-  padding-bottom: 52px;
-}
-
-.home-page .hero {
-  padding-top: 64px;
-  padding-bottom: 52px;
-}
-
-.home-page .announcement-home-section,
-.home-page .leaderboard-home-section,
-.home-page .home-schedule-section {
-  padding-top: 52px;
-  padding-bottom: 52px;
-}
-
-/* Heading dibuat sedikit lebih rapat */
-
-.home-page .section-heading {
-  margin-bottom: 18px;
-}
-
-.home-page .section-heading h2 {
-  margin-top: 4px;
-}
-
-.home-page .hero-panel {
-  padding: 30px 32px;
-}
-
-.home-page .hero-panel h2 {
-  margin-top: 8px;
-  margin-bottom: 12px;
-}
-
-.home-page .hero .actions {
-  margin-top: 24px;
-}
-
-.home-page .leaderboard-home-section {
-  padding-top: 44px;
-  padding-bottom: 44px;
-}
-
-/* ---------------------------------------------------------
-   2. TEXT LINKS — CONSISTENT MICRO INTERACTION
-   --------------------------------------------------------- */
-
-.home-page .section-heading .text-link {
-  display: inline-flex;
-  align-items: center;
-  gap: 4px;
-
-  font-size: 0.88rem;
-  font-weight: 800;
-
-  transition:
-    color 0.2s ease,
-    transform 0.2s ease;
-}
-
-.home-page .section-heading .text-link:hover {
-  color: var(--primary-dark);
-}
-
-
-/* ---------------------------------------------------------
-   3. GAME CARDS — LIGHTER VISUAL WEIGHT
-   --------------------------------------------------------- */
-
-.home-page .game-card {
-  box-shadow: 0 8px 24px rgba(35, 26, 88, 0.045);
-
-  transition:
-    transform 0.2s ease,
-    box-shadow 0.2s ease,
-    border-color 0.2s ease;
-}
-
-.home-page .game-card:hover {
-  box-shadow: 0 18px 42px rgba(35, 26, 88, .12);
-}
-
-
-/* ---------------------------------------------------------
-   4. ANNOUNCEMENT — SOFTER SHADOW
-   --------------------------------------------------------- */
-
-.home-page .announcement-slider {
-  box-shadow: 0 10px 28px rgba(48, 36, 111, 0.11);
-}
-
-
-/* ---------------------------------------------------------
-   5. LEADERBOARD HOME CARD
-   --------------------------------------------------------- */
-
-.home-page .leaderboard-home-card {
-  padding: 38px 40px;
-
-  box-shadow:
-    0 12px 34px rgba(31, 24, 82, 0.11);
-}
-
-.home-page .leaderboard-button {
-  transition:
-    transform 0.2s ease,
-    box-shadow 0.2s ease;
-}
-
-.home-page .leaderboard-button:hover {
-  box-shadow: 0 7px 20px rgba(16, 24, 40, 0.12);
-}
-
-
-/* ---------------------------------------------------------
-   6. HOME SCHEDULE — MORE COMPACT
-   --------------------------------------------------------- */
-
-.home-page .home-schedule-list {
-  gap: 10px;
-}
-
-.home-page .home-schedule-card {
-  min-height: 84px;
-
-  grid-template-columns:
-    155px
-    minmax(0, 1fr)
-    30px;
-
-  border-radius: 16px;
-
-  box-shadow:
-    0 5px 18px rgba(16, 24, 40, 0.035);
-}
-
-.home-page .home-schedule-card::before {
-  content: "";
-
-  position: absolute;
-
-  right: -42px;
-  bottom: -42px;
-
-  width: 120px;
-  height: 120px;
-
-  border-radius: 50%;
-
-  background:
-    color-mix(
-      in srgb,
-      var(--home-schedule-accent) 10%,
-      transparent
-    );
-
-  pointer-events: none;
-}
-
-.home-page .home-schedule-card::after {
-  content: "";
-
-  position: absolute;
-
-  right: 22px;
-  bottom: -32px;
-
-  width: 78px;
-  height: 78px;
-
-  border-radius: 50%;
-
-  border:
-    16px solid
-    color-mix(
-      in srgb,
-      var(--home-schedule-accent) 6%,
-      transparent
-    );
-
-  pointer-events: none;
-}
-
-.home-page .home-schedule-card > * {
-  position: relative;
-  z-index: 1;
-}
-
-.home-page .home-schedule-card:hover {
-  box-shadow:
-    0 9px 24px rgba(16, 24, 40, 0.065);
-}
-
-
-/* Kolom waktu */
-
-.home-page .home-schedule-time {
-  padding: 12px 17px;
-}
-
-.home-page .home-schedule-time strong {
-  font-size: 0.88rem;
-}
-
-.home-page .home-schedule-time span {
-  margin-top: 2px;
-  font-size: 0.69rem;
-}
-
-
-/* Informasi pertandingan */
-
-.home-page .home-schedule-content {
-  padding: 11px 18px;
-}
-
-.home-page .home-schedule-category {
-  margin-bottom: 1px;
-  font-size: 0.59rem;
-}
-
-.home-page .home-schedule-content h3 {
-  margin-bottom: 2px;
-
-  font-size: 0.95rem;
-  line-height: 1.25;
-}
-
-.home-page .home-schedule-location {
-  gap: 4px;
-
-  font-size: 0.7rem;
-}
-
-.home-page .home-schedule-location svg {
-  width: 12px;
-  height: 12px;
-}
-
-
-/* Arrow */
-
-.home-page .home-schedule-arrow {
-  padding-right: 11px;
-
-  font-size: 1rem;
-}
-
-/* ---------------------------------------------------------
-   7. MOBILE
-   --------------------------------------------------------- */
-
-@media (max-width: 760px) {
   .home-page .hero {
     padding-top: 44px;
     padding-bottom: 40px;
@@ -4435,11 +4029,6 @@ body {
   .home-page .leaderboard-home-section {
     padding-top: 36px;
     padding-bottom: 36px;
-  }
-
-  .home-page .section-heading {
-    gap: 8px;
-    margin-bottom: 16px;
   }
 
   .home-page .hero-panel {
@@ -4473,17 +4062,13 @@ body {
 
   .home-page .home-schedule-card {
     min-height: 0;
-
-    grid-template-columns:
-      minmax(0, 1fr)
+    grid-template-columns: minmax(0, 1fr)
       26px;
-
     border-radius: 15px;
   }
 
   .home-page .home-schedule-time {
     gap: 6px;
-
     padding: 8px 13px;
   }
 
@@ -4498,127 +4083,13 @@ body {
   .home-page .home-schedule-arrow {
     padding-right: 7px;
   }
-}
-
-
-/* ---------------------------------------------------------
-   REDUCED MOTION
-   --------------------------------------------------------- */
-
-@media (prefers-reduced-motion: reduce) {
-
-  .home-page .game-card,
-  .home-page .section-heading .text-link,
-  .home-page .leaderboard-button,
-  .home-page .home-schedule-card,
-  .home-page .home-schedule-arrow {
-    transition: none;
-  }
-}
-
-/* =========================================================
-   FOOTER — SOFT ATLANTIK STYLE
-   ========================================================= */
-
-.footer {
-  position: relative;
-  overflow: hidden;
-
-  border-top: 1px solid rgba(139, 92, 246, 0.10);
-
-  background:
-    radial-gradient(
-      ellipse 55% 140% at 90% 0%,
-      rgba(139, 92, 246, 0.08) 0%,
-      rgba(139, 92, 246, 0) 70%
-    ),
-    radial-gradient(
-      ellipse 45% 120% at 5% 100%,
-      rgba(245, 158, 11, 0.055) 0%,
-      rgba(245, 158, 11, 0) 72%
-    ),
-    #f5f6fa;
-}
-
-
-/* subtle decorative glow */
-
-.footer::before {
-  content: "";
-  position: absolute;
-
-  width: 340px;
-  height: 180px;
-
-  top: -120px;
-  right: -80px;
-
-  border-radius: 50%;
-
-  background: rgba(139, 92, 246, 0.055);
-
-  filter: blur(2px);
-
-  pointer-events: none;
-}
-
-
-.footer-inner {
-  position: relative;
-  z-index: 1;
-
-  min-height: 78px;
-
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-
-  gap: 24px;
-
-  padding-top: 18px;
-  padding-bottom: 18px;
-
-  font-size: 0.78rem;
-  color: var(--muted);
-}
-
-
-/* Copyright */
-
-.footer-inner span:first-child {
-  font-weight: 600;
-
-  color: rgba(71, 76, 98, 0.78);
-}
-
-
-/* Theme */
-
-.footer-inner span:last-child {
-  font-family: var(--font-heading);
-  font-weight: 800;
-
-  letter-spacing: -0.01em;
-
-  color: rgba(76, 63, 135, 0.88);
-}
-
-
-/* =========================================================
-   FOOTER — MOBILE
-   ========================================================= */
-
-@media (max-width: 760px) {
 
   .footer-inner {
     min-height: 72px;
-
     flex-direction: column;
     align-items: flex-start;
     justify-content: center;
-
     gap: 4px;
-
     padding-top: 16px;
     padding-bottom: 16px;
   }
@@ -4630,22 +4101,7 @@ body {
   .footer-inner span:last-child {
     font-size: 0.76rem;
   }
-}
 
-/* =========================================================
-   HEADER — MOBILE NAVIGATION
-   Canonical mobile menu implementation.
-   Overlay + drawer are rendered to document.body via Portal,
-   so this block must remain outside header stacking assumptions.
-   ========================================================= */
-
-.mobile-menu-toggle,
-.mobile-menu-overlay,
-.mobile-menu-drawer {
-  display: none;
-}
-
-@media (max-width: 760px) {
   body.mobile-menu-open {
     overflow: hidden;
     overscroll-behavior: none;
@@ -4656,7 +4112,6 @@ body {
   body.mobile-menu-open main,
   body.mobile-menu-open .footer {
     filter: blur(7px);
-  
     transition: filter 0.22s ease;
   }
 
@@ -4681,36 +4136,26 @@ body {
 
   .mobile-menu-toggle {
     position: relative;
-
     width: 44px;
     height: 44px;
-
     display: grid;
     align-content: center;
     justify-items: center;
-
     gap: 5px;
     padding: 0;
-
     border: 1px solid var(--line);
     border-radius: 14px;
-
     color: var(--text);
     background: rgba(255, 255, 255, 0.82);
-
     cursor: pointer;
-
-    transition:
-      opacity 0.2s ease,
+    transition: opacity 0.2s ease,
       visibility 0.2s ease;
   }
 
   .mobile-menu-toggle span {
     width: 20px;
     height: 2px;
-
     display: block;
-
     border-radius: var(--radius-pill);
     background: currentColor;
   }
@@ -4721,35 +4166,22 @@ body {
     pointer-events: none;
   }
 
-  /* Backdrop */
-
   .mobile-menu-overlay {
     position: fixed;
     z-index: 100;
     inset: 0;
-
     width: 100vw;
     height: 100dvh;
-
     display: block;
-
     padding: 0;
     border: 0;
-
     visibility: hidden;
     opacity: 0;
-
     background: rgba(20, 24, 38, 0.18);
-
-    /* Blur dilakukan langsung ke halaman,
-       bukan melalui backdrop-filter */
     backdrop-filter: none;
     -webkit-backdrop-filter: none;
-
     cursor: pointer;
-
-    transition:
-      opacity 0.24s ease,
+    transition: opacity 0.24s ease,
       visibility 0.24s ease;
   }
 
@@ -4758,55 +4190,36 @@ body {
     opacity: 1;
   }
 
-  /* Floating panel */
-
   .mobile-menu-drawer {
     position: fixed;
     z-index: 110;
-
     top: 12px;
     right: 14px;
-
     width: min(82vw, 340px);
     height: auto;
     max-height: calc(100dvh - 24px);
-
     display: flex;
     flex-direction: column;
-
     padding: 14px 16px 12px;
-
     overflow-y: auto;
     overscroll-behavior: contain;
-
     border: 1px solid rgba(139, 92, 246, 0.12);
     border-radius: var(--radius-lg);
-
-    background:
-      radial-gradient(
+    background: radial-gradient(
         circle at top right,
         rgba(139, 92, 246, 0.065),
         transparent 42%
       ),
       rgba(255, 255, 255, 0.96);
-
-    box-shadow:
-      0 18px 55px rgba(16, 24, 40, 0.18);
-
+    box-shadow: 0 18px 55px rgba(16, 24, 40, 0.18);
     visibility: hidden;
     opacity: 0;
-
     pointer-events: none;
-
-    transform:
-      translateX(24px)
+    transform: translateX(24px)
       translateY(-8px)
       scale(0.985);
-
     transform-origin: top right;
-
-    transition:
-      transform 0.28s ease,
+    transition: transform 0.28s ease,
       opacity 0.22s ease,
       visibility 0.28s ease;
   }
@@ -4814,30 +4227,22 @@ body {
   .mobile-menu-drawer.open {
     visibility: visible;
     opacity: 1;
-
     pointer-events: auto;
-
-    transform:
-      translateX(0)
+    transform: translateX(0)
       translateY(0)
       scale(1);
   }
 
   .mobile-menu-head {
     min-height: 42px;
-
     display: flex;
     align-items: center;
     justify-content: space-between;
-
     padding-bottom: 13px;
-
     border-bottom: 1px solid rgba(16, 24, 40, 0.08);
-
     font-family: var(--font-heading), Poppins, Arial, sans-serif;
     font-size: 0.72rem;
     font-weight: 800;
-
     letter-spacing: 0.12em;
     text-transform: uppercase;
   }
@@ -4845,20 +4250,15 @@ body {
   .mobile-menu-close {
     width: 36px;
     height: 36px;
-
     display: grid;
     place-items: center;
-
     padding: 0;
     border: 0;
     border-radius: 11px;
-
     color: var(--text);
     background: rgba(242, 244, 247, 0.9);
-
     font-size: 1.45rem;
     line-height: 1;
-
     cursor: pointer;
   }
 
@@ -4869,20 +4269,15 @@ body {
 
   .mobile-nav a {
     min-height: 58px;
-
     display: flex;
     align-items: center;
     justify-content: space-between;
-
     gap: 14px;
     padding: 9px 4px;
-
     border-bottom: 1px solid rgba(16, 24, 40, 0.075);
-
     font-family: var(--font-heading), Poppins, Arial, sans-serif;
     font-size: 0.95rem;
     font-weight: 700;
-
     transition: color 0.2s ease;
   }
 
@@ -4892,10 +4287,8 @@ body {
 
   .mobile-nav a span:last-child {
     flex-shrink: 0;
-
     color: var(--primary);
     font-size: 0.95rem;
-
     transition: transform 0.2s ease;
   }
 
@@ -4905,14 +4298,10 @@ body {
 
   .mobile-nav a.active::before {
     content: "";
-
     width: 4px;
     height: 22px;
-
     flex-shrink: 0;
-
     margin-right: 4px;
-
     border-radius: var(--radius-pill);
     background: var(--primary);
   }
@@ -4920,274 +4309,49 @@ body {
   .mobile-nav a.active span:first-child {
     margin-right: auto;
   }
-}
 
-/* =========================================================
-   LEADERBOARD EVENT — FINAL ALIGNMENT & RESPONSIVE LABEL
-   ========================================================= */
-
-/* Semua kolom rata tengah */
-.overall-table th,
-.overall-table td,
-.overall-table .division-column {
-  text-align: center;
-  vertical-align: middle;
-}
-
-/* Desktop: tampilkan label lengkap */
-.desktop-column-label {
-  display: inline;
-}
-
-.mobile-column-label {
-  display: none;
-}
-
-/* Mobile */
-@media (max-width: 760px) {
   .overall-table thead th {
     text-align: center !important;
     vertical-align: middle;
   }
-  
+
   .overall-table tbody td {
     text-align: center;
     vertical-align: middle;
   }
-  
+
   .overall-table .division-column {
     text-align: center;
   }
-  
+
   .desktop-column-label {
     display: none;
   }
-  
+
   .mobile-column-label {
     display: inline-flex;
     align-items: center;
     justify-content: center;
   }
-}
 
-/* =========================================================
-   TABLE TENNIS STANDINGS
-   ========================================================= */
-
-.table-tennis-standings-table {
-  width: 100%;
-  table-layout: fixed;
-}
-
-.table-tennis-standings-table th {
-  padding: 12px 14px;
-
-  color: #52627f;
-  background: #ffffff;
-
-  border-bottom: 1px solid var(--line);
-
-  font-size: 0.66rem;
-  font-weight: 800;
-  letter-spacing: 0.05em;
-  text-transform: uppercase;
-}
-
-.table-tennis-standings-table td {
-  padding: 13px 14px;
-  vertical-align: middle;
-}
-
-.table-tennis-standings-table tbody tr {
-  position: relative;
-  background: #ffffff;
-}
-
-.table-tennis-standings-table tbody tr:nth-child(even) {
-  background: #fafbfc;
-}
-
-.table-tennis-standings-table th:nth-child(n + 3),
-.table-tennis-standings-table td:nth-child(n + 3) {
-  text-align: center;
-}
-
-
-/* Column width */
-
-.tt-rank-column {
-  width: 65px;
-  text-align: center;
-}
-
-.tt-team-column {
-  width: 34%;
-}
-
-.table-tennis-standings-table th:nth-child(3) {
-  width: 80px;
-}
-
-.table-tennis-standings-table th:nth-child(4),
-.table-tennis-standings-table th:nth-child(5) {
-  width: 65px;
-}
-
-.table-tennis-standings-table th:nth-child(6),
-.table-tennis-standings-table th:nth-child(7) {
-  width: 110px;
-}
-
-.table-tennis-standings-table th:nth-child(8) {
-  width: 90px;
-}
-
-
-/* Rank */
-
-.tt-rank {
-  color: #445472;
-  font-size: 0.8rem;
-  font-weight: 800;
-}
-
-
-/* Team */
-
-.tt-team-column strong {
-  color: #12213d;
-  font-size: 0.9rem;
-  font-weight: 800;
-}
-
-
-/* Qualified */
-
-.tt-qualified-row td:first-child {
-  border-left: 3px solid #e85b4a;
-}
-
-
-/* Difference */
-
-.tt-difference {
-  font-weight: 800;
-}
-
-.tt-difference.positive {
-  color: #087443;
-}
-
-.tt-difference.negative {
-  color: #d13b4c;
-}
-
-.tt-difference.neutral {
-  color: #667085;
-}
-
-
-/* Note */
-
-.tt-table-note {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-
-  margin: 9px 4px 0;
-
-  color: var(--muted);
-
-  font-size: 0.72rem;
-  line-height: 1.4;
-}
-
-.tt-qualified-indicator {
-  width: 3px;
-  height: 14px;
-
-  flex: 0 0 auto;
-
-  border-radius: 2px;
-  background: #e85b4a;
-}
-
-
-/* Mobile */
-
-@media (max-width: 760px) {
-  .table-tennis-standings-table {
-    min-width: 700px;
-  }
-
-  .table-tennis-standings-table th {
-    padding: 10px 11px;
-    font-size: 0.6rem;
-  }
-
-  .table-tennis-standings-table td {
-    padding: 11px;
-    font-size: 0.78rem;
-  }
-
-  .tt-rank-column {
-    width: 52px;
-  }
-
-  .tt-team-column {
-    width: 160px;
-  }
-
-  .tt-team-column strong {
-    font-size: 0.8rem;
-  }
-
-  .table-tennis-standings-table th:nth-child(3) {
-    width: 65px;
-  }
-
-  .table-tennis-standings-table th:nth-child(4),
-  .table-tennis-standings-table th:nth-child(5) {
-    width: 52px;
-  }
-
-  .table-tennis-standings-table th:nth-child(6),
-  .table-tennis-standings-table th:nth-child(7) {
-    width: 95px;
-  }
-
-  .table-tennis-standings-table th:nth-child(8) {
-    width: 75px;
-  }
-}
-
-/* =========================================================
-   LEADERBOARD EVENT — MOBILE COLUMN PROPORTION
-   ========================================================= */
-
-@media (max-width: 760px) {
   .overall-table {
     width: 100%;
     table-layout: fixed;
   }
 
-  /* # */
   .overall-table .rank-column {
     width: 20%;
   }
 
-  /* SUBDIT */
   .overall-table .division-column,
   .overall-table th:nth-child(2) {
     width: 35%;
   }
 
-  /* JUARA 1 / TROPHY */
   .overall-table .first-place-column {
     width: 20%;
   }
 
-  /* POIN */
   .overall-table .points-column {
     width: 25%;
   }
@@ -5200,72 +4364,129 @@ body {
   }
 }
 
-/* ========================================
-   CS:CZ LEADERBOARD COLUMN PROPORTIONS
-   ======================================== */
-
-.cscz-standard-table {
-  width: 100%;
-  table-layout: fixed;
-}
-
-/* Peringkat */
-.cscz-standard-table th:nth-child(1),
-.cscz-standard-table td:nth-child(1) {
-  width: 9%;
-}
-
-/* Tim */
-.cscz-standard-table th:nth-child(2),
-.cscz-standard-table td:nth-child(2) {
-  width: 18%;
-}
-
-/* Match */
-.cscz-standard-table th:nth-child(3),
-.cscz-standard-table td:nth-child(3) {
-  width: 8%;
-}
-
-/* W, D, L */
-.cscz-standard-table th:nth-child(4),
-.cscz-standard-table td:nth-child(4),
-.cscz-standard-table th:nth-child(5),
-.cscz-standard-table td:nth-child(5),
-.cscz-standard-table th:nth-child(6),
-.cscz-standard-table td:nth-child(6) {
-  width: 6%;
-}
-
-/* Poin */
-.cscz-standard-table th:nth-child(7),
-.cscz-standard-table td:nth-child(7) {
-  width: 8%;
-}
-
-/* Round Menang & Round Kalah */
-.cscz-standard-table th:nth-child(8),
-.cscz-standard-table td:nth-child(8),
-.cscz-standard-table th:nth-child(9),
-.cscz-standard-table td:nth-child(9) {
-  width: 13%;
-}
-
-/* Selisih */
-.cscz-standard-table th:nth-child(10),
-.cscz-standard-table td:nth-child(10) {
-  width: 13%;
-}
-
-@media (max-width: 768px) {
-  .cscz-standard-table {
-    width: 900px;
-    table-layout: auto;
+@media (max-width: 480px) {
+  .announcement-list-item {
+    grid-template-columns: 1fr 24px;
   }
 
-  .cscz-standard-table th,
-  .cscz-standard-table td {
-    width: auto;
-    white-space: nowrap;
+  .announcement-list-date {
+    grid-column: 1 / -1;
+    display: flex;
+    justify-content: flex-start;
+    padding: 9px 14px;
+  }
+
+  .announcement-list-date span {
+    max-width: none;
+    font-size: 0.68rem;
+  }
+
+  .announcement-list-content {
+    padding-top: 14px;
+  }
+}
+
+@media (max-width: 390px) {
+  .container {
+    width: min(100% - 28px, 1160px);
+  }
+
+  .brand-logo {
+    height: 36px;
+  }
+
+  .overall-table th,
+  .overall-table td {
+    padding-right: 6px;
+    padding-left: 6px;
+  }
+
+  .overall-table .rank-column {
+    width: 52px;
+  }
+
+  .overall-table .first-place-column {
+    width: 48px;
+  }
+
+  .overall-table .points-column {
+    width: 56px;
+  }
+
+  .rank-badge {
+    width: 32px;
+    height: 32px;
+  }
+
+  .schedule-name-column {
+    width: 138px;
+    min-width: 138px;
+    max-width: 138px;
+  }
+
+  .schedule-date-column,
+  .schedule-table tbody td {
+    width: 58px;
+    min-width: 58px;
+  }
+
+  .schedule-detail-placeholder-icon,
+  .schedule-empty-icon {
+    width: 38px;
+    height: 38px;
+  }
+
+  .schedule-status {
+    padding: 5px 7px;
+    font-size: 0.58rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .announcement-slider-content {
+    animation: none;
+  }
+
+  .announcement-slider,
+  .announcement-slider-link,
+  .announcement-slider-link span,
+  .announcement-slider-arrow,
+  .announcement-list-item,
+  .announcement-list-arrow {
+    transition: none;
+  }
+
+  .mobile-menu-toggle span,
+  .mobile-menu-overlay,
+  .mobile-menu-drawer,
+  .mobile-nav a span:last-child {
+    transition: none;
+  }
+
+  .schedule-cell,
+  .schedule-session-card {
+    transition: none;
+  }
+
+  .schedule-cell-live-dot,
+  .schedule-status-live .schedule-status-dot {
+    animation: none;
+  }
+
+  .home-schedule-card,
+  .home-schedule-arrow {
+    transition: none;
+  }
+
+  .desktop-nav a {
+    transition: none;
+  }
+
+  .home-page .game-card,
+  .home-page .section-heading .text-link,
+  .home-page .leaderboard-button,
+  .home-page .home-schedule-card,
+  .home-page .home-schedule-arrow {
+    transition: none;
   }
 }
