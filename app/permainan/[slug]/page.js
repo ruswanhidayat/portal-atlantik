@@ -1,4 +1,5 @@
 import Link from "next/link";
+import GameStatus from "@/components/GameStatus";
 import { notFound } from "next/navigation";
 import { siteConfig } from "@/data/site-config";
 import { getAllGames, getGameBySlug } from "@/lib/games";
@@ -40,7 +41,7 @@ export default async function GameDetailPage({ params }) {
         <div className="detail-hero">
           <div className="card-topline">
             <span className="eyebrow">{game.category}</span>
-            <span className="status">{game.status}</span>
+            <GameStatus schedulePeriod={game.schedulePeriod}/>
           </div>
 
           <h1>{game.name}</h1>
