@@ -5199,3 +5199,73 @@ body {
     vertical-align: middle;
   }
 }
+
+/* ========================================
+   CS:CZ LEADERBOARD COLUMN PROPORTIONS
+   ======================================== */
+
+.cscz-standard-table {
+  width: 100%;
+  table-layout: fixed;
+}
+
+/* Peringkat */
+.cscz-standard-table th:nth-child(1),
+.cscz-standard-table td:nth-child(1) {
+  width: 9%;
+}
+
+/* Tim */
+.cscz-standard-table th:nth-child(2),
+.cscz-standard-table td:nth-child(2) {
+  width: 18%;
+}
+
+/* Match */
+.cscz-standard-table th:nth-child(3),
+.cscz-standard-table td:nth-child(3) {
+  width: 8%;
+}
+
+/* W, D, L */
+.cscz-standard-table th:nth-child(4),
+.cscz-standard-table td:nth-child(4),
+.cscz-standard-table th:nth-child(5),
+.cscz-standard-table td:nth-child(5),
+.cscz-standard-table th:nth-child(6),
+.cscz-standard-table td:nth-child(6) {
+  width: 6%;
+}
+
+/* Poin */
+.cscz-standard-table th:nth-child(7),
+.cscz-standard-table td:nth-child(7) {
+  width: 8%;
+}
+
+/* Round Menang & Round Kalah */
+.cscz-standard-table th:nth-child(8),
+.cscz-standard-table td:nth-child(8),
+.cscz-standard-table th:nth-child(9),
+.cscz-standard-table td:nth-child(9) {
+  width: 13%;
+}
+
+/* Selisih */
+.cscz-standard-table th:nth-child(10),
+.cscz-standard-table td:nth-child(10) {
+  width: 13%;
+}
+
+@media (max-width: 768px) {
+  .cscz-standard-table {
+    width: 900px;
+    table-layout: auto;
+  }
+
+  .cscz-standard-table th,
+  .cscz-standard-table td {
+    width: auto;
+    white-space: nowrap;
+  }
+}
