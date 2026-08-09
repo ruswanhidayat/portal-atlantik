@@ -271,6 +271,114 @@ function MlbbStandingsTable({ competition }) {
   );
 }
 
+function CsczStandingsTable({ competition }) {
+  const rows = competition.standings.rows
+    .map((row) => ({
+      ...row,
+
+      division: divisions.find(
+        (division) => division.id === row.divisionId
+      ),
+
+      roundDifference: row.roundsWon - row.roundsLost,
+    }))
+    .filter((row) => row.division)
+    .sort((a, b) => {
+      if (a.rank !== b.rank) {
+        return a.rank - b.rank;
+      }
+
+      return 0;
+    });
+
+  return (
+    <div className="competition-table-standard-wrap">
+      <div className="competition-table-standard-scroll">
+        <table className="competition-table-standard cscz-standard-table">
+          <thead>
+            <tr>
+              <th className="competition-rank-column">
+                Peringkat
+              </th>
+
+              <th className="competition-name-column">
+                Tim
+              </th>
+
+              <th>Match</th>
+              <th>W</th>
+              <th>D</th>
+              <th>L</th>
+
+              <th>Poin</th>
+
+              <th>Round Menang</th>
+              <th>Round Kalah</th>
+
+              <th>Selisih</th>
+            </tr>
+          </thead>
+
+          <tbody>
+            {rows.map((row) => (
+              <tr key={row.divisionId}>
+                <td className="competition-rank-column">
+                  <span className="competition-rank">
+                    {row.rank}
+                  </span>
+                </td>
+
+                <td className="competition-name-cell">
+                  <strong className="competition-name">
+                    {row.division.name}
+                  </strong>
+                </td>
+
+                <td>{row.played}</td>
+                <td>{row.win}</td>
+                <td>{row.draw}</td>
+                <td>{row.lose}</td>
+
+                <td>
+                  <strong className="competition-value-strong">
+                    {row.points}
+                  </strong>
+                </td>
+
+                <td>{row.roundsWon}</td>
+                <td>{row.roundsLost}</td>
+
+                <td>
+                  <span
+                    className={`competition-value-badge ${
+                      row.roundDifference > 0
+                        ? "positive"
+                        : row.roundDifference < 0
+                        ? "negative"
+                        : "neutral"
+                    }`}
+                  >
+                    {row.roundDifference > 0 ? "+" : ""}
+                    {row.roundDifference}
+                  </span>
+                </td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+
+      <p className="competition-table-note inline-note">
+        <strong>W</strong>: Win
+        <span aria-hidden="true">·</span>
+        <strong>D</strong>: Draw
+        <span aria-hidden="true">·</span>
+        <strong>L</strong>: Lose
+      </p>
+    </div>
+  );
+}
+
 function BadmintonStandingsTable({ competition }) {
   const rows = competition.standings.rows
     .map((row) => ({
@@ -746,6 +854,8 @@ export default function LeaderboardPage() {
                     <ChessStandingsTable competition={competition} />
                   ) : competition.standings?.type === "mlbb" ? (
                     <MlbbStandingsTable competition={competition} />
+                  ) : competition.standings?.type === "cscz" ? (
+                    <CsczStandingsTable competition={competition} />
                   ) : competition.standings?.type === "table-tennis" ? (
                     <TableTennisStandingsTable competition={competition} />
                   ) : competition.standings?.type === "badminton" ? (
