@@ -277,7 +277,7 @@ export const competitions = [
           points: 0,
           roundsWon: 0,
           roundsLost: 0,
-          rank: ,
+          rank: 1,
         },
         {
           divisionId: "subdit-2",
@@ -288,7 +288,7 @@ export const competitions = [
           points: 0,
           roundsWon: 0,
           roundsLost: 0,
-          rank: ,
+          rank: 2,
         },
         {
           divisionId: "subdit-3",
@@ -299,7 +299,7 @@ export const competitions = [
           points: 0,
           roundsWon: 0,
           roundsLost: 0,
-          rank: ,
+          rank: 3,
         },
         {
           divisionId: "subdit-4",
@@ -310,7 +310,7 @@ export const competitions = [
           points: 0,
           roundsWon: 0,
           roundsLost: 0,
-          rank: ,
+          rank: 4,
         },
         {
           divisionId: "subdit-5",
@@ -321,7 +321,7 @@ export const competitions = [
           points: 0,
           roundsWon: 0,
           roundsLost: 0,
-          rank: ,
+          rank: 5,
         },
       ],
     },
