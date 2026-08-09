@@ -63,11 +63,6 @@ export const competitions = [
     status: "ongoing",
 
     results: [
-      "subdit-3", // PSPP
-      "subdit-4", // PIKSI
-      "subdit-2", // PESPA / PSP pada sumber
-      "subdit-5", // PEPSI
-      "subdit-1", // TAKESI
     ],
 
     standings: {
