@@ -203,7 +203,7 @@ export default function ScheduleBoard({
             <thead>
               <tr>
                 <th className="schedule-name-column">
-                  Cabang permainan
+                  &nbsp;&nbsp;Cabang permainan
                 </th>
 
                 {dates.map((date) => (

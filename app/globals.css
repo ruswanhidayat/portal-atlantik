@@ -1690,7 +1690,7 @@ a.announcement-list-item:hover {
   position: relative;
   overflow: hidden;
   border: 1px solid var(--line);
-  border-radius: var(--radius-md);
+  border-radius: var(--radius-sm);
   background: var(--surface);
   box-shadow: 0 12px 34px rgba(16, 24, 40, 0.06);
 }
@@ -2418,7 +2418,7 @@ a.announcement-list-item:hover {
   }
 
   .schedule-table-card {
-    border-radius: var(--radius-md);
+    border-radius: var(--radius-sm);
   }
 
   .schedule-table-scroll {
