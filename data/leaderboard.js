@@ -270,8 +270,8 @@ export const competitions = [
       rows: [
         {
           divisionId: "subdit-1",
-          played: 0,
-          win: 0,
+          played: 1,
+          win: 1,
           draw: 0,
           lose: 0,
           points: 0,
@@ -281,10 +281,10 @@ export const competitions = [
         },
         {
           divisionId: "subdit-2",
-          played: 0,
+          played: 1,
           win: 0,
           draw: 0,
-          lose: 0,
+          lose: 1,
           points: 0,
           roundsWon: 0,
           roundsLost: 0,
