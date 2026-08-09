@@ -11,6 +11,13 @@ import {
   getLeaderboard,
 } from "@/lib/leaderboard";
 
+import {
+  getCompetitionResultStatus,
+  isCompetitionFinal,
+} from "@/lib/competition-status";
+
+export const dynamic = "force-dynamic";
+
 function RankBadge({ rank }) {
   const labels = { 1: "🥇", 2: "🥈", 3: "🥉" };
   return <span className={`rank-badge rank-${rank}`}>{labels[rank] || rank}</span>;
@@ -57,21 +64,17 @@ const competitionStatuses = {
   },
 };
 
-function getCompetitionStatus(competition) {
-  if (
-    competition.status &&
-    competitionStatuses[competition.status]
-  ) {
-    return competitionStatuses[competition.status];
-  }
+function getCompetitionStatus(
+  competition,
+  now
+) {
+  const status =
+    getCompetitionResultStatus(
+      competition,
+      now
+    );
 
-  const isCompleted =
-    Array.isArray(competition.results) &&
-    competition.results.length === divisions.length;
-
-  return isCompleted
-    ? competitionStatuses.final
-    : competitionStatuses.waiting;
+  return competitionStatuses[status];
 }
 
 function ChessStandingsTable({ competition }) {
@@ -690,8 +693,19 @@ export const metadata = {
 };
 
 export default function LeaderboardPage() {
-  const leaderboard = getLeaderboard();
-  const completedCompetitions = competitions.filter((item) => item.results.length > 0).length;
+  const now = new Date();
+
+  const leaderboard =
+    getLeaderboard(now);
+
+  const completedCompetitions =
+    competitions.filter(
+      (competition) =>
+        isCompetitionFinal(
+          competition,
+          now
+        )
+    ).length;
 
   return (
     <main className="page-section leaderboard-page">
@@ -830,7 +844,7 @@ export default function LeaderboardPage() {
               const rows = getCompetitionRows(competition)
                 .filter((row) => row.rank !== null)
                 .sort((a, b) => a.rank - b.rank);
-              const competitionStatus = getCompetitionStatus(competition);
+              const competitionStatus = getCompetitionStatus(competition, now);
               
               return (
                 <details
