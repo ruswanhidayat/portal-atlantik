@@ -7,33 +7,33 @@
 export const schedule = [
   {
     date: "10 Agustus 2026",
-    time: "08.00–12.00 WIB",
-    title: "Futsal Cup",
+    time: "11.00–13.00 WIB",
+    title: "Chess Masters (Catur)",
     category: "Sports",
     theme: "sports",
-    location: "Lapangan Futsal",
+    location: "Lantai 9 Ruang Aspirin",
     description:
-      "Babak penyisihan Futsal Cup mempertemukan tim dari setiap bagian.",
+      "Fase akhir penentuan juara Chess Masters (Catur) - Atlantik tahun ini!",
   },
   {
-    date: "11 Agustus 2026",
-    time: "09.00–15.00 WIB",
+    date: "10 Agustus 2026",
+    time: "11.45–13.00 WIB",
     title: "Badminton Masters",
     category: "Sports",
     theme: "sports",
-    location: "GOR",
+    location: "Lapangan Badminton Lantai 16",
     description:
-      "Rangkaian pertandingan Badminton Masters dimulai dari babak penyisihan.",
+      "Rangkaian pertandingan lanjutan Badminton Masters.",
   },
   {
-    date: "12 Agustus 2026",
-    time: "09.00–15.00 WIB",
-    title: "Table Tennis Open",
-    category: "Sports",
-    theme: "sports",
-    location: "Aula",
+    date: "11 Agustus 2026",
+    time: "11.00–13.00 WIB",
+    title: "CS:CZ Tactical Challenge",
+    category: "Esports",
+    theme: "esports",
+    location: "Lantai 9 Ruang Kartin1",
     description:
-      "Pertandingan Table Tennis Open dilaksanakan sesuai pembagian jadwal.",
+      "Babak Penyisihan pertama akan segera dimulai!",
   },
 ];
 

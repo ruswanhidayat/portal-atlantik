@@ -13,14 +13,26 @@ export const announcements = [
   },
   {
     id: "pendaftaran-rapid-rush",
-    date: "Segera hadir",
+    date: "10 Agustus 2026",
     label: "Permainan",
     theme: "game",
     title: "Pendaftaran Rapid Rush",
     summary:
       "Tautan pendaftaran dan akses permainan akan diumumkan di halaman Rapid Rush.",
-    href: "/permainan/rapid-rush",
+    href: "https://grand-champion-1.vercel.app",
     linkLabel: "Lihat Rapid Rush",
+    showOnHome: true,
+  },
+  {
+    id: "final-catur",
+    date: "10 Agustus 2026",
+    label: "Permainan",
+    theme: "schedule",
+    title: "Babak Akhir Chess Masters (Catur)",
+    summary:
+      "Chess Masters (Catur) telah memasuki Babak Akhir. Siapakah yang akan menjadi juara di kategori ini? Saksikan pertandingannya!",
+    href: "/jadwal",
+    linkLabel: "Lihat Jadwal",
     showOnHome: true,
   },
 ];
