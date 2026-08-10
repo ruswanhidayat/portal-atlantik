@@ -2633,11 +2633,34 @@ body {
 }
 
 .table-tennis-standard-table .competition-rank-column {
-  width: 12%;
+  width: 10%;
 }
 
 .table-tennis-standard-table .competition-name-column {
-  width: 25%;
+  width: 20%;
+}
+
+.table-tennis-standard-table th:nth-child(3),
+.table-tennis-standard-table th:nth-child(4),
+.table-tennis-standard-table th:nth-child(5) {
+  width: 7%;
+}
+
+.table-tennis-standard-table th:nth-child(6),
+.table-tennis-standard-table th:nth-child(7) {
+  width: 10%;
+}
+
+.table-tennis-standard-table th:nth-child(8) {
+  width: 10%;
+}
+
+.table-tennis-standard-table th:nth-child(9) {
+  width: 10%;
+}
+
+.table-tennis-standard-table .competition-event-points-column {
+  width: 9%;
 }
 
 .table-tennis-standard-table tbody td:nth-child(3),
@@ -2645,13 +2668,8 @@ body {
 .table-tennis-standard-table tbody td:nth-child(5),
 .table-tennis-standard-table tbody td:nth-child(6),
 .table-tennis-standard-table tbody td:nth-child(7) {
-  width: 8%;
   color: #172033;
   font-weight: 500;
-}
-
-.table-tennis-standard-table th:nth-child(8) {
-  width: 13%;
 }
 
 .table-tennis-name-cell {
@@ -3931,7 +3949,7 @@ body {
   }
 
   .table-tennis-standard-table {
-    min-width: 720px;
+    min-width: 920px;
   }
 
   .table-tennis-standard-table .competition-rank-column {
@@ -3939,7 +3957,7 @@ body {
   }
 
   .table-tennis-standard-table .competition-name-column {
-    width: 190px;
+    width: 160px;
   }
 
   .table-tennis-standard-table th:nth-child(3),
@@ -3955,6 +3973,14 @@ body {
 
   .table-tennis-standard-table th:nth-child(8) {
     width: 90px;
+  }
+
+  .table-tennis-standard-table th:nth-child(9) {
+    width: 100px;
+  }
+
+  .table-tennis-standard-table .competition-event-points-column {
+    width: 110px;
   }
 
   .mlbb-standard-table {
@@ -3986,7 +4012,7 @@ body {
   }
 
   .badminton-standard-table {
-    min-width: 900px;
+    min-width: 1180px;
   }
 
   .badminton-standard-table .competition-rank-column {
@@ -4005,7 +4031,7 @@ body {
 
   .badminton-standard-table th:nth-child(6),
   .badminton-standard-table th:nth-child(7) {
-    width: 100px;
+    width: 105px;
   }
 
   .badminton-standard-table th:nth-child(8),
@@ -4015,6 +4041,14 @@ body {
 
   .badminton-standard-table th:nth-child(10) {
     width: 85px;
+  }
+
+  .badminton-standard-table th:nth-child(11) {
+    width: 100px;
+  }
+
+  .badminton-standard-table .competition-event-points-column {
+    width: 110px;
   }
 
   .chess-standard-table {
