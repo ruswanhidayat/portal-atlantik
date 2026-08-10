@@ -16,6 +16,8 @@ import {
   isCompetitionFinal,
 } from "@/lib/competition-status";
 
+import buildInfo from "@/data/build-info.json";
+
 export const dynamic = "force-dynamic";
 
 function RankBadge({ rank }) {
@@ -729,6 +731,18 @@ export const metadata = {
 export default function LeaderboardPage() {
   const now = new Date();
 
+  const dataCutoff = buildInfo.builtAt
+    ? new Intl.DateTimeFormat("id-ID", {
+        day: "2-digit",
+        month: "short",
+        year: "numeric",
+        hour: "2-digit",
+        minute: "2-digit",
+        timeZone: "Asia/Jakarta",
+        timeZoneName: "short",
+      }).format(new Date(buildInfo.builtAt))
+    : null;
+
   const leaderboard =
     getLeaderboard(now);
 
@@ -835,6 +849,12 @@ export default function LeaderboardPage() {
               </p>
             )}
           </div>
+
+          {dataCutoff && (
+            <p className="leaderboard-data-cutoff">
+              Data per {dataCutoff}
+            </p>
+          )}
         </section>
 
         <section className="leaderboard-section">

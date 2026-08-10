@@ -4506,3 +4506,11 @@ body {
     transition: none;
   }
 }
+
+.leaderboard-data-cutoff {
+  margin: 8px 2px 0;
+  font-size: 0.78rem;
+  line-height: 1.4;
+  color: #667085;
+  text-align: right;
+}
