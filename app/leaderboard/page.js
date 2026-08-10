@@ -463,10 +463,10 @@ function BadmintonStandingsTable({ competition }) {
               <th>Pts</th>
               <th>W</th>
               <th>L</th>
-              <th>Partai Menang</th>
-              <th>Partai Kalah</th>
-              <th>Skor Diperoleh</th>
-              <th>Skor Diterima</th>
+              <th>Partai<br />Menang</th>
+              <th>Partai<br />Kalah</th>
+              <th>Skor<br />Diperoleh</th>
+              <th>Skor<br />Diterima</th>
               <th>Selisih</th>
               <th>Hasil</th>
 

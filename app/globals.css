@@ -2718,6 +2718,16 @@ body {
   width: 12%;
 }
 
+.badminton-standard-table thead th {
+  white-space: normal;
+  line-height: 1.15;
+  overflow-wrap: normal;
+  word-break: normal;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  vertical-align: middle;
+}
+
 .badminton-standard-table th:nth-child(3),
 .badminton-standard-table th:nth-child(4),
 .badminton-standard-table th:nth-child(5) {
