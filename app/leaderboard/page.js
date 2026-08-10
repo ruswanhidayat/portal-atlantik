@@ -790,7 +790,7 @@ export default function LeaderboardPage() {
                     </span>
                   </th>
 
-                  <th className="podium-column">Podium</th>
+                  <th className="podium-column">Juara 2</th>
 
                   <th className="points-column">
                     <span className="desktop-column-label">Total Poin</span>
@@ -815,7 +815,7 @@ export default function LeaderboardPage() {
                     </td>
 
                     <td className="podium-column">
-                      {division.podiums}
+                      {division.secondPlaces}
                     </td>
 
                     <td className="points-column">
