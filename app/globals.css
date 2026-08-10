@@ -4000,7 +4000,7 @@ body {
   }
 
   .chess-standard-table {
-    min-width: 600px;
+    min-width: 820px;
   }
 
   .chess-standard-table .competition-rank-column {
@@ -4015,10 +4015,18 @@ body {
   .chess-standard-table th:nth-child(4),
   .chess-standard-table th:nth-child(5),
   .chess-standard-table th:nth-child(6) {
-    width: 60px;
+    width: 55px;
   }
 
   .chess-standard-table .chess-total-column {
+    width: 105px;
+  }
+
+  .chess-standard-table th:nth-child(8) {
+    width: 110px;
+  }
+
+  .chess-standard-table .competition-event-points-column {
     width: 110px;
   }
 
