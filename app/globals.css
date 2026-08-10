@@ -2681,6 +2681,51 @@ body {
   width: 100%;
 }
 
+.futsal-standard-table {
+  table-layout: fixed;
+}
+
+.futsal-standard-table .competition-rank-column {
+  width: 8%;
+}
+
+.futsal-standard-table .competition-name-column {
+  width: 15%;
+}
+
+.futsal-standard-table th:nth-child(3) {
+  width: 7%;
+}
+
+.futsal-standard-table th:nth-child(4),
+.futsal-standard-table th:nth-child(5),
+.futsal-standard-table th:nth-child(6) {
+  width: 5%;
+}
+
+.futsal-standard-table th:nth-child(7),
+.futsal-standard-table th:nth-child(8),
+.futsal-standard-table th:nth-child(9) {
+  width: 7%;
+}
+
+.futsal-standard-table th:nth-child(10) {
+  width: 8%;
+}
+
+.futsal-standard-table th:nth-child(11) {
+  width: 12%;
+}
+
+.futsal-standard-table .competition-event-points-column {
+  width: 14%;
+}
+
+.futsal-standard-table tbody td:nth-child(n + 3) {
+  color: #172033;
+  font-weight: 500;
+}
+
 .mlbb-standard-table {
   table-layout: fixed;
 }
@@ -3965,6 +4010,46 @@ body {
   .capsa-score-table td:nth-child(n + 3) {
     width: 95px;
   }
+
+  .futsal-standard-table {
+  min-width: 1080px;
+}
+
+.futsal-standard-table .competition-rank-column {
+  width: 90px;
+}
+
+.futsal-standard-table .competition-name-column {
+  width: 150px;
+}
+
+.futsal-standard-table th:nth-child(3) {
+  width: 75px;
+}
+
+.futsal-standard-table th:nth-child(4),
+.futsal-standard-table th:nth-child(5),
+.futsal-standard-table th:nth-child(6) {
+  width: 60px;
+}
+
+.futsal-standard-table th:nth-child(7),
+.futsal-standard-table th:nth-child(8),
+.futsal-standard-table th:nth-child(9) {
+  width: 70px;
+}
+
+.futsal-standard-table th:nth-child(10) {
+  width: 80px;
+}
+
+.futsal-standard-table th:nth-child(11) {
+  width: 100px;
+}
+
+.futsal-standard-table .competition-event-points-column {
+  width: 110px;
+}
 
   .table-tennis-standard-table {
     min-width: 920px;

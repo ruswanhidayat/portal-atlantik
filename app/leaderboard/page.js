@@ -469,6 +469,170 @@ function CsczStandingsTable({ competition }) {
   );
 }
 
+function FutsalStandingsTable({ competition }) {
+  const isFinal = competition.status === "final";
+
+  const eventPoints =
+    pointRules[competition.scoringCategory]?.points ?? [];
+
+  const hasStandingsData = competition.standings.rows.some(
+    (row) => row.points !== null
+  );
+
+  const rows = competition.standings.rows
+    .map((row) => ({
+      ...row,
+
+      division: divisions.find(
+        (division) => division.id === row.divisionId
+      ),
+
+      goalDifference:
+        row.goalsFor !== null &&
+        row.goalsAgainst !== null
+          ? row.goalsFor - row.goalsAgainst
+          : null,
+    }))
+    .filter((row) => row.division)
+    .sort((a, b) => {
+      if (!hasStandingsData) {
+        return (
+          divisions.findIndex(
+            (division) => division.id === a.divisionId
+          ) -
+          divisions.findIndex(
+            (division) => division.id === b.divisionId
+          )
+        );
+      }
+
+      if ((b.points ?? 0) !== (a.points ?? 0)) {
+        return (b.points ?? 0) - (a.points ?? 0);
+      }
+
+      if (
+        (b.goalDifference ?? 0) !==
+        (a.goalDifference ?? 0)
+      ) {
+        return (
+          (b.goalDifference ?? 0) -
+          (a.goalDifference ?? 0)
+        );
+      }
+
+      return (b.goalsFor ?? 0) - (a.goalsFor ?? 0);
+    })
+    .map((row, index) => ({
+      ...row,
+
+      rank: hasStandingsData
+        ? index + 1
+        : null,
+
+      eventPoints: isFinal
+        ? eventPoints[index] ?? 0
+        : null,
+    }));
+
+  const displayValue = (value) =>
+    value === null || value === undefined
+      ? "-"
+      : value;
+
+  return (
+    <div className="competition-table-standard-wrap">
+      <div className="competition-table-standard-scroll">
+        <table className="competition-table-standard futsal-standard-table">
+          <thead>
+            <tr>
+              <th className="competition-rank-column">
+                Peringkat
+              </th>
+
+              <th className="competition-name-column">
+                Subdit
+              </th>
+
+              <th>Main</th>
+              <th>W</th>
+              <th>D</th>
+              <th>L</th>
+              <th>GF</th>
+              <th>GA</th>
+              <th>GD</th>
+              <th>PTS</th>
+              <th>Hasil</th>
+
+              <th className="competition-event-points-column">
+                Poin Event
+              </th>
+            </tr>
+          </thead>
+
+          <tbody>
+            {rows.map((row) => (
+              <tr key={row.divisionId}>
+                <td className="competition-rank-column">
+                  <span className="competition-rank">
+                    {row.rank ?? "-"}
+                  </span>
+                </td>
+
+                <td className="competition-name-cell">
+                  <strong className="competition-name">
+                    {row.division.name}
+                  </strong>
+                </td>
+
+                <td>{displayValue(row.played)}</td>
+                <td>{displayValue(row.win)}</td>
+                <td>{displayValue(row.draw)}</td>
+                <td>{displayValue(row.lose)}</td>
+                <td>{displayValue(row.goalsFor)}</td>
+                <td>{displayValue(row.goalsAgainst)}</td>
+
+                <td>
+                  {displayValue(row.goalDifference)}
+                </td>
+
+                <td>
+                  <strong className="competition-value-strong">
+                    {displayValue(row.points)}
+                  </strong>
+                </td>
+
+                <td>
+                  <strong className="competition-value-strong">
+                    {isFinal
+                      ? `Juara ${row.rank}`
+                      : "-"}
+                  </strong>
+                </td>
+
+                <td className="competition-event-points-column">
+                  <strong className="competition-event-points">
+                    {isFinal
+                      ? row.eventPoints
+                      : "-"}
+                  </strong>
+                </td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+
+      <p className="competition-table-note inline-note">
+        <strong>GF</strong>: Gol Dibuat
+        <span aria-hidden="true">·</span>
+        <strong>GA</strong>: Gol Kebobolan
+        <span aria-hidden="true">·</span>
+        <strong>GD</strong>: Selisih Gol
+      </p>
+    </div>
+  );
+}
+
 function BadmintonStandingsTable({ competition }) {
   const isFinal = competition.status === "final";
 
@@ -1038,6 +1202,8 @@ export default function LeaderboardPage() {
                     <CsczStandingsTable competition={competition} />
                   ) : competition.standings?.type === "table-tennis" ? (
                     <TableTennisStandingsTable competition={competition} />
+                  {competition.standings?.type === "futsal" ? (
+                    <FutsalStandingsTable competition={competition} />
                   ) : competition.standings?.type === "badminton" ? (
                     <BadmintonStandingsTable competition={competition} />
                   ) : competition.scoreDetails ? (
