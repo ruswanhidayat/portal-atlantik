@@ -78,6 +78,9 @@ function getCompetitionStatus(
 }
 
 function ChessStandingsTable({ competition }) {
+  const eventPoints =
+    pointRules[competition.scoringCategory]?.points ?? [];
+
   const rows = competition.standings.rows
     .map((row) => ({
       ...row,
@@ -96,7 +99,12 @@ function ChessStandingsTable({ competition }) {
       }
 
       return a.lose - b.lose;
-    });
+    })
+    .map((row, index) => ({
+      ...row,
+      rank: index + 1,
+      eventPoints: eventPoints[index] ?? 0,
+    }));
 
   return (
     <div className="competition-table-standard-wrap">
@@ -119,6 +127,14 @@ function ChessStandingsTable({ competition }) {
 
               <th className="chess-total-column">
                 Total Poin
+              </th>
+
+              <th>
+                Hasil
+              </th>
+
+              <th className="competition-event-points-column">
+                Poin Event
               </th>
             </tr>
           </thead>
@@ -146,6 +162,18 @@ function ChessStandingsTable({ competition }) {
                 <td className="chess-total-column">
                   <strong className="competition-value-strong">
                     {row.totalPoints}
+                  </strong>
+                </td>
+
+                <td>
+                  <strong className="competition-value-strong">
+                    Juara {row.rank}
+                  </strong>
+                </td>
+
+                <td className="competition-event-points-column">
+                  <strong className="competition-event-points">
+                    {row.eventPoints}
                   </strong>
                 </td>
               </tr>
