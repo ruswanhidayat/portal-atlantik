@@ -19,7 +19,7 @@ export const announcements = [
     title: "Pendaftaran Rapid Rush",
     summary:
       "Tautan pendaftaran dan akses permainan akan diumumkan di halaman Rapid Rush.",
-    href: "https://grand-champion-1.vercel.app",
+    href: "#"//https://grand-champion-1.vercel.app",
     linkLabel: "Lihat Rapid Rush",
     showOnHome: true,
   },
