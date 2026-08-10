@@ -2711,31 +2711,39 @@ body {
 }
 
 .badminton-standard-table .competition-rank-column {
-  width: 10%;
+  width: 8%;
 }
 
 .badminton-standard-table .competition-name-column {
-  width: 14%;
+  width: 12%;
 }
 
 .badminton-standard-table th:nth-child(3),
 .badminton-standard-table th:nth-child(4),
 .badminton-standard-table th:nth-child(5) {
-  width: 6%;
+  width: 5%;
 }
 
 .badminton-standard-table th:nth-child(6),
 .badminton-standard-table th:nth-child(7) {
-  width: 10%;
+  width: 8%;
 }
 
 .badminton-standard-table th:nth-child(8),
 .badminton-standard-table th:nth-child(9) {
-  width: 11%;
+  width: 9%;
 }
 
 .badminton-standard-table th:nth-child(10) {
-  width: 9%;
+  width: 8%;
+}
+
+.badminton-standard-table th:nth-child(11) {
+  width: 11%;
+}
+
+.badminton-standard-table .competition-event-points-column {
+  width: 12%;
 }
 
 .badminton-standard-table tbody td:nth-child(n + 3) {

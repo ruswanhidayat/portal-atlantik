@@ -413,10 +413,14 @@ function CsczStandingsTable({ competition }) {
 }
 
 function BadmintonStandingsTable({ competition }) {
+  const isFinal = competition.status === "final";
+
+  const eventPoints =
+    pointRules[competition.scoringCategory]?.points ?? [];
+
   const rows = competition.standings.rows
     .map((row) => ({
       ...row,
-
       division: divisions.find(
         (division) => division.id === row.divisionId
       ),
@@ -433,7 +437,14 @@ function BadmintonStandingsTable({ competition }) {
       }
 
       return b.scoreFor - a.scoreFor;
-    });
+    })
+    .map((row, index) => ({
+      ...row,
+      rank: index + 1,
+      eventPoints: isFinal
+        ? eventPoints[index] ?? 0
+        : null,
+    }));
 
   return (
     <div className="competition-table-standard-wrap">
@@ -457,6 +468,11 @@ function BadmintonStandingsTable({ competition }) {
               <th>Skor Diperoleh</th>
               <th>Skor Diterima</th>
               <th>Selisih</th>
+              <th>Hasil</th>
+
+              <th className="competition-event-points-column">
+                Poin Event
+              </th>
             </tr>
           </thead>
 
@@ -496,6 +512,17 @@ function BadmintonStandingsTable({ competition }) {
                     {row.difference > 0 ? "+" : ""}
                     {row.difference}
                   </span>
+                </td>
+                <td>
+                  <strong className="competition-value-strong">
+                    {isFinal ? `Juara ${row.rank}` : "-"}
+                  </strong>
+                </td>
+
+                <td className="competition-event-points-column">
+                  <strong className="competition-event-points">
+                    {isFinal ? row.eventPoints : "-"}
+                  </strong>
                 </td>
               </tr>
             ))}
