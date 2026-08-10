@@ -2602,22 +2602,30 @@ body {
 }
 
 .chess-standard-table .competition-rank-column {
-  width: 14%;
+  width: 11%;
 }
 
 .chess-standard-table .competition-name-column {
-  width: 26%;
+  width: 20%;
 }
 
 .chess-standard-table th:nth-child(3),
 .chess-standard-table th:nth-child(4),
 .chess-standard-table th:nth-child(5),
 .chess-standard-table th:nth-child(6) {
-  width: 10%;
+  width: 7%;
 }
 
 .chess-standard-table .chess-total-column {
-  width: 20%;
+  width: 13%;
+}
+
+.chess-standard-table th:nth-child(8) {
+  width: 14%;
+}
+
+.chess-standard-table .competition-event-points-column {
+  width: 14%;
 }
 
 .table-tennis-standard-table {
