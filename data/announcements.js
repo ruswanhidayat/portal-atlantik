@@ -16,10 +16,10 @@ export const announcements = [
     date: "10 Agustus 2026",
     label: "Permainan",
     theme: "game",
-    title: "Pendaftaran Rapid Rush",
+    title: "Rapid Rush",
     summary:
-      "Tautan pendaftaran dan akses permainan akan diumumkan di halaman Rapid Rush.",
-    href: "#"//https://grand-champion-1.vercel.app",
+      "Tautan akses permainan Mission: Grand Champion - Rapid Rush.",
+    href: "#",//https://grand-champion-1.vercel.app",
     linkLabel: "Lihat Rapid Rush",
     showOnHome: true,
   },
