@@ -1202,7 +1202,7 @@ export default function LeaderboardPage() {
                     <CsczStandingsTable competition={competition} />
                   ) : competition.standings?.type === "table-tennis" ? (
                     <TableTennisStandingsTable competition={competition} />
-                  {competition.standings?.type === "futsal" ? (
+                  ) : competition.standings?.type === "futsal" ? (
                     <FutsalStandingsTable competition={competition} />
                   ) : competition.standings?.type === "badminton" ? (
                     <BadmintonStandingsTable competition={competition} />
