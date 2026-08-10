@@ -390,14 +390,20 @@ function BadmintonStandingsTable({ competition }) {
       division: divisions.find(
         (division) => division.id === row.divisionId
       ),
-
       difference: row.scoreFor - row.scoreAgainst,
-
-      rank:
-        competition.results.indexOf(row.divisionId) + 1,
     }))
     .filter((row) => row.division)
-    .sort((a, b) => a.rank - b.rank);
+    .sort((a, b) => {
+      if (b.points !== a.points) {
+        return b.points - a.points;
+      }
+
+      if (b.difference !== a.difference) {
+        return b.difference - a.difference;
+      }
+
+      return b.scoreFor - a.scoreFor;
+    });
 
   return (
     <div className="competition-table-standard-wrap">
@@ -425,11 +431,11 @@ function BadmintonStandingsTable({ competition }) {
           </thead>
 
           <tbody>
-            {rows.map((row) => (
+            {rows.map((row, index) => (
               <tr key={row.divisionId}>
                 <td className="competition-rank-column">
                   <span className="competition-rank">
-                    {row.rank}
+                    {index + 1}
                   </span>
                 </td>
 
