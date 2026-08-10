@@ -2686,27 +2686,35 @@ body {
 }
 
 .mlbb-standard-table .competition-rank-column {
-  width: 13%;
+  width: 10%;
 }
 
 .mlbb-standard-table .competition-name-column {
-  width: 27%;
+  width: 22%;
 }
 
 .mlbb-standard-table th:nth-child(3) {
-  width: 15%;
+  width: 12%;
 }
 
 .mlbb-standard-table th:nth-child(4) {
-  width: 16%;
+  width: 13%;
 }
 
 .mlbb-standard-table th:nth-child(5) {
-  width: 14%;
+  width: 11%;
 }
 
 .mlbb-standard-table th:nth-child(6) {
-  width: 15%;
+  width: 11%;
+}
+
+.mlbb-standard-table th:nth-child(7) {
+  width: 10%;
+}
+
+.mlbb-standard-table .competition-event-points-column {
+  width: 11%;
 }
 
 .mlbb-name-cell {
@@ -3106,17 +3114,17 @@ body {
 
 .cscz-standard-table th:nth-child(1),
 .cscz-standard-table td:nth-child(1) {
-  width: 9%;
+  width: 8%;
 }
 
 .cscz-standard-table th:nth-child(2),
 .cscz-standard-table td:nth-child(2) {
-  width: 18%;
+  width: 14%;
 }
 
 .cscz-standard-table th:nth-child(3),
 .cscz-standard-table td:nth-child(3) {
-  width: 8%;
+  width: 7%;
 }
 
 .cscz-standard-table th:nth-child(4),
@@ -3125,24 +3133,33 @@ body {
 .cscz-standard-table td:nth-child(5),
 .cscz-standard-table th:nth-child(6),
 .cscz-standard-table td:nth-child(6) {
-  width: 6%;
+  width: 5%;
 }
 
 .cscz-standard-table th:nth-child(7),
 .cscz-standard-table td:nth-child(7) {
-  width: 8%;
+  width: 7%;
 }
 
 .cscz-standard-table th:nth-child(8),
 .cscz-standard-table td:nth-child(8),
 .cscz-standard-table th:nth-child(9),
 .cscz-standard-table td:nth-child(9) {
-  width: 13%;
+  width: 10%;
 }
 
 .cscz-standard-table th:nth-child(10),
 .cscz-standard-table td:nth-child(10) {
-  width: 13%;
+  width: 8%;
+}
+
+.cscz-standard-table th:nth-child(11),
+.cscz-standard-table td:nth-child(11) {
+  width: 9%;
+}
+
+.cscz-standard-table .competition-event-points-column {
+  width: 12%;
 }
 
 /* =========================================================
@@ -3331,7 +3348,8 @@ body {
 
 @media (max-width: 768px) {
   .cscz-standard-table {
-    width: 900px;
+    width: 1120px;
+    min-width: 1120px;
     table-layout: auto;
   }
 
@@ -3984,7 +4002,7 @@ body {
   }
 
   .mlbb-standard-table {
-    min-width: 680px;
+    min-width: 880px;
   }
 
   .mlbb-standard-table .competition-rank-column {
@@ -3992,23 +4010,31 @@ body {
   }
 
   .mlbb-standard-table .competition-name-column {
-    width: 190px;
+    width: 180px;
   }
 
   .mlbb-standard-table th:nth-child(3) {
-    width: 100px;
+    width: 110px;
   }
 
   .mlbb-standard-table th:nth-child(4) {
-    width: 105px;
+    width: 110px;
   }
 
   .mlbb-standard-table th:nth-child(5) {
-    width: 95px;
+    width: 100px;
   }
 
   .mlbb-standard-table th:nth-child(6) {
+    width: 100px;
+  }
+
+  .mlbb-standard-table th:nth-child(7) {
     width: 95px;
+  }
+
+  .mlbb-standard-table .competition-event-points-column {
+    width: 110px;
   }
 
   .badminton-standard-table {

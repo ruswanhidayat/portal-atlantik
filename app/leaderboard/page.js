@@ -198,6 +198,11 @@ function ChessStandingsTable({ competition }) {
 }
 
 function MlbbStandingsTable({ competition }) {
+  const isFinal = competition.status === "final";
+
+  const eventPoints =
+    pointRules[competition.scoringCategory]?.points ?? [];
+
   const rows = competition.standings.rows
     .map((row) => ({
       ...row,
@@ -221,7 +226,14 @@ function MlbbStandingsTable({ competition }) {
       }
 
       return b.gameWin - a.gameWin;
-    });
+    })
+    .map((row, index) => ({
+      ...row,
+      rank: index + 1,
+      eventPoints: isFinal
+        ? eventPoints[index] ?? 0
+        : null,
+    }));
 
   return (
     <div className="competition-table-standard-wrap">
@@ -241,6 +253,11 @@ function MlbbStandingsTable({ competition }) {
               <th>Match W-L</th>
               <th>Net Games</th>
               <th>Game W-L</th>
+              <th>Hasil</th>
+
+              <th className="competition-event-points-column">
+                Poin Event
+              </th>
             </tr>
           </thead>
 
@@ -295,6 +312,18 @@ function MlbbStandingsTable({ competition }) {
                 <td>
                   {row.gameWin} - {row.gameLose}
                 </td>
+
+                <td>
+                  <strong className="competition-value-strong">
+                    {isFinal ? `Juara ${row.rank}` : "-"}
+                  </strong>
+                </td>
+
+                <td className="competition-event-points-column">
+                  <strong className="competition-event-points">
+                    {isFinal ? row.eventPoints : "-"}
+                  </strong>
+                </td>
               </tr>
             ))}
           </tbody>
@@ -305,24 +334,39 @@ function MlbbStandingsTable({ competition }) {
 }
 
 function CsczStandingsTable({ competition }) {
+  const isFinal = competition.status === "final";
+
+  const eventPoints =
+    pointRules[competition.scoringCategory]?.points ?? [];
+
   const rows = competition.standings.rows
     .map((row) => ({
       ...row,
-
       division: divisions.find(
         (division) => division.id === row.divisionId
       ),
-
-      roundDifference: row.roundsWon - row.roundsLost,
+      roundDifference:
+        row.roundsWon - row.roundsLost,
     }))
     .filter((row) => row.division)
     .sort((a, b) => {
-      if (a.rank !== b.rank) {
-        return a.rank - b.rank;
+      if (b.points !== a.points) {
+        return b.points - a.points;
       }
 
-      return 0;
-    });
+      if (b.roundDifference !== a.roundDifference) {
+        return b.roundDifference - a.roundDifference;
+      }
+
+      return b.roundsWon - a.roundsWon;
+    })
+    .map((row, index) => ({
+      ...row,
+      rank: index + 1,
+      eventPoints: isFinal
+        ? eventPoints[index] ?? 0
+        : null,
+    }));
 
   return (
     <div className="competition-table-standard-wrap">
@@ -342,13 +386,15 @@ function CsczStandingsTable({ competition }) {
               <th>W</th>
               <th>D</th>
               <th>L</th>
-
               <th>Poin</th>
-
               <th>Round Menang</th>
               <th>Round Kalah</th>
-
               <th>Selisih</th>
+              <th>Hasil</th>
+
+              <th className="competition-event-points-column">
+                Poin Event
+              </th>
             </tr>
           </thead>
 
@@ -394,6 +440,17 @@ function CsczStandingsTable({ competition }) {
                     {row.roundDifference > 0 ? "+" : ""}
                     {row.roundDifference}
                   </span>
+                </td>
+                <td>
+                  <strong className="competition-value-strong">
+                    {isFinal ? `Juara ${row.rank}` : "-"}
+                  </strong>
+                </td>
+
+                <td className="competition-event-points-column">
+                  <strong className="competition-event-points">
+                    {isFinal ? row.eventPoints : "-"}
+                  </strong>
                 </td>
               </tr>
             ))}

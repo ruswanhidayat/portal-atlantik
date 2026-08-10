@@ -9,7 +9,7 @@ export const announcements = [
       "Informasi jadwal, perlombaan, dan pengumuman resmi akan tersedia secara bertahap.",
     href: null,
     linkLabel: null,
-    showOnHome: true,
+    showOnHome: false,
   },
   {
     id: "pendaftaran-rapid-rush",
@@ -33,6 +33,18 @@ export const announcements = [
       "Chess Masters (Catur) telah memasuki Babak Akhir. Siapakah yang akan menjadi juara di kategori ini? Saksikan pertandingannya!",
     href: "/jadwal",
     linkLabel: "Lihat Jadwal",
-    showOnHome: true,
+    showOnHome: false,
+  },
+  {
+    id: "start-CSCZ",
+    date: "11 Agustus 2026",
+    label: "Permainan",
+    theme: "general",
+    title: "Match Day! Pertandingan CS:CZ Tactical Challenge segera dimulai!",
+    summary:
+      "Pertandingan CS:CZ Tactical Challenge segera dimulai. Saksikan pertandingannya!",
+    href: "/jadwal",
+    linkLabel: "Lihat Jadwal",
+    showOnHome: false,
   },
 ];
