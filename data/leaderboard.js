@@ -335,26 +335,32 @@ export const competitions = [
   
     // Tetap kosong karena hasil pertandingan belum final
     // dan belum boleh dihitung ke leaderboard Juara Umum.
-    results: [],
+    results: [
+      "subdit-5",
+      "subdit-1",
+      "subdit-4",
+      "subdit-2",
+      "subdit-3",
+    ],
   
     standings: {
       type: "chess",
       rows: [
         {
           divisionId: "subdit-1",
-          played: 3,
+          played: 4,
           win: 15,
-          lose: 3,
+          lose: 9,
           draw: 0,
           totalPoints: 45,
         },
         {
           divisionId: "subdit-5",
-          played: 3,
-          win: 13,
+          played: 4,
+          win: 19,
           lose: 5,
           draw: 0,
-          totalPoints: 39,
+          totalPoints: 57,
         },
         {
           divisionId: "subdit-4",
@@ -366,17 +372,17 @@ export const competitions = [
         },
         {
           divisionId: "subdit-2",
-          played: 3,
-          win: 5,
+          played: 4,
+          win: 11,
           lose: 13,
           draw: 0,
-          totalPoints: 15,
+          totalPoints: 33,
         },
         {
           divisionId: "subdit-3",
-          played: 3,
+          played: 4,
           win: 2,
-          lose: 15,
+          lose: 21,
           draw: 1,
           totalPoints: 7,
         },
