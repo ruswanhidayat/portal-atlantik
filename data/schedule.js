@@ -5,18 +5,38 @@
  * tidak perlu diubah dan tidak mengalami error.
  */
 export const schedule = [
+  // {
+  //   date: "10 Agustus 2026",
+  //   time: "11.00–13.00 WIB",
+  //   title: "Chess Masters (Catur)",
+  //   category: "Sports",
+  //   theme: "sports",
+  //   location: "Lantai 9 Ruang Aspirin",
+  //   description:
+  //     "Fase akhir penentuan juara Chess Masters (Catur) - Atlantik tahun ini!",
+  // },
+  // {
+  //   date: "10 Agustus 2026",
+  //   time: "11.45–13.00 WIB",
+  //   title: "Badminton Masters",
+  //   category: "Sports",
+  //   theme: "sports",
+  //   location: "Lapangan Badminton Lantai 16",
+  //   description:
+  //     "Rangkaian pertandingan lanjutan Badminton Masters.",
+  // },
+  // {
+  //   date: "11 Agustus 2026",
+  //   time: "11.00–13.00 WIB",
+  //   title: "CS:CZ Tactical Challenge",
+  //   category: "Esports",
+  //   theme: "esports",
+  //   location: "Lantai 9 Ruang Kartin1",
+  //   description:
+  //     "Babak Penyisihan pertama akan segera dimulai!",
+  // },
   {
-    date: "10 Agustus 2026",
-    time: "11.00–13.00 WIB",
-    title: "Chess Masters (Catur)",
-    category: "Sports",
-    theme: "sports",
-    location: "Lantai 9 Ruang Aspirin",
-    description:
-      "Fase akhir penentuan juara Chess Masters (Catur) - Atlantik tahun ini!",
-  },
-  {
-    date: "10 Agustus 2026",
+    date: "12 Agustus 2026",
     time: "11.45–13.00 WIB",
     title: "Badminton Masters",
     category: "Sports",
@@ -26,14 +46,24 @@ export const schedule = [
       "Rangkaian pertandingan lanjutan Badminton Masters.",
   },
   {
-    date: "11 Agustus 2026",
+    date: "12 Agustus 2026",
     time: "11.00–13.00 WIB",
     title: "CS:CZ Tactical Challenge",
     category: "Esports",
     theme: "esports",
     location: "Lantai 9 Ruang Kartin1",
     description:
-      "Babak Penyisihan pertama akan segera dimulai!",
+      "Rangkaian lanjutan Babak Penyisihan sedang berlangsung, saksikan pertandingannya!",
+  },
+  {
+    date: "12 Agustus 2026",
+    time: "11.00–13.00 WIB",
+    title: "Table Tennis Open",
+    category: "Sports",
+    theme: "sports",
+    location: "Lantai 9 Ruang Aspirin",
+    description:
+      "Table Tennis Open memasuki Babak 4 Besar! Siapakah yang akan melaju ke Babak Final?",
   },
 ];
 
@@ -370,7 +400,7 @@ export const competitionSchedules = [
           location: "Lantai 16",
         },
         {
-          id: "table-tennis-12-1",
+          id: "table-tennis-12-2",
           startTime: "11:00",
           endTime: "13:00",
           title: "PESPA vs PSPP",
@@ -388,7 +418,7 @@ export const competitionSchedules = [
           location: "Lantai 16",
         },
         {
-          id: "table-tennis-13-1",
+          id: "table-tennis-13-2",
           startTime: "11:00",
           endTime: "13:00",
           title: "TBA vs TBA",
