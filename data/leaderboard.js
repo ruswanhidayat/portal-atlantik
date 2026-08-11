@@ -291,9 +291,9 @@ export const competitions = [
           squadName: "PEPSI",
           matchPoint: 1,
           matchWin: 1,
-          matchLose: 2,
+          matchLose: 3,
           gameWin: 4,
-          gameLose: 4,
+          gameLose: 6,
           finalist: false,
         },
         {
@@ -309,10 +309,10 @@ export const competitions = [
         {
           divisionId: "subdit-2",
           squadName: "PESPA",
-          matchPoint: 0,
-          matchWin: 0,
+          matchPoint: 1,
+          matchWin: 1,
           matchLose: 3,
-          gameWin: 0,
+          gameWin: 2,
           gameLose: 6,
           finalist: false,
         },
@@ -513,6 +513,66 @@ export const competitions = [
     scoringCategory: "grandChampion",
     theme: "grand-champion",
     results: [],
+
+    grandChampion: {
+      phases: [
+        {
+          id: "rapid-rush",
+          phase: "PHASE 1",
+          name: "Rapid Rush",
+          status: "waiting",
+          type: "rapid-rush",
+
+          results: {
+            "subdit-1": [],
+            "subdit-2": [],
+            "subdit-3": [],
+            "subdit-4": [],
+            "subdit-5": [],
+          },
+        },
+
+        {
+          id: "crossroads",
+          phase: "PHASE 2",
+          name: "Crossroads",
+          status: "waiting",
+          type: "default",
+        },
+
+        {
+          id: "pressure-grid",
+          phase: "PHASE 3",
+          name: "Pressure Grid",
+          status: "waiting",
+          type: "default",
+        },
+
+        {
+          id: "signal-race",
+          phase: "PHASE 4",
+          name: "Signal Race",
+          status: "waiting",
+          type: "default",
+        },
+
+        {
+          id: "visual-recall",
+          phase: "PHASE 5",
+          name: "Visual Recall",
+          status: "waiting",
+          type: "default",
+        },
+
+        {
+          id: "open-box",
+          phase: "FINAL",
+          name: "Open Box",
+          status: "waiting",
+          type: "default",
+        },
+      ],
+    },
   },
   {
     id: "merdeka-showcase",

@@ -592,7 +592,7 @@ export const competitionSchedules = [
       "2026-08-05",
       "2026-08-06",
       "2026-08-10",
-      "2026-08-11",
+      "2026-08-13",
     ],
     sessions: {
       "2026-08-03": [
@@ -685,13 +685,13 @@ export const competitionSchedules = [
           location: "Online",
         },
       ],
-      "2026-08-11": [
+      "2026-08-13": [
         {
-          id: "mlbb-11-1",
+          id: "mlbb-13-1",
           startTime: "11:00",
           endTime: "13:00",
-          title: "Peringkat 1 vs Peringkat 2",
-          stage: "Babak Final",
+          title: "TAKESI vs BANGDUPAK",
+          stage: "Babak Final (Reschedule)",
           location: "Online",
         },
       ],

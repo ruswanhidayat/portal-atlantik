@@ -4871,3 +4871,242 @@ body {
     font-size: 0.58rem;
   }
 }
+
+/* =========================================================
+   GRAND CHAMPION
+   ========================================================= */
+
+.grand-champion-phases {
+  padding: 14px;
+  display: grid;
+  gap: 10px;
+}
+
+.grand-champion-phase {
+  overflow: hidden;
+  border: 1px solid #d9deea;
+  border-radius: 12px;
+  background: #ffffff;
+}
+
+.grand-champion-phase-trigger {
+  width: 100%;
+  min-height: 66px;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 18px;
+
+  padding: 12px 16px;
+
+  border: 0;
+  background: transparent;
+
+  color: inherit;
+  font: inherit;
+  text-align: left;
+
+  cursor: pointer;
+}
+
+.grand-champion-phase-info {
+  min-width: 0;
+
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.grand-champion-phase-info small {
+  flex: 0 0 auto;
+
+  color: #7658dc;
+  font-size: 0.7rem;
+  font-weight: 800;
+  letter-spacing: 0.04em;
+}
+
+.grand-champion-phase-info strong {
+  font-size: 0.9rem;
+  font-weight: 800;
+}
+
+.grand-champion-phase-actions {
+  flex: 0 0 auto;
+
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.grand-champion-phase-chevron {
+  width: 22px;
+
+  color: #667085;
+  font-size: 1.15rem;
+  font-weight: 700;
+  text-align: center;
+}
+
+.grand-champion-phase-content {
+  border-top: 1px solid #e5e8ef;
+  background: #fbfcff;
+}
+
+.grand-champion-phase-empty {
+  margin: 0;
+  padding: 22px 18px;
+
+  color: #667085;
+  font-size: 0.86rem;
+}
+
+/* Rapid Rush tabs */
+
+.grand-champion-tabs {
+  display: flex;
+  gap: 6px;
+
+  padding: 14px 14px 0;
+
+  overflow-x: auto;
+  scrollbar-width: thin;
+}
+
+.grand-champion-tab {
+  flex: 1 0 auto;
+
+  min-width: 90px;
+
+  padding: 9px 14px;
+
+  border: 1px solid #d7dce8;
+  border-bottom: 2px solid #d7dce8;
+  border-radius: 9px 9px 0 0;
+
+  background: #f7f8fc;
+  color: #667085;
+
+  font: inherit;
+  font-size: 0.75rem;
+  font-weight: 800;
+
+  cursor: pointer;
+}
+
+.grand-champion-tab.active {
+  border-color: #7658dc;
+  border-bottom-color: #ffffff;
+
+  background: #ffffff;
+  color: #5234b5;
+}
+
+/* Rapid Rush table */
+
+.grand-champion-rapid-rush
+  .competition-table-standard-scroll {
+  padding: 14px;
+}
+
+.rapid-rush-table {
+  table-layout: fixed;
+}
+
+.rapid-rush-table th:nth-child(1),
+.rapid-rush-table td:nth-child(1) {
+  width: 18%;
+  text-align: center;
+}
+
+.rapid-rush-table th:nth-child(2),
+.rapid-rush-table td:nth-child(2) {
+  width: 52%;
+  text-align: left;
+}
+
+.rapid-rush-table th:nth-child(3),
+.rapid-rush-table td:nth-child(3) {
+  width: 30%;
+  text-align: right;
+}
+
+.rapid-rush-rank {
+  color: #18356d;
+  font-weight: 800;
+}
+
+.rapid-rush-player {
+  text-align: left;
+}
+
+.rapid-rush-points {
+  font-variant-numeric: tabular-nums;
+  font-weight: 700;
+}
+
+/* Desktop hover hanya sebagai affordance */
+
+@media (hover: hover) and (pointer: fine) {
+  .grand-champion-phase-trigger:hover {
+    background: #fafaff;
+  }
+
+  .grand-champion-tab:hover {
+    border-color: #bcb1eb;
+    color: #5234b5;
+  }
+}
+
+@media (max-width: 760px) {
+  .grand-champion-phases {
+    padding: 10px;
+    gap: 8px;
+  }
+
+  .grand-champion-phase-trigger {
+    min-height: 62px;
+
+    padding: 10px 12px;
+    gap: 10px;
+  }
+
+  .grand-champion-phase-info {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 2px;
+  }
+
+  .grand-champion-phase-info strong {
+    font-size: 0.84rem;
+  }
+
+  .grand-champion-phase-actions {
+    gap: 6px;
+  }
+
+  .grand-champion-phase-actions .result-status {
+    font-size: 0.62rem;
+  }
+
+  .grand-champion-tabs {
+    gap: 5px;
+    padding: 12px 10px 0;
+  }
+
+  .grand-champion-tab {
+    min-width: 82px;
+    padding: 8px 10px;
+    font-size: 0.7rem;
+  }
+
+  .grand-champion-rapid-rush
+    .competition-table-standard-scroll {
+    padding: 10px;
+  }
+
+  .rapid-rush-table {
+    min-width: 520px;
+  }
+}

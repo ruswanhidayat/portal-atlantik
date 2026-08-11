@@ -1,4 +1,5 @@
 import ExclusiveAccordionGroup from "@/components/ExclusiveAccordionGroup";
+import GrandChampionLeaderboard from "@/components/GrandChampionLeaderboard";
 
 import {
   competitions,
@@ -1194,7 +1195,12 @@ export default function LeaderboardPage() {
                     </span>
                   </summary>
 
-                  {competition.standings?.type === "chess" ? (
+                  {competition.id === "mission-grand-champion" ? (
+                    <GrandChampionLeaderboard
+                      competition={competition}
+                      divisions={divisions}
+                    />
+                  ) : competition.standings?.type === "chess" ? (
                     <ChessStandingsTable competition={competition} />
                   ) : competition.standings?.type === "mlbb" ? (
                     <MlbbStandingsTable competition={competition} />
