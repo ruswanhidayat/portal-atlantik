@@ -1,7 +1,7 @@
 export const portalLinks = [
   {
     id: "rapid-rush",
-    label: "Phase #1 - Rapid Rush",
+    label: "Mission: Grand Champion | Phase #1 - Rapid Rush",
     href: "https://grand-champion-1.vercel.app",
     
     show: true,
@@ -12,7 +12,7 @@ export const portalLinks = [
   },
   {
     id: "pressure-grid",
-    label: "Phase #3 - Pressure Grid",
+    label: "Mission: Grand Champion | Phase #3 - Pressure Grid",
     href: "https://example.com",
 
     show: true,
@@ -23,7 +23,7 @@ export const portalLinks = [
   },
   {
     id: "signal-race",
-    label: "Phase #4 - Signal Race",
+    label: "Mission: Grand Champion | Phase #4 - Signal Race",
     href: "https://example.com",
 
     show: true,
@@ -34,7 +34,7 @@ export const portalLinks = [
   },
   {
     id: "visual-recall",
-    label: "Phase #5 - Visual Recall",
+    label: "Mission: Grand Champion | Phase #5 - Visual Recall",
     href: "https://example.com",
 
     show: true,
