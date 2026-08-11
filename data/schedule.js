@@ -433,7 +433,7 @@ export const competitionSchedules = [
   },
   {
     id: "atlantik-run",
-    name: "Atlantik Run",
+    name: "Atlantik Run 2026",
     category: "Sports",
     theme: "sports",
     activeDates: [
@@ -1029,25 +1029,6 @@ export const competitionSchedules = [
     },
   },
   {
-    id: "fun-games",
-    name: "Fun Games",
-    category: "Lomba Rekreasi",
-    theme: "fun",
-    activeDates: ["2026-08-31"],
-    sessions: {
-      "2026-08-31": [
-        {
-          id: "fun-games-31-1",
-          startTime: "08:00",
-          endTime: "15:00",
-          title: "Fun Games Session",
-          stage: "Hari Puncak",
-          location: "Area Hari Puncak Peringatan HUT RI Dit TIK",
-        },
-      ],
-    },
-  },
-  {
     id: "merdeka-showcase",
     name: "Lomba Kebersihan dan Dekorasi Ruangan",
     category: "Lomba Rekreasi",
@@ -1141,6 +1122,25 @@ export const competitionSchedules = [
           title: "Periode Penilaian Lomba Kebersihan dan Dekorasi Ruangan",
           stage: "Penilaian",
           location: "Gedung Bhakti, Direktorat TIK",
+        },
+      ],
+    },
+  },
+  {
+    id: "fun-games",
+    name: "Fun Games",
+    category: "Lomba Rekreasi",
+    theme: "fun",
+    activeDates: ["2026-08-31"],
+    sessions: {
+      "2026-08-31": [
+        {
+          id: "fun-games-31-1",
+          startTime: "08:00",
+          endTime: "15:00",
+          title: "Fun Games Session",
+          stage: "Hari Puncak",
+          location: "Area Hari Puncak Peringatan HUT RI Dit TIK",
         },
       ],
     },

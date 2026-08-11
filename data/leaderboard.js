@@ -240,6 +240,13 @@ export const competitions = [
     },
   },
   {
+    id: "atlantik-run",
+    name: "Atlantik Run 2026",
+    scoringCategory: "sports",
+    theme: "sports",
+    results: [],
+  },
+  {
     id: "fc-26-cup",
     name: "FC 26 Cup",
     scoringCategory: "strategic",
@@ -508,15 +515,15 @@ export const competitions = [
     results: [],
   },
   {
-    id: "fun-games",
-    name: "Fun Games",
+    id: "merdeka-showcase",
+    name: "Lomba Kebersihan dan Dekorasi Ruangan",
     scoringCategory: "fun",
     theme: "fun",
     results: [],
   },
   {
-    id: "merdeka-showcase",
-    name: "Lomba Kebersihan dan Dekorasi Ruangan",
+    id: "fun-games",
+    name: "Fun Games",
     scoringCategory: "fun",
     theme: "fun",
     results: [],
