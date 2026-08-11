@@ -13,10 +13,10 @@ export const announcements = [
   },
   {
     id: "pendaftaran-rapid-rush",
-    date: "10 Agustus 2026",
+    date: "12 Agustus 2026",
     label: "Permainan",
     theme: "game",
-    title: "Rapid Rush",
+    title: "Rapid Rush dimulai!",
     summary:
       "Tautan akses permainan Mission: Grand Champion - Rapid Rush.",
     href: "/portal-link",
@@ -43,6 +43,18 @@ export const announcements = [
     title: "Match Day! Pertandingan CS:CZ Tactical Challenge segera dimulai!",
     summary:
       "Pertandingan CS:CZ Tactical Challenge segera dimulai. Saksikan pertandingannya!",
+    href: "/jadwal",
+    linkLabel: "Lihat Jadwal",
+    showOnHome: true,
+  },
+  {
+    id: "fase-akhir-CSCZ",
+    date: "12 Agustus 2026",
+    label: "Permainan",
+    theme: "important",
+    title: "Table Tennis Open memasuki Babak 4 Besar!",
+    summary:
+      "Siapakah yang akan melaju ke Babak Final? Dukung tim-mu dan jadilah saksi lahirnya calon juara tahun ini!",
     href: "/jadwal",
     linkLabel: "Lihat Jadwal",
     showOnHome: true,
