@@ -1,5 +1,6 @@
 import Link from "next/link";
 
+import PortalLinkList from "@/components/PortalLinkList";
 import { portalLinks } from "@/data/portal-links";
 
 export const metadata = {
@@ -7,9 +8,6 @@ export const metadata = {
 };
 
 export default function PortalLinkPage() {
-  const visibleLinks = portalLinks.filter(
-    (item) => item.show
-  );
 
   return (
     <main className="portal-link-page">
@@ -20,56 +18,20 @@ export default function PortalLinkPage() {
           </div>
 
           <div className="portal-link-heading">
-            <span className="eyebrow">
-              ATLANTIK 2026
-            </span>
+        <span className="eyebrow">
+            ATLANTIK 2026
+        </span>
 
-            <h1>
-              Portal Link
-            </h1>
+        <h1>
+            Mission: Grand Champion
+        </h1>
 
-            <p>
-              Pilih tautan yang tersedia.
-            </p>
-          </div>
+        <p>
+            Pilih tautan permainan yang tersedia.
+        </p>
+        </div>
 
-          <div className="portal-link-list">
-            {visibleLinks.map((item) =>
-              item.enabled ? (
-                <Link
-                  key={item.id}
-                  href={item.href}
-                  className="portal-link-button"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  <span>{item.label}</span>
-
-                  <span
-                    className="portal-link-more"
-                    aria-hidden="true"
-                  >
-                    •••
-                  </span>
-                </Link>
-              ) : (
-                <div
-                  key={item.id}
-                  className="portal-link-button disabled"
-                  aria-disabled="true"
-                >
-                  <span>{item.label}</span>
-
-                  <span
-                    className="portal-link-more"
-                    aria-hidden="true"
-                  >
-                    •••
-                  </span>
-                </div>
-              )
-            )}
-          </div>
+        <PortalLinkList links={portalLinks} />
         </div>
       </section>
     </main>
