@@ -34,6 +34,10 @@ const navItems = [
     href: "/guidebook/guidebook_atlantik_2026.pdf",
     external: true,
   },
+  {
+    label: "Portal Link",
+    href: "/portal-link",
+  },
 ];
 
 function isActiveNavigation(pathname, item) {

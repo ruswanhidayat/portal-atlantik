@@ -19,7 +19,7 @@ export const announcements = [
     title: "Rapid Rush",
     summary:
       "Tautan akses permainan Mission: Grand Champion - Rapid Rush.",
-    href: "#",//https://grand-champion-1.vercel.app",
+    href: "/portal-link",
     linkLabel: "Lihat Rapid Rush",
     showOnHome: true,
   },
