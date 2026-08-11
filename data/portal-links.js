@@ -7,13 +7,6 @@ export const portalLinks = [
     enabled: false,
   },
   {
-    id: "crossroads",
-    label: "Phase #2 - Crossroads",
-    href: "https://example.com",
-    show: true,
-    enabled: false,
-  },
-  {
     id: "pressure-grid",
     label: "Phase #3 - Pressure Grid",
     href: "https://example.com",

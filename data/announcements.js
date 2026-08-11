@@ -45,6 +45,6 @@ export const announcements = [
       "Pertandingan CS:CZ Tactical Challenge segera dimulai. Saksikan pertandingannya!",
     href: "/jadwal",
     linkLabel: "Lihat Jadwal",
-    showOnHome: false,
+    showOnHome: true,
   },
 ];
