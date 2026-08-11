@@ -4670,11 +4670,29 @@ body {
   }
 }
 
-.leaderboard-data-cutoff {
+.leaderboard-meta {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+
   margin: 8px 2px 0;
+}
+
+.leaderboard-detail-hint,
+.leaderboard-data-cutoff {
+  margin: 0;
+
+  color: #667085;
   font-size: 0.78rem;
   line-height: 1.4;
-  color: #667085;
+}
+
+.leaderboard-detail-hint {
+  text-align: left;
+}
+
+.leaderboard-data-cutoff {
   text-align: right;
 }
 
@@ -5121,19 +5139,25 @@ body {
   padding: 0;
   background: transparent;
 
-  color: inherit;
+  color: #172033;
   font: inherit;
   font-weight: 800;
 
   cursor: pointer;
+
+  text-decoration: underline;
+  text-decoration-color: transparent;
+  text-underline-offset: 3px;
+
+  transition:
+    color 0.18s ease,
+    text-decoration-color 0.18s ease;
 }
 
-/* Hover hanya untuk device yang memang punya mouse */
 @media (hover: hover) and (pointer: fine) {
   .leaderboard-breakdown-trigger:hover {
     color: var(--primary);
-    text-decoration: underline;
-    text-underline-offset: 3px;
+    text-decoration-color: currentColor;
   }
 }
 
@@ -5309,6 +5333,18 @@ body {
 }
 
 @media (max-width: 760px) {
+  .leaderboard-meta {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 4px;
+  }
+
+  .leaderboard-detail-hint,
+  .leaderboard-data-cutoff {
+    width: 100%;
+    text-align: left;
+  }
+  
   .leaderboard-breakdown-overlay {
     align-items: flex-end;
 

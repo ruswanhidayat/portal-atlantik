@@ -1147,11 +1147,17 @@ export default function LeaderboardPage() {
             )}
           </div>
 
-          {dataCutoff && (
-            <p className="leaderboard-data-cutoff">
-              Data per {dataCutoff}
+          <div className="leaderboard-meta">
+            <p className="leaderboard-detail-hint">
+              Klik nama Subdit untuk melihat detail poin.
             </p>
-          )}
+
+            {dataCutoff && (
+              <p className="leaderboard-data-cutoff">
+                Data per {dataCutoff}
+              </p>
+            )}
+          </div>
         </section>
 
         <section className="leaderboard-section">
