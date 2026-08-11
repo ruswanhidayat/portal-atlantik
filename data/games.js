@@ -47,6 +47,17 @@ export const games = [
       "Seluruh pertandingan Tahap 2 dimulai dari skor 0–0 tanpa membawa poin atau hasil dari fase liga."],
   },
   {
+    slug: "atlantik-run",
+    name: "Atlantik Run 2026",
+    category: "Sports",
+    categoryKey: "sports",
+    status: "Segera hadir",
+    shortDescription: "Lace up, start running, and take your team further!",
+    description: "ATLANTIK RUN adalah tantangan lari virtual antar-Subdit dengan mengakumulasikan jarak yang ditempuh oleh para pelari untuk membawa Subditnya melaju sejauh mungkin.",
+    highlights: ["ATLANTIK RUN dilaksanakan antar-Subdit dan terbuka bagi seluruh pegawai untuk berpartisipasi secara sukarela. Setiap jarak lari yang tercatat akan diakumulasikan sebagai kontribusi bagi Subdit masing-masing, dengan kategori Putra dan Putri dihitung secara terpisah.", 
+      "Pemenang ditentukan berdasarkan total akumulasi jarak terjauh yang berhasil dikumpulkan oleh masing-masing Subdit selama periode ATLANTIK RUN pada setiap kategori pertandingan."],
+  },
+  {
     slug: "fc-26-cup",
     name: "FC 26 Cup",
     category: "Esports",
@@ -131,6 +142,20 @@ export const games = [
     highlights: ["Mission: Grand Champion merupakan kompetisi eliminasi bertahap yang terdiri dari 6 fase permainan dengan karakteristik kemampuan yang berbeda.", 
       "Setiap permainan dirancang untuk menguji aspek tertentu, seperti kecepatan berpikir, logika, observasi, ketelitian, kemampuan mengambil keputusan, hingga konsistensi di bawah tekanan.", 
       "Pemain yang memperoleh hasil terbaik pada setiap fase akan melanjutkan ke permainan berikutnya hingga tersisa satu Grand Champion."],
+  },
+  {
+    slug: "merdeka-showcase",
+    name: "Lomba Kebersihan dan Dekorasi Ruangan",
+    category: "Fun Games",
+    categoryKey: "fun",
+    status: "Segera hadir",
+    shortDescription: "Penilaian kebersihan ruangan dan kreatifitas pegawai dalam mendekorasi ruang kerja masing-masing.",
+    description: "Tunjukkan kreatifitasmu, tata ruangan sebaik mungkin! Lingkungan kerja yang bersih dan rapi memberikan kenyamanan dan mendukung dalam efektivitas dalam bekerja.",
+    highlights: ["Dekorasi tidak boleh mengganggu operasional kegiatan kantor.",
+      "Dekorasi tidak boleh mengandung unsur SARA maupun politik.",
+      "⁠Penggunaan dekorasi elektronik, termasuk lampu dekoratif, tidak diperbolehkan.",
+      "⁠Dekorasi tidak boleh mengubah, menambah, atau merusak fasilitas gedung kantor maupun Barang Milik Negara (BMN) lainnya."
+    ],
   },
   {
     slug: "fun-games",
