@@ -23,11 +23,11 @@ export default function PortalLinkPage() {
         </span>
 
         <h1>
-            Mission: Grand Champion
+            Portal Link
         </h1>
 
         <p>
-            Pilih tautan permainan yang tersedia.
+            Pilih tautan yang tersedia.
         </p>
         </div>
 

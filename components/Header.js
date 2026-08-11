@@ -37,6 +37,7 @@ const navItems = [
   {
     label: "Portal Link",
     href: "/portal-link",
+    external: true,
   },
 ];
 
