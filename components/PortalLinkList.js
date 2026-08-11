@@ -87,13 +87,6 @@ export default function PortalLinkList({ links }) {
                 {linkStatus.badge}
               </span>
             )}
-
-            <span
-              className="portal-link-more"
-              aria-hidden="true"
-            >
-              •••
-            </span>
           </>
         );
 
