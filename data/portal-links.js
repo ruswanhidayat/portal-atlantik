@@ -8,7 +8,7 @@ export const portalLinks = [
     enabled: true,
 
     activeFrom: "2026-08-12T08:00:00+07:00",
-    activeUntil: "2026-08-15T23:59:59+07:00",
+    activeUntil: "2026-08-14T23:59:59+07:00",
   },
   {
     id: "pressure-grid",
