@@ -901,8 +901,43 @@ export const competitionSchedules = [
     name: "Mission: Grand Champion",
     category: "Strategic Games",
     theme: "grand-champion",
-    activeDates: ["2026-08-31"],
+    activeDates: [
+      "2026-08-12",
+      "2026-08-13",
+      "2026-08-14",
+      "2026-08-31",
+    ],
     sessions: {
+      "2026-08-12": [
+        {
+          id: "grand-champion-12-1",
+          startTime: "00:01",
+          endTime: "23:59",
+          title: "Rapid Rush",
+          stage: "Phase 1",
+          location: "Online",
+        },
+      ],
+      "2026-08-13": [
+        {
+          id: "grand-champion-13-1",
+          startTime: "00:01",
+          endTime: "23:59",
+          title: "Rapid Rush",
+          stage: "Phase 1",
+          location: "Online",
+        },
+      ],
+      "2026-08-14": [
+        {
+          id: "grand-champion-14-1",
+          startTime: "00:01",
+          endTime: "23:59",
+          title: "Rapid Rush",
+          stage: "Phase 1",
+          location: "Online",
+        },
+      ],
       "2026-08-31": [
         {
           id: "grand-champion-31-1",
