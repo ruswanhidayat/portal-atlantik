@@ -1149,7 +1149,8 @@ export default function LeaderboardPage() {
 
           {dataCutoff && (
             <p className="leaderboard-data-cutoff">
-              Data per {dataCutoff}
+              Data per {dataCutoff} <br />
+              Klik nama Subdit untuk melihat detail poin
             </p>
           )}
         </section>
