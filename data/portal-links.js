@@ -5,7 +5,7 @@ export const portalLinks = [
     href: "https://grand-champion-1.vercel.app",
     
     show: true,
-    enabled: false,
+    enabled: true,
 
     activeFrom: "2026-08-12T08:00:00+07:00",
     activeUntil: "2026-08-15T23:59:59+07:00",
