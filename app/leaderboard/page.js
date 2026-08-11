@@ -1,5 +1,6 @@
 import ExclusiveAccordionGroup from "@/components/ExclusiveAccordionGroup";
 import GrandChampionLeaderboard from "@/components/GrandChampionLeaderboard";
+import LeaderboardPointBreakdown from "@/components/LeaderboardPointBreakdown";
 
 import {
   competitions,
@@ -10,6 +11,7 @@ import {
 import {
   getCompetitionRows,
   getLeaderboard,
+  getDivisionPointBreakdown,
 } from "@/lib/leaderboard";
 
 import {
@@ -1091,31 +1093,49 @@ export default function LeaderboardPage() {
               </thead>
 
               <tbody>
-                {leaderboard.map((division) => (
-                  <tr key={division.id}>
-                    <td className="rank-column">
-                      <RankBadge rank={division.rank} />
-                    </td>
+                {leaderboard.map((division) => {
+                  const breakdown =
+                    getDivisionPointBreakdown(
+                      division.id,
+                      now
+                    );
 
-                    <td className="division-column">
-                      <strong>{division.name}</strong>
-                    </td>
+                  return (
+                    <tr key={division.id}>
+                      <td className="rank-column">
+                        <RankBadge
+                          rank={division.rank}
+                        />
+                      </td>
 
-                    <td className="first-place-column">
-                      {division.firstPlaces}
-                    </td>
+                      <td className="division-column">
+                        <LeaderboardPointBreakdown
+                          divisionName={
+                            division.name
+                          }
+                          rows={breakdown}
+                          totalPoints={
+                            division.totalPoints
+                          }
+                        />
+                      </td>
 
-                    <td className="podium-column">
-                      {division.secondPlaces}
-                    </td>
+                      <td className="first-place-column">
+                        {division.firstPlaces}
+                      </td>
 
-                    <td className="points-column">
-                      <strong className="point-total">
-                        {division.totalPoints}
-                      </strong>
-                    </td>
-                  </tr>
-                ))}
+                      <td className="podium-column">
+                        {division.secondPlaces}
+                      </td>
+
+                      <td className="points-column">
+                        <strong className="point-total">
+                          {division.totalPoints}
+                        </strong>
+                      </td>
+                    </tr>
+                  );
+                })}
               </tbody>
             </table>
 
