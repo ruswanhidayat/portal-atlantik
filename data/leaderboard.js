@@ -508,72 +508,78 @@ export const competitions = [
     ],
   },
   {
-    id: "mission-grand-champion",
-    name: "Mission: Grand Champion",
-    scoringCategory: "grandChampion",
-    theme: "grand-champion",
-    results: [],
+  id: "mission-grand-champion",
+  name: "Mission: Grand Champion",
+  scoringCategory: "grandChampion",
+  theme: "grand-champion",
+  results: [],
 
-    grandChampion: {
-      phases: [
-        {
-          id: "rapid-rush",
-          phase: "PHASE 1",
-          name: "Rapid Rush",
-          status: "waiting",
-          type: "rapid-rush",
+  grandChampion: {
+    phases: [
+      {
+        id: "rapid-rush",
+        phase: "PHASE 1",
+        name: "Rapid Rush",
+        scheduleTitle: "Rapid Rush",
+        type: "rapid-rush",
+        finalized: false,
 
-          results: {
-            "subdit-1": [],
-            "subdit-2": [],
-            "subdit-3": [],
-            "subdit-4": [],
-            "subdit-5": [],
-          },
+        results: {
+          "subdit-1": [],
+          "subdit-2": [],
+          "subdit-3": [],
+          "subdit-4": [],
+          "subdit-5": [],
         },
+      },
 
-        {
-          id: "crossroads",
-          phase: "PHASE 2",
-          name: "Crossroads",
-          status: "waiting",
-          type: "default",
-        },
+      {
+        id: "crossroads",
+        phase: "PHASE 2",
+        name: "Crossroads",
+        scheduleTitle: "Crossroads",
+        type: "default",
+        finalized: false,
+      },
 
-        {
-          id: "pressure-grid",
-          phase: "PHASE 3",
-          name: "Pressure Grid",
-          status: "waiting",
-          type: "default",
-        },
+      {
+        id: "pressure-grid",
+        phase: "PHASE 3",
+        name: "Pressure Grid",
+        scheduleTitle: "Pressure Grid",
+        type: "default",
+        finalized: false,
+      },
 
-        {
-          id: "signal-race",
-          phase: "PHASE 4",
-          name: "Signal Race",
-          status: "waiting",
-          type: "default",
-        },
+      {
+        id: "signal-race",
+        phase: "PHASE 4",
+        name: "Signal Race",
+        scheduleTitle: "Signal Race",
+        type: "default",
+        finalized: false,
+      },
 
-        {
-          id: "visual-recall",
-          phase: "PHASE 5",
-          name: "Visual Recall",
-          status: "waiting",
-          type: "default",
-        },
+      {
+        id: "visual-recall",
+        phase: "PHASE 5",
+        name: "Visual Recall",
+        scheduleTitle: "Visual Recall",
+        type: "default",
+        finalized: false,
+      },
 
-        {
-          id: "open-box",
-          phase: "FINAL",
-          name: "Open Box",
-          status: "waiting",
-          type: "default",
-        },
-      ],
-    },
+      {
+        id: "open-box",
+        phase: "FINAL",
+        name: "The Code Lock",
+        scheduleTitle: "Final Match",
+        type: "default",
+        finalized: false,
+      },
+    ],
   },
+},
   {
     id: "merdeka-showcase",
     name: "Lomba Kebersihan dan Dekorasi Ruangan",

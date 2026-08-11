@@ -1,11 +1,24 @@
 "use client";
 
-import { useState } from "react";
+import {
+  useEffect,
+  useState,
+} from "react";
+
+import {
+  getGrandChampionPhaseStatus,
+  hasGrandChampionPhaseResults,
+} from "@/lib/grand-champion-status";
 
 const statusMap = {
   waiting: {
     label: "Menunggu Hasil",
     className: "pending",
+  },
+
+  live: {
+    label: "Sedang Berlangsung",
+    className: "ongoing",
   },
 
   ongoing: {
@@ -117,6 +130,19 @@ export default function GrandChampionLeaderboard({
   const [openPhase, setOpenPhase] =
     useState(null);
 
+    const [now, setNow] =
+    useState(new Date());
+
+    useEffect(() => {
+    const interval = setInterval(
+        () => setNow(new Date()),
+        60 * 1000
+    );
+
+    return () =>
+        clearInterval(interval);
+    }, []);
+
   const phases =
     competition.grandChampion?.phases ?? [];
 
@@ -134,9 +160,30 @@ export default function GrandChampionLeaderboard({
         const isOpen =
           openPhase === phase.id;
 
+        const scheduleStatus =
+        getGrandChampionPhaseStatus(
+            phase,
+            now
+        );
+
+        const hasResults =
+        hasGrandChampionPhaseResults(
+            phase
+        );
+
+        let displayStatus =
+        scheduleStatus;
+
+        if (
+        scheduleStatus === "ongoing" &&
+        !hasResults
+        ) {
+        displayStatus = "live";
+        }
+
         const status =
-          statusMap[phase.status] ??
-          statusMap.waiting;
+        statusMap[displayStatus] ??
+        statusMap.waiting;
 
         return (
           <div
