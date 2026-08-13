@@ -188,10 +188,16 @@ export const competitions = [
     name: "Table Tennis Open",
     scoringCategory: "sports",
     theme: "sports",
-    status: "ongoing",
+    status: "final",
 
     // Belum dihitung ke Juara Umum karena masih fase liga.
-    results: [],
+    results: [
+      "subdit-5",
+      "subdit-2",
+      "subdit-4",
+      "subdit-3",
+      "subdit-1",
+    ],
 
     standings: {
       type: "table-tennis",
@@ -266,10 +272,10 @@ export const competitions = [
       final: {
         id: "final",
         homeDivisionId: "subdit-5",
-        homeScore: null,
+        homeScore: 45,
         awayDivisionId: "subdit-2",
-        awayScore: null,
-        winnerDivisionId: null,
+        awayScore: 42,
+        winnerDivisionId: "subdit-5",
       },
 
       thirdPlace: {
@@ -438,7 +444,7 @@ export const competitions = [
     name: "Chess Masters (Catur)",
     scoringCategory: "strategic",
     theme: "strategic",
-    status: "ongoing",
+    status: "final",
   
     // Tetap kosong karena hasil pertandingan belum final
     // dan belum boleh dihitung ke leaderboard Juara Umum.
