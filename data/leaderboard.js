@@ -238,6 +238,44 @@ export const competitions = [
         },
       ],
     },
+    knockout: {
+      semifinals: [
+        {
+          id: "sf-1",
+          homeDivisionId: "subdit-5",
+          homeScore: 45,
+          awayDivisionId: "subdit-4",
+          awayScore: 29,
+          winnerDivisionId: "subdit-5",
+        },
+        {
+          id: "sf-2",
+          homeDivisionId: "subdit-2",
+          homeScore: 45,
+          awayDivisionId: "subdit-3",
+          awayScore: 33,
+          winnerDivisionId: "subdit-2",
+        },
+      ],
+
+      final: {
+        id: "final",
+        homeDivisionId: "subdit-5",
+        homeScore: null,
+        awayDivisionId: "subdit-2",
+        awayScore: null,
+        winnerDivisionId: null,
+      },
+
+      thirdPlace: {
+        id: "third-place",
+        homeDivisionId: "subdit-4",
+        homeScore: 45,
+        awayDivisionId: "subdit-3",
+        awayScore: 43,
+        winnerDivisionId: "subdit-4",
+      },
+    },
   },
   {
     id: "atlantik-run",

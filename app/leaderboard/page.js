@@ -762,8 +762,6 @@ function BadmintonStandingsTable({ competition }) {
 }
 
 function TableTennisStandingsTable({ competition }) {
-  const isFinal = competition.status === "final";
-
   const eventPoints =
     pointRules[competition.scoringCategory]?.points ?? [];
 
@@ -790,102 +788,270 @@ function TableTennisStandingsTable({ competition }) {
     .map((row, index) => ({
       ...row,
       rank: index + 1,
-      eventPoints: isFinal
-        ? eventPoints[index] ?? 0
-        : null,
     }));
 
-  return (
-    <div className="competition-table-standard-wrap">
-      <div className="competition-table-standard-scroll">
-        <table className="competition-table-standard table-tennis-standard-table">
-          <thead>
-            <tr>
-              <th className="competition-rank-column">
-                Peringkat
-              </th>
+  const getDivision = (divisionId) =>
+    divisions.find((division) => division.id === divisionId);
 
-              <th className="competition-name-column">
-                Subdit
-              </th>
+  const finalRows = (competition.results ?? [])
+    .map((divisionId, index) => {
+      const division = getDivision(divisionId);
 
-              <th>Main</th>
-              <th>M</th>
-              <th>K</th>
-              <th>Poin Buat</th>
-              <th>Poin Lawan</th>
-              <th>Selisih</th>
-              <th>Hasil</th>
+      if (!division) {
+        return null;
+      }
 
-              <th className="competition-event-points-column">
-                Poin Event
-              </th>
-            </tr>
-          </thead>
+      return {
+        division,
+        rank: index + 1,
+        eventPoints: eventPoints[index] ?? 0,
+      };
+    })
+    .filter(Boolean);
 
-          <tbody>
-            {rows.map((row, index) => (
-              <tr key={row.divisionId}>
-                <td className="competition-rank-column">
-                  <span className="competition-rank">
-                    {index + 1}
-                  </span>
-                </td>
+  const renderMatch = (match) => {
+    if (!match) {
+      return null;
+    }
 
-                <td className="competition-name-cell table-tennis-name-cell">
-                  <div className="competition-name-with-status table-tennis-name-with-status">
-                    <strong className="competition-name">
-                      {row.division.name}
-                    </strong>
+    const homeDivision = getDivision(match.homeDivisionId);
+    const awayDivision = getDivision(match.awayDivisionId);
 
-                    {row.qualified && (
-                      <span className="competition-status-badge accent">
-                        Babak Gugur
-                      </span>
-                    )}
-                  </div>
-                </td>
+    return (
+      <div className="table-tennis-match" key={match.id}>
+        <div
+          className={`table-tennis-match-team ${
+            match.winnerDivisionId === match.homeDivisionId
+              ? "is-winner"
+              : ""
+          }`}
+        >
+          <span>
+            Subdit {homeDivision?.name ?? "-"}
+          </span>
 
-                <td>{row.played}</td>
-                <td>{row.win}</td>
-                <td>{row.lose}</td>
-                <td>{row.pointsFor}</td>
-                <td>{row.pointsAgainst}</td>
+          <strong>
+            {match.homeScore ?? "-"}
+          </strong>
+        </div>
 
-                <td>
-                  <span
-                    className={`competition-value-badge ${
-                      row.difference > 0
-                        ? "positive"
-                        : row.difference < 0
-                        ? "negative"
-                        : "neutral"
-                    }`}
-                  >
-                    {row.difference > 0 ? "+" : ""}
-                    {row.difference}
-                  </span>
-                </td>
-                <td>
-                  <strong className="competition-value-strong">
-                    {isFinal ? `Juara ${row.rank}` : "-"}
-                  </strong>
-                </td>
+        <div
+          className={`table-tennis-match-team ${
+            match.winnerDivisionId === match.awayDivisionId
+              ? "is-winner"
+              : ""
+          }`}
+        >
+          <span>
+            Subdit {awayDivision?.name ?? "-"}
+          </span>
 
-                <td className="competition-event-points-column">
-                  <strong className="competition-event-points">
-                    {isFinal ? row.eventPoints : "-"}
-                  </strong>
-                </td>
-              </tr>
-            ))}
-          </tbody>
-        </table>
+          <strong>
+            {match.awayScore ?? "-"}
+          </strong>
+        </div>
       </div>
+    );
+  };
 
-      <p className="competition-table-note">
-        4 peringkat teratas lolos ke babak gugur.
-      </p>
+  return (
+    <div className="table-tennis-phases">
+      {/* KUALIFIKASI */}
+      <section className="table-tennis-phase-section">
+        <div className="table-tennis-phase-heading">
+          <span>Kualifikasi</span>
+        </div>
+
+        <div className="competition-table-standard-wrap">
+          <div className="competition-table-standard-scroll">
+            <table className="competition-table-standard table-tennis-standard-table">
+              <thead>
+                <tr>
+                  <th className="competition-rank-column">
+                    Peringkat
+                  </th>
+
+                  <th className="competition-name-column">
+                    Subdit
+                  </th>
+
+                  <th>Main</th>
+                  <th>M</th>
+                  <th>K</th>
+                  <th>Poin Buat</th>
+                  <th>Poin Lawan</th>
+                  <th>Selisih</th>
+                  <th>Hasil</th>
+
+                  <th className="competition-event-points-column">
+                    Poin Event
+                  </th>
+                </tr>
+              </thead>
+
+              <tbody>
+                {rows.map((row, index) => (
+                  <tr key={row.divisionId}>
+                    <td className="competition-rank-column">
+                      <span className="competition-rank">
+                        {index + 1}
+                      </span>
+                    </td>
+
+                    <td className="competition-name-cell table-tennis-name-cell">
+                      <div className="competition-name-with-status table-tennis-name-with-status">
+                        <strong className="competition-name">
+                          {row.division.name}
+                        </strong>
+
+                        {row.qualified && (
+                          <span className="competition-status-badge accent">
+                            Babak Gugur
+                          </span>
+                        )}
+                      </div>
+                    </td>
+
+                    <td>{row.played}</td>
+                    <td>{row.win}</td>
+                    <td>{row.lose}</td>
+                    <td>{row.pointsFor}</td>
+                    <td>{row.pointsAgainst}</td>
+
+                    <td>
+                      <span
+                        className={`competition-value-badge ${
+                          row.difference > 0
+                            ? "positive"
+                            : row.difference < 0
+                            ? "negative"
+                            : "neutral"
+                        }`}
+                      >
+                        {row.difference > 0 ? "+" : ""}
+                        {row.difference}
+                      </span>
+                    </td>
+
+                    <td>
+                      <strong className="competition-value-strong">
+                        {row.qualified
+                          ? "Lolos"
+                          : "Tidak Lolos"}
+                      </strong>
+                    </td>
+
+                    <td className="competition-event-points-column">
+                      <strong className="competition-event-points">
+                        -
+                      </strong>
+                    </td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+
+          <p className="competition-table-note">
+            4 peringkat teratas lolos ke babak gugur.
+          </p>
+        </div>
+      </section>
+
+      {/* FASE GUGUR */}
+      <section className="table-tennis-phase-section">
+        <div className="table-tennis-phase-heading">
+          <span>Fase Gugur</span>
+        </div>
+
+        <div className="table-tennis-bracket">
+          <div className="table-tennis-bracket-column">
+            <h4>Semifinal</h4>
+
+            <div className="table-tennis-bracket-matches">
+              {competition.knockout?.semifinals?.map(
+                (match) => renderMatch(match)
+              )}
+            </div>
+          </div>
+
+          <div className="table-tennis-bracket-column">
+            <div className="table-tennis-bracket-group">
+              <h4>Final</h4>
+
+              {renderMatch(competition.knockout?.final)}
+            </div>
+
+            <div className="table-tennis-bracket-group">
+              <h4>Perebutan Juara 3</h4>
+
+              {renderMatch(competition.knockout?.thirdPlace)}
+            </div>
+          </div>
+        </div>
+
+        <p className="competition-table-note table-tennis-bracket-note">
+          Pemenang pertandingan ditandai garis merah dan teks tebal.
+        </p>
+      </section>
+
+      {/* HASIL FINAL */}
+      <section className="table-tennis-phase-section">
+        <div className="table-tennis-phase-heading">
+          <span>Hasil Final</span>
+        </div>
+
+        {finalRows.length > 0 ? (
+          <div className="competition-table-standard-wrap">
+            <div className="competition-table-standard-scroll">
+              <table className="competition-table-standard table-tennis-final-table">
+                <thead>
+                  <tr>
+                    <th>Peringkat</th>
+                    <th>Subdit</th>
+                    <th>Hasil</th>
+                    <th>Poin Event</th>
+                  </tr>
+                </thead>
+
+                <tbody>
+                  {finalRows.map((row) => (
+                    <tr key={row.division.id}>
+                      <td>
+                        <strong>
+                          {row.rank}
+                        </strong>
+                      </td>
+
+                      <td className="competition-name-cell">
+                        <strong className="competition-name">
+                          {row.division.name}
+                        </strong>
+                      </td>
+
+                      <td>
+                        <strong className="competition-value-strong">
+                          Juara {row.rank}
+                        </strong>
+                      </td>
+
+                      <td>
+                        <strong className="competition-event-points">
+                          {row.eventPoints}
+                        </strong>
+                      </td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+          </div>
+        ) : (
+          <div className="table-tennis-final-empty">
+            Hasil final akan ditampilkan setelah seluruh babak gugur selesai.
+          </div>
+        )}
+      </section>
     </div>
   );
 }

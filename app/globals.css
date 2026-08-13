@@ -2681,6 +2681,173 @@ body {
   width: 100%;
 }
 
+/* =========================================================
+   TABLE TENNIS — PHASES & KNOCKOUT
+   ========================================================= */
+
+.table-tennis-phases {
+  display: grid;
+  gap: 24px;
+}
+
+.table-tennis-phase-section {
+  min-width: 0;
+}
+
+.table-tennis-phase-heading {
+  display: flex;
+  align-items: center;
+  min-height: 42px;
+  padding: 0 14px;
+
+  color: #ffffff;
+  background: #102f67;
+
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.table-tennis-phase-heading + .competition-table-standard-wrap {
+  border-top: 0;
+}
+
+
+/* Bracket */
+
+.table-tennis-bracket {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 28px;
+
+  padding: 22px 18px;
+  border-right: 1px solid var(--line);
+  border-left: 1px solid var(--line);
+  background: #ffffff;
+}
+
+.table-tennis-bracket-column {
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+}
+
+.table-tennis-bracket-group {
+  display: grid;
+  gap: 10px;
+}
+
+.table-tennis-bracket-column h4,
+.table-tennis-bracket-group h4 {
+  margin: 0;
+  padding: 10px 12px;
+
+  color: #ffffff;
+  background: #10323b;
+
+  font-size: 0.68rem;
+  font-weight: 800;
+  line-height: 1.2;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.table-tennis-bracket-matches {
+  display: grid;
+  gap: 18px;
+}
+
+.table-tennis-match {
+  border: 1px solid var(--line);
+  background: #ffffff;
+}
+
+.table-tennis-match-team {
+  position: relative;
+
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  align-items: center;
+  gap: 14px;
+
+  min-height: 46px;
+  padding: 9px 12px 9px 16px;
+
+  color: #344054;
+  font-size: 0.84rem;
+}
+
+.table-tennis-match-team + .table-tennis-match-team {
+  border-top: 1px solid var(--line);
+}
+
+.table-tennis-match-team strong {
+  min-width: 28px;
+  text-align: right;
+  font-size: 0.86rem;
+}
+
+.table-tennis-match-team.is-winner {
+  color: #172033;
+  font-weight: 800;
+  background: #f8f9fb;
+}
+
+.table-tennis-match-team.is-winner::before {
+  content: "";
+
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+
+  width: 4px;
+  background: #ef3d32;
+}
+
+.table-tennis-bracket-note {
+  border-right: 1px solid var(--line);
+  border-left: 1px solid var(--line);
+}
+
+/* Final result */
+
+.table-tennis-final-table {
+  table-layout: fixed;
+}
+
+.table-tennis-final-table th:nth-child(1) {
+  width: 16%;
+}
+
+.table-tennis-final-table th:nth-child(2) {
+  width: 40%;
+}
+
+.table-tennis-final-table th:nth-child(3) {
+  width: 24%;
+}
+
+.table-tennis-final-table th:nth-child(4) {
+  width: 20%;
+}
+
+.table-tennis-final-empty {
+  padding: 22px 16px;
+
+  border-right: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+  border-left: 1px solid var(--line);
+
+  color: var(--muted);
+  background: #fafbfc;
+
+  font-size: 0.78rem;
+  line-height: 1.5;
+  text-align: center;
+}
+
 .futsal-standard-table {
   table-layout: fixed;
 }
@@ -4084,6 +4251,30 @@ body {
 
   .table-tennis-standard-table .competition-event-points-column {
     width: 110px;
+  }
+
+  .table-tennis-phases {
+    gap: 18px;
+  }
+
+  .table-tennis-bracket {
+    grid-template-columns: 1fr;
+    gap: 22px;
+
+    padding: 14px 12px;
+  }
+
+  .table-tennis-bracket-column {
+    gap: 18px;
+  }
+
+  .table-tennis-match-team {
+    min-height: 44px;
+    font-size: 0.8rem;
+  }
+
+  .table-tennis-final-table {
+    min-width: 520px;
   }
 
   .mlbb-standard-table {
