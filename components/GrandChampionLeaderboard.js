@@ -72,48 +72,76 @@ function RapidRushTable({
       </div>
 
       {rows.length > 0 ? (
-        <div className="competition-table-standard-scroll">
-          <table className="competition-table-standard rapid-rush-table">
-            <thead>
-              <tr>
-                <th>Peringkat</th>
-                <th>Pemain</th>
-                <th>Total Poin</th>
-              </tr>
-            </thead>
+        <>
+          <div className="competition-table-standard-scroll">
+            <table className="competition-table-standard rapid-rush-table">
+              <thead>
+                <tr>
+                  <th>Overall Rank</th>
+                  <th>Status</th>
+                  <th>Nama</th>
+                  <th>Poin</th>
+                </tr>
+              </thead>
 
-            <tbody>
-              {[...rows]
-                .sort(
-                  (a, b) =>
-                    a.rank - b.rank
-                )
-                .map((row) => (
-                  <tr
-                    key={`${row.rank}-${row.player}`}
-                  >
-                    <td className="rapid-rush-rank">
-                      #{row.rank}
-                    </td>
+              <tbody>
+                {[...rows]
+                  .sort(
+                    (a, b) =>
+                      a.subditRank - b.subditRank
+                  )
+                  .map((row) => {
+                    const isEligible =
+                      row.subditRank <= 20;
 
-                    <td className="rapid-rush-player">
-                      <strong>
-                        {row.player}
-                      </strong>
-                    </td>
+                    return (
+                      <tr
+                        key={`${row.overallRank}-${row.player}`}
+                      >
+                        <td className="rapid-rush-rank">
+                          #{row.overallRank}
+                        </td>
 
-                    <td className="rapid-rush-points">
-                      {Number(
-                        row.totalPoints
-                      ).toLocaleString(
-                        "id-ID"
-                      )}
-                    </td>
-                  </tr>
-                ))}
-            </tbody>
-          </table>
-        </div>
+                        <td className="rapid-rush-status-cell">
+                          <span
+                            className={`rapid-rush-status ${
+                              isEligible
+                                ? "eligible"
+                                : "not-eligible"
+                            }`}
+                          >
+                            {isEligible
+                              ? "Eligible"
+                              : "Tidak Eligible"}
+                          </span>
+                        </td>
+
+                        <td className="rapid-rush-player">
+                          <strong>
+                            {row.player}
+                          </strong>
+                        </td>
+
+                        <td className="rapid-rush-points">
+                          {Number(
+                            row.score
+                          ).toLocaleString(
+                            "id-ID"
+                          )}
+                        </td>
+                      </tr>
+                    );
+                  })}
+              </tbody>
+            </table>
+          </div>
+
+          <p className="rapid-rush-note">
+            Data per 12 Agustus 2026
+            <span aria-hidden="true"> · </span>
+            Eligible: peringkat 1–20 di masing-masing Subdit.
+          </p>
+        </>
       ) : (
         <p className="grand-champion-phase-empty">
           Hasil resmi tahap ini belum diumumkan.

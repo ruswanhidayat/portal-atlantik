@@ -5040,13 +5040,19 @@ body {
 
 .rapid-rush-table th:nth-child(2),
 .rapid-rush-table td:nth-child(2) {
-  width: 52%;
-  text-align: left;
+  width: 22%;
+  text-align: center;
 }
 
 .rapid-rush-table th:nth-child(3),
 .rapid-rush-table td:nth-child(3) {
-  width: 30%;
+  width: 40%;
+  text-align: left;
+}
+
+.rapid-rush-table th:nth-child(4),
+.rapid-rush-table td:nth-child(4) {
+  width: 20%;
   text-align: right;
 }
 
@@ -5062,6 +5068,45 @@ body {
 .rapid-rush-points {
   font-variant-numeric: tabular-nums;
   font-weight: 700;
+}
+
+.rapid-rush-status-cell {
+  text-align: center;
+}
+
+.rapid-rush-status {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  min-width: 92px;
+  padding: 5px 9px;
+
+  border-radius: 999px;
+
+  font-size: 0.7rem;
+  font-weight: 800;
+  line-height: 1;
+  white-space: nowrap;
+}
+
+.rapid-rush-status.eligible {
+  background: #dcfce7;
+  color: #166534;
+}
+
+.rapid-rush-status.not-eligible {
+  background: #f1f5f9;
+  color: #667085;
+}
+
+.rapid-rush-note {
+  margin: 0;
+  padding: 0 14px 14px;
+
+  color: #667085;
+  font-size: 0.76rem;
+  line-height: 1.5;
 }
 
 /* Desktop hover hanya sebagai affordance */
