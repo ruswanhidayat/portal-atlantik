@@ -196,9 +196,17 @@ export const competitionSchedules = [
       "2026-08-18": [
         {
           id: "volley-18-1",
-          startTime: "06:30",
+          startTime: "07:00",
+          endTime: "07:30",
+          title: "PIKSI vs PEPSI",
+          stage: "Babak Penyisihan",
+          location: "Lapangan Futsal",
+        },
+        {
+          id: "volley-18-2",
+          startTime: "07:30",
           endTime: "08:00",
-          title: "Fase Grup",
+          title: "PEPSI vs TAKESI",
           stage: "Babak Penyisihan",
           location: "Lapangan Futsal",
         },
@@ -206,9 +214,17 @@ export const competitionSchedules = [
       "2026-08-19": [
         {
           id: "volley-19-1",
-          startTime: "06:30",
+          startTime: "07:00",
+          endTime: "07:30",
+          title: "TAKESI vs PESPA",
+          stage: "Babak Penyisihan",
+          location: "Lapangan Futsal",
+        },
+        {
+          id: "volley-19-2",
+          startTime: "07:30",
           endTime: "08:00",
-          title: "Fase Grup",
+          title: "PESPA vs PSPP",
           stage: "Babak Penyisihan",
           location: "Lapangan Futsal",
         },
@@ -216,9 +232,17 @@ export const competitionSchedules = [
       "2026-08-20": [
         {
           id: "volley-20-1",
-          startTime: "06:30",
+          startTime: "07:00",
+          endTime: "07:30",
+          title: "PSPP vs PEPSI",
+          stage: "Babak Penyisihan",
+          location: "Lapangan Futsal",
+        },
+        {
+          id: "volley-20-2",
+          startTime: "07:30",
           endTime: "08:00",
-          title: "Fase Grup",
+          title: "PIKSI vs TAKESI",
           stage: "Babak Penyisihan",
           location: "Lapangan Futsal",
         },
@@ -226,9 +250,17 @@ export const competitionSchedules = [
       "2026-08-26": [
         {
           id: "volley-26-1",
-          startTime: "06:30",
+          startTime: "07:00",
+          endTime: "07:30",
+          title: "PESPA vs PIKSI",
+          stage: "Babak Penyisihan",
+          location: "Lapangan Futsal",
+        },
+        {
+          id: "volley-26-2",
+          startTime: "07:30",
           endTime: "08:00",
-          title: "Fase Grup",
+          title: "TAKESI vs PSPP",
           stage: "Babak Penyisihan",
           location: "Lapangan Futsal",
         },
@@ -236,10 +268,18 @@ export const competitionSchedules = [
       "2026-08-27": [
         {
           id: "volley-27-1",
-          startTime: "06:30",
+          startTime: "07:00",
+          endTime: "07:30",
+          title: "PSPP vs PIKSI",
+          stage: "Babak Penyisihan",
+          location: "Lapangan Futsal",
+        },
+        {
+          id: "volley-27-2",
+          startTime: "07:30",
           endTime: "08:00",
-          title: "Final",
-          stage: "Babak Final",
+          title: "PESPA vs PEPSI",
+          stage: "Babak Penyisihan",
           location: "Lapangan Futsal",
         },
       ],
