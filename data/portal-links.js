@@ -1,5 +1,16 @@
 export const portalLinks = [
   {
+    id: "atlantik-run",
+    label: "Portal Atlantik Run 2026",
+    href: "https://atlantik-run.vercel.app",
+    
+    show: true,
+    enabled: true,
+
+    activeFrom: "2026-08-13T00:00:00+07:00",
+    activeUntil: "2026-08-20T23:59:59+07:00",
+  },
+  {
     id: "rapid-rush",
     label: "Mission: Grand Champion | Phase #1 - Rapid Rush",
     href: "https://grand-champion-1.vercel.app",
