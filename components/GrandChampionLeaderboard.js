@@ -39,19 +39,51 @@ function normalizeRapidRushPlayer(player = "") {
     .toUpperCase();
 }
 
+function hasRapidRushSnapshotData(snapshot) {
+  return Object.values(
+    snapshot?.results ?? {}
+  ).some(
+    (rows) =>
+      Array.isArray(rows) &&
+      rows.length > 0
+  );
+}
+
 function getRapidRushSnapshots(phase) {
   if (
     Array.isArray(phase.snapshots) &&
     phase.snapshots.length > 0
   ) {
-    return [...phase.snapshots].sort(
-      (a, b) =>
-        new Date(a.cutoff).getTime() -
-        new Date(b.cutoff).getTime()
-    );
+    const now = Date.now();
+
+    return [...phase.snapshots]
+      .filter((snapshot) => {
+        const cutoffTime =
+          snapshot.cutoff
+            ? new Date(
+                snapshot.cutoff
+              ).getTime()
+            : null;
+
+        const cutoffPassed =
+          cutoffTime == null ||
+          (!Number.isNaN(cutoffTime) &&
+            cutoffTime <= now);
+
+        return (
+          cutoffPassed &&
+          hasRapidRushSnapshotData(
+            snapshot
+          )
+        );
+      })
+      .sort(
+        (a, b) =>
+          new Date(a.cutoff).getTime() -
+          new Date(b.cutoff).getTime()
+      );
   }
 
-  // Backward compatibility dengan struktur lama
   if (phase.results) {
     return [
       {
