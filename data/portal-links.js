@@ -8,7 +8,7 @@ export const portalLinks = [
     enabled: true,
 
     activeFrom: "2026-08-13T00:00:00+07:00",
-    activeUntil: "2026-08-20T23:59:59+07:00",
+    activeUntil: "2026-08-31T23:59:59+07:00",
   },
   {
     id: "rapid-rush",
@@ -19,7 +19,7 @@ export const portalLinks = [
     enabled: true,
 
     activeFrom: "2026-08-12T08:00:00+07:00",
-    activeUntil: "2026-08-14T23:59:59+07:00",
+    activeUntil: "2026-08-21T23:59:59+07:00",
   },
   {
     id: "pressure-grid",
