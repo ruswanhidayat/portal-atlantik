@@ -82,6 +82,311 @@ function getCompetitionStatus(
   return competitionStatuses[status];
 }
 
+const ATLANTIK_RUN_API_URL =
+  "https://atlantik-run.vercel.app/api/leaderboard/subdit";
+
+
+function mapAtlantikRunRows(
+  rows
+) {
+  if (!Array.isArray(rows)) {
+    return [];
+  }
+
+
+  return rows
+    .map((row) => {
+      const division =
+        divisions.find(
+          (item) =>
+            item.name.toUpperCase() ===
+            String(
+              row.subdit ?? ""
+            )
+              .trim()
+              .toUpperCase()
+        );
+
+
+      if (!division) {
+        return null;
+      }
+
+
+      const rank =
+        Number(
+          row.rank
+        );
+
+      const totalDistance =
+        Number(
+          row.totalDistance
+        );
+
+
+      if (
+        !Number.isInteger(
+          rank
+        ) ||
+        rank < 1 ||
+        !Number.isFinite(
+          totalDistance
+        )
+      ) {
+        return null;
+      }
+
+
+      return {
+        divisionId:
+          division.id,
+
+        rank,
+
+        totalDistance,
+      };
+    })
+    .filter(Boolean)
+    .sort(
+      (a, b) =>
+        a.rank - b.rank
+    );
+}
+
+
+async function getAtlantikRunData() {
+  try {
+    const response =
+      await fetch(
+        ATLANTIK_RUN_API_URL,
+        {
+          cache: "no-store",
+        }
+      );
+
+
+    if (!response.ok) {
+      throw new Error(
+        `HTTP ${response.status}`
+      );
+    }
+
+
+    const data =
+      await response.json();
+
+
+    const status =
+      data?.status === "final"
+        ? "final"
+        : "ongoing";
+
+
+    return {
+      status,
+
+      finalized:
+        data?.finalized ===
+        true,
+
+      male:
+        mapAtlantikRunRows(
+          data?.leaderboard
+            ?.male
+        ),
+
+      female:
+        mapAtlantikRunRows(
+          data?.leaderboard
+            ?.female
+        ),
+    };
+
+  } catch (error) {
+    console.error(
+      "Gagal mengambil leaderboard Atlantik Run:",
+      error
+    );
+
+    return null;
+  }
+}
+
+
+function AtlantikRunCategoryTable({
+  title,
+  rows,
+  competition,
+}) {
+  const isFinal =
+    competition
+      .externalFinalized ===
+    true;
+
+
+  const eventPoints =
+    pointRules[
+      competition
+        .scoringCategory
+    ]?.points ?? [];
+
+
+  return (
+    <section className="table-tennis-phase-section">
+      <div className="table-tennis-phase-heading">
+        <span>{title}</span>
+      </div>
+
+      {rows.length > 0 ? (
+        <div className="competition-table-standard-wrap">
+          <div className="competition-table-standard-scroll">
+            <table className="competition-table-standard">
+              <thead>
+                <tr>
+                  <th className="competition-rank-column">
+                    Peringkat
+                  </th>
+
+                  <th className="competition-name-column">
+                    Subdit
+                  </th>
+
+                  <th>
+                    Total Jarak
+                  </th>
+
+                  <th>
+                    Hasil
+                  </th>
+
+                  <th className="competition-event-points-column">
+                    Poin Event
+                  </th>
+                </tr>
+              </thead>
+
+              <tbody>
+                {rows.map((row) => {
+                  const division =
+                    divisions.find(
+                      (item) =>
+                        item.id ===
+                        row.divisionId
+                    );
+
+
+                  const points =
+                    eventPoints[
+                      row.rank - 1
+                    ] ?? 0;
+
+
+                  return (
+                    <tr
+                      key={
+                        row.divisionId
+                      }
+                    >
+                      <td className="competition-rank-column">
+                        <span className="competition-rank">
+                          {row.rank}
+                        </span>
+                      </td>
+
+                      <td className="competition-name-cell">
+                        <strong className="competition-name">
+                          {division?.name ?? "-"}
+                        </strong>
+                      </td>
+
+                      <td>
+                        <strong className="competition-value-strong">
+                          {row.totalDistance.toLocaleString(
+                            "id-ID",
+                            {
+                              minimumFractionDigits: 2,
+                              maximumFractionDigits: 2,
+                            }
+                          )}{" "}
+                          km
+                        </strong>
+                      </td>
+
+                      <td>
+                        <strong className="competition-value-strong">
+                          {isFinal
+                            ? `Juara ${row.rank}`
+                            : "-"}
+                        </strong>
+                      </td>
+
+                      <td className="competition-event-points-column">
+                        <strong className="competition-event-points">
+                          {isFinal
+                            ? points
+                            : "-"}
+                        </strong>
+                      </td>
+                    </tr>
+                  );
+                })}
+              </tbody>
+            </table>
+          </div>
+        </div>
+      ) : (
+        <p className="competition-empty">
+          Belum ada data pada kategori ini.
+        </p>
+      )}
+    </section>
+  );
+}
+
+
+function AtlantikRunStandingsTable({
+  competition,
+}) {
+  if (
+    competition.apiUnavailable
+  ) {
+    return (
+      <p className="competition-empty">
+        Leaderboard Atlantik Run sementara tidak dapat dimuat.
+      </p>
+    );
+  }
+
+
+  return (
+    <div>
+      <AtlantikRunCategoryTable
+        title="Kategori Putra"
+        rows={
+          competition
+            .standings?.male ??
+          []
+        }
+        competition={
+          competition
+        }
+      />
+
+      <AtlantikRunCategoryTable
+        title="Kategori Putri"
+        rows={
+          competition
+            .standings?.female ??
+          []
+        }
+        competition={
+          competition
+        }
+      />
+    </div>
+  );
+}
+
 function ChessStandingsTable({ competition }) {
   const eventPoints =
     pointRules[competition.scoringCategory]?.points ?? [];
@@ -1173,8 +1478,61 @@ export const metadata = {
   description: "Klasemen juara umum dan perolehan poin seluruh cabang perlombaan Atlantik 2026.",
 };
 
-export default function LeaderboardPage() {
-  const now = new Date();
+export default async function LeaderboardPage() {
+  const now =
+    new Date();
+
+
+  const atlantikRunData =
+    await getAtlantikRunData();
+
+
+  const runtimeCompetitions =
+    competitions.map(
+      (competition) => {
+        if (
+          competition.id !==
+          "atlantik-run"
+        ) {
+          return competition;
+        }
+
+
+        if (
+          !atlantikRunData
+        ) {
+          return {
+            ...competition,
+            apiUnavailable: true,
+          };
+        }
+
+
+        return {
+          ...competition,
+
+          apiUnavailable:
+            false,
+
+          externalStatus:
+            atlantikRunData.status,
+
+          externalFinalized:
+            atlantikRunData.finalized,
+
+          standings: {
+            type:
+              "atlantik-run",
+
+            male:
+              atlantikRunData.male,
+
+            female:
+              atlantikRunData.female,
+          },
+        };
+      }
+    );
 
   const dataCutoff = buildInfo.builtAt
     ? new Intl.DateTimeFormat("id-ID", {
@@ -1189,10 +1547,13 @@ export default function LeaderboardPage() {
     : null;
 
   const leaderboard =
-    getLeaderboard(now);
+    getLeaderboard(
+      now,
+      runtimeCompetitions
+    );
 
   const completedCompetitions =
-    competitions.filter(
+    runtimeCompetitions.filter(
       (competition) =>
         isCompetitionFinal(
           competition,
@@ -1212,7 +1573,7 @@ export default function LeaderboardPage() {
             </p>
           </div>
           <div className="leaderboard-stat">
-            <strong>{completedCompetitions}/{competitions.length}</strong>
+            <strong>{completedCompetitions}/{runtimeCompetitions.length}</strong>
             <span>hasil lomba masuk</span>
           </div>
         </section>
@@ -1263,7 +1624,8 @@ export default function LeaderboardPage() {
                   const breakdown =
                     getDivisionPointBreakdown(
                       division.id,
-                      now
+                      now,
+                      runtimeCompetitions
                     );
 
                   return (
@@ -1363,7 +1725,7 @@ export default function LeaderboardPage() {
           </div>
 
           <ExclusiveAccordionGroup className="competition-list">
-            {competitions.map((competition, competitionIndex) => {
+            {runtimeCompetitions.map((competition, competitionIndex) => {
               const rows = getCompetitionRows(competition)
                 .filter((row) => row.rank !== null)
                 .sort((a, b) => a.rank - b.rank);
@@ -1391,6 +1753,10 @@ export default function LeaderboardPage() {
                     <GrandChampionLeaderboard
                       competition={competition}
                       divisions={divisions}
+                    />
+                  ) : competition.standings?.type === "atlantik-run" ? (
+                    <AtlantikRunStandingsTable
+                      competition={competition}
                     />
                   ) : competition.standings?.type === "chess" ? (
                     <ChessStandingsTable competition={competition} />

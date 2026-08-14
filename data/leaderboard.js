@@ -293,7 +293,24 @@ export const competitions = [
     name: "Atlantik Run 2026",
     scoringCategory: "sports",
     theme: "sports",
+
+    /*
+    * Hasil Atlantik Run berasal dari API
+    * https://atlantik-run.vercel.app/api/leaderboard/subdit
+    *
+    * results tetap kosong karena Atlantik Run
+    * mempunyai dua kategori penilaian: Putra & Putri.
+    */
     results: [],
+
+    externalStatus: "ongoing",
+    externalFinalized: false,
+
+    standings: {
+      type: "atlantik-run",
+      male: [],
+      female: [],
+    },
   },
   {
     id: "fc-26-cup",
