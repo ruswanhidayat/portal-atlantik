@@ -32,6 +32,106 @@ const statusMap = {
   },
 };
 
+function normalizeRapidRushPlayer(player = "") {
+  return player
+    .trim()
+    .replace(/\s+/g, " ")
+    .toUpperCase();
+}
+
+function getRapidRushSnapshots(phase) {
+  if (
+    Array.isArray(phase.snapshots) &&
+    phase.snapshots.length > 0
+  ) {
+    return [...phase.snapshots].sort(
+      (a, b) =>
+        new Date(a.cutoff).getTime() -
+        new Date(b.cutoff).getTime()
+    );
+  }
+
+  // Backward compatibility dengan struktur lama
+  if (phase.results) {
+    return [
+      {
+        cutoff: null,
+        results: phase.results,
+      },
+    ];
+  }
+
+  return [];
+}
+
+function getRankMovement(
+  currentRank,
+  previousRank,
+  hasPreviousSnapshot
+) {
+  if (!hasPreviousSnapshot) {
+    return null;
+  }
+
+  if (previousRank == null) {
+    return {
+      type: "new",
+      difference: null,
+    };
+  }
+
+  const difference =
+    previousRank - currentRank;
+
+  if (difference > 0) {
+    return {
+      type: "up",
+      difference,
+    };
+  }
+
+  if (difference < 0) {
+    return {
+      type: "down",
+      difference: Math.abs(difference),
+    };
+  }
+
+  return null;
+}
+
+function formatRapidRushCutoff(cutoff) {
+  if (!cutoff) {
+    return null;
+  }
+
+  const date = new Date(cutoff);
+
+  if (Number.isNaN(date.getTime())) {
+    return cutoff;
+  }
+
+  const dateLabel =
+    new Intl.DateTimeFormat("id-ID", {
+      timeZone: "Asia/Jakarta",
+      day: "numeric",
+      month: "long",
+      year: "numeric",
+    }).format(date);
+
+  const timeLabel =
+    new Intl.DateTimeFormat("id-ID", {
+      timeZone: "Asia/Jakarta",
+      hour: "2-digit",
+      minute: "2-digit",
+      hourCycle: "h23",
+    })
+      .format(date)
+      .replace(":", ".");
+
+  return `${dateLabel}, ${timeLabel} WIB`;
+}
+
 function RapidRushTable({
   phase,
   divisions,
@@ -39,8 +139,41 @@ function RapidRushTable({
   const [activeDivision, setActiveDivision] =
     useState(divisions[0]?.id);
 
+  const snapshots =
+    getRapidRushSnapshots(phase);
+
+  const currentSnapshot =
+    snapshots[snapshots.length - 1] ?? null;
+
+  const previousSnapshot =
+    snapshots.length > 1
+      ? snapshots[snapshots.length - 2]
+      : null;
+
   const rows =
-    phase.results?.[activeDivision] ?? [];
+    currentSnapshot?.results?.[
+      activeDivision
+    ] ?? [];
+
+  const previousRows =
+    previousSnapshot?.results?.[
+      activeDivision
+    ] ?? [];
+
+  const previousRankMap =
+    new Map(
+      previousRows.map((row) => [
+        normalizeRapidRushPlayer(
+          row.player
+        ),
+        row.overallRank,
+      ])
+    );
+
+  const cutoffLabel =
+    formatRapidRushCutoff(
+      currentSnapshot?.cutoff
+    );
 
   return (
     <div className="grand-champion-rapid-rush">
@@ -55,15 +188,19 @@ function RapidRushTable({
             type="button"
             role="tab"
             aria-selected={
-              activeDivision === division.id
+              activeDivision ===
+              division.id
             }
             className={`grand-champion-tab ${
-              activeDivision === division.id
+              activeDivision ===
+              division.id
                 ? "active"
                 : ""
             }`}
             onClick={() =>
-              setActiveDivision(division.id)
+              setActiveDivision(
+                division.id
+              )
             }
           >
             {division.name}
@@ -88,18 +225,84 @@ function RapidRushTable({
                 {[...rows]
                   .sort(
                     (a, b) =>
-                      a.subditRank - b.subditRank
+                      a.subditRank -
+                      b.subditRank
                   )
                   .map((row) => {
                     const isEligible =
                       row.subditRank <= 20;
 
+                    const playerKey =
+                      normalizeRapidRushPlayer(
+                        row.player
+                      );
+
+                    const previousRank =
+                      previousRankMap.get(
+                        playerKey
+                      );
+
+                    const movement =
+                      getRankMovement(
+                        row.overallRank,
+                        previousRank,
+                        Boolean(
+                          previousSnapshot
+                        )
+                      );
+
                     return (
                       <tr
-                        key={`${row.overallRank}-${row.player}`}
+                        key={`${activeDivision}-${row.overallRank}-${row.player}`}
                       >
                         <td className="rapid-rush-rank">
-                          #{row.overallRank}
+                          <div className="rapid-rush-rank-inner">
+                            <span>
+                              #
+                              {
+                                row.overallRank
+                              }
+                            </span>
+
+                            {movement?.type ===
+                              "up" && (
+                              <span
+                                className="rapid-rush-movement up"
+                                aria-label={`Naik ${movement.difference} peringkat`}
+                                title={`Naik ${movement.difference} peringkat`}
+                              >
+                                ↑{" "}
+                                {
+                                  movement.difference
+                                }
+                              </span>
+                            )}
+
+                            {movement?.type ===
+                              "down" && (
+                              <span
+                                className="rapid-rush-movement down"
+                                aria-label={`Turun ${movement.difference} peringkat`}
+                                title={`Turun ${movement.difference} peringkat`}
+                              >
+                                ↓{" "}
+                                {
+                                  movement.difference
+                                }
+                              </span>
+                            )}
+
+                            {movement?.type ===
+                              "new" && (
+                              <span
+                                className="rapid-rush-movement new"
+                                aria-label="Pemain baru di leaderboard"
+                                title="Pemain baru di leaderboard"
+                              >
+                                NEW
+                              </span>
+                            )}
+                          </div>
                         </td>
 
                         <td className="rapid-rush-status-cell">
@@ -118,7 +321,9 @@ function RapidRushTable({
 
                         <td className="rapid-rush-player">
                           <strong>
-                            {row.player}
+                            {
+                              row.player
+                            }
                           </strong>
                         </td>
 
@@ -137,14 +342,21 @@ function RapidRushTable({
           </div>
 
           <p className="rapid-rush-note">
-            Data per 12 Agustus 2026
-            <span aria-hidden="true"> · </span>
-            Eligible: peringkat 1–20 di masing-masing Subdit.
+            {cutoffLabel
+              ? `Data per ${cutoffLabel}`
+              : "Data leaderboard Rapid Rush"}
+            <span aria-hidden="true">
+              {" "}
+              ·{" "}
+            </span>
+            Eligible: peringkat 1–20
+            di masing-masing Subdit.
           </p>
         </>
       ) : (
         <p className="grand-champion-phase-empty">
-          Hasil resmi tahap ini belum diumumkan.
+          Hasil resmi tahap ini belum
+          diumumkan.
         </p>
       )}
     </div>
