@@ -1726,10 +1726,17 @@ export default async function LeaderboardPage() {
 
           <ExclusiveAccordionGroup className="competition-list">
             {runtimeCompetitions.map((competition, competitionIndex) => {
+              const competitionStatus = getCompetitionStatus(competition, now);
+
+              const isFinal =
+                isCompetitionFinal(
+                  competition,
+                  now
+                );
+              
               const rows = getCompetitionRows(competition)
                 .filter((row) => row.rank !== null)
                 .sort((a, b) => a.rank - b.rank);
-              const competitionStatus = getCompetitionStatus(competition, now);
               
               return (
                 <details
