@@ -1844,7 +1844,7 @@ export default async function LeaderboardPage() {
                         <p className="competition-empty">
                           Hasil resmi cabang ini belum diumumkan.
                         </p>
-                      )
+                      )}
                 </details>
               );
             })}
