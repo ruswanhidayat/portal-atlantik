@@ -1773,76 +1773,78 @@ export default async function LeaderboardPage() {
                   ) : competition.scoreDetails ? (
                     <CompetitionScoreTable competition={competition} />
                   ) : rows.length > 0 ? (
-                    <div className="competition-table-standard-wrap">
-                      <div className="competition-table-standard-scroll">
-                        <table className="competition-table-standard domino-result-table">
-                          <thead>
-                            <tr>
-                              <th className="competition-rank-column">
-                                Peringkat
-                              </th>
+                        <>
+                          <div className="competition-table-standard-wrap">
+                            <div className="competition-table-standard-scroll">
+                              <table className="competition-table-standard domino-result-table">
+                                <thead>
+                                  <tr>
+                                    <th className="competition-rank-column">
+                                      Peringkat
+                                    </th>
 
-                              <th className="competition-name-column">
-                                Subdit
-                              </th>
+                                    <th className="competition-name-column">
+                                      Subdit
+                                    </th>
 
-                              <th>
-                                Hasil
-                              </th>
+                                    <th>
+                                      Hasil
+                                    </th>
 
-                              <th className="competition-event-points-column">
-                                Poin Event
-                              </th>
-                            </tr>
-                          </thead>
+                                    <th className="competition-event-points-column">
+                                      Poin Event
+                                    </th>
+                                  </tr>
+                                </thead>
 
-                          <tbody>
-                            {rows.map((row) => (
-                              <tr key={row.division.id}>
-                                <td className="competition-rank-column">
-                                  <span className="competition-rank">
-                                    {row.rank}
-                                  </span>
-                                </td>
+                                <tbody>
+                                  {rows.map((row) => (
+                                    <tr key={row.division.id}>
+                                      <td className="competition-rank-column">
+                                        <span className="competition-rank">
+                                          {row.rank}
+                                        </span>
+                                      </td>
 
-                                <td className="competition-name-cell">
-                                  <strong className="competition-name">
-                                    {row.division.name}
-                                  </strong>
-                                </td>
+                                      <td className="competition-name-cell">
+                                        <strong className="competition-name">
+                                          {row.division.name}
+                                        </strong>
+                                      </td>
 
-                                <td>
-                                  <strong className="competition-value-strong">
-                                    {isFinal
-                                      ? row.resultLabel
-                                      : "-"}
-                                  </strong>
-                                </td>
+                                      <td>
+                                        <strong className="competition-value-strong">
+                                          {isFinal
+                                            ? row.resultLabel
+                                            : "-"}
+                                        </strong>
+                                      </td>
 
-                                <td className="competition-event-points-column">
-                                  <strong className="competition-event-points">
-                                    {isFinal
-                                      ? row.points
-                                      : "-"}
-                                  </strong>
-                                </td>
-                              </tr>
-                            ))}
-                          </tbody>
-                        </table>
-                      </div>
-                    </div>
+                                      <td className="competition-event-points-column">
+                                        <strong className="competition-event-points">
+                                          {isFinal
+                                            ? row.points
+                                            : "-"}
+                                        </strong>
+                                      </td>
+                                    </tr>
+                                  ))}
+                                </tbody>
+                              </table>
+                            </div>
+                          </div>
 
-                    {competition.id === "merdeka-showcase" ? (
-                      <p className="competition-table-note">
-                        Poin akan terakumulasi ke tabel Juara Umum saat periode penilaian telah selesai.
-                      </p>
-                    ) : null}
-                  ) : (
-                      <p className="competition-empty">
-                        Hasil resmi cabang ini belum diumumkan.
-                      </p>
-                    )}
+                          {competition.id === "merdeka-showcase" ? (
+                            <p className="competition-table-note">
+                              Poin akan terakumulasi ke tabel Juara Umum saat periode penilaian telah selesai.
+                            </p>
+                          ) : null}
+                        </>
+                      ) : (
+                        <p className="competition-empty">
+                          Hasil resmi cabang ini belum diumumkan.
+                        </p>
+                      )
                 </details>
               );
             })}
