@@ -1813,13 +1813,17 @@ export default async function LeaderboardPage() {
 
                                 <td>
                                   <strong className="competition-value-strong">
-                                    {row.resultLabel}
+                                    {isFinal
+                                      ? row.resultLabel
+                                      : "-"}
                                   </strong>
                                 </td>
 
                                 <td className="competition-event-points-column">
                                   <strong className="competition-event-points">
-                                    {row.points}
+                                    {isFinal
+                                      ? row.points
+                                      : "-"}
                                   </strong>
                                 </td>
                               </tr>
@@ -1828,6 +1832,12 @@ export default async function LeaderboardPage() {
                         </table>
                       </div>
                     </div>
+
+                    {competition.id === "merdeka-showcase" ? (
+                      <p className="competition-table-note">
+                        Poin akan terakumulasi ke tabel Juara Umum saat periode penilaian telah selesai.
+                      </p>
+                    ) : null}
                   ) : (
                       <p className="competition-empty">
                         Hasil resmi cabang ini belum diumumkan.
