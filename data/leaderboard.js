@@ -1396,23 +1396,629 @@ export const competitions = [
             },
           },
           {
-            cutoff: "2026-08-15T00:00:00+07:00",
-            results: {
-              "subdit-1": [],
-              "subdit-2": [],
-              "subdit-3": [],
-              "subdit-4": [],
-              "subdit-5": [],
-            },
-          },
-          {
             cutoff: "2026-08-16T00:00:00+07:00",
             results: {
-              "subdit-1": [],
-              "subdit-2": [],
-              "subdit-3": [],
+              "subdit-1": [
+                {
+                  "overallRank": 7,
+                  "subditRank": 1,
+                  "player": "SENO SANTIKA PAHLAWAN",
+                  "score": 23096
+                },
+                {
+                  "overallRank": 15,
+                  "subditRank": 2,
+                  "player": "MUHAMMAD RAMADHAN ZULFI",
+                  "score": 22924
+                },
+                {
+                  "overallRank": 22,
+                  "subditRank": 3,
+                  "player": "ISNAINI NURUL KHASANAH",
+                  "score": 22571
+                },
+                {
+                  "overallRank": 25,
+                  "subditRank": 4,
+                  "player": "ACHMAD HAMBALI",
+                  "score": 22258
+                },
+                {
+                  "overallRank": 27,
+                  "subditRank": 5,
+                  "player": "A`THFI RIJAL MUFIED",
+                  "score": 22084
+                },
+                {
+                  "overallRank": 33,
+                  "subditRank": 6,
+                  "player": "HIKMAH VICI PRATAMA",
+                  "score": 21584
+                },
+                {
+                  "overallRank": 35,
+                  "subditRank": 7,
+                  "player": "DANIEL SAHALA HUTABARAT",
+                  "score": 21345
+                },
+                {
+                  "overallRank": 40,
+                  "subditRank": 8,
+                  "player": "DINA ALIFATUL MA`RIFAH",
+                  "score": 20480
+                },
+                {
+                  "overallRank": 43,
+                  "subditRank": 9,
+                  "player": "ARDY EKO KARTONO",
+                  "score": 19704
+                },
+                {
+                  "overallRank": 45,
+                  "subditRank": 10,
+                  "player": "ASVARY",
+                  "score": 19582
+                },
+                {
+                  "overallRank": 51,
+                  "subditRank": 11,
+                  "player": "JENS NAKI",
+                  "score": 19268
+                },
+                {
+                  "overallRank": 58,
+                  "subditRank": 12,
+                  "player": "TANTI BUDI SETYORINI",
+                  "score": 18210
+                },
+                {
+                  "overallRank": 67,
+                  "subditRank": 13,
+                  "player": "RIZQA NULHUSNA",
+                  "score": 17370
+                },
+                {
+                  "overallRank": 68,
+                  "subditRank": 14,
+                  "player": "MUHAMMAD IQBAL",
+                  "score": 17200
+                },
+                {
+                  "overallRank": 77,
+                  "subditRank": 15,
+                  "player": "GRISELDA LIVIA",
+                  "score": 16530
+                },
+                {
+                  "overallRank": 82,
+                  "subditRank": 16,
+                  "player": "ERNITA YOLANDA BELVINSKY HUTABARAT",
+                  "score": 16167
+                },
+                {
+                  "overallRank": 90,
+                  "subditRank": 17,
+                  "player": "JESSICA RAHMAWATI NUGROHO",
+                  "score": 15307
+                },
+                {
+                  "overallRank": 96,
+                  "subditRank": 18,
+                  "player": "RIO MONANDA PUTRA",
+                  "score": 13048
+                }
+              ],
+              "subdit-2": [
+                {
+                  "overallRank": 1,
+                  "subditRank": 1,
+                  "player": "MONICA VIVI KURNIAWATI",
+                  "score": 24072
+                },
+                {
+                  "overallRank": 2,
+                  "subditRank": 2,
+                  "player": "ABDAN SYAKURO",
+                  "score": 23777
+                },
+                {
+                  "overallRank": 4,
+                  "subditRank": 3,
+                  "player": "REZA PAHLEVIE",
+                  "score": 23214
+                },
+                {
+                  "overallRank": 6,
+                  "subditRank": 4,
+                  "player": "SUNARKO",
+                  "score": 23128
+                },
+                {
+                  "overallRank": 10,
+                  "subditRank": 5,
+                  "player": "ANTONIUS JONET BINARTO",
+                  "score": 22986
+                },
+                {
+                  "overallRank": 12,
+                  "subditRank": 6,
+                  "player": "I PUTU AGUS JUNIARTHA",
+                  "score": 22969
+                },
+                {
+                  "overallRank": 14,
+                  "subditRank": 7,
+                  "player": "NORMAN RAMADHAN",
+                  "score": 22959
+                },
+                {
+                  "overallRank": 17,
+                  "subditRank": 8,
+                  "player": "LASER WILJONO",
+                  "score": 22889
+                },
+                {
+                  "overallRank": 20,
+                  "subditRank": 9,
+                  "player": "ABDUL ROKHIM",
+                  "score": 22673
+                },
+                {
+                  "overallRank": 21,
+                  "subditRank": 10,
+                  "player": "ABDUL FATTAH",
+                  "score": 22649
+                },
+                {
+                  "overallRank": 23,
+                  "subditRank": 11,
+                  "player": "IMAM SUTRISNO",
+                  "score": 22407
+                },
+                {
+                  "overallRank": 28,
+                  "subditRank": 12,
+                  "player": "SURYA ADI PRASETYA NUGRAHA",
+                  "score": 22084
+                },
+                {
+                  "overallRank": 30,
+                  "subditRank": 13,
+                  "player": "DWITA NEVITRIANI",
+                  "score": 21975
+                },
+                {
+                  "overallRank": 31,
+                  "subditRank": 14,
+                  "player": "MUHAMMAD RIZQA NAFIS",
+                  "score": 21956
+                },
+                {
+                  "overallRank": 39,
+                  "subditRank": 15,
+                  "player": "NANA SUPRIATNA",
+                  "score": 20631
+                },
+                {
+                  "overallRank": 42,
+                  "subditRank": 16,
+                  "player": "MEIBRIAN ANDREAS",
+                  "score": 20074
+                },
+                {
+                  "overallRank": 46,
+                  "subditRank": 17,
+                  "player": "RENDY KUI MOKOGINTA",
+                  "score": 19537
+                },
+                {
+                  "overallRank": 48,
+                  "subditRank": 18,
+                  "player": "HANIFAH ATSARIYANA",
+                  "score": 19495
+                },
+                {
+                  "overallRank": 52,
+                  "subditRank": 19,
+                  "player": "ADIP PRADIPTO ANINDYO",
+                  "score": 19057
+                },
+                {
+                  "overallRank": 53,
+                  "subditRank": 20,
+                  "player": "YASTIADI ENGGAR PRABOWO",
+                  "score": 18752
+                },
+                {
+                  "overallRank": 54,
+                  "subditRank": 21,
+                  "player": "YULIA ISLAMIATI",
+                  "score": 18648
+                },
+                {
+                  "overallRank": 56,
+                  "subditRank": 22,
+                  "player": "ACHMAD LUTHFI",
+                  "score": 18533
+                },
+                {
+                  "overallRank": 57,
+                  "subditRank": 23,
+                  "player": "MUHAMAD FAJRI YUSUF",
+                  "score": 18424
+                },
+                {
+                  "overallRank": 66,
+                  "subditRank": 24,
+                  "player": "ILHAM TISWAN",
+                  "score": 17386
+                },
+                {
+                  "overallRank": 70,
+                  "subditRank": 25,
+                  "player": "MOHAMMAD JUNUS",
+                  "score": 17022
+                },
+                {
+                  "overallRank": 72,
+                  "subditRank": 26,
+                  "player": "M. OTRYADI NAUFAL",
+                  "score": 16912
+                },
+                {
+                  "overallRank": 73,
+                  "subditRank": 27,
+                  "player": "MUHAMMAD LUTHFI",
+                  "score": 16870
+                },
+                {
+                  "overallRank": 74,
+                  "subditRank": 28,
+                  "player": "AGUNG UTOMO",
+                  "score": 16862
+                },
+                {
+                  "overallRank": 75,
+                  "subditRank": 29,
+                  "player": "NIA AULIA SITORUS",
+                  "score": 16731
+                },
+                {
+                  "overallRank": 78,
+                  "subditRank": 30,
+                  "player": "ASMUNI HARIS",
+                  "score": 16440
+                },
+                {
+                  "overallRank": 79,
+                  "subditRank": 31,
+                  "player": "SEPTIANA KURNIAWATI",
+                  "score": 16437
+                },
+                {
+                  "overallRank": 83,
+                  "subditRank": 32,
+                  "player": "ALFIN RIZKY RACHMAWANTO",
+                  "score": 16166
+                },
+                {
+                  "overallRank": 84,
+                  "subditRank": 33,
+                  "player": "SULARNO",
+                  "score": 16076
+                },
+                {
+                  "overallRank": 89,
+                  "subditRank": 34,
+                  "player": "GALANG RAMDHAN PRATAMA",
+                  "score": 15416
+                },
+                {
+                  "overallRank": 93,
+                  "subditRank": 35,
+                  "player": "WAHYU BUDIONO",
+                  "score": 14334
+                },
+                {
+                  "overallRank": 97,
+                  "subditRank": 36,
+                  "player": "MUHAMAD NASRUL MUHAIMIN",
+                  "score": 12326
+                },
+                {
+                  "overallRank": 99,
+                  "subditRank": 37,
+                  "player": "YUNI ANGGRAINI",
+                  "score": 11349
+                },
+                {
+                  "overallRank": 101,
+                  "subditRank": 38,
+                  "player": "DINI HARIAJI",
+                  "score": 10165
+                }
+              ],
+              "subdit-3": [
+                {
+                  "overallRank": 3,
+                  "subditRank": 1,
+                  "player": "HAWWIN RIZKI HERLIANTO",
+                  "score": 23591
+                },
+                {
+                  "overallRank": 5,
+                  "subditRank": 2,
+                  "player": "ARDIANSYAH ANDRE RIZAL FALAWI",
+                  "score": 23177
+                },
+                {
+                  "overallRank": 11,
+                  "subditRank": 3,
+                  "player": "AULIA OKTAVELLA PURNAMASARI",
+                  "score": 22980
+                },
+                {
+                  "overallRank": 13,
+                  "subditRank": 4,
+                  "player": "NOVITA VERA HARDIANTY HASIBUAN",
+                  "score": 22968
+                },
+                {
+                  "overallRank": 18,
+                  "subditRank": 5,
+                  "player": "NURSYAHFITRI PURBA",
+                  "score": 22863
+                },
+                {
+                  "overallRank": 19,
+                  "subditRank": 6,
+                  "player": "FAJAR HAKIKI",
+                  "score": 22810
+                },
+                {
+                  "overallRank": 29,
+                  "subditRank": 7,
+                  "player": "TEGUH PAMUJI",
+                  "score": 22025
+                },
+                {
+                  "overallRank": 32,
+                  "subditRank": 8,
+                  "player": "ANDINI NURAINI",
+                  "score": 21895
+                },
+                {
+                  "overallRank": 34,
+                  "subditRank": 9,
+                  "player": "DENI OKTA IRAWAN SEBAYANG",
+                  "score": 21372
+                },
+                {
+                  "overallRank": 37,
+                  "subditRank": 10,
+                  "player": "RAYANA JANWAR",
+                  "score": 20802
+                },
+                {
+                  "overallRank": 59,
+                  "subditRank": 11,
+                  "player": "AMRI TARMIZI",
+                  "score": 18056
+                },
+                {
+                  "overallRank": 62,
+                  "subditRank": 12,
+                  "player": "BRIAN PRADITAMA",
+                  "score": 17795
+                },
+                {
+                  "overallRank": 64,
+                  "subditRank": 13,
+                  "player": "JULIA A. BUTARBUTAR",
+                  "score": 17591
+                },
+                {
+                  "overallRank": 65,
+                  "subditRank": 14,
+                  "player": "MOH. FAISAL SHOLEHUDIN",
+                  "score": 17419
+                },
+                {
+                  "overallRank": 69,
+                  "subditRank": 15,
+                  "player": "YOGA PAMUNGKAS",
+                  "score": 17023
+                },
+                {
+                  "overallRank": 80,
+                  "subditRank": 16,
+                  "player": "DWI JOKO WIDODO",
+                  "score": 16387
+                },
+                {
+                  "overallRank": 81,
+                  "subditRank": 17,
+                  "player": "VINA SARI",
+                  "score": 16223
+                },
+                {
+                  "overallRank": 85,
+                  "subditRank": 18,
+                  "player": "NATALIA DESFRI HUTABARAT",
+                  "score": 15978
+                },
+                {
+                  "overallRank": 92,
+                  "subditRank": 19,
+                  "player": "IBRAHIM SALEH",
+                  "score": 14416
+                },
+                {
+                  "overallRank": 94,
+                  "subditRank": 20,
+                  "player": "WAHYU RIO MAHENDRA",
+                  "score": 13539
+                },
+                {
+                  "overallRank": 98,
+                  "subditRank": 21,
+                  "player": "ERWIN ADINUGRAHA",
+                  "score": 11503
+                },
+                {
+                  "overallRank": 100,
+                  "subditRank": 22,
+                  "player": "DESY DWI MARYATI",
+                  "score": 11338
+                },
+                {
+                  "overallRank": 102,
+                  "subditRank": 23,
+                  "player": "WAHYUNING TRI UTAMI",
+                  "score": 9553
+                }
+              ],
               "subdit-4": [],
-              "subdit-5": [],
+              "subdit-5": [
+                {
+                  "overallRank": 8,
+                  "subditRank": 1,
+                  "player": "MITA MUTIA REZA",
+                  "score": 23047
+                },
+                {
+                  "overallRank": 9,
+                  "subditRank": 2,
+                  "player": "MARTINUS HERAWAN",
+                  "score": 23020
+                },
+                {
+                  "overallRank": 16,
+                  "subditRank": 3,
+                  "player": "ELFA RISTA HANTALIS VICTORY",
+                  "score": 22905
+                },
+                {
+                  "overallRank": 24,
+                  "subditRank": 4,
+                  "player": "MARISSA",
+                  "score": 22327
+                },
+                {
+                  "overallRank": 26,
+                  "subditRank": 5,
+                  "player": "BAYU PRATAMA PUTRA",
+                  "score": 22173
+                },
+                {
+                  "overallRank": 36,
+                  "subditRank": 6,
+                  "player": "KARINA SARASATI SUWARTO",
+                  "score": 21232
+                },
+                {
+                  "overallRank": 38,
+                  "subditRank": 7,
+                  "player": "BAYU WIDYASTANTO",
+                  "score": 20727
+                },
+                {
+                  "overallRank": 41,
+                  "subditRank": 8,
+                  "player": "CAHYA ADHI KUSUMA",
+                  "score": 20184
+                },
+                {
+                  "overallRank": 44,
+                  "subditRank": 9,
+                  "player": "TEGUH WAHYU WIDODO",
+                  "score": 19695
+                },
+                {
+                  "overallRank": 47,
+                  "subditRank": 10,
+                  "player": "ANDY SETYO BARMANTO",
+                  "score": 19519
+                },
+                {
+                  "overallRank": 49,
+                  "subditRank": 11,
+                  "player": "JEFRI WIRADIPUTRA",
+                  "score": 19332
+                },
+                {
+                  "overallRank": 50,
+                  "subditRank": 12,
+                  "player": "THAMRIN WIDAYA",
+                  "score": 19323
+                },
+                {
+                  "overallRank": 55,
+                  "subditRank": 13,
+                  "player": "ALVIN IMANUEL",
+                  "score": 18604
+                },
+                {
+                  "overallRank": 60,
+                  "subditRank": 14,
+                  "player": "RINEKA LINGGA ANDANUMUSTI",
+                  "score": 18004
+                },
+                {
+                  "overallRank": 61,
+                  "subditRank": 15,
+                  "player": "ARIF NOTONEGORO",
+                  "score": 17901
+                },
+                {
+                  "overallRank": 63,
+                  "subditRank": 16,
+                  "player": "MUHAMMAD ARFAN RUDIYANTO",
+                  "score": 17758
+                },
+                {
+                  "overallRank": 71,
+                  "subditRank": 17,
+                  "player": "MUHAMAD IQBAL",
+                  "score": 16968
+                },
+                {
+                  "overallRank": 76,
+                  "subditRank": 18,
+                  "player": "MOHAMAD ANDY BAHARUDDIN",
+                  "score": 16567
+                },
+                {
+                  "overallRank": 86,
+                  "subditRank": 19,
+                  "player": "APRIYANTO WAHYU HANDOKO",
+                  "score": 15879
+                },
+                {
+                  "overallRank": 87,
+                  "subditRank": 20,
+                  "player": "NIKMATUL HANIFAH SOFIA",
+                  "score": 15737
+                },
+                {
+                  "overallRank": 88,
+                  "subditRank": 21,
+                  "player": "SHOPAN J. ENDRAWAN",
+                  "score": 15736
+                },
+                {
+                  "overallRank": 91,
+                  "subditRank": 22,
+                  "player": "DIAN LUFI HERNIATMOKO",
+                  "score": 14813
+                },
+                {
+                  "overallRank": 95,
+                  "subditRank": 23,
+                  "player": "ACHMAD DWINATA",
+                  "score": 13386
+                }
+              ]
             },
           },
           {
