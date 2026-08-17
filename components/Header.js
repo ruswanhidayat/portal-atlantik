@@ -400,6 +400,9 @@ export default function Header() {
                                     ? "noopener noreferrer"
                                     : undefined
                                 }
+                                onClick={(event) => {
+                                  event.currentTarget.blur();
+                                }}
                               >
                                 <span>
                                   {
