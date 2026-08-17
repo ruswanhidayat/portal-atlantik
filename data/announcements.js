@@ -69,7 +69,7 @@ export const announcements = [
       "Pertandingan FC 26 akan segera dimulai. Saksikan pertandingannya!",
     href: "/jadwal",
     linkLabel: "Lihat Jadwal",
-    showOnHome: false,
+    showOnHome: true,
   },
   {
     id: "atlantik-run",
@@ -79,8 +79,8 @@ export const announcements = [
     title: "Atlantik Run telah selesai!",
     summary:
       "Perjalanan 3 hari mengumpulkan kilometer demi kilometer telah usai. Cek hasil akhirnya disini!",
-    href: "/leaserboard",
+    href: "/leaderboard",
     linkLabel: "Cek disini",
-    showOnHome: false,
+    showOnHome: true,
   },
 ];
