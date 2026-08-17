@@ -94,13 +94,7 @@ const desktopNavItems = [
   },
 ];
 
-function isActiveNavigation(
-  pathname: string,
-  item: {
-    href?: string;
-    external?: boolean;
-  }
-) {
+function isActiveNavigation(pathname, item) {
   if (!item.href || item.external) {
     return false;
   }
@@ -116,13 +110,8 @@ function isActiveNavigation(
 }
 
 function isActiveNavigationGroup(
-  pathname: string,
-  children:
-    | {
-        href: string;
-        external?: boolean;
-      }[]
-    | undefined
+  pathname,
+  children
 ) {
   if (!children) {
     return false;
@@ -156,9 +145,7 @@ export default function Header() {
       isMenuOpen
     );
 
-    function handleEscape(
-      event: KeyboardEvent
-    ) {
+    function handleEscape(event) {
       if (event.key === "Escape") {
         setIsMenuOpen(false);
       }
