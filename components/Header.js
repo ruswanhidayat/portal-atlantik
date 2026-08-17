@@ -8,7 +8,12 @@ import { createPortal } from "react-dom";
 
 import { siteConfig } from "@/data/site-config";
 
-const navItems = [
+/* =========================================================
+   MOBILE NAVIGATION
+   Tetap menggunakan struktur lama.
+   ========================================================= */
+
+const mobileNavItems = [
   {
     label: "Beranda",
     href: "/",
@@ -37,12 +42,66 @@ const navItems = [
   {
     label: "Portal Link",
     href: "/portal-link",
-    external: true,
   },
 ];
 
-function isActiveNavigation(pathname, item) {
-  if (item.external) {
+/* =========================================================
+   DESKTOP NAVIGATION
+   ========================================================= */
+
+const desktopNavItems = [
+  {
+    label: "Home",
+    href: "/",
+  },
+
+  {
+    label: "Games",
+    children: [
+      {
+        label: "Schedule",
+        href: "/jadwal",
+      },
+      {
+        label: "Disciplines",
+        href: "/permainan",
+      },
+      {
+        label: "Standings",
+        href: "/leaderboard",
+      },
+    ],
+  },
+
+  {
+    label: "Release",
+    href: "/pengumuman",
+  },
+
+  {
+    label: "More",
+    children: [
+      {
+        label: "Portal Link",
+        href: "/portal-link",
+      },
+      {
+        label: "Guide Book",
+        href: "/guidebook/guidebook_atlantik_2026.pdf",
+        external: true,
+      },
+    ],
+  },
+];
+
+function isActiveNavigation(
+  pathname: string,
+  item: {
+    href?: string;
+    external?: boolean;
+  }
+) {
+  if (!item.href || item.external) {
     return false;
   }
 
@@ -50,14 +109,38 @@ function isActiveNavigation(pathname, item) {
     return pathname === "/";
   }
 
-  return pathname === item.href || pathname.startsWith(`${item.href}/`);
+  return (
+    pathname === item.href ||
+    pathname.startsWith(`${item.href}/`)
+  );
+}
+
+function isActiveNavigationGroup(
+  pathname: string,
+  children:
+    | {
+        href: string;
+        external?: boolean;
+      }[]
+    | undefined
+) {
+  if (!children) {
+    return false;
+  }
+
+  return children.some((item) =>
+    isActiveNavigation(pathname, item)
+  );
 }
 
 export default function Header() {
   const pathname = usePathname();
 
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [isMounted, setIsMounted] = useState(false);
+  const [isMenuOpen, setIsMenuOpen] =
+    useState(false);
+
+  const [isMounted, setIsMounted] =
+    useState(false);
 
   useEffect(() => {
     setIsMounted(true);
@@ -68,21 +151,39 @@ export default function Header() {
   }, [pathname]);
 
   useEffect(() => {
-    document.body.classList.toggle("mobile-menu-open", isMenuOpen);
+    document.body.classList.toggle(
+      "mobile-menu-open",
+      isMenuOpen
+    );
 
-    function handleEscape(event) {
+    function handleEscape(
+      event: KeyboardEvent
+    ) {
       if (event.key === "Escape") {
         setIsMenuOpen(false);
       }
     }
 
-    window.addEventListener("keydown", handleEscape);
+    window.addEventListener(
+      "keydown",
+      handleEscape
+    );
 
     return () => {
-      document.body.classList.remove("mobile-menu-open");
-      window.removeEventListener("keydown", handleEscape);
+      document.body.classList.remove(
+        "mobile-menu-open"
+      );
+
+      window.removeEventListener(
+        "keydown",
+        handleEscape
+      );
     };
   }, [isMenuOpen]);
+
+  /* =======================================================
+     MOBILE
+     ======================================================= */
 
   const mobileNavigation = (
     <>
@@ -93,7 +194,9 @@ export default function Header() {
         }`}
         aria-label="Tutup menu"
         tabIndex={isMenuOpen ? 0 : -1}
-        onClick={() => setIsMenuOpen(false)}
+        onClick={() =>
+          setIsMenuOpen(false)
+        }
       />
 
       <aside
@@ -110,7 +213,9 @@ export default function Header() {
             type="button"
             className="mobile-menu-close"
             aria-label="Tutup menu"
-            onClick={() => setIsMenuOpen(false)}
+            onClick={() =>
+              setIsMenuOpen(false)
+            }
           >
             ×
           </button>
@@ -120,31 +225,55 @@ export default function Header() {
           className="mobile-nav"
           aria-label="Navigasi mobile"
         >
-          {navItems.map((item) => {
-            const isActive = isActiveNavigation(pathname, item);
+          {mobileNavItems.map(
+            (item) => {
+              const isActive =
+                isActiveNavigation(
+                  pathname,
+                  item
+                );
 
-            return (
-              <Link
-                key={item.href}
-                href={item.href}
-                className={isActive ? "active" : undefined}
-                aria-current={isActive ? "page" : undefined}
-                target={item.external ? "_blank" : undefined}
-                rel={
-                  item.external
-                    ? "noopener noreferrer"
-                    : undefined
-                }
-                tabIndex={isMenuOpen ? 0 : -1}
-              >
-                <span>{item.label}</span>
+              return (
+                <Link
+                  key={item.href}
+                  href={item.href}
+                  className={
+                    isActive
+                      ? "active"
+                      : undefined
+                  }
+                  aria-current={
+                    isActive
+                      ? "page"
+                      : undefined
+                  }
+                  target={
+                    item.external
+                      ? "_blank"
+                      : undefined
+                  }
+                  rel={
+                    item.external
+                      ? "noopener noreferrer"
+                      : undefined
+                  }
+                  tabIndex={
+                    isMenuOpen ? 0 : -1
+                  }
+                >
+                  <span>
+                    {item.label}
+                  </span>
 
-                <span aria-hidden="true">
-                  {item.external ? "↗" : "→"}
-                </span>
-              </Link>
-            );
-          })}
+                  <span aria-hidden="true">
+                    {item.external
+                      ? "↗"
+                      : "→"}
+                  </span>
+                </Link>
+              );
+            }
+          )}
         </nav>
       </aside>
     </>
@@ -154,6 +283,8 @@ export default function Header() {
     <>
       <header className="site-header">
         <div className="container header-inner">
+          {/* BRAND */}
+
           <Link
             href="/"
             className="brand"
@@ -169,53 +300,168 @@ export default function Header() {
             />
           </Link>
 
+          {/* ===============================================
+              DESKTOP NAV
+              =============================================== */}
+
           <nav
             className="nav desktop-nav"
             aria-label="Navigasi utama"
           >
-            {navItems.map((item) => {
-              const isActive = isActiveNavigation(pathname, item);
+            {desktopNavItems.map(
+              (item) => {
+                /* Direct link */
 
-              return (
-                <Link
-                  key={item.href}
-                  href={item.href}
-                  className={isActive ? "active" : undefined}
-                  aria-current={isActive ? "page" : undefined}
-                  target={item.external ? "_blank" : undefined}
-                  rel={
-                    item.external
-                      ? "noopener noreferrer"
-                      : undefined
-                  }
-                >
-                  <span>{item.label}</span>
+                if (item.href) {
+                  const isActive =
+                    isActiveNavigation(
+                      pathname,
+                      item
+                    );
 
-                  {item.external && (
-                    <span
-                      className="desktop-nav-external-icon"
-                      aria-hidden="true"
+                  return (
+                    <Link
+                      key={item.label}
+                      href={item.href}
+                      className={
+                        isActive
+                          ? "active"
+                          : undefined
+                      }
+                      aria-current={
+                        isActive
+                          ? "page"
+                          : undefined
+                      }
                     >
-                      ↗
-                    </span>
-                  )}
-                </Link>
-              );
-            })}
+                      <span>
+                        {item.label}
+                      </span>
+                    </Link>
+                  );
+                }
+
+                /* Dropdown group */
+
+                const isGroupActive =
+                  isActiveNavigationGroup(
+                    pathname,
+                    item.children
+                  );
+
+                return (
+                  <div
+                    key={item.label}
+                    className={`desktop-nav-group ${
+                      isGroupActive
+                        ? "is-active"
+                        : ""
+                    }`}
+                  >
+                    <button
+                      type="button"
+                      className="desktop-nav-trigger"
+                      aria-haspopup="true"
+                    >
+                      <span>
+                        {item.label}
+                      </span>
+
+                      <span
+                        className="desktop-nav-chevron"
+                        aria-hidden="true"
+                      >
+                        ↓
+                      </span>
+                    </button>
+
+                    <div className="desktop-nav-dropdown">
+                      <div className="desktop-nav-dropdown-inner">
+                        {item.children?.map(
+                          (child) => {
+                            const isActive =
+                              isActiveNavigation(
+                                pathname,
+                                child
+                              );
+
+                            return (
+                              <Link
+                                key={
+                                  child.href
+                                }
+                                href={
+                                  child.href
+                                }
+                                className={
+                                  isActive
+                                    ? "active"
+                                    : undefined
+                                }
+                                aria-current={
+                                  isActive
+                                    ? "page"
+                                    : undefined
+                                }
+                                target={
+                                  child.external
+                                    ? "_blank"
+                                    : undefined
+                                }
+                                rel={
+                                  child.external
+                                    ? "noopener noreferrer"
+                                    : undefined
+                                }
+                              >
+                                <span>
+                                  {
+                                    child.label
+                                  }
+                                </span>
+
+                                <span
+                                  className="desktop-nav-dropdown-arrow"
+                                  aria-hidden="true"
+                                >
+                                  {child.external
+                                    ? "↗"
+                                    : "→"}
+                                </span>
+                              </Link>
+                            );
+                          }
+                        )}
+                      </div>
+                    </div>
+                  </div>
+                );
+              }
+            )}
           </nav>
+
+          {/* ===============================================
+              MOBILE TOGGLE
+              =============================================== */}
 
           <button
             type="button"
             className={`mobile-menu-toggle ${
-              isMenuOpen ? "active" : ""
+              isMenuOpen
+                ? "active"
+                : ""
             }`}
             aria-label={
-              isMenuOpen ? "Tutup menu" : "Buka menu"
+              isMenuOpen
+                ? "Tutup menu"
+                : "Buka menu"
             }
             aria-expanded={isMenuOpen}
             aria-controls="mobile-navigation"
             onClick={() =>
-              setIsMenuOpen((current) => !current)
+              setIsMenuOpen(
+                (current) => !current
+              )
             }
           >
             <span />
