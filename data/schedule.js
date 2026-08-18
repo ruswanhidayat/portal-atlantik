@@ -788,6 +788,7 @@ export const competitionSchedules = [
       "2026-08-13",
       "2026-08-18",
       "2026-08-19",
+      "2026-08-20",
       "2026-08-26",
     ],
     sessions: {
@@ -854,14 +855,6 @@ export const competitionSchedules = [
           stage: "Match 7",
           location: "Lantai 9 Ruang Kartin1",
         },
-        {
-          id: "cscz-18-2",
-          startTime: "11:00",
-          endTime: "13:00",
-          title: "PSP vs PEPSI",
-          stage: "Match 8",
-          location: "Lantai 9 Ruang Kartin1",
-        },
       ],
       "2026-08-19": [
         {
@@ -878,6 +871,16 @@ export const competitionSchedules = [
           endTime: "13:00",
           title: "PSPP vs PIKSI",
           stage: "Match 10",
+          location: "Lantai 9 Ruang Kartin1",
+        },
+      ],
+      "2026-08-20": [
+        {
+          id: "cscz-20-1",
+          startTime: "11:00",
+          endTime: "13:00",
+          title: "PSP vs PEPSI",
+          stage: "Match 8 (Reschedule)",
           location: "Lantai 9 Ruang Kartin1",
         },
       ],
