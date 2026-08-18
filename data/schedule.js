@@ -1195,6 +1195,10 @@ export const competitionSchedules = [
     theme: "fun",
     activeDates: [
       "2026-08-13",
+      "2026-08-14",
+      "2026-08-15",
+      "2026-08-16",
+      "2026-08-17",
       "2026-08-18",
       "2026-08-19",
       "2026-08-20",
@@ -1207,6 +1211,46 @@ export const competitionSchedules = [
       "2026-08-13": [
         {
           id: "merdeka-showcase-13-1",
+          startTime: "07:30",
+          endTime: "17:00",
+          title: "Periode Penilaian Lomba Kebersihan dan Dekorasi Ruangan",
+          stage: "Penilaian",
+          location: "Gedung Bhakti, Direktorat TIK",
+        },
+      ],
+      "2026-08-14": [
+        {
+          id: "merdeka-showcase-14-1",
+          startTime: "07:30",
+          endTime: "17:00",
+          title: "Periode Penilaian Lomba Kebersihan dan Dekorasi Ruangan",
+          stage: "Penilaian",
+          location: "Gedung Bhakti, Direktorat TIK",
+        },
+      ],
+      "2026-08-15": [
+        {
+          id: "merdeka-showcase-15-1",
+          startTime: "07:30",
+          endTime: "17:00",
+          title: "Periode Penilaian Lomba Kebersihan dan Dekorasi Ruangan",
+          stage: "Penilaian",
+          location: "Gedung Bhakti, Direktorat TIK",
+        },
+      ],
+      "2026-08-16": [
+        {
+          id: "merdeka-showcase-16-1",
+          startTime: "07:30",
+          endTime: "17:00",
+          title: "Periode Penilaian Lomba Kebersihan dan Dekorasi Ruangan",
+          stage: "Penilaian",
+          location: "Gedung Bhakti, Direktorat TIK",
+        },
+      ],
+      "2026-08-17": [
+        {
+          id: "merdeka-showcase-17-1",
           startTime: "07:30",
           endTime: "17:00",
           title: "Periode Penilaian Lomba Kebersihan dan Dekorasi Ruangan",
