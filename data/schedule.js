@@ -632,10 +632,8 @@ export const competitionSchedules = [
           stage: "Fase Liga",
           location: "Lantai 9 Ruang Aspirin",
         },
-      ],
-      "2026-08-20": [
         {
-          id: "fc26-20-1",
+          id: "fc26-19-5",
           startTime: "11:00",
           endTime: "11:25",
           title: "PADUKA vs PIKSI (Paralel)",
@@ -643,18 +641,20 @@ export const competitionSchedules = [
           location: "Lantai 9 Ruang Aspirin",
         },
         {
-          id: "fc26-20-2",
+          id: "fc26-19-6",
           startTime: "11:25",
           endTime: "11:50",
           title: "TAKESI vs PIKSI (Paralel)",
           stage: "Fase Liga",
           location: "Lantai 9 Ruang Aspirin",
         },
+      ],
+      "2026-08-20": [
         {
-          id: "fc26-20-3",
-          startTime: "12:00",
-          endTime: "13:45",
-          title: "Peringkat 1 vs Peringkat 2",
+          id: "fc26-20-1",
+          startTime: "11:00",
+          endTime: "13:00",
+          title: "PADUKA vs PEPSI",
           stage: "Babak Final",
           location: "Lantai 9 Ruang Aspirin",
         },

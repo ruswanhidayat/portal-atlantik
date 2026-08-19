@@ -387,6 +387,126 @@ function AtlantikRunStandingsTable({
   );
 }
 
+function VolleyballStandingsTable({ competition }) {
+  const isFinal = competition.status === "final";
+
+  const eventPoints =
+    pointRules[competition.scoringCategory]?.points ?? [];
+
+  const rows = competition.standings.rows
+    .map((row) => ({
+      ...row,
+
+      division: divisions.find(
+        (division) => division.id === row.divisionId
+      ),
+    }))
+    .filter((row) => row.division)
+    .sort((a, b) => {
+      if (b.points !== a.points) {
+        return b.points - a.points;
+      }
+
+      return b.score - a.score;
+    })
+    .map((row, index) => ({
+      ...row,
+
+      rank: index + 1,
+
+      eventPoints: isFinal
+        ? eventPoints[index] ?? 0
+        : null,
+    }));
+
+  return (
+    <div className="competition-table-standard-wrap">
+      <div className="competition-table-standard-scroll">
+        <table className="competition-table-standard volleyball-standard-table">
+          <thead>
+            <tr>
+              <th className="competition-rank-column">
+                Peringkat
+              </th>
+
+              <th className="competition-name-column">
+                Subdit
+              </th>
+
+              <th>Main</th>
+              <th>W</th>
+              <th>L</th>
+              <th>Skor</th>
+              <th>PTS</th>
+              <th>Hasil</th>
+
+              <th className="competition-event-points-column">
+                Poin Event
+              </th>
+            </tr>
+          </thead>
+
+          <tbody>
+            {rows.map((row) => (
+              <tr key={row.divisionId}>
+                <td className="competition-rank-column">
+                  <span className="competition-rank">
+                    {row.rank}
+                  </span>
+                </td>
+
+                <td className="competition-name-cell">
+                  <strong className="competition-name">
+                    {row.division.name}
+                  </strong>
+                </td>
+
+                <td>{row.played}</td>
+                <td>{row.win}</td>
+                <td>{row.lose}</td>
+
+                <td>
+                  {row.score}
+                </td>
+
+                <td>
+                  <strong className="competition-value-strong">
+                    {row.points}
+                  </strong>
+                </td>
+
+                <td>
+                  <strong className="competition-value-strong">
+                    {isFinal
+                      ? `Juara ${row.rank}`
+                      : "-"}
+                  </strong>
+                </td>
+
+                <td className="competition-event-points-column">
+                  <strong className="competition-event-points">
+                    {isFinal
+                      ? row.eventPoints
+                      : "-"}
+                  </strong>
+                </td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+
+      <p className="competition-table-note inline-note">
+        <strong>W</strong>: Win
+        <span aria-hidden="true">·</span>
+        <strong>L</strong>: Lose
+        <span aria-hidden="true">·</span>
+        <strong>PTS</strong>: Poin Klasemen
+      </p>
+    </div>
+  );
+}
+
 function ChessStandingsTable({ competition }) {
   const eventPoints =
     pointRules[competition.scoringCategory]?.points ?? [];
@@ -1762,9 +1882,9 @@ export default async function LeaderboardPage() {
                       divisions={divisions}
                     />
                   ) : competition.standings?.type === "atlantik-run" ? (
-                    <AtlantikRunStandingsTable
-                      competition={competition}
-                    />
+                    <AtlantikRunStandingsTable competition={competition} />
+                  ) : competition.standings?.type === "volleyball" ? (
+                    <VolleyballStandingsTable competition={competition} />
                   ) : competition.standings?.type === "chess" ? (
                     <ChessStandingsTable competition={competition} />
                   ) : competition.standings?.type === "mlbb" ? (
