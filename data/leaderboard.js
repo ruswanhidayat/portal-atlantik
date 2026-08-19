@@ -106,8 +106,8 @@ export const competitions = [
     },
   },
   {
-    id: "volleyball",
-    name: "Volleyball",
+    id: "volleyball-challenge",
+    name: "Volleyball Challenge",
     scoringCategory: "sports",
     theme: "sports",
     status: "ongoing",
@@ -365,7 +365,62 @@ export const competitions = [
     name: "FC 26 Cup",
     scoringCategory: "strategic",
     theme: "esports",
+    status: "ongoing",
+
     results: [],
+
+    standings: {
+      type: "fc26",
+
+      rows: [
+        {
+          divisionId: "subdit-3",
+          scoreFor: 54,
+          scoreAgainst: 12,
+          points: 24,
+          finalist: true,
+        },
+        {
+          divisionId: "subdit-5",
+          scoreFor: 26,
+          scoreAgainst: 24,
+          points: 13,
+          finalist: true,
+        },
+        {
+          divisionId: "subdit-2",
+          scoreFor: 28,
+          scoreAgainst: 27,
+          points: 13,
+          finalist: false,
+        },
+        {
+          divisionId: "subdit-4",
+          scoreFor: 20,
+          scoreAgainst: 23,
+          points: 9,
+          finalist: false,
+        },
+        {
+          divisionId: "subdit-1",
+          scoreFor: 9,
+          scoreAgainst: 51,
+          points: 0,
+          finalist: false,
+        },
+      ],
+    },
+
+    knockout: {
+      final: {
+        id: "fc26-final",
+        homeDivisionId: "subdit-3",
+        awayDivisionId: "subdit-5",
+        homeScore: null,
+        awayScore: null,
+        winnerDivisionId: null,
+      },
+    },
   },
   {
     id: "mobile-legends-bang-bang",

@@ -1061,6 +1061,312 @@ function FutsalStandingsTable({ competition }) {
   );
 }
 
+function Fc26StandingsTable({ competition, isFinal }) {
+  const eventPoints =
+    pointRules[competition.scoringCategory]?.points ?? [];
+
+  const rows = competition.standings.rows
+    .map((row) => ({
+      ...row,
+
+      division: divisions.find(
+        (division) =>
+          division.id === row.divisionId
+      ),
+
+      difference:
+        row.scoreFor - row.scoreAgainst,
+    }))
+    .filter((row) => row.division)
+    .sort((a, b) => {
+      if (b.points !== a.points) {
+        return b.points - a.points;
+      }
+
+      if (b.difference !== a.difference) {
+        return b.difference - a.difference;
+      }
+
+      return b.scoreFor - a.scoreFor;
+    })
+    .map((row, index) => ({
+      ...row,
+      rank: index + 1,
+    }));
+
+  const getDivision = (divisionId) =>
+    divisions.find(
+      (division) =>
+        division.id === divisionId
+    );
+
+  const finalMatch =
+    competition.knockout?.final;
+
+  const finalRows = (competition.results ?? [])
+    .map((divisionId, index) => {
+      const division =
+        getDivision(divisionId);
+
+      if (!division) {
+        return null;
+      }
+
+      return {
+        division,
+        rank: index + 1,
+        eventPoints:
+          eventPoints[index] ?? 0,
+      };
+    })
+    .filter(Boolean);
+
+  const renderFinalMatch = () => {
+    if (!finalMatch) {
+      return null;
+    }
+
+    const homeDivision =
+      getDivision(
+        finalMatch.homeDivisionId
+      );
+
+    const awayDivision =
+      getDivision(
+        finalMatch.awayDivisionId
+      );
+
+    return (
+      <div className="table-tennis-match">
+        <div
+          className={`table-tennis-match-team ${
+            finalMatch.winnerDivisionId ===
+            finalMatch.homeDivisionId
+              ? "is-winner"
+              : ""
+          }`}
+        >
+          <span>
+            Subdit {homeDivision?.name ?? "-"}
+          </span>
+
+          <strong>
+            {finalMatch.homeScore ?? "-"}
+          </strong>
+        </div>
+
+        <div
+          className={`table-tennis-match-team ${
+            finalMatch.winnerDivisionId ===
+            finalMatch.awayDivisionId
+              ? "is-winner"
+              : ""
+          }`}
+        >
+          <span>
+            Subdit {awayDivision?.name ?? "-"}
+          </span>
+
+          <strong>
+            {finalMatch.awayScore ?? "-"}
+          </strong>
+        </div>
+      </div>
+    );
+  };
+
+  return (
+    <div className="table-tennis-phases">
+
+      {/* KLASIFIKASI */}
+      <section className="table-tennis-phase-section">
+        <div className="table-tennis-phase-heading">
+          <span>Klasemen</span>
+        </div>
+
+        <div className="competition-table-standard-wrap">
+          <div className="competition-table-standard-scroll">
+            <table className="competition-table-standard fc26-standard-table">
+              <thead>
+                <tr>
+                  <th className="competition-rank-column">
+                    Peringkat
+                  </th>
+
+                  <th className="competition-name-column">
+                    Subdit
+                  </th>
+
+                  <th>Memasukkan</th>
+                  <th>Kemasukkan</th>
+                  <th>Selisih</th>
+                  <th>Poin</th>
+                  <th>Hasil</th>
+
+                  <th className="competition-event-points-column">
+                    Poin Event
+                  </th>
+                </tr>
+              </thead>
+
+              <tbody>
+                {rows.map((row) => (
+                  <tr key={row.divisionId}>
+                    <td className="competition-rank-column">
+                      <span className="competition-rank">
+                        {row.rank}
+                      </span>
+                    </td>
+
+                    <td className="competition-name-cell">
+                      <div className="competition-name-with-status">
+                        <strong className="competition-name">
+                          {row.division.name}
+                        </strong>
+
+                        {row.finalist && (
+                          <span className="competition-status-badge accent">
+                            Final
+                          </span>
+                        )}
+                      </div>
+                    </td>
+
+                    <td>{row.scoreFor}</td>
+                    <td>{row.scoreAgainst}</td>
+
+                    <td>
+                      <span
+                        className={`competition-value-badge ${
+                          row.difference > 0
+                            ? "positive"
+                            : row.difference < 0
+                            ? "negative"
+                            : "neutral"
+                        }`}
+                      >
+                        {row.difference > 0
+                          ? "+"
+                          : ""}
+                        {row.difference}
+                      </span>
+                    </td>
+
+                    <td>
+                      <strong className="competition-value-strong">
+                        {row.points}
+                      </strong>
+                    </td>
+
+                    <td>
+                      <strong className="competition-value-strong">
+                        {isFinal
+                          ? `Juara ${row.rank}`
+                          : row.finalist
+                          ? "Final"
+                          : `Peringkat ${row.rank}`}
+                      </strong>
+                    </td>
+
+                    <td className="competition-event-points-column">
+                      <strong className="competition-event-points">
+                        {isFinal
+                          ? eventPoints[
+                              row.rank - 1
+                            ] ?? 0
+                          : "-"}
+                      </strong>
+                    </td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+
+      {/* FINAL */}
+      <section className="table-tennis-phase-section">
+        <div className="table-tennis-phase-heading">
+          <span>Fase Gugur</span>
+        </div>
+
+        <div className="table-tennis-bracket">
+          <div className="table-tennis-bracket-column">
+            <h4>Final</h4>
+
+            {renderFinalMatch()}
+          </div>
+        </div>
+
+        {finalMatch?.winnerDivisionId && (
+          <p className="competition-table-note table-tennis-bracket-note">
+            Pemenang pertandingan ditandai garis merah dan teks tebal.
+          </p>
+        )}
+      </section>
+
+      {/* HASIL FINAL */}
+      <section className="table-tennis-phase-section">
+        <div className="table-tennis-phase-heading">
+          <span>Hasil Final</span>
+        </div>
+
+        {finalRows.length > 0 ? (
+          <div className="competition-table-standard-wrap">
+            <div className="competition-table-standard-scroll">
+              <table className="competition-table-standard table-tennis-final-table">
+                <thead>
+                  <tr>
+                    <th>Peringkat</th>
+                    <th>Subdit</th>
+                    <th>Hasil</th>
+                    <th>Poin Event</th>
+                  </tr>
+                </thead>
+
+                <tbody>
+                  {finalRows.map((row) => (
+                    <tr key={row.division.id}>
+                      <td>
+                        <strong>
+                          {row.rank}
+                        </strong>
+                      </td>
+
+                      <td className="competition-name-cell">
+                        <strong className="competition-name">
+                          {row.division.name}
+                        </strong>
+                      </td>
+
+                      <td>
+                        <strong className="competition-value-strong">
+                          Juara {row.rank}
+                        </strong>
+                      </td>
+
+                      <td>
+                        <strong className="competition-event-points">
+                          {row.eventPoints}
+                        </strong>
+                      </td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+          </div>
+        ) : (
+          <div className="table-tennis-final-empty">
+            Hasil final akan ditampilkan setelah pertandingan final selesai.
+          </div>
+        )}
+      </section>
+    </div>
+  );
+}
+
 function BadmintonStandingsTable({ competition }) {
   const isFinal = competition.status === "final";
 
@@ -1891,6 +2197,8 @@ export default async function LeaderboardPage() {
                     <MlbbStandingsTable competition={competition} />
                   ) : competition.standings?.type === "cscz" ? (
                     <CsczStandingsTable competition={competition} />
+                  ) : competition.standings?.type === "fc26" ? (
+                    <Fc26StandingsTable competition={competition} />
                   ) : competition.standings?.type === "table-tennis" ? (
                     <TableTennisStandingsTable competition={competition} />
                   ) : competition.standings?.type === "futsal" ? (
