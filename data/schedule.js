@@ -35,35 +35,45 @@ export const schedule = [
   //   description:
   //     "Babak Penyisihan pertama akan segera dimulai!",
   // },
+  // {
+  //   date: "12 Agustus 2026",
+  //   time: "11.45–13.00 WIB",
+  //   title: "Badminton Masters",
+  //   category: "Sports",
+  //   theme: "sports",
+  //   location: "Lapangan Badminton Lantai 16",
+  //   description:
+  //     "Rangkaian pertandingan lanjutan Badminton Masters.",
+  // },
+  // {
+  //   date: "12 Agustus 2026",
+  //   time: "11.00–13.00 WIB",
+  //   title: "CS:CZ Tactical Challenge",
+  //   category: "Esports",
+  //   theme: "esports",
+  //   location: "Lantai 9 Ruang Kartin1",
+  //   description:
+  //     "Rangkaian lanjutan Babak Penyisihan sedang berlangsung, saksikan pertandingannya!",
+  // },
+  // {
+  //   date: "12 Agustus 2026",
+  //   time: "11.00–13.00 WIB",
+  //   title: "Table Tennis Open",
+  //   category: "Sports",
+  //   theme: "sports",
+  //   location: "Lantai 9 Ruang Aspirin",
+  //   description:
+  //     "Table Tennis Open memasuki Babak 4 Besar! Siapakah yang akan melaju ke Babak Final?",
+  // },
   {
-    date: "12 Agustus 2026",
-    time: "11.45–13.00 WIB",
-    title: "Badminton Masters",
-    category: "Sports",
-    theme: "sports",
-    location: "Lapangan Badminton Lantai 16",
-    description:
-      "Rangkaian pertandingan lanjutan Badminton Masters.",
-  },
-  {
-    date: "12 Agustus 2026",
+    date: "20 Agustus 2026",
     time: "11.00–13.00 WIB",
-    title: "CS:CZ Tactical Challenge",
-    category: "Esports",
-    theme: "esports",
-    location: "Lantai 9 Ruang Kartin1",
-    description:
-      "Rangkaian lanjutan Babak Penyisihan sedang berlangsung, saksikan pertandingannya!",
-  },
-  {
-    date: "12 Agustus 2026",
-    time: "11.00–13.00 WIB",
-    title: "Table Tennis Open",
+    title: "FC 26 Cup",
     category: "Sports",
     theme: "sports",
     location: "Lantai 9 Ruang Aspirin",
     description:
-      "Table Tennis Open memasuki Babak 4 Besar! Siapakah yang akan melaju ke Babak Final?",
+      "Babak Final yang mempertemukan PADUKA vs PEPSI akan diselenggarakan Kamis 20 Agustus 2026!",
   },
 ];
 

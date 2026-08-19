@@ -69,7 +69,7 @@ export const announcements = [
       "Pertandingan FC 26 akan segera dimulai. Saksikan pertandingannya!",
     href: "/jadwal",
     linkLabel: "Lihat Jadwal",
-    showOnHome: true,
+    showOnHome: false,
   },
   {
     id: "atlantik-run",
@@ -81,6 +81,18 @@ export const announcements = [
       "Perjalanan 3 hari mengumpulkan kilometer demi kilometer telah usai. Cek hasil akhirnya disini!",
     href: "/leaderboard",
     linkLabel: "Cek disini",
+    showOnHome: false,
+  },
+  {
+    id: "fc26-cup",
+    date: "20 Agustus 2026",
+    label: "Permainan",
+    theme: "important",
+    title: "Babak Final FC 26 Cup",
+    summary:
+      "Babak Final yang mempertemukan PADUKA vs PEPSI akan diselenggarakan Kamis 20 Agustus 2026!",
+    href: null,
+    linkLabel: null,
     showOnHome: true,
   },
 ];
