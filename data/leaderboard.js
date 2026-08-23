@@ -3442,102 +3442,96 @@ export const competitions = [
                 {
                   "overallRank": 29,
                   "subditRank": 1,
-                  "player": "FEBI ADITAMA GANDI HIDAYAT",
+                  "player": "ADITYA HANNU CHRISTIAWAN",
                   "score": 22450
                 },
                 {
-                  "overallRank": 37,
-                  "subditRank": 2,
-                  "player": "ADITYA HANNU CHRISTIAWAN",
-                  "score": 22179
-                },
-                {
                   "overallRank": 39,
-                  "subditRank": 3,
+                  "subditRank": 2,
                   "player": "MUHAMMAD NAAFI` AKBAR MUHARAM",
                   "score": 22095
                 },
                 {
                   "overallRank": 47,
-                  "subditRank": 4,
+                  "subditRank": 3,
                   "player": "MUHAMMAD ISNAINI KARIL",
                   "score": 21390
                 },
                 {
                   "overallRank": 52,
-                  "subditRank": 5,
+                  "subditRank": 4,
                   "player": "MUHAMMAD DIKA ASSIDIKA HUSEIN",
                   "score": 21206
                 },
                 {
                   "overallRank": 53,
-                  "subditRank": 6,
+                  "subditRank": 5,
                   "player": "LISA SAPUTRI",
                   "score": 20831
                 },
                 {
                   "overallRank": 60,
-                  "subditRank": 7,
+                  "subditRank": 6,
                   "player": "TRI HERNAWATY",
                   "score": 20220
                 },
                 {
                   "overallRank": 79,
-                  "subditRank": 8,
+                  "subditRank": 7,
                   "player": "VIKY AHMAD YUSUF",
                   "score": 19028
                 },
                 {
                   "overallRank": 87,
-                  "subditRank": 9,
+                  "subditRank": 8,
                   "player": "RISMAWANTO",
                   "score": 18369
                 },
                 {
                   "overallRank": 101,
-                  "subditRank": 10,
+                  "subditRank": 9,
                   "player": "M. SYUKRAN HAKIM",
                   "score": 17344
                 },
                 {
                   "overallRank": 103,
-                  "subditRank": 11,
+                  "subditRank": 10,
                   "player": "RANGGA AJIE DEWANTARA",
                   "score": 17140
                 },
                 {
                   "overallRank": 110,
-                  "subditRank": 12,
+                  "subditRank": 11,
                   "player": "AFIFAH RYZA ADININGSIH",
                   "score": 16840
                 },
                 {
                   "overallRank": 118,
-                  "subditRank": 13,
+                  "subditRank": 12,
                   "player": "ROBI ALHADI",
                   "score": 16397
                 },
                 {
                   "overallRank": 137,
-                  "subditRank": 14,
+                  "subditRank": 13,
                   "player": "ANDIKA PRAYOGA",
                   "score": 15054
                 },
                 {
                   "overallRank": 138,
-                  "subditRank": 15,
+                  "subditRank": 14,
                   "player": "RIAN BAGOES PAMUNGKAS",
                   "score": 14919
                 },
                 {
                   "overallRank": 139,
-                  "subditRank": 16,
+                  "subditRank": 15,
                   "player": "MUHAMMAD WASIS WICAKSONO",
                   "score": 14477
                 },
                 {
                   "overallRank": 148,
-                  "subditRank": 17,
+                  "subditRank": 16,
                   "player": "TEGUH WAHYUWIDIYANTO",
                   "score": 11567
                 }
@@ -3757,7 +3751,7 @@ export const competitions = [
             },
           },
           {
-            cutoff: "2026-08-13T00:00:00+07:00",
+            cutoff: "2026-08-22T00:00:00+07:00",
             results: {
               "subdit-1": [
                 {

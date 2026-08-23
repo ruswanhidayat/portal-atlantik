@@ -21,7 +21,7 @@ export const announcements = [
       "Tautan akses permainan Mission: Grand Champion - Rapid Rush.",
     href: "/portal-link",
     linkLabel: "Lihat Rapid Rush",
-    showOnHome: true,
+    showOnHome: false,
   },
   {
     id: "final-catur",
@@ -91,6 +91,18 @@ export const announcements = [
     title: "Babak Final FC 26 Cup",
     summary:
       "Babak Final yang mempertemukan PADUKA vs PEPSI akan diselenggarakan Kamis 20 Agustus 2026!",
+    href: null,
+    linkLabel: null,
+    showOnHome: true,
+  },
+  {
+    id: "cscz-final",
+    date: "26 Agustus 2026",
+    label: "Permainan",
+    theme: "important",
+    title: "Babak Final CS:CZ Tactical Challenge",
+    summary:
+      "Babak Final yang mempertemukan PADUKA vs TAKESI akan diselenggarakan Rabu, 26 Agustus 2026!",
     href: null,
     linkLabel: null,
     showOnHome: true,
