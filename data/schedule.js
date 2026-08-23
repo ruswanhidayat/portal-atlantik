@@ -77,16 +77,6 @@ export const schedule = [
   // },
   {
     date: "26 Agustus 2026",
-    time: "11.00–13.00 WIB",
-    title: "CS:CZ Tactical Challenge",
-    category: "Sports",
-    theme: "sports",
-    location: "Lantai 9 Ruang Kartin1",
-    description:
-      "Babak Final yang mempertemukan PADUKA vs TAKESI akan diselenggarakan Rabu, 26 Agustus 2026!",
-  },
-  {
-    date: "26 Agustus 2026",
     time: "07.08.00 WIB",
     title: "Volleyball Challenge",
     category: "Sports",
@@ -94,6 +84,16 @@ export const schedule = [
     location: "Lapangan Futsal",
     description:
       "Lanjutan pertandingan Volleyball Challenge",
+  },
+  {
+    date: "26 Agustus 2026",
+    time: "11.00–13.00 WIB",
+    title: "CS:CZ Tactical Challenge",
+    category: "Sports",
+    theme: "sports",
+    location: "Lantai 9 Ruang Kartin1",
+    description:
+      "Babak Final yang mempertemukan PADUKA vs TAKESI akan diselenggarakan Rabu, 26 Agustus 2026!",
   },
   {
     date: "26 Agustus 2026",

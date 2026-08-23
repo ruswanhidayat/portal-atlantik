@@ -93,7 +93,7 @@ export const announcements = [
       "Babak Final yang mempertemukan PADUKA vs PEPSI akan diselenggarakan Kamis 20 Agustus 2026!",
     href: null,
     linkLabel: null,
-    showOnHome: true,
+    showOnHome: false,
   },
   {
     id: "cscz-final",

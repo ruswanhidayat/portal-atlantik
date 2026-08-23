@@ -346,8 +346,8 @@ function RapidRushTable({
                             }`}
                           >
                             {isEligible
-                              ? "Eligible"
-                              : "Tidak Eligible"}
+                              ? "Lolos"
+                              : "Gugur"}
                           </span>
                         </td>
 
