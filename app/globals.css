@@ -2870,7 +2870,7 @@ body {
   width: 5%;
 }
 
-/* .futsal-standard-table th:nth-child(7),
+.futsal-standard-table th:nth-child(7),
 .futsal-standard-table th:nth-child(8),
 .futsal-standard-table th:nth-child(9) {
   width: 7%;
@@ -2881,18 +2881,6 @@ body {
 }
 
 .futsal-standard-table th:nth-child(11) {
-  width: 12%;
-} */
-
-.futsal-standard-table th:nth-child(7) {
-  width: 7%;
-}
-
-.futsal-standard-table th:nth-child(8) {
-  width: 8%;
-}
-
-.futsal-standard-table th:nth-child(9) {
   width: 12%;
 }
 
