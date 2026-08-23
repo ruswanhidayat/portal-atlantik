@@ -985,8 +985,8 @@ function FutsalStandingsTable({ competition }) {
               <th>W</th>
               <th>D</th>
               <th>L</th>
-              <th>GF</th>
-              <th>GA</th>
+              {/* <th>GF</th>
+              <th>GA</th> */}
               <th>GD</th>
               <th>PTS</th>
               <th>Hasil</th>
@@ -1016,8 +1016,8 @@ function FutsalStandingsTable({ competition }) {
                 <td>{displayValue(row.win)}</td>
                 <td>{displayValue(row.draw)}</td>
                 <td>{displayValue(row.lose)}</td>
-                <td>{displayValue(row.goalsFor)}</td>
-                <td>{displayValue(row.goalsAgainst)}</td>
+                {/* <td>{displayValue(row.goalsFor)}</td>
+                <td>{displayValue(row.goalsAgainst)}</td> */}
 
                 <td>
                   {displayValue(row.goalDifference)}
@@ -1051,10 +1051,10 @@ function FutsalStandingsTable({ competition }) {
       </div>
 
       <p className="competition-table-note inline-note">
-        <strong>GF</strong>: Gol Dibuat
+        {/* <strong>GF</strong>: Gol Dibuat
         <span aria-hidden="true">·</span>
         <strong>GA</strong>: Gol Kebobolan
-        <span aria-hidden="true">·</span>
+        <span aria-hidden="true">·</span> */}
         <strong>GD</strong>: Selisih Gol
       </p>
     </div>
