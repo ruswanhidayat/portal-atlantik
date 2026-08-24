@@ -4335,14 +4335,8 @@ export const competitions = [
                   score: 17591,
                 },
                 {
-                  overallRank: 109,
-                  subditRank: 20,
-                  player: "MOH. FAISAL SHOLEHUDIN",
-                  score: 17419,
-                },
-                {
                   overallRank: 116,
-                  subditRank: 21,
+                  subditRank: 20,
                   player: "YOGA PAMUNGKAS",
                   score: 17023,
                 },
