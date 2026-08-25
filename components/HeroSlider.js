@@ -48,6 +48,7 @@ export default function HeroSlider({
             return (
               <div
                 key={slide.id}
+                data-slide={slide.id}
                 className={`hero-slide ${
                   activeSlide === index
                     ? "active"

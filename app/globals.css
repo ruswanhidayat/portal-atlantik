@@ -6202,6 +6202,16 @@ body {
     transform 0.25s ease;
 }
 
+.hero-slide[data-slide="gallery"] .hero-panel {
+  background:
+    linear-gradient(
+      145deg,
+      #4c1d95 0%,
+      #6d28d9 52%,
+      #7c3aed 100%
+    );
+}
+
 .hero-slider-dots button:hover {
   transform: scale(1.12);
 }
