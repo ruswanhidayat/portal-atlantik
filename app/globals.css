@@ -6218,6 +6218,10 @@ body {
     );
 }
 
+.hero-slide[data-slide="gallery"] .hero-panel .eyebrow {
+  color: rgba(255, 255, 255, 0.72);
+}
+
 .hero-slider-dots button:hover {
   transform: scale(1.12);
 }
