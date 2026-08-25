@@ -45,7 +45,7 @@ export const homepageData = {
           "Lihat kembali berbagai momen dan keseruan ATLANTIK 2026.",
 
         primaryAction: {
-          label: "Buka Gallery",
+          label: "Buka Galeri",
           href: "https://kemenkeu-my.sharepoint.com/:f:/r/personal/hendra_hadisaputro_kemenkeu_go_id/Documents/dokumentasi%20atlantik%202026?d=wa825e5d7508a4144b33d37055baf7bc6&csf=1&web=1&e=mZYmJS",
           external: true,
         },
