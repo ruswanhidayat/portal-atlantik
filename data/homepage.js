@@ -37,8 +37,8 @@ export const homepageData = {
         pill: "ATLANTIK 2026",
 
         title: [
-          "Relive the moments.",
-          "Keep the memories.",
+          "Good times.",
+          "Great memories.",
         ],
 
         description:

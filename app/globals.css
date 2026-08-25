@@ -6174,11 +6174,18 @@ body {
 }
 
 .hero-slider-dots {
+  position: absolute;
+  left: 50%;
+  bottom: -20px;
+  transform: translateX(-50%);
+
   display: flex;
   justify-content: center;
   align-items: center;
   gap: 8px;
-  margin-top: 24px;
+
+  margin: 0;
+  z-index: 5;
 }
 
 .hero-slider-dots button {
@@ -6205,10 +6212,6 @@ body {
 }
 
 @media (max-width: 768px) {
-  .hero-slider-dots {
-    margin-top: 20px;
-  }
-
   .hero-slide {
     transform: translateX(12px);
   }
