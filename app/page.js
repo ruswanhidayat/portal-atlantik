@@ -2,6 +2,7 @@ import Link from "next/link";
 
 import AnnouncementSlider from "@/components/AnnouncementSlider";
 import GameCard from "@/components/GameCard";
+import HeroSlider from "@/components/HeroSlider";
 
 import { announcements } from "@/data/announcements";
 import { homepageData } from "@/data/homepage";
@@ -16,9 +17,17 @@ export default function HomePage() {
     (announcement) => announcement.showOnHome
   );
 
+  // const {
+  //   hero,
+  //   theme,
+  //   announcements: announcementContent,
+  //   games,
+  //   leaderboard,
+  //   schedule: scheduleContent,
+  // } = homepageData;
+
   const {
     hero,
-    theme,
     announcements: announcementContent,
     games,
     leaderboard,
@@ -27,7 +36,7 @@ export default function HomePage() {
 
   return (
     <main className="home-page">
-      <section className="hero">
+      {/* <section className="hero">
         <div className="container hero-grid">
           <div>
             <span className="pill">{hero.pill}</span>
@@ -72,7 +81,11 @@ export default function HomePage() {
             <p>{theme.description}</p>
           </div>
         </div>
-      </section>
+      </section> */}
+      <HeroSlider
+        slides={hero.slides}
+        siteConfig={siteConfig}
+      />
 
       <section className="section announcement-home-section">
         <div className="container">
