@@ -6205,25 +6205,16 @@ body {
 .hero-slide[data-slide="gallery"] .hero-panel {
   background:
     radial-gradient(
-      circle at 12% 10%,
-      rgba(190, 55, 95, 0.55) 0%,
-      transparent 38%
-    ),
-    radial-gradient(
-      circle at 92% 88%,
-      rgba(190, 170, 70, 0.42) 0%,
-      transparent 38%
-    ),
-    radial-gradient(
-      circle at 18% 88%,
-      rgba(45, 90, 165, 0.55) 0%,
-      transparent 42%
+      circle at 85% 15%,
+      rgba(255, 255, 255, 0.10) 0%,
+      transparent 35%
     ),
     linear-gradient(
-      145deg,
-      #24194f 0%,
-      #17284b 55%,
-      #27304a 100%
+      115deg,
+      #b52c57 0%,
+      #cf3f70 42%,
+      #9a3fbd 72%,
+      #6437e6 100%
     );
 }
 
