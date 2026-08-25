@@ -232,6 +232,19 @@ export default function HomePage() {
             ))}
           </div>
         </div>
+
+        <div style={{ width: "100%", height: "80vh" }}>
+          <iframe
+            src="https://kemenkeu-my.sharepoint.com/:f:/r/personal/hendra_hadisaputro_kemenkeu_go_id/Documents/dokumentasi%20atlantik%202026?d=wa825e5d7508a4144b33d37055baf7bc6&csf=1&web=1&e=mZYmJS"
+            title="Dokumentasi ATLANTIK 2026"
+            style={{
+              width: "100%",
+              height: "100%",
+              border: 0,
+              borderRadius: "16px",
+            }}
+          />
+        </div>
       </section>
     </main>
   );
