@@ -15,33 +15,38 @@ import { siteConfig } from "@/data/site-config";
 
 const mobileNavItems = [
   {
-    label: "Beranda",
+    label: "Home",
     href: "/",
   },
   {
-    label: "Jadwal",
+    label: "Schedule",
     href: "/jadwal",
   },
   {
-    label: "Pengumuman",
-    href: "/pengumuman",
-  },
-  {
-    label: "Permainan",
+    label: "Disciplines",
     href: "/permainan",
   },
   {
-    label: "Leaderboard",
+    label: "Standings",
     href: "/leaderboard",
+  },
+  {
+    label: "Gallery",
+    href: "https://kemenkeu-my.sharepoint.com/:f:/r/personal/hendra_hadisaputro_kemenkeu_go_id/Documents/dokumentasi%20atlantik%202026?d=wa825e5d7508a4144b33d37055baf7bc6&csf=1&web=1&e=mZYmJS",
+    external: true,
+  },
+  {
+    label: "Release",
+    href: "/pengumuman",
+  },
+  {
+    label: "Portal Link",
+    href: "/portal-link",
   },
   {
     label: "Guide Book",
     href: "/guidebook/guidebook_atlantik_2026.pdf",
     external: true,
-  },
-  {
-    label: "Portal Link",
-    href: "/portal-link",
   },
 ];
 
@@ -72,7 +77,11 @@ const desktopNavItems = [
       },
     ],
   },
-
+  {
+    label: "Gallery",
+    href: "https://kemenkeu-my.sharepoint.com/:f:/r/personal/hendra_hadisaputro_kemenkeu_go_id/Documents/dokumentasi%20atlantik%202026?d=wa825e5d7508a4144b33d37055baf7bc6&csf=1&web=1&e=mZYmJS",
+    external: true,
+  },
   {
     label: "Release",
     href: "/pengumuman",
@@ -320,9 +329,20 @@ export default function Header() {
                           ? "page"
                           : undefined
                       }
+                      target={
+                        item.external
+                          ? "_blank"
+                          : undefined
+                      }
+                      rel={
+                        item.external
+                          ? "noopener noreferrer"
+                          : undefined
+                      }
                     >
                       <span>
                         {item.label}
+                        {item.external ? " ↗" : ""}
                       </span>
                     </Link>
                   );
