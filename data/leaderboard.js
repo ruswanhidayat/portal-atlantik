@@ -505,10 +505,16 @@ export const competitions = [
     name: "CS:CZ Tactical Challenge",
     scoringCategory: "strategic",
     theme: "esports",
-    status: "ongoing",
+    status: "final",
 
     // Belum dihitung ke Juara Umum karena fase liga masih berlangsung.
-    results: [],
+    results: [
+      "subdit-3",
+      "subdit-1",
+      "subdit-5",
+      "subdit-4",
+      "subdit-2",
+    ],
 
     standings: {
       type: "cscz",
