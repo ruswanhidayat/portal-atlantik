@@ -689,6 +689,19 @@ export const competitions = [
     ],
   },
   {
+    id: "merdeka-showcase",
+    name: "Lomba Kebersihan dan Dekorasi Ruangan",
+    scoringCategory: "strategic",
+    theme: "strategic",
+    results: [
+      "subdit-1",
+      "subdit-2",
+      "subdit-3",
+      "subdit-4",
+      "subdit-5",
+    ],
+  },
+  {
   id: "mission-grand-champion",
   name: "Mission: Grand Champion",
   scoringCategory: "grandChampion",
@@ -4828,19 +4841,6 @@ export const competitions = [
       },
     ],
   },
-},
-{
-  id: "merdeka-showcase",
-  name: "Lomba Kebersihan dan Dekorasi Ruangan",
-  scoringCategory: "strategic",
-  theme: "strategic",
-  results: [
-    "subdit-1",
-    "subdit-2",
-    "subdit-3",
-    "subdit-4",
-    "subdit-5",
-  ],
 },
 {
   id: "fun-games",
