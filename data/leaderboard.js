@@ -4832,8 +4832,8 @@ export const competitions = [
 {
   id: "merdeka-showcase",
   name: "Lomba Kebersihan dan Dekorasi Ruangan",
-  scoringCategory: "fun",
-  theme: "fun",
+  scoringCategory: "strategic",
+  theme: "strategic",
   results: [
     "subdit-1",
     "subdit-2",
