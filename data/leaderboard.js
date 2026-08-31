@@ -17,7 +17,7 @@ export const pointRules = {
   },
   fun: {
     label: "Fun Games",
-    points: [5, 3, 2, 1, 1],
+    points: [5, 3, 1, 1, 1],
   },
   grandChampion: {
     label: "Mission: Grand Champion",
