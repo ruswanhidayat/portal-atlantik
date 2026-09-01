@@ -1231,8 +1231,8 @@ export const competitionSchedules = [
   {
     id: "merdeka-showcase",
     name: "Lomba Kebersihan dan Dekorasi Ruangan",
-    category: "Lomba Rekreasi",
-    theme: "fun",
+    category: "Strategic Games",
+    theme: "strategic",
     activeDates: [
       "2026-08-13",
       "2026-08-14",
@@ -1371,7 +1371,7 @@ export const competitionSchedules = [
     },
   },
   {
-    id: "fun-games",
+    id: "fun-games_1",
     name: "Fun Games",
     category: "Lomba Rekreasi",
     theme: "fun",
@@ -1379,10 +1379,29 @@ export const competitionSchedules = [
     sessions: {
       "2026-08-31": [
         {
-          id: "fun-games-31-1",
+          id: "fun-games-1-31-1",
           startTime: "08:00",
           endTime: "15:00",
-          title: "Fun Games Session",
+          title: "Ball Relay",
+          stage: "Hari Puncak",
+          location: "Area Hari Puncak Peringatan HUT RI Dit TIK",
+        },
+      ],
+    },
+  },
+  {
+    id: "fun-games_2",
+    name: "Fun Games",
+    category: "Lomba Rekreasi",
+    theme: "fun",
+    activeDates: ["2026-08-31"],
+    sessions: {
+      "2026-08-31": [
+        {
+          id: "fun-games-2-31-1",
+          startTime: "08:00",
+          endTime: "15:00",
+          title: "Paku Botol",
           stage: "Hari Puncak",
           location: "Area Hari Puncak Peringatan HUT RI Dit TIK",
         },
