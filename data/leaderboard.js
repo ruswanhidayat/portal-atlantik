@@ -712,11 +712,11 @@ export const competitions = [
     scoringCategory: "strategic",
     theme: "strategic",
     results: [
-      "subdit-1",
-      "subdit-2",
       "subdit-3",
-      "subdit-4",
+      "subdit-2",
+      "subdit-1",
       "subdit-5",
+      "subdit-4",
     ],
   },
   {
@@ -4821,16 +4821,6 @@ export const competitions = [
         type: "default",
         finalized: false,
       },
-
-      {
-        id: "pressure-grid",
-        phase: "PHASE 3",
-        name: "Pressure Grid",
-        scheduleTitle: "Pressure Grid",
-        type: "default",
-        finalized: false,
-      },
-
       {
         id: "signal-race",
         phase: "PHASE 4",
@@ -4839,16 +4829,6 @@ export const competitions = [
         type: "default",
         finalized: false,
       },
-
-      {
-        id: "visual-recall",
-        phase: "PHASE 5",
-        name: "Visual Recall",
-        scheduleTitle: "Visual Recall",
-        type: "default",
-        finalized: false,
-      },
-
       {
         id: "open-box",
         phase: "FINAL",
@@ -4861,10 +4841,29 @@ export const competitions = [
   },
 },
 {
-  id: "fun-games",
-  name: "Fun Games",
+  id: "fun-games_1",
+  name: "Ball Relay",
   scoringCategory: "fun",
   theme: "fun",
-  results: [],
+  results: [
+      "subdit-3",
+      "subdit-5",
+      "subdit-1",
+      "subdit-2",
+      "subdit-4",
+    ],
+},
+{
+  id: "fun-games_2",
+  name: "Paku Botol",
+  scoringCategory: "fun",
+  theme: "fun",
+  results: [
+      "subdit-2",
+      "subdit-4",
+      "subdit-1",
+      "subdit-3",
+      "subdit-5",
+    ],
 },
 ];
