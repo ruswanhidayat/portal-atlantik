@@ -1194,27 +1194,11 @@ export const competitionSchedules = [
           location: "Area Hari Puncak Peringatan HUT RI Dit TIK",
         },
         {
-          id: "grand-champion-31-2",
-          startTime: "08:00",
-          endTime: "15:00",
-          title: "Pressure Grid",
-          stage: "Phase 3",
-          location: "Area Hari Puncak Peringatan HUT RI Dit TIK",
-        },
-        {
           id: "grand-champion-31-3",
           startTime: "08:00",
           endTime: "15:00",
           title: "Signal Race",
           stage: "Phase 4",
-          location: "Area Hari Puncak Peringatan HUT RI Dit TIK",
-        },
-        {
-          id: "grand-champion-31-4",
-          startTime: "08:00",
-          endTime: "15:00",
-          title: "Visual Recall",
-          stage: "Phase 5",
           location: "Area Hari Puncak Peringatan HUT RI Dit TIK",
         },
         {
@@ -1372,7 +1356,7 @@ export const competitionSchedules = [
   },
   {
     id: "fun-games_1",
-    name: "Fun Games",
+    name: "Fun Games 1",
     category: "Lomba Rekreasi",
     theme: "fun",
     activeDates: ["2026-08-31"],
@@ -1391,7 +1375,7 @@ export const competitionSchedules = [
   },
   {
     id: "fun-games_2",
-    name: "Fun Games",
+    name: "Fun Games 2",
     category: "Lomba Rekreasi",
     theme: "fun",
     activeDates: ["2026-08-31"],
