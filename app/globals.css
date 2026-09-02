@@ -6241,6 +6241,7 @@ body {
   display: flex;
   flex-direction: column;
   gap: 14px;
+  padding: 18px;
 }
 
 .grand-champion-crossroads-heading {
@@ -6276,6 +6277,10 @@ body {
 }
 
 @media (max-width: 640px) {
+  .grand-champion-crossroads {
+    padding: 16px 14px;
+  }
+
   .grand-champion-crossroads-list {
     grid-template-columns: 1fr;
   }
