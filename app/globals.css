@@ -6306,17 +6306,32 @@ body {
 
 .grand-champion-crossroads-player.winner {
   border-color: #8b5cf6;
+
   background:
     linear-gradient(
       135deg,
       rgba(139, 92, 246, 0.10),
-      rgba(124, 58, 237, 0.04)
+      rgba(124, 58, 237, 0.035)
     );
+
+  box-shadow:
+    0 4px 14px rgba(109, 40, 217, 0.08);
 }
 
 .grand-champion-winner-trophy {
-  flex-shrink: 0;
-  font-size: 1rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 30px;
+  height: 30px;
+
+  border-radius: 50%;
+
+  background: rgba(139, 92, 246, 0.12);
+  color: #6d28d9;
+
+  font-size: 0.95rem;
   line-height: 1;
 }
 

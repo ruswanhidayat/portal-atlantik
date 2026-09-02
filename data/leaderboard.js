@@ -725,7 +725,11 @@ export const competitions = [
   scoringCategory: "grandChampion",
   theme: "grand-champion",
   results: [
-    "subdit-1"
+    "subdit-1",
+    "subdit-2",
+    "subdit-3",
+    "subdit-4",
+    "subdit-5",
   ],
 
   grandChampion: {
