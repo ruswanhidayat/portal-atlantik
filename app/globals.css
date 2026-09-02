@@ -6285,3 +6285,61 @@ body {
     grid-template-columns: 1fr;
   }
 }
+
+.grand-champion-crossroads-player {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.grand-champion-player-name {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  min-width: 0;
+}
+
+.grand-champion-player-name strong {
+  min-width: 0;
+}
+
+.grand-champion-crossroads-player.winner {
+  border-color: #e7bd4d;
+  background: #fff9e8;
+}
+
+.grand-champion-winner-trophy {
+  flex-shrink: 0;
+  font-size: 1rem;
+  line-height: 1;
+}
+
+.grand-champion-winner-badge {
+  flex-shrink: 0;
+  padding: 4px 9px;
+
+  border: 1px solid #e7bd4d;
+  border-radius: 999px;
+
+  background: #fff3c4;
+  color: #755500;
+
+  font-size: 0.68rem;
+  font-weight: 800;
+  line-height: 1.2;
+
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+@media (max-width: 640px) {
+  .grand-champion-winner-badge {
+    padding: 4px 7px;
+    font-size: 0.62rem;
+  }
+
+  .grand-champion-player-name {
+    gap: 7px;
+  }
+}

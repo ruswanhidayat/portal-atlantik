@@ -724,7 +724,9 @@ export const competitions = [
   name: "Mission: Grand Champion",
   scoringCategory: "grandChampion",
   theme: "grand-champion",
-  results: [],
+  results: [
+    "subdit-1"
+  ],
 
   grandChampion: {
     phases: [
@@ -4857,12 +4859,19 @@ export const competitions = [
         ],
       },
       {
-        id: "open-box",
+        id: "the-code-lock",
         phase: "FINAL",
         name: "The Code Lock",
-        scheduleTitle: "Final Match",
+        scheduleTitle: "The Code Lock",
         type: "default",
-        finalized: false,
+        finalized: true,
+
+        qualifiedPlayers: [
+          "JENS NAKI",
+          "MUHAMMAD RAMADHAN ZULFI",
+        ],
+
+        winner: "JENS NAKI",
       },
     ],
   },

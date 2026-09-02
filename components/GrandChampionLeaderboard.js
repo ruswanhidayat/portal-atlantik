@@ -68,25 +68,62 @@ function QualifiedPlayers({
     );
   }
 
+  const isFinalPhase =
+    phase.id === "the-code-lock";
+
   return (
     <div className="grand-champion-crossroads">
       <div className="grand-champion-crossroads-heading">
-        <span>Peserta Lolos</span>
+        <span>
+          {isFinalPhase
+            ? "Hasil Final"
+            : "Peserta Lolos"}
+        </span>
       </div>
 
       <div className="grand-champion-crossroads-list">
-        {players.map((player) => (
-          <div
-            className="grand-champion-crossroads-player"
-            key={player}
-          >
-            <strong>{player}</strong>
-          </div>
-        ))}
+        {players.map((player) => {
+          const isWinner =
+            isFinalPhase &&
+            phase.winner &&
+            player === phase.winner;
+
+          return (
+            <div
+              className={`grand-champion-crossroads-player ${
+                isWinner ? "winner" : ""
+              }`}
+              key={player}
+            >
+              <div className="grand-champion-player-name">
+                {isWinner && (
+                  <span
+                    className="grand-champion-winner-trophy"
+                    aria-hidden="true"
+                  >
+                    🏆
+                  </span>
+                )}
+
+                <strong>
+                  {player}
+                </strong>
+              </div>
+
+              {isWinner && (
+                <span className="grand-champion-winner-badge">
+                  Winner
+                </span>
+              )}
+            </div>
+          );
+        })}
       </div>
 
       <p className="grand-champion-crossroads-note">
-        Diurutkan secara alfabetis, bukan berdasarkan poin.
+        {isFinalPhase
+          ? "Pemenang The Code Lock menjadi Grand Champion ATLANTIK 2026."
+          : "Diurutkan secara alfabetis, bukan berdasarkan poin."}
       </p>
     </div>
   );
@@ -549,7 +586,8 @@ export default function GrandChampionLeaderboard({
                     divisions={divisions}
                   />
                 ) : phase.id === "crossroads" ||
-                    phase.id === "signal-race" ? (
+                    phase.id === "signal-race" ||
+                    phase.id === "the-code-lock" ? (
                   <QualifiedPlayers
                     phase={phase}
                   />
