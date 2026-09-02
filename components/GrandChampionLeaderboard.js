@@ -544,19 +544,20 @@ export default function GrandChampionLeaderboard({
             {isOpen && (
               <div className="grand-champion-phase-content">
                 {phase.type === "rapid-rush" ? (
-                    <RapidRushTable
-                      phase={phase}
-                      divisions={divisions}
-                    />
-                  ) : phase.type === "qualified-players" ? (
-                    <CrossroadsQualifiedPlayers
-                      phase={phase}
-                    />
-                  ) : (
-                    <p className="grand-champion-phase-empty">
-                      Hasil resmi tahap ini belum diumumkan.
-                    </p>
-                  )}
+                  <RapidRushTable
+                    phase={phase}
+                    divisions={divisions}
+                  />
+                ) : phase.id === "crossroads" ||
+                    phase.id === "signal-race" ? (
+                  <QualifiedPlayers
+                    phase={phase}
+                  />
+                ) : (
+                  <p className="grand-champion-phase-empty">
+                    Hasil resmi tahap ini belum diumumkan.
+                  </p>
+                )}
               </div>
             )}
           </div>
