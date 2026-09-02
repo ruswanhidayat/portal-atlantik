@@ -4848,8 +4848,13 @@ export const competitions = [
         phase: "PHASE 4",
         name: "Signal Race",
         scheduleTitle: "Signal Race",
-        type: "default",
-        finalized: false,
+        type: "qualified-players",
+        finalized: true,
+
+        qualifiedPlayers: [
+          "JENS NAKI",
+          "MUHAMMAD RAMADHAN ZULFI",
+        ],
       },
       {
         id: "open-box",

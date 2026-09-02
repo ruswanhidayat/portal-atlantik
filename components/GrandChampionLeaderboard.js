@@ -49,7 +49,7 @@ function hasRapidRushSnapshotData(snapshot) {
   );
 }
 
-function CrossroadsQualifiedPlayers({
+function QualifiedPlayers({
   phase,
 }) {
   const players = [
@@ -548,7 +548,7 @@ export default function GrandChampionLeaderboard({
                       phase={phase}
                       divisions={divisions}
                     />
-                  ) : phase.type === "crossroads" ? (
+                  ) : phase.type === "qualified-players" ? (
                     <CrossroadsQualifiedPlayers
                       phase={phase}
                     />
