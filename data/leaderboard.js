@@ -4818,7 +4818,7 @@ export const competitions = [
         phase: "PHASE 2",
         name: "Crossroads",
         scheduleTitle: "Crossroads",
-        type: "crossroads",
+        type: "qualified-players",
         finalized: true,
       
         qualifiedPlayers: [
