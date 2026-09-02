@@ -6236,3 +6236,47 @@ body {
     transform: translateX(12px);
   }
 }
+
+.grand-champion-crossroads {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.grand-champion-crossroads-heading {
+  font-size: 0.76rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #6d4aff;
+}
+
+.grand-champion-crossroads-list {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 10px;
+}
+
+.grand-champion-crossroads-player {
+  padding: 13px 16px;
+  border: 1px solid rgba(109, 74, 255, 0.16);
+  border-radius: 12px;
+  background: rgba(109, 74, 255, 0.035);
+}
+
+.grand-champion-crossroads-player strong {
+  font-size: 0.92rem;
+  color: #151515;
+}
+
+.grand-champion-crossroads-note {
+  margin: 2px 0 0;
+  font-size: 0.78rem;
+  color: #70798c;
+}
+
+@media (max-width: 640px) {
+  .grand-champion-crossroads-list {
+    grid-template-columns: 1fr;
+  }
+}
