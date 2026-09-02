@@ -75,36 +75,36 @@ export const schedule = [
   //   description:
   //     "Babak Final yang mempertemukan PADUKA vs PEPSI akan diselenggarakan Kamis 20 Agustus 2026!",
   // },
-  {
-    date: "26 Agustus 2026",
-    time: "07.08.00 WIB",
-    title: "Volleyball Challenge",
-    category: "Sports",
-    theme: "sports",
-    location: "Lapangan Futsal",
-    description:
-      "Lanjutan pertandingan Volleyball Challenge",
-  },
-  {
-    date: "26 Agustus 2026",
-    time: "11.00–13.00 WIB",
-    title: "CS:CZ Tactical Challenge",
-    category: "Sports",
-    theme: "sports",
-    location: "Lantai 9 Ruang Kartin1",
-    description:
-      "Babak Final yang mempertemukan PADUKA vs TAKESI akan diselenggarakan Rabu, 26 Agustus 2026!",
-  },
-  {
-    date: "26 Agustus 2026",
-    time: "16.30-17.30 WIB",
-    title: "Futsal Cup",
-    category: "Sports",
-    theme: "sports",
-    location: "Lapangan Futsal",
-    description:
-      "Lanjutan pertandingan Futsal Cup",
-  },
+  // {
+  //   date: "26 Agustus 2026",
+  //   time: "07.08.00 WIB",
+  //   title: "Volleyball Challenge",
+  //   category: "Sports",
+  //   theme: "sports",
+  //   location: "Lapangan Futsal",
+  //   description:
+  //     "Lanjutan pertandingan Volleyball Challenge",
+  // },
+  // {
+  //   date: "26 Agustus 2026",
+  //   time: "11.00–13.00 WIB",
+  //   title: "CS:CZ Tactical Challenge",
+  //   category: "Sports",
+  //   theme: "sports",
+  //   location: "Lantai 9 Ruang Kartin1",
+  //   description:
+  //     "Babak Final yang mempertemukan PADUKA vs TAKESI akan diselenggarakan Rabu, 26 Agustus 2026!",
+  // },
+  // {
+  //   date: "26 Agustus 2026",
+  //   time: "16.30-17.30 WIB",
+  //   title: "Futsal Cup",
+  //   category: "Sports",
+  //   theme: "sports",
+  //   location: "Lapangan Futsal",
+  //   description:
+  //     "Lanjutan pertandingan Futsal Cup",
+  // },
 ];
 
 /*

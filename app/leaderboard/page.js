@@ -2007,7 +2007,7 @@ export default async function LeaderboardPage() {
         <section className="leaderboard-section">
           <div className="section-heading compact-heading">
             <div>
-              <span className="eyebrow">Klasemen sementara</span>
+              <span className="eyebrow">Klasemen Akhir</span>
               <h2>Juara Umum</h2>
             </div>
             <span className="status">Diperbarui sesuai hasil resmi</span>

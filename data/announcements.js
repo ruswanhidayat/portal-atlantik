@@ -105,6 +105,18 @@ export const announcements = [
       "Babak Final yang mempertemukan PADUKA vs TAKESI akan diselenggarakan Rabu, 26 Agustus 2026!",
     href: null,
     linkLabel: null,
+    showOnHome: false,
+  },
+  {
+    id: "closing",
+    date: "31 Agustus 2026",
+    label: "Hari Puncak",
+    theme: "game",
+    title: "ATLANTIK 2026",
+    summary:
+      "ATLANTIK 2026 telah usai. Thank you for being part of it.",
+    href: null,
+    linkLabel: null,
     showOnHome: true,
   },
 ];
