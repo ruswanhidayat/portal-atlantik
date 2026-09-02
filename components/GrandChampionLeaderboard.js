@@ -49,6 +49,49 @@ function hasRapidRushSnapshotData(snapshot) {
   );
 }
 
+function CrossroadsQualifiedPlayers({
+  phase,
+}) {
+  const players = [
+    ...(phase.qualifiedPlayers ?? []),
+  ].sort((a, b) =>
+    a.localeCompare(b, "id", {
+      sensitivity: "base",
+    })
+  );
+
+  if (players.length === 0) {
+    return (
+      <p className="grand-champion-phase-empty">
+        Hasil resmi tahap ini belum diumumkan.
+      </p>
+    );
+  }
+
+  return (
+    <div className="grand-champion-crossroads">
+      <div className="grand-champion-crossroads-heading">
+        <span>Peserta Lolos</span>
+      </div>
+
+      <div className="grand-champion-crossroads-list">
+        {players.map((player) => (
+          <div
+            className="grand-champion-crossroads-player"
+            key={player}
+          >
+            <strong>{player}</strong>
+          </div>
+        ))}
+      </div>
+
+      <p className="grand-champion-crossroads-note">
+        Diurutkan secara alfabetis, bukan berdasarkan poin.
+      </p>
+    </div>
+  );
+}
+
 function getRapidRushSnapshots(phase) {
   if (
     Array.isArray(phase.snapshots) &&
@@ -500,17 +543,20 @@ export default function GrandChampionLeaderboard({
 
             {isOpen && (
               <div className="grand-champion-phase-content">
-                {phase.type ===
-                "rapid-rush" ? (
-                  <RapidRushTable
-                    phase={phase}
-                    divisions={divisions}
-                  />
-                ) : (
-                  <p className="grand-champion-phase-empty">
-                    Hasil resmi tahap ini belum diumumkan.
-                  </p>
-                )}
+                {phase.type === "rapid-rush" ? (
+                    <RapidRushTable
+                      phase={phase}
+                      divisions={divisions}
+                    />
+                  ) : phase.type === "crossroads" ? (
+                    <CrossroadsQualifiedPlayers
+                      phase={phase}
+                    />
+                  ) : (
+                    <p className="grand-champion-phase-empty">
+                      Hasil resmi tahap ini belum diumumkan.
+                    </p>
+                  )}
               </div>
             )}
           </div>
