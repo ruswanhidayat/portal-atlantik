@@ -6305,17 +6305,39 @@ body {
 }
 
 .grand-champion-crossroads-player.winner {
-  border-color: #8b5cf6;
+  position: relative;
+  overflow: hidden;
+}
 
-  background:
-    linear-gradient(
-      135deg,
-      rgba(139, 92, 246, 0.10),
-      rgba(124, 58, 237, 0.035)
-    );
+.grand-champion-crossroads-player.winner::before {
+  content: "";
 
-  box-shadow:
-    0 4px 14px rgba(109, 40, 217, 0.08);
+  position: absolute;
+  inset: 0;
+
+  background: linear-gradient(
+    110deg,
+    transparent 25%,
+    rgba(255, 255, 255, 0.45) 45%,
+    transparent 65%
+  );
+
+  transform: translateX(-120%);
+  animation: grandChampionCardShine 4s ease-in-out infinite;
+
+  pointer-events: none;
+}
+
+@keyframes grandChampionCardShine {
+  0%,
+  60% {
+    transform: translateX(-120%);
+  }
+
+  85%,
+  100% {
+    transform: translateX(120%);
+  }
 }
 
 .grand-champion-winner-trophy {
@@ -6336,6 +6358,9 @@ body {
 }
 
 .grand-champion-winner-badge {
+  position: relative;
+  overflow: hidden;
+
   flex-shrink: 0;
 
   display: inline-flex;
@@ -6365,6 +6390,41 @@ body {
 
   box-shadow:
     0 4px 12px rgba(109, 40, 217, 0.16);
+}
+
+.grand-champion-winner-badge::after {
+  content: "";
+
+  position: absolute;
+  top: -60%;
+  left: -45%;
+
+  width: 35%;
+  height: 220%;
+
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.75),
+    transparent
+  );
+
+  transform: rotate(18deg);
+  animation: grandChampionShine 2.8s ease-in-out infinite;
+}
+
+@keyframes grandChampionShine {
+  0% {
+    left: -45%;
+  }
+
+  35% {
+    left: 120%;
+  }
+
+  100% {
+    left: 120%;
+  }
 }
 
 @media (max-width: 640px) {
